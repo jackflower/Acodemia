@@ -1,8 +1,12 @@
 ﻿#include <iostream>
 #include <SFML/Graphics.hpp>
+#include "Sprite.h"
 
 int main()
 {
+	acodemia::Sprite duszek;
+
+
 	//Testowanie poprawności kodowania znaków UTF-8
 	//
 	//Łabędź żródło znalazł mądrzej patrzeć może teraz łąką się kończąc...
@@ -16,6 +20,9 @@ int main()
 	Ship.setTexture(graphics);
 	Ship.setPosition(300, 300);
 
+	duszek.setTexture(graphics);
+	duszek.setPosition(500, 300);
+
 	while (window.isOpen())
 	{
 		sf::Event event;
@@ -28,6 +35,7 @@ int main()
 
 		window.clear(sf::Color::White);
 		window.draw(Ship);
+		window.draw(duszek);
 		window.display();
 	}
 
