@@ -3,6 +3,10 @@
 
 int main()
 {
+	//Testowanie poprawności kodowania znaków UTF-8
+	//
+	//Łabędź żródło znalazł mądrzej patrzeć może teraz łąką się kończąc...
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 
 	sf::Texture graphics;
