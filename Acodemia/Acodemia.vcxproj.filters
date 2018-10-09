@@ -13,21 +13,28 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="rendering">
+    <Filter Include="source">
+      <UniqueIdentifier>{09261f8e-8735-46fc-a3f3-ef350b76ec8a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\rendering">
       <UniqueIdentifier>{a15baf58-be61-4528-bf2f-cc8b77baea71}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
-      <Filter>Pliki źródłowe</Filter>
-    </ClCompile>
     <ClCompile Include="source\rendering\Sprite.cpp">
-      <Filter>rendering</Filter>
+      <Filter>source\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\rendering\Texture.cpp">
+      <Filter>source\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\rendering\Sprite.h">
-      <Filter>rendering</Filter>
+      <Filter>source\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="source\rendering\Texture.h">
+      <Filter>source\rendering</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

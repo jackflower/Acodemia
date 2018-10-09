@@ -132,9 +132,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\rendering\Texture.cpp" />
     <ClCompile Include="source\rendering\Sprite.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\rendering\Texture.h" />
     <ClInclude Include="source\rendering\Sprite.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

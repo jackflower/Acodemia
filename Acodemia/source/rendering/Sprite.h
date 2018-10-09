@@ -42,6 +42,7 @@ namespace acodemia
 			///
 			~Sprite();
 
+			//To do...
 			///przenoszący operator przypisania...
 			//klasa& klasa::operator=(klasa &&);
 		};
