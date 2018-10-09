@@ -1,10 +1,10 @@
 ﻿#include <iostream>
 #include <SFML/Graphics.hpp>
-#include "Sprite.h"
+#include "source/rendering/Sprite.h"
 
 int main()
 {
-	acodemia::Sprite duszek;
+	acodemia::rendering::Sprite duszek;
 
 
 	//Testowanie poprawności kodowania znaków UTF-8
