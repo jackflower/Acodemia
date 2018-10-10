@@ -1,27 +1,33 @@
 ﻿#include <iostream>
 #include <SFML/Graphics.hpp>
-#include "source/rendering/Sprite.h"
+#include "source/rendering/Displayable.h"
 
 int main()
 {
-	acodemia::rendering::Sprite duszek;
-
-
-	//Testowanie poprawności kodowania znaków UTF-8
-	//
-	//Łabędź żródło znalazł mądrzej patrzeć może teraz łąką się kończąc...
-
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 
 	sf::Texture graphics;
 	graphics.loadFromFile("../data/ship.png");
 
-	sf::Sprite Ship;
+	//testy - potem usunąć...
+	acodemia::rendering::Displayable Ship;
 	Ship.setTexture(graphics);
-	Ship.setPosition(300, 300);
+	Ship.setPosition(100, 100);
+	acodemia::rendering::Displayable Twice;
+	Twice.setTexture(graphics);
+	Twice.setPosition(300, 100);
+	acodemia::rendering::Displayable Zorro(Ship);//kopiujący
+	acodemia::rendering::Displayable Garcia(std::move(Twice));//przenoszący
+	acodemia::rendering::Displayable Jeden;
+	Jeden = Ship;//operator przypisania kopiujący...
+	Jeden.setPosition(200, 400);
+	acodemia::rendering::Displayable Dwa;
+	Dwa = std::move(Twice);//operator przypisania przenoszący...
+	Dwa.setPosition(400, 400);
 
-	duszek.setTexture(graphics);
-	duszek.setPosition(500, 300);
+
+	int warta = 0;
+
 
 	while (window.isOpen())
 	{
@@ -32,10 +38,13 @@ int main()
 				window.close();
 		}
 
-
 		window.clear(sf::Color::White);
-		window.draw(Ship);
-		window.draw(duszek);
+		Ship.draw(window);
+		Twice.draw(window);
+		Zorro.draw(window);
+		Garcia.draw(window);
+		Jeden.draw(window);
+		Dwa.draw(window);
 		window.display();
 	}
 

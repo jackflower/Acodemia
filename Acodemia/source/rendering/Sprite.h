@@ -33,7 +33,7 @@ namespace acodemia
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param && other - referencja do r-wartości
 			///
 			Sprite(Sprite && other);
 
@@ -42,9 +42,24 @@ namespace acodemia
 			///
 			~Sprite();
 
-			//To do...
-			///przenoszący operator przypisania...
-			//klasa& klasa::operator=(klasa &&);
+			//todo...
+
+			///
+			///Przeciążony operator przypisania kopiowania
+			///
+			///@param & other - stała referencja na obiekt klasy Sprite
+			///
+			//Sprite & operator=(const Sprite & other);
+
+
+			///
+			///Przeciążony operator przypisania przenoszenia
+			///
+			///@param && other -  referencja do r-wartości
+			///
+			//Sprite & operator=(Sprite && other);
+
+
 		};
 	}//namespace rendering
 }//namespace acodemia

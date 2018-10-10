@@ -1,90 +1,72 @@
-//  __________________________________________
-// | CDisplayable.h - class definition        |
-// | Jack Flower - August 2012                |
-// |__________________________________________|
+//
+//acodemia.pl
 //
 
-#ifndef H_DISPLAYABLE_JACK
-#define H_DISPLAYABLE_JACK
+#ifndef H_DISPLAYABLE_ACODEMIA
+#define H_DISPLAYABLE_ACODEMIA
 
-#include "../Drawable/IDrawable.h"
-#include "CSprite.h"
-#include <SFML/Graphics/Image.hpp>
-#include <string>
+#include <SFML/Graphics.hpp>
 
-///
-///Forward declaration
-///
-namespace sf
+namespace acodemia
 {
-    class Sprite;
-    class RenderWindow;
-}
-
-///
-///Forward declaration
-///
-namespace rendering
-{
-	namespace animation
-	{
-		class CAnimationState;
-		class CAnimationFrame;
-		class CAnimation;
-	}
-}
-
-///
-///Forward declaration
-///
-namespace resource
-{
-	class CTexture;
-}
-
-using namespace rendering::animation;
-using namespace resource;
-using namespace rendering::drawable;
-
-namespace rendering
-{
-	namespace displayable
+	namespace rendering
 	{
 		///
-		///Klasa reprezentuje obiekt, który potrafi byæ renderowany (mo¿e byæ tak¿e animowany)
+		///Klasa reprezentuje obiekt, który mo¿e byæ renderowany
 		///
-		class CDisplayable : public IDrawable
+		class Displayable
 		{
-			RTTI_DECL;
 
 		public:
 
 			///
 			///Konstruktor domyœlny
 			///
-			CDisplayable();
+			Displayable();
 
 			///
 			///Konstruktor kopiuj¹cy
 			///
-			///@param &CDisplayableCopy - sta³a referencja na obiekt klasy CDisplayable
+			///@param & copy - sta³a referencja na obiekt klasy Displayable
 			///
-			CDisplayable(const CDisplayable& CDisplayableCopy);
+			Displayable(const Displayable & copy);
+
+			///
+			///Konstruktor przenosz¹cy
+			///
+			///@param && other = referencja do r-wartoœci
+			///
+			Displayable(Displayable && other);
 
 			///
 			///Destruktor wirtualny
 			///
-			virtual ~CDisplayable();
+			~Displayable();
 
 			///
-			///Metoda zwraca typ obiektu /RTTI/
+			///Przeci¹¿ony operator przypisania kopiowania
 			///
-			const std::string GetType() const;
+			///@param & other - sta³a referencja na obiekt klasy Displayable
+			///
+			Displayable & operator=(const Displayable & other);
 
 			///
-			///Metoda zwraca wskaŸnik na obiekt sf::Sprite
+			///Przeci¹¿ony operator przypisania przenoszenia
 			///
-			CSprite *GetSprite();
+			///@param && other -  referencja do r-wartoœci
+			///
+			Displayable & operator=(Displayable && other);
+
+			///Metoda zwraca referencjê na obiekt sf::Sprite
+			///
+			//sf::Sprite & getSprite();
+
+			///
+			///Metoda ustawia referencjê na obiekt sf::Sprite
+			///
+			///@param & sprite - referencja na obiekt klasy sf::Sprite
+			///
+			//void setSprite(sf::Sprite & sprite);
 
 			///
 			///Metoda zwraca pozycjê obiektu
@@ -259,14 +241,14 @@ namespace rendering
 			///
 			///@param &texture_name - sta³a referencja na obiekt std::string - nazwa tekstury
 			///
-			void setTexture(const std::string& texture_name, bool smoothing = true);
+			//void setTexture(const std::string& texture_name, bool smoothing = true);
 
 			///
 			///Metoda ustawia teksturê obiektu
 			///
 			///@param *p_texture - wskaŸnik na obiekt klasy CTexture
 			///
-			void setTexture(CTexture *p_texture, bool smoothing = true);
+			//void setTexture(CTexture *p_texture, bool smoothing = true);
 
 			///
 			///Metoda generuje obraz tekstury
@@ -301,51 +283,43 @@ namespace rendering
 			///
 			///@param &animation_name - sta³a referencja na obiekt std::string - nazwa animacji
 			///
-			void SetAnimation( const std::string& animation_name );
+			//void SetAnimation( const std::string& animation_name );
 
 			///
 			///Metoda ustawia animacjê
 			///
 			///@param *p_animation - wskaŸnik na obiekt klasy CAnimation
 			///
-			void SetAnimation(CAnimation *p_animation);
+			//void SetAnimation(CAnimation *p_animation);
 
 			///
 			///Metoda zwraca wskaŸnik na obiekt klasy CAnimationState
 			///
-			CAnimationState* GetAnimationState();
+			//CAnimationState* GetAnimationState();
+
 
 			///
-			////Metoda zwraca tryb wyg³adzania tekstury
+			///Metoda ustawia teksturê dla sprite
 			///
-			const bool getSmoothing() const;
+			///@param & texture - sta³a referencja na obiekt klasy sf::Texture
+			///
+			void setTexture(const sf::Texture & texture);
 
-			///
-			///Metoda ustawia tryb wyg³adzania tekstury
-			///
-			///@param smooth - flaga wyg³adzania tekstury
-			///
-			void setSmoothing(bool smooth);
+
+			//dodaæ smooth...y
+			//void setTexture(const Texture& texture, bool resetRect = false);
 
 			///
 			///Wirtualna metoda renderuj¹ca obiekt
 			///
-			///@render render - parametr drawable
+			///@render & render - referencja na kontekst graficzny
 			///
-			virtual void Draw(sf::RenderWindow* render);
+			virtual void draw(sf::RenderWindow & render);
 		
-		protected:
-		
-			CSprite*			m_sprite;				//wskaŸnik na obiekt klasy CSprite (kontekst graficzny)
-			CAnimationState*	m_animation_state;		//wskaŸnik na obiekt CAnimationState
-			std::string			m_animation_name;		//nazwa animacji
-			bool				m_smooth;				//flaga, czy obiekt wyg³adza piksele tekstury
-
 		private:
-
-			sf::Image*			p_synthetic_image;		//wskaŸnik na obiekt klasy sf::Image - wykorzytywany przy tworzeniu syntetycznego obrazu
-			sf::Texture*		p_synthetic_texture;	//wskaŸnik na obiekt klasy sf::Texture
+		
+			sf::Sprite *p_sprite;//wskaŸnik na kontekst graficzny
 		};
-	} //namespace displayable
-}//namespace rendering
-#endif //H_DISPLAYABLE_JACK
+	} //namespace rendering
+}//namespace acodemia
+#endif //H_DISPLAYABLE_ACODEMIA

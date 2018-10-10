@@ -31,5 +31,34 @@ namespace acodemia
 		Sprite::~Sprite()
 		{
 		}
+
+		//
+		//notatka:
+		// prawdopodobnie ten kod do kosza (poprawny w klasie Displayable)
+		//
+		////Przenoszący operator przypisania
+		//Sprite & Sprite::operator=(Sprite && other)
+		//{
+		//	//std::cout << "In operator=(MemoryBlock&&). length = "
+		//	//	<< other._length << "." << std::endl;
+
+		//	if (this != &other)
+		//	{
+		//		//*this = *other;
+		//		// Free the existing resource.  
+		//		//delete[] _data;
+
+		//		// Copy the data pointer and its length from the   
+		//		// source object.  
+		//		//_data = other._data;
+		//		//_length = other._length;
+
+		//		// Release the data pointer from the source object so that  
+		//		// the destructor does not free the memory multiple times.  
+		//		//other._data = nullptr;
+		//		//other._length = 0;
+		//	}
+		//	return *this;
+		//}
 	}//namespace rendering
 }//namespace acodemia

@@ -21,15 +21,21 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\rendering\Displayable.cpp">
+      <Filter>source\rendering</Filter>
+    </ClCompile>
     <ClCompile Include="source\rendering\Sprite.cpp">
       <Filter>source\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp" />
     <ClCompile Include="source\rendering\Texture.cpp">
       <Filter>source\rendering</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\rendering\Displayable.h">
+      <Filter>source\rendering</Filter>
+    </ClInclude>
     <ClInclude Include="source\rendering\Sprite.h">
       <Filter>source\rendering</Filter>
     </ClInclude>

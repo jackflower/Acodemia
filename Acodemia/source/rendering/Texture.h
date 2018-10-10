@@ -42,9 +42,23 @@ namespace acodemia
 			///
 			~Texture();
 			
-			//To do...
-			//przenoszący operator przypisania...
-			//klasa& klasa::operator=(klasa &&);
+
+			//todo...
+
+			///
+			///Przeciążony operator przypisania kopiowania
+			///
+			///@param & other - stała referencja na obiekt klasy Texture
+			///
+			//Texture & operator=(const Texture & other);
+
+
+			///
+			///Przeciążony operator przypisania przenoszenia
+			///
+			///@param && other -  referencja do r-wartości
+			///
+			//Texture & operator=(Texture && other);
 
 			bool Load(const std::string &file_name);
 
