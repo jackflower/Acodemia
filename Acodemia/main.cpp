@@ -6,6 +6,13 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 
+	//Testy
+	//acodemia::rendering::Sprite
+	//acodemia::rendering::Texture
+	//
+
+
+
 	sf::Texture graphics;
 	graphics.loadFromFile("../data/ship.png");
 

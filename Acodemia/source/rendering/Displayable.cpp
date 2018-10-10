@@ -3,33 +3,23 @@
 //
 
 #include "Displayable.h"
-//#include "../Animations/CAnimation.h"
-//#include "../Animations/CAnimationManager.h"
-//#include "../Animations/CAnimationState.h"
-//#include "../../ResourceManager/CResourceManager.h"
-//#include "../../ResourceManager/CTexture.h"
-//#include <SFML/Graphics.hpp>
 #include <iostream>
 
 namespace acodemia
 {
 	namespace rendering
 	{
-		//RTTI_IMPL(CDisplayable, IDrawable);
-
 		//Konstruktor domyœlny
 		Displayable::Displayable()
 		:
-			p_sprite()
+			p_sprite(new sf::Sprite())
 		{
-			p_sprite = new sf::Sprite();
 			std::cout << "konstruktor domyslny" << std::endl;
 		}
 
 		//Konstruktor kopiuj¹cy
 		Displayable::Displayable(const Displayable & copy)
 		:
-			//p_sprite (copy.p_sprite)
 			p_sprite(new sf::Sprite(*copy.p_sprite))
 		{
 			std::cout << "konstruktor kopiujacy" << std::endl;
@@ -51,8 +41,8 @@ namespace acodemia
 		//Destruktor wirtualny
 		Displayable::~Displayable() 
 		{
-			//if(p_sprite != nullptr)
-			delete p_sprite;//usuwamy obiekt (mamy pewnoœæ, ¿e istnieje, bo konstruktor go stworzy³)
+			if(p_sprite != nullptr)
+				delete p_sprite;
 			p_sprite = nullptr;
 		}
 
@@ -62,13 +52,15 @@ namespace acodemia
 			std::cout << "operator przypisania kopiujacy" << std::endl;
 			if (this != & other)
 			{
-				delete p_sprite;//zwalaniamy dane pod wskaŸnikiem
-				p_sprite = new sf::Sprite(*other.p_sprite);//tworzymy nowy obiekt
+				//zwalaniamy dane pod wskaŸnikiem
+				delete p_sprite;
+				//tworzymy nowy obiekt na podstawie obiektu Ÿród³owego
+				p_sprite = new sf::Sprite(*other.p_sprite);
 			}
 			return *this;
 		}
 
-		////Przeci¹¿ony operator przypisania przenoszenia
+		//Przeci¹¿ony operator przypisania przenoszenia
 		Displayable & Displayable::operator=(Displayable && other)
 		{
 			std::cout << "operator przypisania przenoszenia" << std::endl;
@@ -87,8 +79,6 @@ namespace acodemia
 
 
 
-
-
 		////Metoda zwraca wskaŸnik na obiekt sf::Sprite
 		//sf::Sprite & Displayable::getSprite()
 		//{
@@ -101,11 +91,11 @@ namespace acodemia
 		//	m_sprite = sprite;
 		//}
 
-		////Metoda zwraca pozycjê obiektu
-		//const sf::Vector2f& CDisplayable::getPosition() const
-		//{
-		//	return m_sprite->getPosition();
-		//}
+		//Metoda zwraca sta³¹ referencjê pozycji obiektu
+		const sf::Vector2f & Displayable::getPosition() const
+		{
+			return p_sprite->getPosition();
+		}
 
 		//Metoda ustawia pozycjê obiektu
 		void Displayable::setPosition(float x, float y)
@@ -114,11 +104,11 @@ namespace acodemia
 				p_sprite->setPosition(x, y);
 		}
 
-		////Metoda ustawia pozycjê obiektu
-		//void CDisplayable::setPosition(const sf::Vector2f& vector)
-		//{
-		//	setPosition(vector.x, vector.y);
-		//}
+		//Metoda ustawia pozycjê obiektu
+		void Displayable::setPosition(const sf::Vector2f & vector)
+		{
+			setPosition(vector.x, vector.y);
+		}
 
 		////Metoda zwraca wartoœæ obrotu
 		//float CDisplayable::getRotation() const

@@ -43,4 +43,7 @@
       <Filter>source\rendering</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="notes\notes.txt" />
+  </ItemGroup>
 </Project>

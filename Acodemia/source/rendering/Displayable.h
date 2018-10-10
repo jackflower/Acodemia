@@ -69,7 +69,7 @@ namespace acodemia
 			//void setSprite(sf::Sprite & sprite);
 
 			///
-			///Metoda zwraca pozycjê obiektu
+			///Metoda zwraca sta³¹ referencjê pozycji obiektu
 			///
 			const sf::Vector2f& getPosition() const;
 
@@ -83,11 +83,11 @@ namespace acodemia
 			void setPosition(float x, float y);
 
 			///
-			//Metoda ustawia pozycjê obiektu
+			///Metoda ustawia pozycjê obiektu
 			///
-			///@param &vector - referenacja - obiekt klasy sf::Vector2f
+			///@param & vector - sta³a referenacja na obiekt klasy sf::Vector2f
 			///
-			void setPosition(const sf::Vector2f& vector);
+			void setPosition(const sf::Vector2f & vector);
 
 			///
 			///Metoda zwraca wartoœæ obrotu

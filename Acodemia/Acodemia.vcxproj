@@ -141,6 +141,9 @@
     <ClInclude Include="source\rendering\Sprite.h" />
     <ClInclude Include="source\rendering\Texture.h" />
   </ItemGroup>
+  <ItemGroup>
+    <Text Include="notes\notes.txt" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
