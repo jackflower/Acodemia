@@ -13,6 +13,7 @@
 *.filters
 *.sln
 SFML-2.5.0-windows-vc15-32-bit/
+notes/
 
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
