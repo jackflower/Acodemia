@@ -11,9 +11,7 @@ int main()
 	//acodemia::rendering::Texture
 	//
 
-
-
-	sf::Texture graphics;
+	acodemia::rendering::Texture graphics;
 	graphics.loadFromFile("../data/ship.png");
 
 	//testy - potem usunąć...

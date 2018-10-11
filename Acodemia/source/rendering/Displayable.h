@@ -7,8 +7,7 @@
 
 #include <SFML/Graphics.hpp>
 #include "Sprite.h"
-
-// r e f a k t o r y z a j c a   k o d u
+#include "Texture.h"
 
 namespace acodemia
 {
@@ -19,7 +18,6 @@ namespace acodemia
 		///
 		class Displayable
 		{
-
 		
 		public:
 
@@ -61,21 +59,10 @@ namespace acodemia
 			///
 			Displayable & operator=(Displayable && other);
 
-			///Metoda zwraca referencję na obiekt sf::Sprite
-			///
-			//sf::Sprite & getSprite();
-
-			///
-			///Metoda ustawia referencję na obiekt sf::Sprite
-			///
-			///@param & sprite - referencja na obiekt klasy sf::Sprite
-			///
-			//void setSprite(sf::Sprite & sprite);
-
 			///
 			///Metoda zwraca stałą referencję pozycji obiektu
 			///
-			const sf::Vector2f& getPosition() const;
+			const sf::Vector2f & getPosition() const;
 
 			///
 			///Metoda ustawia pozycję obiektu
@@ -115,7 +102,7 @@ namespace acodemia
 			///
 			///Metoda zwraca skalę
 			///
-			const sf::Vector2f& getScale() const;
+			const sf::Vector2f & getScale() const;
 		
 			///
 			///Metoda ustawia skalę
@@ -129,9 +116,9 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę
 			///
-			///@param &new_scale_value - referencja na obiekt klasy sf::Vector2f
+			///@param & new_scale_value - stała referencja na obiekt klasy sf::Vector2f
 			///
-			void setScale(const sf::Vector2f& new_scale_value);
+			void setScale(const sf::Vector2f & new_scale_value);
 
 			///
 			///Metoda ustawia skalę
@@ -152,14 +139,14 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę w stosunku do obecnej skali
 			///
-			///@param &factor - stała referencja na obiekt klasy sf::Vector2f
+			///@param & factor - stała referencja na obiekt klasy sf::Vector2f
 			///
-			void scale(const sf::Vector2f& factor);
+			void scale(const sf::Vector2f & factor);
 
 			///
 			///Metoda zwraca współrzędne punktu uchwytu obiektu
 			///
-			const sf::Vector2f& getOrigin() const;
+			const sf::Vector2f & getOrigin() const;
 
 			///
 			///Metoda ustawia współrzędne punktu uchwytu obiektu
@@ -173,14 +160,14 @@ namespace acodemia
 			///
 			///Metoda ustawia współrzędne punktu uchwytu obiektu
 			///
-			///@param &origin - stała referencja na obiekt klasy sf::Vector2f
+			///@param & origin - stała referencja na obiekt klasy sf::Vector2f
 			///
-			void setOrigin(const sf::Vector2f& origin);
+			void setOrigin(const sf::Vector2f & origin);
 
 			///
 			///Metoda zwraca obszar prostokątny zajmowany przez teksturę
 			///
-			const sf::IntRect& getTextureRect() const;
+			const sf::IntRect & getTextureRect() const;
 
 			///
 			///Metoda ustawia obszar prostokątny zajmowany przez teksturę
@@ -198,9 +185,9 @@ namespace acodemia
 			///
 			///Metoda ustawia obszar prostokątny zajmowany przez teksturę
 			///
-			///@param rectangle - stała referencja na obiekt klasy sf::IntRect
+			///@param & rectangle - stała referencja na obiekt klasy sf::IntRect
 			///
-			void setTextureRect (const sf::IntRect& rectangle);
+			void setTextureRect (const sf::IntRect & rectangle);
 
 			///
 			///Metoda zwraca granice obiektu w lokalnym w układzie współrzędnych
@@ -224,94 +211,28 @@ namespace acodemia
 			///
 			///Metoda przemieszcza obiekt o wartość wektora przesunięcia
 			///
-			///@param &offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
+			///@param & offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
 			///
-			void move(const sf::Vector2f& offset);
+			void move(const sf::Vector2f & offset);
 
 			///
 			///Metoda zwraca kolor obiektu
 			///
-			const sf::Color& getColor() const;
+			const sf::Color & getColor() const;
 
 			///
 			///Metoda ustawia kolor obiektu
 			///
-			///@param color - kolor obiektu
+			///@param & color - stała referencja na obiekt klasy sf::Color
 			///
-			void setColor(const sf::Color& color);
-
-			///
-			///Metoda ustawia teksturę obiektu
-			///
-			///@param &texture_name - stała referencja na obiekt std::string - nazwa tekstury
-			///
-			//void setTexture(const std::string& texture_name, bool smoothing = true);
-
-			///
-			///Metoda ustawia teksturę obiektu
-			///
-			///@param *p_texture - wskaźnik na obiekt klasy CTexture
-			///
-			//void setTexture(CTexture *p_texture, bool smoothing = true);
-
-			///
-			///Metoda generuje obraz tekstury
-			///
-			///@param width - szerokość tekstury (obiektu) w pikselach
-			///
-			///@param height - wysokość tekstury (obiektu) w pikselach
-			///
-			///@param color - & color - stała referencja na obiekt klasy sf::Color
-			///
-			void SetTexture(unsigned width, unsigned height, const sf::Color & color = sf::Color(0, 0, 0));
-
-			///
-			///Metoda generuje obraz tekstury
-			///
-			///@param width - szerokość tekstury (obiektu) w pikselach
-			///
-			///@param height - wysokość tekstury (obiektu) w pikselach
-			///
-			///@param r - składowa red koloru
-			///
-			///@param g - składowa green koloru
-			///
-			///@param b - składowa blue koloru
-			///
-			///@param a - składowa alpha koloru
-			///
-			void SetTexture(unsigned width, unsigned height, unsigned r, unsigned g, unsigned b, unsigned a = 255);
-
-			///
-			///Metoda ustawia animację
-			///
-			///@param &animation_name - stała referencja na obiekt std::string - nazwa animacji
-			///
-			//void SetAnimation( const std::string& animation_name );
-
-			///
-			///Metoda ustawia animację
-			///
-			///@param *p_animation - wskaźnik na obiekt klasy CAnimation
-			///
-			//void SetAnimation(CAnimation *p_animation);
-
-			///
-			///Metoda zwraca wskaźnik na obiekt klasy CAnimationState
-			///
-			//CAnimationState* GetAnimationState();
-
+			void setColor(const sf::Color & color);
 
 			///
 			///Metoda ustawia teksturę dla sprite
 			///
-			///@param & texture - stała referencja na obiekt klasy sf::Texture
+			///@param & texture - stała referencja na obiekt klasy Texture
 			///
-			void setTexture(const sf::Texture & texture);
-
-
-			//dodać smooth...y
-			//void setTexture(const Texture& texture, bool resetRect = false);
+			void setTexture(const Texture & texture);
 
 			///
 			///Wirtualna metoda renderująca obiekt
@@ -322,7 +243,6 @@ namespace acodemia
 		
 		private:
 		
-			//sf::Sprite *p_sprite;//wskaźnik na kontekst graficzny
 			Sprite *p_sprite;
 			
 		};
