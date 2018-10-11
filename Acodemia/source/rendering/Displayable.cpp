@@ -1,4 +1,4 @@
-//
+Ôªø//
 //acodemia.pl
 //
 
@@ -9,31 +9,33 @@ namespace acodemia
 {
 	namespace rendering
 	{
-		//Konstruktor domyúlny
+		//Konstruktor domy≈õlny
 		Displayable::Displayable()
 		:
-			p_sprite(new sf::Sprite())
+			//p_sprite(new sf::Sprite())
+			p_sprite(new Sprite())
 		{
 			std::cout << "konstruktor domyslny" << std::endl;
 		}
 
-		//Konstruktor kopiujπcy
+		//Konstruktor kopiujƒÖcy
 		Displayable::Displayable(const Displayable & copy)
 		:
-			p_sprite(new sf::Sprite(*copy.p_sprite))
+			//p_sprite(new sf::Sprite(*copy.p_sprite))
+			p_sprite(new Sprite(*copy.p_sprite))
 		{
 			std::cout << "konstruktor kopiujacy" << std::endl;
 		}
 
-		//Konstruktor przenoszπcy
+		//Konstruktor przenoszƒÖcy
 		Displayable::Displayable(Displayable && other)
 		:
 			p_sprite(nullptr)
 		{
-			//kopiujemy pod wskaünik dane obiektu ürÛd≥owego
+			//kopiujemy pod wska≈∫nik dane obiektu ≈∫r√≥d≈Çowego
 			p_sprite = other.p_sprite;
-			//zwalniamy wskaünik na dane obiektu ürÛd≥owego tak, aby
-			//destruktor nie zwalnia≥ pamiÍci wielokrotnie
+			//zwalniamy wska≈∫nik na dane obiektu ≈∫r√≥d≈Çowego tak, aby
+			//destruktor nie zwalnia≈Ç pamiƒôci wielokrotnie
 			other.p_sprite = nullptr;
 			std::cout << "konstruktor przenoszacy" << std::endl;
 		}
@@ -46,32 +48,33 @@ namespace acodemia
 			p_sprite = nullptr;
 		}
 
-		//Przeciπøony operator przypisania kopiowania
+		//PrzeciƒÖ≈ºony operator przypisania kopiowania
 		Displayable & Displayable::operator=(const Displayable & other)
 		{
 			std::cout << "operator przypisania kopiujacy" << std::endl;
 			if (this != & other)
 			{
-				//zwalaniamy dane pod wskaünikiem
+				//zwalaniamy dane pod wska≈∫nikiem
 				delete p_sprite;
-				//tworzymy nowy obiekt na podstawie obiektu ürÛd≥owego
-				p_sprite = new sf::Sprite(*other.p_sprite);
+				//tworzymy nowy obiekt na podstawie obiektu ≈∫r√≥d≈Çowego
+				//p_sprite = new sf::Sprite(*other.p_sprite);
+				p_sprite = new Sprite(*other.p_sprite);
 			}
 			return *this;
 		}
 
-		//Przeciπøony operator przypisania przenoszenia
+		//PrzeciƒÖ≈ºony operator przypisania przenoszenia
 		Displayable & Displayable::operator=(Displayable && other)
 		{
 			std::cout << "operator przypisania przenoszenia" << std::endl;
 			if (this != & other)
 			{
-				//zwalaniamy dane pod wskaünikiem
+				//zwalaniamy dane pod wska≈∫nikiem
 				delete p_sprite;
-				//przenosimy pod wskaünik dane z obiektu ürÛd≥owego
+				//przenosimy pod wska≈∫nik dane z obiektu ≈∫r√≥d≈Çowego
 				p_sprite = other.p_sprite;
-				//zwalniamy wskaünik na dane obiektu ürÛd≥owego tak, aby
-				//destruktor nie zwalnia≥ pamiÍci wielokrotnie
+				//zwalniamy wska≈∫nik na dane obiektu ≈∫r√≥d≈Çowego tak, aby
+				//destruktor nie zwalnia≈Ç pamiƒôci wielokrotnie
 				other.p_sprite = nullptr;
 			}
 				return *this;
@@ -79,146 +82,146 @@ namespace acodemia
 
 
 
-		////Metoda zwraca wskaünik na obiekt sf::Sprite
+		////Metoda zwraca wska≈∫nik na obiekt sf::Sprite
 		//sf::Sprite & Displayable::getSprite()
 		//{
 		//	return m_sprite;
 		//}
 
-		////Metoda ustawia referencjÍ na obiekt sf::Sprite
+		////Metoda ustawia referencjƒô na obiekt sf::Sprite
 		//void Displayable::setSprite(sf::Sprite & sprite)
 		//{
 		//	m_sprite = sprite;
 		//}
 
-		//Metoda zwraca sta≥π referencjÍ pozycji obiektu
+		//Metoda zwraca sta≈ÇƒÖ referencjƒô pozycji obiektu
 		const sf::Vector2f & Displayable::getPosition() const
 		{
 			return p_sprite->getPosition();
 		}
 
-		//Metoda ustawia pozycjÍ obiektu
+		//Metoda ustawia pozycjƒô obiektu
 		void Displayable::setPosition(float x, float y)
 		{
 			if(p_sprite)
 				p_sprite->setPosition(x, y);
 		}
 
-		//Metoda ustawia pozycjÍ obiektu
+		//Metoda ustawia pozycjƒô obiektu
 		void Displayable::setPosition(const sf::Vector2f & vector)
 		{
 			setPosition(vector.x, vector.y);
 		}
 
-		////Metoda zwraca wartoúÊ obrotu
+		////Metoda zwraca warto≈õƒá obrotu
 		//float CDisplayable::getRotation() const
 		//{ 
 		//	return m_sprite->getRotation();
 		//}
 
-		////Metoda ustawia wartoúÊ obrotu
+		////Metoda ustawia warto≈õƒá obrotu
 		//void CDisplayable::setRotation(float rotation_value)
 		//{
 		//	m_sprite->setRotation(rotation_value);
 		//}
 
-		////Metoda obraca wartoúÊ obrotu
+		////Metoda obraca warto≈õƒá obrotu
 		//void CDisplayable::rotate(float angle)
 		//{
 		//	m_sprite->rotate(angle);
 		//}
 
-		////Metoda zwraca skalÍ
+		////Metoda zwraca skalƒô
 		//const sf::Vector2f& CDisplayable::getScale() const
 		//{
 		//	return m_sprite->getScale();
 		//}
 
-		////Metoda ustawia skalÍ
+		////Metoda ustawia skalƒô
 		//void CDisplayable::setScale(float x, float y)
 		//{
 		//	m_sprite->setScale(x, y);
 		//}
 
-		////Metoda ustawia skalÍ
+		////Metoda ustawia skalƒô
 		//void CDisplayable::setScale(const sf::Vector2f& new_scale_value)
 		//{
 		//	m_sprite->setScale(new_scale_value);
 		//}
 
-		////Metoda ustawia skalÍ
+		////Metoda ustawia skalƒô
 		//void CDisplayable::setScale(float factors)
 		//{
 		//	setScale(factors, factors);
 		//}
 
-		////Metoda ustawia skalÍ w stosunku do obecnej skali
+		////Metoda ustawia skalƒô w stosunku do obecnej skali
 		//void CDisplayable::scale(float factorX, float factorY)
 		//{
 		//	m_sprite->scale(factorX, factorY);
 		//}
 
-		////Metoda ustawia skalÍ w stosunku do obecnej skali
+		////Metoda ustawia skalƒô w stosunku do obecnej skali
 		//void CDisplayable::scale(const sf::Vector2f& factor)
 		//{
 		//	m_sprite->scale(factor);
 		//}
 
-		////Metoda zwraca wspÛ≥rzÍdne punktu uchwytu obiektu
+		////Metoda zwraca wsp√≥≈Çrzƒôdne punktu uchwytu obiektu
 		//const sf::Vector2f& CDisplayable::getOrigin() const
 		//{
 		//	return m_sprite->getOrigin();
 		//}
 
-		////Metoda ustawia wspÛ≥rzÍdne punktu uchwytu obiektu
+		////Metoda ustawia wsp√≥≈Çrzƒôdne punktu uchwytu obiektu
 		//void CDisplayable::setOrigin(float x, float y)
 		//{
 		//	m_sprite->setOrigin(x, y);
 		//}
 
-		////Metoda ustawia wspÛ≥rzÍdne punktu uchwytu obiektu
+		////Metoda ustawia wsp√≥≈Çrzƒôdne punktu uchwytu obiektu
 		//void CDisplayable::setOrigin(const sf::Vector2f& origin)
 		//{
 		//	m_sprite->setOrigin(origin);
 		//}
 
-		////Metoda zwraca obszar prostokπtny zajmowany przez teksturÍ
+		////Metoda zwraca obszar prostokƒÖtny zajmowany przez teksturƒô
 		//const sf::IntRect& CDisplayable::getTextureRect() const
 		//{
 		//	return m_sprite->getTextureRect();
 		//}
 
-		////Metoda ustawia obszar prostokπtny zajmowany przez teksturÍ
+		////Metoda ustawia obszar prostokƒÖtny zajmowany przez teksturƒô
 		//void CDisplayable::setTextureRect(int rectLeft, int rectTop, int rectWidth, int rectHeight)
 		//{
 		//	setTextureRect(sf::IntRect(rectLeft, rectTop, rectWidth, rectHeight));
 		//}
 
-		////Metoda ustawia obszar prostokπtny zajmowany przez teksturÍ
+		////Metoda ustawia obszar prostokƒÖtny zajmowany przez teksturƒô
 		//void CDisplayable::setTextureRect (const sf::IntRect& rectangle)
 		//{
 		//	m_sprite->setTextureRect(rectangle);
 		//}
 
-		////Metoda zwraca granice obiektu w lokalnym w uk≥adzie wspÛ≥rzÍdnych
+		////Metoda zwraca granice obiektu w lokalnym w uk≈Çadzie wsp√≥≈Çrzƒôdnych
 		//sf::FloatRect CDisplayable::getLocalBounds() const
 		//{
 		//	return m_sprite->getLocalBounds();
 		//}
 
-		////Metoda zwraca granice obiektu w globalnym w uk≥adzie wspÛ≥rzÍdnych
+		////Metoda zwraca granice obiektu w globalnym w uk≈Çadzie wsp√≥≈Çrzƒôdnych
 		//sf::FloatRect CDisplayable::getGlobalBounds() const
 		//{
 		//	return m_sprite->getGlobalBounds();
 		//}
 
-		////Metoda przemieszcza obiekt o wartoúÊ podanπ w parametrach wzglÍdem aktualnej pozycji
+		////Metoda przemieszcza obiekt o warto≈õƒá podanƒÖ w parametrach wzglƒôdem aktualnej pozycji
 		//void CDisplayable::move(float offsetX, float offsetY)
 		//{
 		//	m_sprite->move(offsetX, offsetY);
 		//}
 
-		////Metoda przemieszcza obiekt o wartoúÊ wektora przesuniÍcia
+		////Metoda przemieszcza obiekt o warto≈õƒá wektora przesuniƒôcia
 		//void CDisplayable::move(const sf::Vector2f& offset)
 		//{
 		//	m_sprite->move(offset);
@@ -236,7 +239,7 @@ namespace acodemia
 		//	m_sprite->setColor(color);
 		//}
 
-		////Metoda ustawia teksturÍ obiektu
+		////Metoda ustawia teksturƒô obiektu
 		//void CDisplayable::setTexture(const std::string& texture_name, bool smoothing)
 		//{
 		//	m_smooth = smoothing;
@@ -250,20 +253,20 @@ namespace acodemia
 		//	setTexture(p_texture, m_smooth);
 		//}
 
-		////Metoda ustawia teksturÍ obiektu
+		////Metoda ustawia teksturƒô obiektu
 		//void CDisplayable::setTexture(CTexture *p_texture, bool smoothing)
 		//{
-		//	if (m_animation_state)					//jeúli wskaünik na CAnimationState jest zainicjowany
+		//	if (m_animation_state)					//je≈õli wska≈∫nik na CAnimationState jest zainicjowany
 		//	{
-		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjÍ
-		//		m_animation_state = NULL;			//ustawiamy wskaünik na NULL
+		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjƒô
+		//		m_animation_state = NULL;			//ustawiamy wska≈∫nik na NULL
 		//	}
 
-		//	if (p_texture != NULL)					//jeúli mamy wskaünik poprawnie wskazujπcy na teksturÍ
+		//	if (p_texture != NULL)					//je≈õli mamy wska≈∫nik poprawnie wskazujƒÖcy na teksturƒô
 		//	{
 		//		p_texture->setSmooth(m_smooth);
-		//		m_sprite->setTexture(*p_texture);	//ustawiamy teskturÍ
-		//		//po za≥adowaniu tekstury wyznaczamy punkt uchwytu sprite'a na jego úrodek geometryczny
+		//		m_sprite->setTexture(*p_texture);	//ustawiamy teskturƒô
+		//		//po za≈Çadowaniu tekstury wyznaczamy punkt uchwytu sprite'a na jego ≈õrodek geometryczny
 		//		m_sprite->setOrigin(m_sprite->getLocalBounds().width * 0.5f, m_sprite->getLocalBounds().height * 0.5f);
 		//	}
 		//}
@@ -271,10 +274,10 @@ namespace acodemia
 		////Metoda generuje obraz tekstury
 		//void CDisplayable::SetTexture(unsigned width, unsigned height, const sf::Color & color)
 		//{
-		//	if (m_animation_state)					//jeúli wskaünik na CAnimationState jest zainicjowany
+		//	if (m_animation_state)					//je≈õli wska≈∫nik na CAnimationState jest zainicjowany
 		//	{
-		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjÍ
-		//		m_animation_state = NULL;			//ustawiamy wskaünik na NULL
+		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjƒô
+		//		m_animation_state = NULL;			//ustawiamy wska≈∫nik na NULL
 		//	}
 
 		//	p_synthetic_texture->create(width, height);
@@ -286,10 +289,10 @@ namespace acodemia
 		////Metoda generuje obraz tekstury
 		//void CDisplayable::SetTexture(unsigned width, unsigned height, unsigned r, unsigned g, unsigned b, unsigned a)
 		//{
-		//	if (m_animation_state)					//jeúli wskaünik na CAnimationState jest zainicjowany
+		//	if (m_animation_state)					//je≈õli wska≈∫nik na CAnimationState jest zainicjowany
 		//	{
-		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjÍ
-		//		m_animation_state = NULL;			//ustawiamy wskaünik na NULL
+		//		gAnimationManager.DestroyAnimationState(m_animation_state);//usuwamy animacjƒô
+		//		m_animation_state = NULL;			//ustawiamy wska≈∫nik na NULL
 		//	}
 		//	
 		//	p_synthetic_texture->create(width, height);
@@ -298,21 +301,21 @@ namespace acodemia
 		//	m_sprite->setTexture(*p_synthetic_texture);
 		//}
 
-		////Metoda ustawia animacjÍ
+		////Metoda ustawia animacjƒô
 		//void CDisplayable::SetAnimation(const std::string& animation_name)
 		//{
-		//	//warunki, gdy zamiana animacji siÍ nie powiedzie:
-		//	//nie jest ≥adowana animacja, jeúli prÛbujemy
-		//	//zamieniÊ jπ na takπ samπ (istniejπcπ pod takπ samπ nazwπ)
+		//	//warunki, gdy zamiana animacji siƒô nie powiedzie:
+		//	//nie jest ≈Çadowana animacja, je≈õli pr√≥bujemy
+		//	//zamieniƒá jƒÖ na takƒÖ samƒÖ (istniejƒÖcƒÖ pod takƒÖ samƒÖ nazwƒÖ)
 		//	if (m_animation_name == animation_name) return;
 
 		//	m_animation_name = animation_name;
 
-		//	//usuwamy animacjÍ, jeúli wczeúniej jakaú by≥a
+		//	//usuwamy animacjƒô, je≈õli wcze≈õniej jaka≈õ by≈Ça
 		//	if (m_animation_state)
 		//		gAnimationManager.DestroyAnimationState(m_animation_state);
 
-		//	//tworzymy nowπ animacjÍ
+		//	//tworzymy nowƒÖ animacjƒô
 		//	m_animation_state = gAnimationManager.CreateAnimationState(animation_name);
 
 		//	if (!m_animation_state)
@@ -321,12 +324,12 @@ namespace acodemia
 		//	} 
 		//}
 
-		////Metoda ustawia animacjÍ
+		////Metoda ustawia animacjƒô
 		//void CDisplayable::SetAnimation(CAnimation *p_animation)
 		//{
-		//	//warunki, gdy zamiana animacji siÍ nie powiedzie:
-		//	//jeúli wskaünik jest NULL - return
-		//	//jeúli wskaünik jest zainicjowany, a prÛbujemy go zainicjowaÊ takim samym wskaünikiem - return
+		//	//warunki, gdy zamiana animacji siƒô nie powiedzie:
+		//	//je≈õli wska≈∫nik jest NULL - return
+		//	//je≈õli wska≈∫nik jest zainicjowany, a pr√≥bujemy go zainicjowaƒá takim samym wska≈∫nikiem - return
 
 		//	if (p_animation == NULL)
 		//		return;
@@ -345,52 +348,52 @@ namespace acodemia
 		//	} 
 		//}
 
-		////Metoda zwraca wskaünik na obiekt klasy CAnimationState
+		////Metoda zwraca wska≈∫nik na obiekt klasy CAnimationState
 		//CAnimationState* CDisplayable::GetAnimationState()
 		//{
 		//	return m_animation_state;
 		//}
 		//
-		/////Metoda zwraca tryb wyg≥adzania tekstury
+		/////Metoda zwraca tryb wyg≈Çadzania tekstury
 		//const bool CDisplayable::getSmoothing() const
 		//{
 		//	return m_smooth;
 		//}
 
-		////Metoda ustawia tryb wyg≥adzania tekstury
+		////Metoda ustawia tryb wyg≈Çadzania tekstury
 		//void CDisplayable::setSmoothing(bool smooth)
 		//{
 		//	m_smooth = smooth;
 		//}
 
-		//Metoda ustawia teksturÍ dla sprite
+		//Metoda ustawia teksturƒô dla sprite
 		void Displayable::setTexture(const sf::Texture & texture)
 		{
 			if(p_sprite)
 				p_sprite->setTexture(texture);
 		}
 
-		//Wirtualna metoda renderujπca obiekt
+		//Wirtualna metoda renderujƒÖca obiekt
 		void Displayable::draw(sf::RenderWindow & render)
 		{
-			//jeúli flaga nie pozwala - nie rysujemy obiektu - return
+			//je≈õli flaga nie pozwala - nie rysujemy obiektu - return
 			//if(m_can_draw == false)	return;
 
-			//jeúli wskaünik na obiekt CAnimationState pokazuje na animacjÍ
+			//je≈õli wska≈∫nik na obiekt CAnimationState pokazuje na animacjƒô
 			//if (m_animation_state)
 			//{
-			//	//tworzymy klatkÍ animacji i pobieramy bieøπcπ klatkÍ z CAnimationState
+			//	//tworzymy klatkƒô animacji i pobieramy bie≈ºƒÖcƒÖ klatkƒô z CAnimationState
 			//	CAnimationFrame frame = m_animation_state->GetCurrentFrame();
 
-			//	//tworzymy wskaünik na obiekt klasy CTexture (tekstura)
-			//	//inicjujemy ten wskaünik obrazem pobranym na podstawie nazwy
-			//	//tekstury, na ktÛrej znajduje sie klatka animacji.
-			//	//CResourceManager zwraca na podstawie tej nazwy wskaünik na teksturÍ.
+			//	//tworzymy wska≈∫nik na obiekt klasy CTexture (tekstura)
+			//	//inicjujemy ten wska≈∫nik obrazem pobranym na podstawie nazwy
+			//	//tekstury, na kt√≥rej znajduje sie klatka animacji.
+			//	//CResourceManager zwraca na podstawie tej nazwy wska≈∫nik na teksturƒô.
 			//	CTexture* p_texture = gResourceManager.GetTexture(frame.GetTextureName());
-			//	//ustawiamy flagÍ wyg≥adzania tekstury
+			//	//ustawiamy flagƒô wyg≈Çadzania tekstury
 			//	p_texture->setSmooth(m_smooth);
 
-			//	//jeúli wskaünik nie jest zainicjowany - komunikat o b≥Ídzie
+			//	//je≈õli wska≈∫nik nie jest zainicjowany - komunikat o b≈Çƒôdzie
 			//	if (!p_texture)
 			//	{
 			//		fprintf(stderr, "warning: CDisplayable::Draw: animation: unable to obtain image `%s'\n", frame.GetTextureName().c_str());
@@ -400,24 +403,24 @@ namespace acodemia
 			//		//w przeciwnym wypadku pobieramy obszar klatki animacji
 			//		sf::IntRect rect = frame.GetImageRectangle();
 
-			//		//sprawdzamy, wielkoúÊ tekstury (czy ten kod jest potrzebny?)
-			//		//niech na razie sobie tutaj poleøy, najwyøej moøna to zakomentowaÊ...
+			//		//sprawdzamy, wielko≈õƒá tekstury (czy ten kod jest potrzebny?)
+			//		//niech na razie sobie tutaj pole≈ºy, najwy≈ºej mo≈ºna to zakomentowaƒá...
 			//		//if (rect.left == 0 && rect.top == 0 && rect.width == 0 && rect.height == 0)
 			//		//{
-			//		//	rect.width = p_texture->getSize().x;	//wyznaczamy szerokoúÊ
-			//		//	rect.height = p_texture->getSize().y;	//wyznaczamy wysokoúÊ
+			//		//	rect.width = p_texture->getSize().x;	//wyznaczamy szeroko≈õƒá
+			//		//	rect.height = p_texture->getSize().y;	//wyznaczamy wysoko≈õƒá
 			//		//}
 			//		p_texture->setSmooth(m_smooth);				//filtr
-			//		m_sprite->setTexture(*p_texture);			//pod≥πczamy wskaünik na teksturÍ pod sprite'a
-			//		m_sprite->setTextureRect(rect);				//pod≥πczamy wyliczony obszar tekstury pod sprite'a
+			//		m_sprite->setTexture(*p_texture);			//pod≈ÇƒÖczamy wska≈∫nik na teksturƒô pod sprite'a
+			//		m_sprite->setTextureRect(rect);				//pod≈ÇƒÖczamy wyliczony obszar tekstury pod sprite'a
 
-			//		//wyznaczamy punkt uchwytu sprite'a na jego úrodek geometryczny
+			//		//wyznaczamy punkt uchwytu sprite'a na jego ≈õrodek geometryczny
 			//		m_sprite->setOrigin(m_sprite->getLocalBounds().width * 0.5f, m_sprite->getLocalBounds().height * 0.5f);
 			//	}
 			//}
 			
-			//if(m_can_draw == false) return;	//na wszelki wypadek, gdyby w ramce czasu flaga ustawi≥a siÍ na false
-			if (p_sprite)					//na wszelki wypadek, gdyby wskaünik straci≥ adres...
+			//if(m_can_draw == false) return;	//na wszelki wypadek, gdyby w ramce czasu flaga ustawi≈Ça siƒô na false
+			if (p_sprite)					//na wszelki wypadek, gdyby wska≈∫nik straci≈Ç adres...
 			{
 				render.draw(*p_sprite);	//rysujemy obiekt
 			}

@@ -1,4 +1,4 @@
-//
+ï»¿//
 //acodemia.pl
 //
 
@@ -6,35 +6,39 @@
 #define H_DISPLAYABLE_ACODEMIA
 
 #include <SFML/Graphics.hpp>
+#include "Sprite.h"
+
+// r e f a k t o r y z a j c a   k o d u
 
 namespace acodemia
 {
 	namespace rendering
 	{
 		///
-		///Klasa reprezentuje obiekt, który mo¿e byæ renderowany
+		///Klasa reprezentuje obiekt, ktÃ³ry moÅ¼e byÄ‡ renderowany
 		///
 		class Displayable
 		{
 
+		
 		public:
 
 			///
-			///Konstruktor domyœlny
+			///Konstruktor domyÅ›lny
 			///
 			Displayable();
 
 			///
-			///Konstruktor kopiuj¹cy
+			///Konstruktor kopiujÄ…cy
 			///
-			///@param & copy - sta³a referencja na obiekt klasy Displayable
+			///@param & copy - staÅ‚a referencja na obiekt klasy Displayable
 			///
 			Displayable(const Displayable & copy);
 
 			///
-			///Konstruktor przenosz¹cy
+			///Konstruktor przenoszÄ…cy
 			///
-			///@param && other = referencja do r-wartoœci
+			///@param && other = referencja do r-wartoÅ›ci
 			///
 			Displayable(Displayable && other);
 
@@ -44,183 +48,183 @@ namespace acodemia
 			~Displayable();
 
 			///
-			///Przeci¹¿ony operator przypisania kopiowania
+			///PrzeciÄ…Å¼ony operator przypisania kopiowania
 			///
-			///@param & other - sta³a referencja na obiekt klasy Displayable
+			///@param & other - staÅ‚a referencja na obiekt klasy Displayable
 			///
 			Displayable & operator=(const Displayable & other);
 
 			///
-			///Przeci¹¿ony operator przypisania przenoszenia
+			///PrzeciÄ…Å¼ony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartoœci
+			///@param && other -  referencja do r-wartoÅ›ci
 			///
 			Displayable & operator=(Displayable && other);
 
-			///Metoda zwraca referencjê na obiekt sf::Sprite
+			///Metoda zwraca referencjÄ™ na obiekt sf::Sprite
 			///
 			//sf::Sprite & getSprite();
 
 			///
-			///Metoda ustawia referencjê na obiekt sf::Sprite
+			///Metoda ustawia referencjÄ™ na obiekt sf::Sprite
 			///
 			///@param & sprite - referencja na obiekt klasy sf::Sprite
 			///
 			//void setSprite(sf::Sprite & sprite);
 
 			///
-			///Metoda zwraca sta³¹ referencjê pozycji obiektu
+			///Metoda zwraca staÅ‚Ä… referencjÄ™ pozycji obiektu
 			///
 			const sf::Vector2f& getPosition() const;
 
 			///
-			///Metoda ustawia pozycjê obiektu
+			///Metoda ustawia pozycjÄ™ obiektu
 			///
-			///@param x - wspó³rzêdna x obiektu
+			///@param x - wspÃ³Å‚rzÄ™dna x obiektu
 			///
-			///@param y - wspó³rzêdna y obiektu
+			///@param y - wspÃ³Å‚rzÄ™dna y obiektu
 			///
 			void setPosition(float x, float y);
 
 			///
-			///Metoda ustawia pozycjê obiektu
+			///Metoda ustawia pozycjÄ™ obiektu
 			///
-			///@param & vector - sta³a referenacja na obiekt klasy sf::Vector2f
+			///@param & vector - staÅ‚a referenacja na obiekt klasy sf::Vector2f
 			///
 			void setPosition(const sf::Vector2f & vector);
 
 			///
-			///Metoda zwraca wartoœæ obrotu
+			///Metoda zwraca wartoÅ›Ä‡ obrotu
 			///
 			float getRotation() const;
 		
 			///
-			///Metoda ustawia wartoœæ obrotu
+			///Metoda ustawia wartoÅ›Ä‡ obrotu
 			///
-			///@param rotation_value - wartoœæ obrotu
+			///@param rotation_value - wartoÅ›Ä‡ obrotu
 			///
 			void setRotation(float rotation_value);
 
 			///
-			///Metoda obraca wartoœæ obrotu
+			///Metoda obraca wartoÅ›Ä‡ obrotu
 			///
-			///@param angle - wartoœæ obrotu
+			///@param angle - wartoÅ›Ä‡ obrotu
 			///
 			void rotate(float angle);
 
 			///
-			///Metoda zwraca skalê
+			///Metoda zwraca skalÄ™
 			///
 			const sf::Vector2f& getScale() const;
 		
 			///
-			///Metoda ustawia skalê
+			///Metoda ustawia skalÄ™
 			///
-			///@param x - wspó³rzêdna x wektora
+			///@param x - wspÃ³Å‚rzÄ™dna x wektora
 			///
-			///@param y - wspó³rzêdna y wektora
+			///@param y - wspÃ³Å‚rzÄ™dna y wektora
 			///
 			void setScale(float x, float y);
 
 			///
-			///Metoda ustawia skalê
+			///Metoda ustawia skalÄ™
 			///
 			///@param &new_scale_value - referencja na obiekt klasy sf::Vector2f
 			///
 			void setScale(const sf::Vector2f& new_scale_value);
 
 			///
-			///Metoda ustawia skalê
+			///Metoda ustawia skalÄ™
 			///
-			///@param factors - jednolita wartoœæ skaluj¹ca w osi x i y
+			///@param factors - jednolita wartoÅ›Ä‡ skalujÄ…ca w osi x i y
 			///
 			void setScale(float factors);
 
 			///
-			///Metoda ustawia skalê w stosunku do obecnej skali
+			///Metoda ustawia skalÄ™ w stosunku do obecnej skali
 			///
-			///@param factorX - wspó³czynnik w osi x
+			///@param factorX - wspÃ³Å‚czynnik w osi x
 			///
-			///@param factorY - spó³czynnik w osi y
+			///@param factorY - spÃ³Å‚czynnik w osi y
 			///
 			void scale(float factorX, float factorY);
 			
 			///
-			///Metoda ustawia skalê w stosunku do obecnej skali
+			///Metoda ustawia skalÄ™ w stosunku do obecnej skali
 			///
-			///@param &factor - sta³a referencja na obiekt klasy sf::Vector2f
+			///@param &factor - staÅ‚a referencja na obiekt klasy sf::Vector2f
 			///
 			void scale(const sf::Vector2f& factor);
 
 			///
-			///Metoda zwraca wspó³rzêdne punktu uchwytu obiektu
+			///Metoda zwraca wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 			///
 			const sf::Vector2f& getOrigin() const;
 
 			///
-			///Metoda ustawia wspó³rzêdne punktu uchwytu obiektu
+			///Metoda ustawia wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 			///
-			///@param x - wspó³rzêdna x
+			///@param x - wspÃ³Å‚rzÄ™dna x
 			///
-			///@param y - wspó³rzêdna y
+			///@param y - wspÃ³Å‚rzÄ™dna y
 			///
 			void setOrigin(float x, float y);
 
 			///
-			///Metoda ustawia wspó³rzêdne punktu uchwytu obiektu
+			///Metoda ustawia wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 			///
-			///@param &origin - sta³a referencja na obiekt klasy sf::Vector2f
+			///@param &origin - staÅ‚a referencja na obiekt klasy sf::Vector2f
 			///
 			void setOrigin(const sf::Vector2f& origin);
 
 			///
-			///Metoda zwraca obszar prostok¹tny zajmowany przez teksturê
+			///Metoda zwraca obszar prostokÄ…tny zajmowany przez teksturÄ™
 			///
 			const sf::IntRect& getTextureRect() const;
 
 			///
-			///Metoda ustawia obszar prostok¹tny zajmowany przez teksturê
+			///Metoda ustawia obszar prostokÄ…tny zajmowany przez teksturÄ™
 			///
-			///@param rectLeft - lewy róg prostok¹tnego obszaru
+			///@param rectLeft - lewy rÃ³g prostokÄ…tnego obszaru
 			///
-			///@param rectTop - górny róg prostok¹tnego obszaru
+			///@param rectTop - gÃ³rny rÃ³g prostokÄ…tnego obszaru
 			///
-			///@param rectWidth - szerokoœæ prostok¹tnego obszaru
+			///@param rectWidth - szerokoÅ›Ä‡ prostokÄ…tnego obszaru
 			///
-			///@param rectHeight - wysokoœæ prostok¹tnego obszaru
+			///@param rectHeight - wysokoÅ›Ä‡ prostokÄ…tnego obszaru
 			///
 			void setTextureRect(int rectLeft, int rectTop, int rectWidth, int rectHeight);
 
 			///
-			///Metoda ustawia obszar prostok¹tny zajmowany przez teksturê
+			///Metoda ustawia obszar prostokÄ…tny zajmowany przez teksturÄ™
 			///
-			///@param rectangle - sta³a referencja na obiekt klasy sf::IntRect
+			///@param rectangle - staÅ‚a referencja na obiekt klasy sf::IntRect
 			///
 			void setTextureRect (const sf::IntRect& rectangle);
 
 			///
-			///Metoda zwraca granice obiektu w lokalnym w uk³adzie wspó³rzêdnych
+			///Metoda zwraca granice obiektu w lokalnym w ukÅ‚adzie wspÃ³Å‚rzÄ™dnych
 			///
 			sf::FloatRect getLocalBounds() const;
 
 			///
-			///Metoda zwraca granice obiektu w globalnym w uk³adzie wspó³rzêdnych
+			///Metoda zwraca granice obiektu w globalnym w ukÅ‚adzie wspÃ³Å‚rzÄ™dnych
 			///
 			sf::FloatRect getGlobalBounds() const;
 			
 			///
-			///Metoda przemieszcza obiekt o wartoœæ podan¹ w parametrach wzglêdem aktualnej pozycji
+			///Metoda przemieszcza obiekt o wartoÅ›Ä‡ podanÄ… w parametrach wzglÄ™dem aktualnej pozycji
 			///
-			///@param offsetX - wartoœæ przesuniêcia w osi x
+			///@param offsetX - wartoÅ›Ä‡ przesuniÄ™cia w osi x
 			///
-			///@param offsetX - wartoœæ przesuniêcia w osi x
+			///@param offsetX - wartoÅ›Ä‡ przesuniÄ™cia w osi x
 			///
 			void move(float offsetX, float offsetY);
 
 			///
-			///Metoda przemieszcza obiekt o wartoœæ wektora przesuniêcia
+			///Metoda przemieszcza obiekt o wartoÅ›Ä‡ wektora przesuniÄ™cia
 			///
-			///@param &offset - sta³a referencja na obiekt klasy sf::Vector2f - wektora przesuniêcia
+			///@param &offset - staÅ‚a referencja na obiekt klasy sf::Vector2f - wektora przesuniÄ™cia
 			///
 			void move(const sf::Vector2f& offset);
 
@@ -237,80 +241,80 @@ namespace acodemia
 			void setColor(const sf::Color& color);
 
 			///
-			///Metoda ustawia teksturê obiektu
+			///Metoda ustawia teksturÄ™ obiektu
 			///
-			///@param &texture_name - sta³a referencja na obiekt std::string - nazwa tekstury
+			///@param &texture_name - staÅ‚a referencja na obiekt std::string - nazwa tekstury
 			///
 			//void setTexture(const std::string& texture_name, bool smoothing = true);
 
 			///
-			///Metoda ustawia teksturê obiektu
+			///Metoda ustawia teksturÄ™ obiektu
 			///
-			///@param *p_texture - wskaŸnik na obiekt klasy CTexture
+			///@param *p_texture - wskaÅºnik na obiekt klasy CTexture
 			///
 			//void setTexture(CTexture *p_texture, bool smoothing = true);
 
 			///
 			///Metoda generuje obraz tekstury
 			///
-			///@param width - szerokoœæ tekstury (obiektu) w pikselach
+			///@param width - szerokoÅ›Ä‡ tekstury (obiektu) w pikselach
 			///
-			///@param height - wysokoœæ tekstury (obiektu) w pikselach
+			///@param height - wysokoÅ›Ä‡ tekstury (obiektu) w pikselach
 			///
-			///@param color - & color - sta³a referencja na obiekt klasy sf::Color
+			///@param color - & color - staÅ‚a referencja na obiekt klasy sf::Color
 			///
 			void SetTexture(unsigned width, unsigned height, const sf::Color & color = sf::Color(0, 0, 0));
 
 			///
 			///Metoda generuje obraz tekstury
 			///
-			///@param width - szerokoœæ tekstury (obiektu) w pikselach
+			///@param width - szerokoÅ›Ä‡ tekstury (obiektu) w pikselach
 			///
-			///@param height - wysokoœæ tekstury (obiektu) w pikselach
+			///@param height - wysokoÅ›Ä‡ tekstury (obiektu) w pikselach
 			///
-			///@param r - sk³adowa red koloru
+			///@param r - skÅ‚adowa red koloru
 			///
-			///@param g - sk³adowa green koloru
+			///@param g - skÅ‚adowa green koloru
 			///
-			///@param b - sk³adowa blue koloru
+			///@param b - skÅ‚adowa blue koloru
 			///
-			///@param a - sk³adowa alpha koloru
+			///@param a - skÅ‚adowa alpha koloru
 			///
 			void SetTexture(unsigned width, unsigned height, unsigned r, unsigned g, unsigned b, unsigned a = 255);
 
 			///
-			///Metoda ustawia animacjê
+			///Metoda ustawia animacjÄ™
 			///
-			///@param &animation_name - sta³a referencja na obiekt std::string - nazwa animacji
+			///@param &animation_name - staÅ‚a referencja na obiekt std::string - nazwa animacji
 			///
 			//void SetAnimation( const std::string& animation_name );
 
 			///
-			///Metoda ustawia animacjê
+			///Metoda ustawia animacjÄ™
 			///
-			///@param *p_animation - wskaŸnik na obiekt klasy CAnimation
+			///@param *p_animation - wskaÅºnik na obiekt klasy CAnimation
 			///
 			//void SetAnimation(CAnimation *p_animation);
 
 			///
-			///Metoda zwraca wskaŸnik na obiekt klasy CAnimationState
+			///Metoda zwraca wskaÅºnik na obiekt klasy CAnimationState
 			///
 			//CAnimationState* GetAnimationState();
 
 
 			///
-			///Metoda ustawia teksturê dla sprite
+			///Metoda ustawia teksturÄ™ dla sprite
 			///
-			///@param & texture - sta³a referencja na obiekt klasy sf::Texture
+			///@param & texture - staÅ‚a referencja na obiekt klasy sf::Texture
 			///
 			void setTexture(const sf::Texture & texture);
 
 
-			//dodaæ smooth...y
+			//dodaÄ‡ smooth...y
 			//void setTexture(const Texture& texture, bool resetRect = false);
 
 			///
-			///Wirtualna metoda renderuj¹ca obiekt
+			///Wirtualna metoda renderujÄ…ca obiekt
 			///
 			///@render & render - referencja na kontekst graficzny
 			///
@@ -318,7 +322,9 @@ namespace acodemia
 		
 		private:
 		
-			sf::Sprite *p_sprite;//wskaŸnik na kontekst graficzny
+			//sf::Sprite *p_sprite;//wskaÅºnik na kontekst graficzny
+			Sprite *p_sprite;
+			
 		};
 	} //namespace rendering
 }//namespace acodemia
