@@ -11,7 +11,6 @@ namespace acodemia
 		//Konstruktor domyślny
 		Displayable::Displayable()
 		:
-			//p_sprite(new sf::Sprite())
 			p_sprite(new Sprite())
 		{
 		}
@@ -19,7 +18,6 @@ namespace acodemia
 		//Konstruktor kopiujący
 		Displayable::Displayable(const Displayable & copy)
 		:
-			//p_sprite(new sf::Sprite(*copy.p_sprite))
 			p_sprite(new Sprite(*copy.p_sprite))
 		{
 		}
