@@ -34,18 +34,29 @@ namespace acodemia
 		{
 		}
 
-		//Wirtualna metoda ładująca zasób - implementacja
-		bool Texture::Load(const std::string &file_name)
+		//Przeciążony operator przypisania kopiowania
+		Texture & Texture::operator=(const Texture & copy)
 		{
-			if (loadFromFile(file_name))//jeśli dane zostały załadowane
-				return true;			//zwracamy flagę true (ok)
-			return false;				//false, jeśli program nie załadował pliku
+			if (this != &copy)
+				sf::Texture::operator=(copy);
+			return *this;
 		}
 
-		////Wirtualna metoda zwalniająca zasób
-		//void CTexture::Drop()
-		//{
-		//	delete this;
-		//}
+		//Przeciążony operator przypisania przenoszenia
+		Texture & Texture::operator=(Texture && other)
+		{
+			if (this != &other)
+				sf::Texture::operator=(other);
+			return *this;
+		}
+
+		//Metoda wczytuje teksturę z pliku
+		bool Texture::Load(const std::string & file_name)
+		{
+			//jeśli dane zostały załadowane
+			if (sf::Texture::loadFromFile(file_name))
+				return true;	//zwracamy flagę true (ok)
+			return false;		//false, jeśli program nie załadował pliku
+		}
 	}//namespace rendering
 }//namespace acodemia

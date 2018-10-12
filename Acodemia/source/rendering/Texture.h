@@ -41,26 +41,27 @@ namespace acodemia
 			///Destruktor
 			///
 			~Texture();
-			
-
-			//todo...
 
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & other - stała referencja na obiekt klasy Texture
+			///@param & copy - stała referencja na obiekt klasy Texture
 			///
-			//Texture & operator=(const Texture & other);
-
+			Texture & operator=(const Texture & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
 			///@param && other -  referencja do r-wartości
 			///
-			//Texture & operator=(Texture && other);
+			Texture & operator=(Texture && other);
 
-			bool Load(const std::string &file_name);
+			///
+			///Metoda wczytuje teksturę z pliku
+			///
+			///@param & file_name - stała referencja na obiekt klasy std::string
+			////
+			bool Load(const std::string & file_name);
 
 		};
 	}//namespace rendering

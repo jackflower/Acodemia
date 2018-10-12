@@ -6,32 +6,20 @@ int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 
-	//Testy
-	//acodemia::rendering::Sprite
-	//acodemia::rendering::Texture
-	//
-
 	acodemia::rendering::Texture graphics;
 	graphics.loadFromFile("../data/ship.png");
 
-	//testy - potem usunąć...
-	acodemia::rendering::Displayable Ship;
-	Ship.setTexture(graphics);
-	Ship.setPosition(100, 100);
-	acodemia::rendering::Displayable Twice;
-	Twice.setTexture(graphics);
-	Twice.setPosition(300, 100);
-	acodemia::rendering::Displayable Zorro(Ship);//kopiujący
-	acodemia::rendering::Displayable Garcia(std::move(Twice));//przenoszący
-	acodemia::rendering::Displayable Jeden;
-	Jeden = Ship;//operator przypisania kopiujący...
-	Jeden.setPosition(200, 400);
-	acodemia::rendering::Displayable Dwa;
-	Dwa = std::move(Twice);//operator przypisania przenoszący...
-	Dwa.setPosition(400, 400);
+	acodemia::rendering::Displayable Destroyer;
+	Destroyer.setTexture(graphics);
+	Destroyer.setPosition(100, 100);
 
+	acodemia::rendering::Displayable Warrior;
+	Warrior.setTexture(graphics);
+	Warrior.setPosition(300, 100);
 
-	int warta = 0;
+	acodemia::rendering::Displayable Defender;
+	Defender.setTexture(graphics);
+	Defender.setPosition(200, 300);
 
 
 	while (window.isOpen())
@@ -44,12 +32,9 @@ int main()
 		}
 
 		window.clear(sf::Color::White);
-		Ship.draw(window);
-		Twice.draw(window);
-		Zorro.draw(window);
-		Garcia.draw(window);
-		Jeden.draw(window);
-		Dwa.draw(window);
+		Destroyer.draw(window);
+		Warrior.draw(window);
+		Defender.draw(window);
 		window.display();
 	}
 

@@ -48,9 +48,9 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & other - stała referencja na obiekt klasy Displayable
+			///@param & copy - stała referencja na obiekt klasy Displayable
 			///
-			Displayable & operator=(const Displayable & other);
+			Displayable & operator=(const Displayable & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia

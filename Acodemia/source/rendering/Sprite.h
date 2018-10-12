@@ -42,23 +42,19 @@ namespace acodemia
 			///
 			~Sprite();
 
-			//todo...
-
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & other - stała referencja na obiekt klasy Sprite
+			///@param & copy - stała referencja na obiekt klasy Sprite
 			///
-			//Sprite & operator=(const Sprite & other);
-
+			Sprite & operator=(const Sprite & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
 			///@param && other -  referencja do r-wartości
 			///
-			//Sprite & operator=(Sprite && other);
-
+			Sprite & operator=(Sprite && other);
 
 		};
 	}//namespace rendering

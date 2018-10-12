@@ -29,8 +29,8 @@ namespace acodemia
 		{
 			//kopiujemy pod wskaźnik dane obiektu źródłowego
 			p_sprite = other.p_sprite;
-			//zwalniamy wskaźnik na dane obiektu źródłowego tak, aby
-			//destruktor nie zwalniał pamięci wielokrotnie
+			//zwalniamy wskaźnik na dane obiektu źródłowego tak,
+			//aby destruktor nie zwalniał pamięci wielokrotnie
 			other.p_sprite = nullptr;
 		}
 
@@ -43,15 +43,15 @@ namespace acodemia
 		}
 
 		//Przeciążony operator przypisania kopiowania
-		Displayable & Displayable::operator=(const Displayable & other)
+		Displayable & Displayable::operator=(const Displayable & copy)
 		{
-			if (this != & other)
+			if (this != &copy)
 			{
 				//zwalaniamy dane pod wskaźnikiem
 				delete p_sprite;
 				//tworzymy nowy obiekt na podstawie obiektu źródłowego
 				//p_sprite = new sf::Sprite(*other.p_sprite);
-				p_sprite = new Sprite(*other.p_sprite);
+				p_sprite = new Sprite(*copy.p_sprite);
 			}
 			return *this;
 		}
@@ -65,8 +65,8 @@ namespace acodemia
 				delete p_sprite;
 				//przenosimy pod wskaźnik dane z obiektu źródłowego
 				p_sprite = other.p_sprite;
-				//zwalniamy wskaźnik na dane obiektu źródłowego tak, aby
-				//destruktor nie zwalniał pamięci wielokrotnie
+				//zwalniamy wskaźnik na dane obiektu źródłowego tak,
+				//aby destruktor nie zwalniał pamięci wielokrotnie
 				other.p_sprite = nullptr;
 			}
 				return *this;
