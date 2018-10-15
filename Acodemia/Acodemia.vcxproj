@@ -132,11 +132,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="source\animation\AnimatedFrame.cpp" />
     <ClCompile Include="source\rendering\Displayable.cpp" />
     <ClCompile Include="source\rendering\Sprite.cpp" />
     <ClCompile Include="source\rendering\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\animation\AnimatedFrame.h" />
     <ClInclude Include="source\rendering\Displayable.h" />
     <ClInclude Include="source\rendering\Sprite.h" />
     <ClInclude Include="source\rendering\Texture.h" />
