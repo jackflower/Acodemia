@@ -88,6 +88,7 @@ namespace acodemia
 
 			const sf::Texture*	p_texture;		//wskaŸnik na teksturê
 			sf::IntRect			m_rectangle;	//obszar prostok¹tny klatki animacji
+			//analiza - sk³adowe
 		};
 	}//namespace animated
 }//namespace acodemia
