@@ -19,6 +19,9 @@
     <Filter Include="source\rendering">
       <UniqueIdentifier>{a15baf58-be61-4528-bf2f-cc8b77baea71}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\animation">
+      <UniqueIdentifier>{8124f0a2-38d5-455b-ba59-531d6dffa328}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />

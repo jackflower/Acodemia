@@ -1,24 +1,21 @@
-/*
- ______________________________________
-| CAnimated.h - definicja klasy.       |
-| SCI - by Jack Flower March 2009.     |
-|______________________________________|
+//  ______________________________________
+// | CAnimated.h - class definition       |
+// | Jack Flower - March 2009             |
+// | update May 2017                      |
+// |______________________________________|
+//
 
-*/
-
-#ifndef ANIMATED_JACK
-#define ANIMATED_JACK
+#ifndef H_ANIMATED_JACK
+#define H_ANIMATED_JACK
  
-#include "CAnim.h"
-#include "../Factory/Creator/Creator_New/CEntity.h"
+#include "CAnimatedAnimation.h"
 
-namespace animation
+namespace animated
 {
-
 	///
-	///Klasa reprezentuje animowany obiekt
+	///Klasa reprezentuje animowany obiekt (sprite)
 	///
-	class CAnimated : public CEntity, public sf::Sprite
+	class CAnimated : public sf::Sprite
 	{
 	public:
 
@@ -30,22 +27,22 @@ namespace animation
 		///
 		///Konstruktor parametryczny
 		///
-		///@param newAnim - wskaŸnik na obiekt klasy CAnim (animacja)
+		///@param p_animation - wskaŸnik na obiekt klasy CAnimatedAnimation (animacja)
 		///
-		///@param Play - tryb Pause/Play
+		///@param play - tryb Pause/Play
 		///
-		///@param Loop - tryb Loop
+		///@param loop - tryb Loop
 		///
-		///@param Time - czas ekspozycji klatki
+		///@param time - czas ekspozycji klatki
 		///
-		CAnimated (CAnim* newAnim, bool Play = true, bool Loop = true, float Time = 0.f);
+		CAnimated (CAnimatedAnimation* p_animation, bool play = true, bool Loop = true, float time = 0.f);
 
 		///
 		///Konstruktor kopiuj¹cy
 		///
-		///@param &CAnimatedCopy - parametr - obiekt klasy CAnimated
+		///@param & copy - parametr - obiekt klasy CAnimated
 		///
-		CAnimated(const CAnimated& CAnimatedCopy);
+		CAnimated(const CAnimated & copy);
 
 		///
 		///Destruktor wirtualny
@@ -53,71 +50,71 @@ namespace animation
 		virtual ~CAnimated();
 
 		///
-		///Metoda zwraca wskaŸnik na obiekt klasy CAnim
+		///Metoda zwraca wskaŸnik na obiekt klasy CAnimatedAnimation
 		///
-		CAnim* GetAnim() const {return m_anim;}
+		CAnimatedAnimation* GetAnimation() const;
 
 		///
-		///Metoda ustawia wskaŸnik na obiekt klasy CAnim
+		///Metoda ustawia wskaŸnik na obiekt klasy CAnimatedAnimation
 		///
-		///@param newAnim - wskaŸnik na obiekt klasy CAnim (animacja)
+		///@param animated - wskaŸnik na obiekt klasy CAnimatedAnimation (animacja)
 		///
-		///@param _play - tryb Pause/Play
+		///@param play - tryb Pause/Play
 		///
-		const void SetAnim(CAnim* newAnim, bool _play = false);
+		const void SetAnimation(CAnimatedAnimation* animated, bool play = false);
 
 		///
-		///Metoda wyrejestrowuje animacjê - obiekt klasy CAnim
+		///Metoda wyrejestrowuje animacjê - obiekt klasy CAnimation
 		///
 		void UnsetAnim();
 
 		///
-	    ///Metoda zwraca numer aktualnej klatki animacji obiektu klasy CAnim
+	    ///Metoda zwraca numer aktualnej klatki animacji obiektu klasy CAnimation
 		///
-		const int GetCurrentFrame() const {return m_currentframe;}
+		const int GetCurrentFrame() const;
 
 		///
-		///Metoda ustawia numer klatki animacji obiektu klasy CAnim
+		///Metoda ustawia numer klatki animacji obiektu klasy CAnimation
 		///
-		///@param _frame - klatka animacji
+		///@param frame - klatka animacji
 		///
-		const void SetFrame(int _frame);
+		const void SetFrame(int frame);
 
 		///
-		///Metoda zwraca czas ekspozycji klatki animacji obiektu klasy CAnim
+		///Metoda zwraca czas ekspozycji klatki animacji obiektu klasy CAnimation
 		///
-		const float GetFrameTime() const {return m_time;}
+		const float GetFrameTime() const;
 
 		///
-		///Metoda ustawia czas ekspozycji klatki animacji obiektu klasy CAnim
+		///Metoda ustawia czas ekspozycji klatki animacji obiektu klasy CAnimation
 		///
-		///@param _time - czas ekspozycji klatki animacji
+		///@param time - czas ekspozycji klatki animacji
 		///
-		const void SetFrameTime(float _time);
+		const void SetFrameTime(float time);
 
 		///
 		///Metoda zwraca tryb pause animacji
 		///
-		const bool GetPaused() const {return m_paused;}
+		const bool GetPaused() const;
 
 		///
 	    ///Metoda ustwia tryb pause animacji
 		///
-		///@param _pause - tryb pause
+		///@param paused - tryb pause
 		///
-		const void SetPaused(bool _paused);
+		const void SetPaused(bool paused);
 
 		///
 		///Metoda sprawdza czy ustawiony jest tryb Loop
 		///
-		const bool IsLoop() {return m_loop;}
+		const bool IsLoop() const;
 
 		///
 		///Metoda ustawiaj¹ca tryb Loop animacji
 		///
-		///@param _loop - tryb Loop
+		///@param loop - tryb Loop
 		///
-		const void SetLoop(bool _loop);
+		const void SetLoop(bool loop);
  
 		///
 	    ///Metoda zatrzymuje odtwarzanie animacji
@@ -137,46 +134,46 @@ namespace animation
 		///
 		///Metoda sprawdza, czy animacja jest w trybie Pause
 		///
-		const bool IsPaused() {return m_paused;}
+		const bool IsPaused() const;
 
 		///
 	    ///Metoda sprawdza, czy animacja jest zatrzymana
 		///
-		const bool IsStoped() {return (m_paused && (m_currentframe == 0) && (m_elapsedtime == m_time));}
+		const bool IsStoped() const;
 
 		///
-	    ///Metoda uruchamia animacjê
+	    ///Metoda aktualizuje animacjê
 		///
-		///@_elapsedtime _elapsedtime parametr - czas
+		///@param elapsed_time - czas
 		///
-	    void Update(float _elapsedtime);
+	    void Update(float elapsed_time);
 	
 		///
-		///Metoda pobiera numer ostatnio wyœwietlanej klatki animacji
+		///Metoda zwraca numer ostatnio wyœwietlanej klatki animacji
 		///
-		const int GetLastAnimFrame() const {return m_lastanimframe;}
+		const int GetLastAnimFrame() const;
 
 		///
 		///Metoda zwraca iloœæ klatek animacji
 		///
-		const int GetAnimSize() const {return m_anim->Size();}
+		const int GetAnimSize() const;
 
 		///
 		///Metoda zwraca flagê standardowej konfiguracji animacji
 		///
-		const bool GetAnimMode() const {return m_default_anim_mode;}
+		const bool GetAnimMode() const;
 
 		///
 		///Metoda zwraca sta³¹, zdefiniowan¹ statycznie wartoœæ ekspozycji klatki animacji
 		///
-		const float GetDefaultFrameTime() const { return m_default_time; }
+		const float GetDefaultFrameTime() const;
 
 		///
 		///Metoda renderuj¹ca obiekt klasy CAnimated
 		///
-		///@render render - parametr drawable
+		///@render render - kontekst graficzny
 		///
-		void Draw(sf::RenderWindow* render);
+		virtual void draw(sf::RenderWindow* render);
 
 	protected:
 
@@ -184,13 +181,22 @@ namespace animation
 	    float				m_elapsedtime;			//czas up³ywaj¹cy
 	    bool				m_paused;				//tryb Pause
 	    bool				m_loop;					//tryb Loop
-	    CAnim*				m_anim;					//wskaŸnik na obiekt klasy CAnim (animacja)
+		CAnimatedAnimation*	p_animation;			//wskaŸnik na obiekt klasy CAnimatedAnimation (animacja)
 	    int					m_currentframe;			//bie¿¹ca klatka animacji
 		int					m_lastanimframe;		//klatka, na której zakoñczy³a siê animacja
 		bool				m_default_anim_mode;	//flaga standardowej konfiguracji trybu animacji
 		static const float	m_default_time;			//wartoœæ domyœlna czasu ekspozycji klatki animacji
 	};
+}//namespace animated
+#endif //H_ANIMATED_JACK
 
-}//namespace animation
 
-#endif //ANIMATED_JACK
+// //usage
+//sf::Texture animation_texture;
+//animation_texture.loadFromFile("../data/logo_sci_atlas.png");
+//animated::CAnimatedAnimation animacja;
+//animacja.SetAnimationFramesFromAtlasTexture(animation_texture, 50, 50);
+//animated::CAnimated animek;
+//animek.SetAnimation(&animacja);
+//animek.setPosition(150.f, 150.f);
+////animek.Update(time); loop update game
