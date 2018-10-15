@@ -1,4 +1,4 @@
-//acodemia.pl
+ï»¿//acodemia.pl
 
 #include "AnimatedFrame.h"
 
@@ -14,7 +14,7 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor kopiuj¹cy
+		//Konstruktor kopiujÄ…cy
 		AnimationFrame::AnimationFrame(const AnimationFrame & copy)
 		:
 			p_texture(copy.p_texture),
@@ -22,7 +22,7 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor przenosz¹cy
+		//Konstruktor przenoszÄ…cy
 		AnimationFrame::AnimationFrame(AnimationFrame && other)
 		{
 			//to do...
@@ -52,7 +52,7 @@ namespace acodemia
 			p_texture = nullptr;
 		}
 
-		//Przeci¹¿ony operator przypisania kopiowania
+		//PrzeciÄ…Å¼ony operator przypisania kopiowania
 		AnimationFrame & AnimationFrame::operator=(const AnimationFrame & copy)
 		{
 			// to do...
@@ -60,7 +60,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Przeci¹¿ony operator przypisania przenoszenia
+		//PrzeciÄ…Å¼ony operator przypisania przenoszenia
 		AnimationFrame & AnimationFrame::operator=(AnimationFrame && other)
 		{
 			//to do...
@@ -68,7 +68,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda zwraca sta³y wskaŸnik na teksturê klatki animacji z wektora
+		//Metoda zwraca staÅ‚y wskaÅºnik na teksturÄ™ klatki animacji z wektora
 		const sf::Texture *AnimationFrame::GetFrameImage() const
 		{
 			return p_texture;

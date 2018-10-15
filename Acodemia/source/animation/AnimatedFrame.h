@@ -1,4 +1,4 @@
-//
+ï»¿//
 //acodemia.pl
 //
 
@@ -13,28 +13,28 @@ namespace acodemia
 	namespace animated
 	{
 		///
-		///Klasa reprezentuje klatkê animacji
+		///Klasa reprezentuje klatkÄ™ animacji
 		//
 		class AnimationFrame
 		{
 		public:
 
 			///
-			//Konstruktor domyœlny
+			//Konstruktor domyÅ›lny
 			///
 			AnimationFrame();
 
 			///
-			///Konstruktor kopiuj¹cy
+			///Konstruktor kopiujÄ…cy
 			///
-			///@param & copy - sta³a referencja na obiekt klasy AnimationFrame
+			///@param & copy - staÅ‚a referencja na obiekt klasy AnimationFrame
 			///
 			AnimationFrame(const AnimationFrame & copy);
 
 			///
-			///Konstruktor przenosz¹cy
+			///Konstruktor przenoszÄ…cy
 			///
-			///@param && other = referencja do r-wartoœci
+			///@param && other = referencja do r-wartoÅ›ci
 			///
 			AnimationFrame(AnimationFrame && other);
 
@@ -43,7 +43,7 @@ namespace acodemia
 			///
 			///@param & texture - tekstura
 			///
-			///@param & rectangle - obszar prostok¹tny tekstury
+			///@param & rectangle - obszar prostokÄ…tny tekstury
 			///
 			AnimationFrame(const sf::Texture & texture, const sf::IntRect & rectangle);
 
@@ -60,22 +60,22 @@ namespace acodemia
 			~AnimationFrame();
 
 			///
-			///Przeci¹¿ony operator przypisania kopiowania
+			///PrzeciÄ…Å¼ony operator przypisania kopiowania
 			///
-			///@param & copy - sta³a referencja na obiekt klasy AnimationFrame
+			///@param & copy - staÅ‚a referencja na obiekt klasy AnimationFrame
 			///
 			AnimationFrame & operator=(const AnimationFrame & copy);
 
 			///
-			///Przeci¹¿ony operator przypisania przenoszenia
+			///PrzeciÄ…Å¼ony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartoœci
+			///@param && other -  referencja do r-wartoÅ›ci
 			///
 			AnimationFrame & operator=(AnimationFrame && other);
 			
 
 			///
-			///Metoda zwraca sta³y wskaŸnik na teksturê klatki animacji z wektora
+			///Metoda zwraca staÅ‚y wskaÅºnik na teksturÄ™ klatki animacji z wektora
 			///
 			const sf::Texture *GetFrameImage() const;
 
@@ -86,9 +86,9 @@ namespace acodemia
 
 		private:
 
-			const sf::Texture*	p_texture;		//wskaŸnik na teksturê
-			sf::IntRect			m_rectangle;	//obszar prostok¹tny klatki animacji
-			//analiza - sk³adowe
+			const sf::Texture*	p_texture;		//wskaÅºnik na teksturÄ™
+			sf::IntRect			m_rectangle;	//obszar prostokÄ…tny klatki animacji
+			//analiza - skÅ‚adowe
 		};
 	}//namespace animated
 }//namespace acodemia
