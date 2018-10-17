@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "source/rendering/Displayable.h"
 
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);

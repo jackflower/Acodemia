@@ -9,7 +9,7 @@ namespace acodemia
 		//Konstruktor
 		AnimationFrame::AnimationFrame()
 		:
-			p_texture(0),
+			p_texture(nullptr),
 			m_rectangle()
 		{
 		}
@@ -24,25 +24,30 @@ namespace acodemia
 
 		//Konstruktor przenoszący
 		AnimationFrame::AnimationFrame(AnimationFrame && other)
+		:
+			p_texture(nullptr)
 		{
-			//to do...
-			//look at class Displayable...
+			//kopiujemy pod wskaźnik dane obiektu źródłowego
+			p_texture = other.p_texture;
+			//zwalniamy wskaźnik na dane obiektu źródłowego tak,
+			//aby destruktor nie zwalniał pamięci wielokrotnie
+			other.p_texture = nullptr;
 		}
 
 		//Konstruktor parametryczny
-		AnimationFrame::AnimationFrame(const sf::Texture & texture, const sf::IntRect & rectangle)
+		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle)
 		:
-			p_texture(&texture),
+			p_texture(& texture),
 			m_rectangle(rectangle)
 		{
 		}
 
 		//Konstruktor parametryczny
-		AnimationFrame::AnimationFrame(const sf::Texture & texture)
+		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture)
 		:
-			p_texture(&texture)
+			p_texture(& texture)
 		{
-			if (p_texture != 0)
+			if (p_texture != nullptr)
 				m_rectangle = sf::IntRect(0, 0, p_texture->getSize().x, p_texture->getSize().y);
 		}
 
