@@ -5,10 +5,6 @@
 #ifndef H_ANIMATION_FRAME_JACK
 #define H_ANIMATION_FRAME_JACK
 
-//analiza, czy te include są potrzebne?
-
-//#include <SFML/Graphics.hpp>
-//#include <SFML/System.hpp>
 #include "../rendering/Texture.h"
 
 namespace acodemia

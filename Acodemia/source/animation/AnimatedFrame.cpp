@@ -9,16 +9,16 @@ namespace acodemia
 		//Konstruktor
 		AnimationFrame::AnimationFrame()
 		:
-			p_texture(nullptr),
-			m_rectangle()
+			p_texture	(nullptr),
+			m_rectangle	()
 		{
 		}
 
 		//Konstruktor kopiujący
 		AnimationFrame::AnimationFrame(const AnimationFrame & copy)
 		:
-			p_texture(copy.p_texture),
-			m_rectangle(copy.m_rectangle)
+			p_texture	(copy.p_texture),
+			m_rectangle	(copy.m_rectangle)
 		{
 		}
 
@@ -37,15 +37,15 @@ namespace acodemia
 		//Konstruktor parametryczny
 		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle)
 		:
-			p_texture(& texture),
-			m_rectangle(rectangle)
+			p_texture	(& texture),
+			m_rectangle	(rectangle)
 		{
 		}
 
 		//Konstruktor parametryczny
 		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture)
 		:
-			p_texture(& texture)
+			p_texture	(& texture)
 		{
 			if (p_texture != nullptr)
 				m_rectangle = sf::IntRect(0, 0, p_texture->getSize().x, p_texture->getSize().y);
@@ -60,16 +60,33 @@ namespace acodemia
 		//Przeciążony operator przypisania kopiowania
 		AnimationFrame & AnimationFrame::operator=(const AnimationFrame & copy)
 		{
-			// to do...
-			//look at class Displayable...
+			if (this != &copy)
+			{
+				//zwalaniamy dane pod wskaźnikiem
+				delete p_texture;
+				//tworzymy nowy obiekt na podstawie obiektu źródłowego
+				//p_sprite = new sf::Sprite(*other.p_sprite);
+				p_texture = new acodemia::rendering::Texture(*copy.p_texture);
+				m_rectangle = copy.m_rectangle;
+			}
 			return *this;
 		}
 
 		//Przeciążony operator przypisania przenoszenia
 		AnimationFrame & AnimationFrame::operator=(AnimationFrame && other)
 		{
-			//to do...
-			//look at class Displayable...
+			if (this != &other)
+			{
+				//zwalaniamy dane pod wskaźnikiem
+				delete p_texture;
+				//przenosimy pod wskaźnik dane z obiektu źródłowego
+				p_texture = other.p_texture;
+				m_rectangle = other.m_rectangle;
+				//zwalniamy wskaźnik na dane obiektu źródłowego tak,
+				//aby destruktor nie zwalniał pamięci wielokrotnie
+				other.p_texture = nullptr;
+				//other.m_rectangle...
+			}
 			return *this;
 		}
 
