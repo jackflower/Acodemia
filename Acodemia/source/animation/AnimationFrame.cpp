@@ -1,10 +1,10 @@
 ﻿//acodemia.pl
 
-#include "AnimatedFrame.h"
+#include "AnimationFrame.h"
 
 namespace acodemia
 {
-	namespace animated
+	namespace animation
 	{
 		//Konstruktor
 		AnimationFrame::AnimationFrame()
@@ -101,5 +101,5 @@ namespace acodemia
 		{
 			return m_rectangle;
 		}
-	}//namespace animated
+	}//namespace animation
 }//namespace acodemia

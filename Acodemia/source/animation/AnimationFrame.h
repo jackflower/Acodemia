@@ -9,7 +9,7 @@
 
 namespace acodemia
 {
-	namespace animated
+	namespace animation
 	{
 		///
 		///Klasa reprezentuje klatkę animacji
@@ -87,6 +87,6 @@ namespace acodemia
 			const acodemia::rendering::Texture*p_texture;//stały wskaźnik na teksturę
 			sf::IntRect m_rectangle;//obszar prostokątny klatki animacji
 		};
-	}//namespace animated
+	}//namespace animation
 }//namespace acodemia
 #endif // H_ANIMATION_FRAME_JACK

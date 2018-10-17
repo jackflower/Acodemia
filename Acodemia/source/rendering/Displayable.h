@@ -41,7 +41,7 @@ namespace acodemia
 			Displayable(Displayable && other);
 
 			///
-			///Destruktor wirtualny
+			///Destruktor
 			///
 			~Displayable();
 

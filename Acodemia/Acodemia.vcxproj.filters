@@ -34,7 +34,10 @@
     <ClCompile Include="source\rendering\Texture.cpp">
       <Filter>source\rendering</Filter>
     </ClCompile>
-    <ClCompile Include="source\animation\AnimatedFrame.cpp">
+    <ClCompile Include="source\animation\AnimationFrame.cpp">
+      <Filter>source\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="source\animation\Animation.cpp">
       <Filter>source\animation</Filter>
     </ClCompile>
   </ItemGroup>
@@ -48,7 +51,10 @@
     <ClInclude Include="source\rendering\Texture.h">
       <Filter>source\rendering</Filter>
     </ClInclude>
-    <ClInclude Include="source\animation\AnimatedFrame.h">
+    <ClInclude Include="source\animation\AnimationFrame.h">
+      <Filter>source\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="source\animation\Animation.h">
       <Filter>source\animation</Filter>
     </ClInclude>
   </ItemGroup>

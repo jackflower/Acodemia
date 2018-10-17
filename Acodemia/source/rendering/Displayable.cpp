@@ -1,6 +1,4 @@
-﻿//
-//acodemia.pl
-//
+﻿//acodemia.pl
 
 #include "Displayable.h"
 
@@ -34,7 +32,7 @@ namespace acodemia
 			other.p_sprite = nullptr;
 		}
 
-		//Destruktor wirtualny
+		//Destruktor
 		Displayable::~Displayable() 
 		{
 			if(p_sprite != nullptr)
