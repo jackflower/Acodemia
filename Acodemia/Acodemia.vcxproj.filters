@@ -40,6 +40,9 @@
     <ClCompile Include="source\animation\Animation.cpp">
       <Filter>source\animation</Filter>
     </ClCompile>
+    <ClCompile Include="source\animation\Animated.cpp">
+      <Filter>source\animation</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\rendering\Displayable.h">
@@ -55,6 +58,9 @@
       <Filter>source\animation</Filter>
     </ClInclude>
     <ClInclude Include="source\animation\Animation.h">
+      <Filter>source\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="source\animation\Animated.h">
       <Filter>source\animation</Filter>
     </ClInclude>
   </ItemGroup>

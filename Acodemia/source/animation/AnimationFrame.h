@@ -2,8 +2,8 @@
 //acodemia.pl
 //
 
-#ifndef H_ANIMATION_FRAME_JACK
-#define H_ANIMATION_FRAME_JACK
+#ifndef H_ANIMATION_FRAME_ACODEMIA
+#define H_ANIMATION_FRAME_ACODEMIA
 
 #include "../rendering/Texture.h"
 
@@ -89,4 +89,4 @@ namespace acodemia
 		};
 	}//namespace animation
 }//namespace acodemia
-#endif // H_ANIMATION_FRAME_JACK
+#endif // H_ANIMATION_FRAME_ACODEMIA

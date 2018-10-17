@@ -23,10 +23,9 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Displayable::Displayable(Displayable && other)
 		:
-			p_sprite(nullptr)
-		{
 			//kopiujemy pod wskaźnik dane obiektu źródłowego
-			p_sprite = other.p_sprite;
+			p_sprite(std::move(other.p_sprite))
+		{
 			//zwalniamy wskaźnik na dane obiektu źródłowego tak,
 			//aby destruktor nie zwalniał pamięci wielokrotnie
 			other.p_sprite = nullptr;
