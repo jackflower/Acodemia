@@ -25,7 +25,7 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Texture::Texture(Texture && other)
 		:
-			sf::Texture(other)
+			sf::Texture(std::move(other))
 		{
 		}
 

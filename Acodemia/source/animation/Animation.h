@@ -8,8 +8,6 @@
 #include "AnimationFrame.h"
 #include <vector>
 
-//2018-10-17
-// r e f a k t o r y z a c j a
 
 namespace acodemia
 {
@@ -30,11 +28,16 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - stała referencja na obiekt klasy CAnimation
+			///@param & copy - stała referencja na obiekt klasy Animation
 			///
 			Animation(const Animation & copy);
 
-			//przonoszący...
+			///
+			///Konstruktor przenoszący
+			///
+			///@param && other = referencja do r-wartości
+			///
+			Animation(Animation && other);
 
 			///
 			///Konstruktor parametryczny
@@ -69,7 +72,7 @@ namespace acodemia
 			///
 			///Metoda zwraca ilość obieków klasy AnimationFrame w wektorze
 			///
-			unsigned int Size() const;
+			unsigned int getSize() const;
 
 			///
 			///Operator [] dla obiektu klasy AnimationFrame
@@ -85,7 +88,7 @@ namespace acodemia
 			///
 			///@param height_frame - wysokość klatki animacji
 			///
-			bool SetAnimationFramesFromAtlasTexture(const acodemia::rendering::Texture & texture, int width_frame, int height_frame);
+			bool setAnimationFramesFromAtlasTexture(const acodemia::rendering::Texture & texture, int width_frame, int height_frame);
 
 			///
 			///Metoda dodaje do wektora obiekt klasy AnimationFrame
@@ -94,33 +97,33 @@ namespace acodemia
 			///
 			///@param & rectangle - obszar prostokątny
 			///
-			void SetSingleAnimationFrameTexture(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle);
+			void setSingleAnimationFrameTexture(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle);
 
 			///
 			///Metoda usuwa z wektora obiekt klasy AnimationFrame o podanym indeksie
 			///
 			///@param index - indeks klatki do usunięcia
 			///
-			void DeleteAnimationFrame(int index);
+			void deleteAnimationFrame(int index);
 
 			///
 			///Metoda usuwa z wektora wszystkie elementy
 			///
-			void ClearAllAnimationFrame();
+			void clearAllAnimationFrame();
 
 			///
 			///Metoda zwraca z wektora szerokość klatki animacji o podanym indeksie
 			///
-			///@param animframe_index - indeks klatki animacji
+			///@param animation_frame_index - indeks klatki animacji
 			///
-			int const GetAnimationFrameWidth(int animframe_index);
+			const int getAnimationFrameWidth(int animation_frame_index) const;
 
 			///
 			///Metoda zwraca z wektora wysokość klatki animacji o podanym indeksie
 			///
-			///@param animframe_index - indeks klatki animacji
+			///@param animation_frame_index - indeks klatki animacji
 			///
-			int const GetAnimationFrameFrameHeight(int animframe_index);
+			const int getAnimationFrameHeight(int animation_frame_index) const;
 
 		private:
 

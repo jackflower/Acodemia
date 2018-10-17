@@ -48,7 +48,6 @@ namespace acodemia
 				//zwalaniamy dane pod wskaźnikiem
 				delete p_sprite;
 				//tworzymy nowy obiekt na podstawie obiektu źródłowego
-				//p_sprite = new sf::Sprite(*other.p_sprite);
 				p_sprite = new Sprite(*copy.p_sprite);
 			}
 			return *this;

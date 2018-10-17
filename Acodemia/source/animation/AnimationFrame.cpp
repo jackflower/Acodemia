@@ -65,7 +65,6 @@ namespace acodemia
 				//zwalaniamy dane pod wskaźnikiem
 				delete p_texture;
 				//tworzymy nowy obiekt na podstawie obiektu źródłowego
-				//p_sprite = new sf::Sprite(*other.p_sprite);
 				p_texture = new acodemia::rendering::Texture(*copy.p_texture);
 				m_rectangle = copy.m_rectangle;
 			}
@@ -78,7 +77,7 @@ namespace acodemia
 			if (this != &other)
 			{
 				//zwalaniamy dane pod wskaźnikiem
-				delete p_texture;
+				//...delete p_texture;
 				//przenosimy pod wskaźnik dane z obiektu źródłowego
 				p_texture = other.p_texture;
 				m_rectangle = other.m_rectangle;

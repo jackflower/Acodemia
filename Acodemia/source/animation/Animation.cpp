@@ -20,12 +20,17 @@ namespace acodemia
 		{
 		}
 
-		//przenoszący...
+		//Konstruktor przenoszący
+		Animation::Animation(Animation && other)
+		:
+			m_frame(std::move(other.m_frame))
+		{
+		}
 
 		//Konstruktor parametryczny
 		Animation::Animation(const acodemia::rendering::Texture & texture, int width_frame, int height_frame)
 		{
-			SetAnimationFramesFromAtlasTexture(texture, width_frame, height_frame);
+			setAnimationFramesFromAtlasTexture(texture, width_frame, height_frame);
 		}
 
 		//Destruktor
@@ -51,7 +56,7 @@ namespace acodemia
 		}
 
 		//Metoda zwraca ilość obieków klasy AnimationFrame w wektorze
-		unsigned int Animation::Size() const
+		unsigned int Animation::getSize() const
 		{
 			return m_frame.size();
 		}
@@ -63,7 +68,7 @@ namespace acodemia
 		}
 
 		//Metoda dodaje do wektora obiekty klasy AnimationFrame
-		bool Animation::SetAnimationFramesFromAtlasTexture(const acodemia::rendering::Texture & texture, int width_frame, int height_frame)
+		bool Animation::setAnimationFramesFromAtlasTexture(const acodemia::rendering::Texture & texture, int width_frame, int height_frame)
 		{
 			//Zakładamy, że szerokość i wysokość tekstury jest dodatnia
 			if (width_frame <= 0 || height_frame <= 0)
@@ -90,33 +95,33 @@ namespace acodemia
 		}
 
 		//Metoda dodaje do wektora obiekt klasy AnimationFrame
-		void Animation::SetSingleAnimationFrameTexture(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle)
+		void Animation::setSingleAnimationFrameTexture(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle)
 		{
 			pushFrame(AnimationFrame(texture, rectangle));
 		}
 
 		//Metoda usuwa z wektora obiekt klasy AnimationFrame o podanym indeksie
-		void Animation::DeleteAnimationFrame(int index)
+		void Animation::deleteAnimationFrame(int index)
 		{
 			m_frame.erase(m_frame.begin() + index);
 		}
 
 		//Metoda usuwa z wektora wszystkie elementy
-		void Animation::ClearAllAnimationFrame()
+		void Animation::clearAllAnimationFrame()
 		{
 			m_frame.clear();
 		}
 
 		//Metoda zwraca z wektora szerokość klatki animacji o podanym indeksie
-		int const Animation::GetAnimationFrameWidth(int animframe_index)
+		const int Animation::getAnimationFrameWidth(int animation_frame_index) const
 		{
-			return m_frame[animframe_index].GetFrameRectangle().width;
+			return m_frame[animation_frame_index].GetFrameRectangle().width;
 		}
 
 		//Metoda zwraca z wektora wysokość klatki animacji o podanym indeksie
-		int const Animation::GetAnimationFrameFrameHeight(int animframe_index)
+		const int Animation::getAnimationFrameHeight(int animation_frame_index) const
 		{
-			return m_frame[animframe_index].GetFrameRectangle().height;
+			return m_frame[animation_frame_index].GetFrameRectangle().height;
 		}
 
 		//metoda wstawia do wektora pojedynczy obiekt klasy AnimationFrame

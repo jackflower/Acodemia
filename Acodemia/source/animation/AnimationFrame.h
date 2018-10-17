@@ -84,7 +84,7 @@ namespace acodemia
 
 		private:
 
-			const acodemia::rendering::Texture*p_texture;//stały wskaźnik na teksturę
+			const acodemia::rendering::Texture *p_texture;//stały wskaźnik na teksturę
 			sf::IntRect m_rectangle;//obszar prostokątny klatki animacji
 		};
 	}//namespace animation
