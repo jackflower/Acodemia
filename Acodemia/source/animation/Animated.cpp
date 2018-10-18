@@ -16,7 +16,8 @@ namespace acodemia
 			m_loop				(true),
 			p_animation			(nullptr),
 			m_currentframe		(0),
-			m_lastanimframe		(0)
+			m_lastanimframe		(0),
+			m_animation_spped	(1.f)
 		{
 			setFrame(0);
 			setOrigin(getGlobalBounds().width * 0.5f, getGlobalBounds().height * 0.5f);
@@ -32,7 +33,8 @@ namespace acodemia
 			m_loop				(copy.m_loop),
 			p_animation			(copy.p_animation),
 			m_currentframe		(copy.m_currentframe),
-			m_lastanimframe		(copy.m_lastanimframe)
+			m_lastanimframe		(copy.m_lastanimframe),
+			m_animation_spped	(copy.m_animation_spped)
 		{
 		}
 
@@ -47,7 +49,8 @@ namespace acodemia
 			//kopiujemy pod wskaźnik dane obiektu źródłowego
 			p_animation			(std::move(other.p_animation)),
 			m_currentframe		(std::move(other.m_currentframe)),
-			m_lastanimframe		(std::move(other.m_lastanimframe))
+			m_lastanimframe		(std::move(other.m_lastanimframe)),
+			m_animation_spped	(std::move(other.m_animation_spped))
 
 		{
 			//zerujemy składowe obiektu źródłowego...
@@ -60,6 +63,7 @@ namespace acodemia
 			other.p_animation			= nullptr;
 			other.m_currentframe		= 0;
 			other.m_lastanimframe		= 0;
+			other.m_animation_spped		= 0;
 		}
 
 		// Konstruktor parametryczny
@@ -72,7 +76,8 @@ namespace acodemia
 			m_loop				(loop),
 			p_animation			(p_animation),
 			m_currentframe		(0),
-			m_lastanimframe		(0)
+			m_lastanimframe		(0),
+			m_animation_spped	(1.f)
 		{
 			setFrame(0);
 			setOrigin(getGlobalBounds().width * 0.5f, getGlobalBounds().height * 0.5f);
@@ -88,6 +93,63 @@ namespace acodemia
 			p_animation			= nullptr;
 			m_currentframe		= 0;
 			m_lastanimframe		= 0;
+			m_animation_spped	= 0.f;
+		}
+
+		//Przeciążony operator przypisania kopiowania
+		Animated & Animated::operator=(const Animated & copy)
+		{
+			if (this != &copy)
+			{
+				m_time				= copy.m_time;
+				m_elapsedtime		= copy.m_elapsedtime;
+				m_paused			= copy.m_paused;
+				m_loop				= copy.m_loop;
+
+				//zwalaniamy dane pod wskaźnikiem
+				delete p_animation;
+				//tworzymy nowy obiekt na podstawie obiektu źródłowego
+				p_animation			= new Animation(*copy.p_animation);
+
+				m_currentframe		= copy.m_currentframe;
+				m_lastanimframe		= copy.m_lastanimframe;
+				m_animation_spped	= copy.m_animation_spped;
+			}
+			return *this;
+		}
+
+		//Przeciążony operator przypisania przenoszenia
+		Animated & Animated::operator=(Animated && other)
+		{
+			if (this != &other)
+			{
+				m_time				= other.m_time;
+				m_elapsedtime		= other.m_elapsedtime;
+				m_paused			= other.m_paused;
+				m_loop				= other.m_loop;
+
+				//zwalaniamy dane pod wskaźnikiem
+				delete p_animation;
+				//przenosimy pod wskaźnik dane z obiektu źródłowego
+				p_animation			= other.p_animation;
+				//zwalniamy wskaźnik na dane obiektu źródłowego tak,
+				//aby destruktor nie zwalniał pamięci wielokrotnie
+
+				other.p_animation	= nullptr;
+				m_currentframe		= other.m_currentframe;
+				m_lastanimframe		= other.m_lastanimframe;
+				m_animation_spped	= other.m_animation_spped;
+
+				//zerowanie obiektu źródłowego
+				other.m_time			= 0.f;
+				other.m_elapsedtime		= 0.f;
+				other.m_paused			= false;
+				other.m_loop			= false;
+				other.m_currentframe	= 0;
+				other.m_lastanimframe	= 0;
+				other.m_animation_spped	= 0.f;
+			}
+			return *this;
 		}
 
 		//Metoda zwraca wskaźnik na obiekt klasy Animation
@@ -203,12 +265,36 @@ namespace acodemia
 			return (m_paused && (m_currentframe == 0) && (m_elapsedtime == m_time));
 		}
 
+		//Metoda zwraca numer ostatnio wyświetlanej klatki animacji
+		const int Animated::getLastAnimFrame() const
+		{
+			return m_lastanimframe;
+		}
+
+		//Metoda zwraca ilość klatek animacji
+		const int Animated::getAnimSize() const
+		{
+			return p_animation->getSize();
+		}
+
+		//Metoda zwraca prędkość odtwarzania animacji
+		const float Animated::getAnimationSpeed() const
+		{
+			return m_animation_spped;
+		}
+
+		//Metoda ustawia prędkość odtwarzania animacji
+		void Animated::setAnimationSpeed(float speed)
+		{
+			m_animation_spped = speed;
+		}
+
 		//Metoda uruchamia animację
 		void Animated::update(float elapsed_time)
 		{
 			if (!m_paused && p_animation != nullptr)
 			{
-				m_elapsedtime -= elapsed_time;
+				m_elapsedtime -= elapsed_time * m_animation_spped;
 				if (m_elapsedtime <= 0.f)
 				{
 					m_elapsedtime = m_time;
@@ -226,18 +312,6 @@ namespace acodemia
 					setFrame(m_currentframe);
 				}
 			}
-		}
-
-		//Metoda zwraca numer ostatnio wyświetlanej klatki animacji
-		const int Animated::getLastAnimFrame() const
-		{
-			return m_lastanimframe;
-		}
-
-		//Metoda zwraca ilość klatek animacji
-		const int Animated::getAnimSize() const
-		{
-			return p_animation->getSize();
 		}
 
 		//Metoda renderująca obiekt klasy Animated

@@ -23,7 +23,7 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Sprite::Sprite(Sprite && other)
 		:
-			sf::Sprite(std::move(other))
+			sf::Sprite(other)
 		{
 		}
 

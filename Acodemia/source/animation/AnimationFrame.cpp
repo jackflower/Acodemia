@@ -77,14 +77,20 @@ namespace acodemia
 			if (this != &other)
 			{
 				//zwalaniamy dane pod wskaźnikiem
-				//...delete p_texture;
+				//...delete p_texture; //rzuca wyjatkiem...
 				//przenosimy pod wskaźnik dane z obiektu źródłowego
 				p_texture = other.p_texture;
 				m_rectangle = other.m_rectangle;
 				//zwalniamy wskaźnik na dane obiektu źródłowego tak,
 				//aby destruktor nie zwalniał pamięci wielokrotnie
+
+				//zerowanie obiektu źródłowego
 				other.p_texture = nullptr;
-				//other.m_rectangle...
+				other.m_rectangle.left		= 0;
+				other.m_rectangle.top		= 0;
+				other.m_rectangle.width		= 0;
+				other.m_rectangle.height	= 0;
+
 			}
 			return *this;
 		}

@@ -60,19 +60,16 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy Displayable
+			///@param & copy - stała referencja na obiekt klasy Animated
 			///
-			///Displayable & operator=(const Displayable & copy);
+			Animated & operator=(const Animated & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
 			///@param && other -  referencja do r-wartości
 			///
-			///Displayable & operator=(Displayable && other);
-
-
-			 // r e f a k t o r y z a c j a
+			Animated & operator=(Animated && other);
 
 			///
 			///Metoda zwraca wskaźnik na obiekt klasy Animation
@@ -167,13 +164,6 @@ namespace acodemia
 			const bool isStoped() const;
 
 			///
-			///Metoda aktualizuje animację
-			///
-			///@param elapsed_time - czas
-			///
-			void update(float elapsed_time);
-
-			///
 			///Metoda zwraca numer ostatnio wyświetlanej klatki animacji
 			///
 			const int getLastAnimFrame() const;
@@ -184,14 +174,23 @@ namespace acodemia
 			const int getAnimSize() const;
 
 			///
-			///Metoda zwraca flagę standardowej konfiguracji animacji
+			///Metoda zwraca prędkość odtwarzania animacji
 			///
-			//const bool getAnimMode() const;
+			const float getAnimationSpeed() const;
 
 			///
-			///Metoda zwraca stałą, zdefiniowaną statycznie wartość ekspozycji klatki animacji
+			///Metoda ustawia prędkość odtwarzania animacji
 			///
-			//const float getDefaultFrameTime() const;
+			///@param speed - prędkość odtwarzania animacji
+			///
+			void setAnimationSpeed(float speed);
+
+			///
+			///Metoda aktualizuje animację
+			///
+			///@param elapsed_time - czas
+			///
+			void update(float elapsed_time);
 
 			///
 			///Metoda renderująca obiekt klasy Animated
@@ -209,6 +208,7 @@ namespace acodemia
 			Animation*			p_animation;			//wskaźnik na obiekt klasy Animation (animacja)
 			int					m_currentframe;			//bieżąca klatka animacji
 			int					m_lastanimframe;		//klatka, na której zakończyła się animacja
+			float				m_animation_spped;		//prędkość odtwarzania animacji
 
 			static const float	m_default_time;			//wartość domyślna czasu ekspozycji klatki animacji
 		};

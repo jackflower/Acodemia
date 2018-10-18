@@ -23,7 +23,7 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Animation::Animation(Animation && other)
 		:
-			m_frame(std::move(other.m_frame))
+			m_frame(other.m_frame)
 		{
 		}
 
@@ -42,16 +42,21 @@ namespace acodemia
 		//Przeciążony operator przypisania kopiowania
 		Animation & Animation::operator=(const Animation & copy)
 		{
-			//to do...
-			//patrz class Displayable
+			if (this != &copy)
+				m_frame = copy.m_frame;
 			return *this;
 		}
 
 		//Przeciążony operator przypisania przenoszenia
 		Animation & Animation::operator=(Animation && other)
 		{
-			//to do...
-			//patrz class Displayable
+			if (this != &other)
+			{
+				m_frame = other.m_frame;
+
+				//zerowanie obiektu źródłowego
+				other.m_frame.clear();
+			}
 			return *this;
 		}
 

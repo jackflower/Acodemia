@@ -18,7 +18,7 @@ int main()
 	acodemia::animation::Animated animek;
 	animek.setAnimation(&animacja);
 	animek.setPosition(700.f, 100.f);
-	animek.setFrameTime(0.0125f);
+	animek.setAnimationSpeed(2.f);
 	//usage
 
 
