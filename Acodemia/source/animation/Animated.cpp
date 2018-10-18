@@ -39,6 +39,7 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Animated::Animated(Animated && other)
 		:
+			Sprite				(other), //konstruktor przenoszący klasy bazowej
 			m_time				(std::move(other.m_time)),
 			m_elapsedtime		(std::move(other.m_elapsedtime)),
 			m_paused			(std::move(other.m_paused)),
@@ -122,11 +123,11 @@ namespace acodemia
 		//Metoda ustawia numer klatki animacji obiektu klasy Animation
 		void Animated::setFrame(int frame)
 		{
-			if (p_animation != NULL)
+			if (p_animation != nullptr)
 			{
 				if (p_animation->getSize() > 0)
 				{
-					if ((*p_animation)[frame].GetFrameImage() != NULL)
+					if ((*p_animation)[frame].GetFrameImage() != nullptr)
 						setTexture(*((*p_animation)[frame].GetFrameImage()));
 					setTextureRect((*p_animation)[frame].GetFrameRectangle());
 					m_currentframe = frame;
@@ -205,7 +206,7 @@ namespace acodemia
 		//Metoda uruchamia animację
 		void Animated::update(float elapsed_time)
 		{
-			if (!m_paused && p_animation != NULL)
+			if (!m_paused && p_animation != nullptr)
 			{
 				m_elapsedtime -= elapsed_time;
 				if (m_elapsedtime <= 0.f)
