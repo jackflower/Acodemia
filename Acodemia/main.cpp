@@ -12,6 +12,7 @@ int main()
 
 	//usage
 	acodemia::rendering::Texture animation_texture;
+
 	animation_texture.loadFromFile("../data/logo_sci_atlas.png");
 	acodemia::animation::Animation animacja;
 	animacja.setAnimationFramesFromAtlasTexture(animation_texture, 50, 50);

@@ -132,6 +132,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Physical.cpp" />
     <ClCompile Include="source\animation\Animated.cpp" />
     <ClCompile Include="source\animation\AnimationFrame.cpp" />
     <ClCompile Include="source\animation\Animation.cpp" />
@@ -140,6 +141,7 @@
     <ClCompile Include="source\rendering\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Physical.h" />
     <ClInclude Include="source\animation\Animated.h" />
     <ClInclude Include="source\animation\AnimationFrame.h" />
     <ClInclude Include="source\animation\Animation.h" />

@@ -22,6 +22,9 @@
     <Filter Include="source\animation">
       <UniqueIdentifier>{8124f0a2-38d5-455b-ba59-531d6dffa328}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\physical">
+      <UniqueIdentifier>{5abbaaea-9ade-45fb-ac57-c0bcd43cd33d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -43,6 +46,9 @@
     <ClCompile Include="source\animation\Animated.cpp">
       <Filter>source\animation</Filter>
     </ClCompile>
+    <ClCompile Include="Physical.cpp">
+      <Filter>Pliki źródłowe</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\rendering\Displayable.h">
@@ -62,6 +68,9 @@
     </ClInclude>
     <ClInclude Include="source\animation\Animated.h">
       <Filter>source\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="Physical.h">
+      <Filter>Pliki nagłówkowe</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
