@@ -2,8 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include "source/rendering/Displayable.h"
 #include "source/animation/Animated.h"
-#include "Bullet/Bullet.h"
-#include "PhysicalManager.h"
+#include "source/bullet/Bullet.h"
+#include "source/manager/PhysicalManager.h"
 
 int main()
 {
