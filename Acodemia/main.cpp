@@ -2,12 +2,15 @@
 #include <SFML/Graphics.hpp>
 #include "source/rendering/Displayable.h"
 #include "source/animation/Animated.h"
-#include "source/bullet/Bullet.h"
+#include "../Acodemia/source/physicals/bullet/Bullet.h"
 #include "source/manager/PhysicalManager.h"
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
+
+	sf::Sprite zenek;
+	//zenek.setOrigin()
 
 	//gPhysicalManager.Alabama();
 	//gPhysicalManager.Alabama();
