@@ -22,16 +22,19 @@
     <Filter Include="source\animation">
       <UniqueIdentifier>{8124f0a2-38d5-455b-ba59-531d6dffa328}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\physical">
-      <UniqueIdentifier>{5abbaaea-9ade-45fb-ac57-c0bcd43cd33d}</UniqueIdentifier>
-    </Filter>
     <Filter Include="source\manager">
       <UniqueIdentifier>{0941bd75-a4e1-4fc7-ac66-936e88aef896}</UniqueIdentifier>
     </Filter>
     <Filter Include="source\utilities">
       <UniqueIdentifier>{def13618-71eb-49b8-811a-c8e60b894159}</UniqueIdentifier>
     </Filter>
-    <Filter Include="source\bullet">
+    <Filter Include="source\physicals">
+      <UniqueIdentifier>{5abbaaea-9ade-45fb-ac57-c0bcd43cd33d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\physicals\physical">
+      <UniqueIdentifier>{319f3147-1a24-4a8b-bd7a-219ccdf9cfdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="source\physicals\bullet">
       <UniqueIdentifier>{b2127778-6340-4dcb-a059-67349cc21484}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
@@ -55,14 +58,14 @@
     <ClCompile Include="source\animation\Animated.cpp">
       <Filter>source\animation</Filter>
     </ClCompile>
-    <ClCompile Include="source\physical\Physical.cpp">
-      <Filter>source\physical</Filter>
-    </ClCompile>
     <ClCompile Include="source\manager\PhysicalManager.cpp">
       <Filter>source\manager</Filter>
     </ClCompile>
-    <ClCompile Include="source\Bullet\Bullet.cpp">
-      <Filter>source\bullet</Filter>
+    <ClCompile Include="source\physicals\bullet\Bullet.cpp">
+      <Filter>source\physicals\bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physicals\physical\Physical.cpp">
+      <Filter>source\physicals\physical</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -84,17 +87,17 @@
     <ClInclude Include="source\animation\Animated.h">
       <Filter>source\animation</Filter>
     </ClInclude>
-    <ClInclude Include="source\physical\Physical.h">
-      <Filter>source\physical</Filter>
-    </ClInclude>
     <ClInclude Include="source\manager\PhysicalManager.h">
       <Filter>source\manager</Filter>
     </ClInclude>
     <ClInclude Include="source\utilities\Singleton.h">
       <Filter>source\utilities</Filter>
     </ClInclude>
-    <ClInclude Include="source\Bullet\Bullet.h">
-      <Filter>source\bullet</Filter>
+    <ClInclude Include="source\physicals\bullet\Bullet.h">
+      <Filter>source\physicals\bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="source\physicals\physical\Physical.h">
+      <Filter>source\physicals\physical</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -5,7 +5,8 @@
 #ifndef H_PHYSICAL_ACODEMIA
 #define H_PHYSICAL_ACODEMIA
 
-#include "../rendering/Displayable.h"
+#include "../../rendering/Displayable.h"
+
 namespace acodemia
 {
 	namespace physical

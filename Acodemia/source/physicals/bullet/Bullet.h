@@ -1,4 +1,4 @@
-//
+﻿//
 //acodemia.pl
 //
 
@@ -9,7 +9,9 @@
 ///
 ///Klasa reprezentje pocisk
 ///
-class Bullet
+class Bullet //: public Physical (ponieważ w managerze PhisucalManager będą wskaźniki
+	//na obiekty posiadające implementację fizyki...
+	//Wniosek: Potrzebna klasa Physical'a
 {
 public:
 	Bullet();

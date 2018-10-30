@@ -131,9 +131,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="source\Bullet\Bullet.cpp" />
+    <ClCompile Include="source\physicals\bullet\Bullet.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="source\physical\Physical.cpp" />
+    <ClCompile Include="source\physicals\physical\Physical.cpp" />
     <ClCompile Include="source\manager\PhysicalManager.cpp" />
     <ClCompile Include="source\animation\Animated.cpp" />
     <ClCompile Include="source\animation\AnimationFrame.cpp" />
@@ -143,8 +143,8 @@
     <ClCompile Include="source\rendering\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="source\Bullet\Bullet.h" />
-    <ClInclude Include="source\physical\Physical.h" />
+    <ClInclude Include="source\physicals\bullet\Bullet.h" />
+    <ClInclude Include="source\physicals\physical\Physical.h" />
     <ClInclude Include="source\manager\PhysicalManager.h" />
     <ClInclude Include="source\utilities\Singleton.h" />
     <ClInclude Include="source\animation\Animated.h" />

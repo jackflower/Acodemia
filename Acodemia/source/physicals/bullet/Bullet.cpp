@@ -1,5 +1,7 @@
-#include "Bullet.h"
+﻿//acodemia.pl
 
+
+#include "Bullet.h"
 
 Bullet::Bullet():
 	m_sprite()
@@ -11,7 +13,7 @@ Bullet::~Bullet()
 {
 }
 
-//Wirtualna metoda renderuj�ca obiekt
+//Wirtualna metoda renderująca obiekt
 void Bullet::draw(sf::RenderWindow & render)
 {
 	render.draw(m_sprite);
