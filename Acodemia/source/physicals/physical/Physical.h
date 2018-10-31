@@ -73,16 +73,16 @@ namespace acodemia
 
 		protected:
 
-			Displayable m_displayable;	//reprezentacja graficzna
-			bool m_destruction;			//flaga destrukcji
-			bool m_use_displayable;		//czy jest reprezentacja graficzna
-			sf::Vector2f m_position;	//wektor pozycji
-			float m_rotation;			//wartoœæ obrotu
-			sf::Vector2f m_origin;		//wektor uchwytu obiektu
-			sf::Vector2f m_scale;		//skala
-			sf::Color m_color;			//kolor obiektu
+			Displayable m_displayable; //reprezentacja graficzna
+			bool m_destruction; //flaga destrukcji
+			bool m_use_displayable; //czy jest reprezentacja graficzna
+			sf::Vector2f m_position; //wektor pozycji
+			float m_rotation; //wartoœæ obrotu
+			sf::Vector2f m_origin; //wektor uchwytu obiektu
+			sf::Vector2f m_scale; //skala
+			sf::Color m_color; //kolor obiektu
 											
-			//sf::Transformable m_transformable; // czy to bêdzie potrzebne?
+			//sf::Transformable m_transformable;
 			//	position
 			//	rotation
 			//	origin
