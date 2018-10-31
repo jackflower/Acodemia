@@ -5,6 +5,8 @@
 #include "../Acodemia/source/physicals/bullet/Bullet.h"
 #include "source/manager/PhysicalManager.h"
 
+using namespace acodemia::physical;
+
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
@@ -20,11 +22,16 @@ int main()
 	//PhysicalManager::getSingleton().Nebraska();
 
 
-	// P o c i s k
-	sf::Texture tekstura;
+	// a c o d e m i a   library
+	acodemia::rendering::Texture tekstura;
 	tekstura.loadFromFile("../data/ship.png");
+
+	// P o c i s k
 	Bullet pocisk;
-	pocisk.Load(tekstura);
+	pocisk.setTexture(tekstura);
+	pocisk.setUseDisplayable(true);
+
+
 
 	sf::Clock clock;
 	float time = 0.0f;
@@ -77,7 +84,6 @@ int main()
 		Defender.draw(window);
 		animek.draw(&window);
 		pocisk.draw(window);
-		
 		window.display();
 	}
 

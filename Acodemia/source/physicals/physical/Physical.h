@@ -9,6 +9,8 @@
 
 using namespace acodemia::rendering;
 
+//uporz¹dkowaæ bajzel...
+
 namespace acodemia
 {
 	namespace physical
@@ -18,19 +20,62 @@ namespace acodemia
 		///
 		class Physical
 		{
+
 		public:
+
+			///
+			///Konstruktor domyœlny
+			///
 			Physical();
+
+			///
+			///Konstruktor kopiuj¹cy
+			///
+
+			///
+			///Konstruktor przenosz¹cy
+			///
+
+			///
+			///Destruktor wirtualny
+			///
 			virtual ~Physical();
 
+			///
+			///Przeci¹¿ony operator przypisania kopiowania
+			///
+			///@param & copy - sta³a referencja na obiekt klasy Physical
+			///
+			//Physical & operator=(const Physical & copy);
+
+			///
+			///Przeci¹¿ony operator przypisania przenoszenia
+			///
+			///@param && other -  referencja do r-wartoœci
+			///
+			//Physical & operator=(Physical && other);
+
+
+			//sets, gets...
+
+			void setUseDisplayable(bool use_displayable);
+			Displayable & getDisplayable();
+
+			///
+			///Metoda ustawia teksturê dla kontekstu graficznego
+			///
+			///@param & texture - sta³a referencja na obiekt klasy Texture
+			///
+			void setTexture(const Texture & texture);
+
+			virtual void update(float dt);
+			virtual void draw(sf::RenderWindow & render);
+
 		protected:
-
-
-		private:
 
 			Displayable		m_displayable;		//reprezentacja graficzna
 			bool			m_destruction;		//flaga destrukcji
 			bool			m_use_displayable;	//flaga okreœla, czy obiekt posiada reprezentacjê graficzn¹
-			sf::Vector2f	m_speed;			//wektor prêdkoœci obiektu
 			sf::Vector2f	m_position;			//wektor pozycji
 			float			m_rotation;			//wartoœæ obrotu
 			sf::Vector2f	m_origin;			//wektor uchwytu obiektu
@@ -42,6 +87,8 @@ namespace acodemia
 			//	rotation
 			//	origin
 			//	scale
+			
+		private:
 
 		};
 	}//namespace physical

@@ -1,25 +1,30 @@
 ﻿//acodemia.pl
 
-
 #include "Bullet.h"
 
-Bullet::Bullet():
-	m_sprite()
-{
-	m_sprite.setPosition(50, 50);
-}
+//uporządkować bajzel...
 
-Bullet::~Bullet()
+namespace acodemia
 {
-}
+	namespace physical
+	{
+		//Konstruktor domyślny
+		Bullet::Bullet()//:
+			//m_sprite()
+		{
+			//m_sprite.setPosition(50, 50);
+		}
 
-//Wirtualna metoda renderująca obiekt
-void Bullet::draw(sf::RenderWindow & render)
-{
-	render.draw(m_sprite);
-}
+		//Konstruktor kopiujący
+		//to do...
+		
+		//Konstruktor przenoszący
+		//to do...
 
-void Bullet::Load(const sf::Texture & texture)
-{
-	m_sprite.setTexture(texture);
-}
+		//Destruktor wirtualny
+		Bullet::~Bullet()
+		{
+		}
+
+	}//namespace physical
+}//namespace acodemia
