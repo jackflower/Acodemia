@@ -201,16 +201,16 @@ namespace acodemia
 
 		protected:
 
-			float				m_time;					//czas ekspozycji klatki
-			float				m_elapsedtime;			//czas upływający
-			bool				m_paused;				//tryb Pause
-			bool				m_loop;					//tryb Loop
-			Animation*			p_animation;			//wskaźnik na obiekt klasy Animation (animacja)
-			int					m_currentframe;			//bieżąca klatka animacji
-			int					m_lastanimframe;		//klatka, na której zakończyła się animacja
-			float				m_animation_spped;		//prędkość odtwarzania animacji
+			float m_time; //czas ekspozycji klatki
+			float m_elapsedtime; //czas upływający
+			bool m_paused; //tryb Pause
+			bool m_loop; //tryb Loop
+			Animation *p_animation; //wskaźnik na obiekt klasy Animation (animacja)
+			int m_currentframe; //bieżąca klatka animacji
+			int m_lastanimframe; //klatka, na której zakończyła się animacja
+			float m_animation_spped; //prędkość odtwarzania animacji
 
-			static const float	m_default_time;			//wartość domyślna czasu ekspozycji klatki animacji
+			static const float m_default_time; //wartość domyślna czasu ekspozycji klatki animacji
 		};
 	}//namespace animation
 }//namespace acodemia
