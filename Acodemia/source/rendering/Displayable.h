@@ -239,7 +239,7 @@ namespace acodemia
 			///
 			///@render & render - referencja na kontekst graficzny
 			///
-			virtual void draw(sf::RenderWindow & render);
+			virtual void draw(sf::RenderWindow & render) const;
 		
 		private:
 		

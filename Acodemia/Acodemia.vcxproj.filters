@@ -37,6 +37,9 @@
     <Filter Include="source\physicals\bullet">
       <UniqueIdentifier>{b2127778-6340-4dcb-a059-67349cc21484}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\physicals\player">
+      <UniqueIdentifier>{90edb24b-1207-475b-9c33-6bbc6eba176e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -66,6 +69,9 @@
     </ClCompile>
     <ClCompile Include="source\physicals\physical\Physical.cpp">
       <Filter>source\physicals\physical</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physicals\player\Player.cpp">
+      <Filter>source\physicals\player</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +104,9 @@
     </ClInclude>
     <ClInclude Include="source\physicals\physical\Physical.h">
       <Filter>source\physicals\physical</Filter>
+    </ClInclude>
+    <ClInclude Include="source\physicals\player\Player.h">
+      <Filter>source\physicals\player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -21,7 +21,6 @@ namespace acodemia
 		{
 		}
 
-
 		//Konstruktor przenoszący
 		Texture::Texture(Texture && other)
 		:

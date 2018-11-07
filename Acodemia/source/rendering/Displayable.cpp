@@ -232,7 +232,7 @@ namespace acodemia
 		}
 
 		//Wirtualna metoda renderująca obiekt
-		void Displayable::draw(sf::RenderWindow & render)
+		void Displayable::draw(sf::RenderWindow & render) const
 		{
 			if (p_sprite)//na wszelki wypadek, gdyby wskaźnik stracił adres...
 				render.draw(*p_sprite);	//rysujemy obiekt

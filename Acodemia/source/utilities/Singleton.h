@@ -2,7 +2,7 @@
 //acodemia.pl
 //
 
-#define gPhysicalManager PhysicalManager::getSingleton()
+//#define gPhysicalManager PhysicalManager::getSingleton()
 
 ///
 ///Szablon reprezentuje wzorzec Singleton
