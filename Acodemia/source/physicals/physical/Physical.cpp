@@ -1,4 +1,4 @@
-//acodemia.pl
+ï»¿//acodemia.pl
 
 #include "Physical.h"
 
@@ -6,7 +6,7 @@ namespace acodemia
 {
 	namespace physical
 	{
-		//Konstruktor domyœlny
+		//Konstruktor domyÅ›lny
 		Physical::Physical()
 		:
 			m_displayable(),
@@ -21,7 +21,7 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor kopiuj¹cy
+		//Konstruktor kopiujÄ…cy
 		Physical::Physical(const Physical & copy)
 		:
 			m_displayable(copy.m_displayable),
@@ -36,10 +36,10 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor przenosz¹cy
+		//Konstruktor przenoszÄ…cy
 		Physical::Physical(Physical && other)
 		:
-			//przenosimy dane obiektu Ÿród³owego
+			//przenosimy dane obiektu ÅºrÃ³dÅ‚owego
 			//m_displayable(std::move(other.m_displayable)),
 			m_displayable(other.m_displayable),
 			m_use_displayable(other.m_use_displayable),
@@ -59,7 +59,7 @@ namespace acodemia
 			//nothing to do...
 		}
 
-		//Przeci¹¿ony operator przypisania kopiowania
+		//PrzeciÄ…Å¼ony operator przypisania kopiowania
 		Physical & Physical::operator=(const Physical & copy)
 		{
 			if (this != &copy)
@@ -77,7 +77,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Przeci¹¿ony operator przypisania przenoszenia
+		//PrzeciÄ…Å¼ony operator przypisania przenoszenia
 		Physical & Physical::operator=(Physical && other)
 		{
 			if (this != &other)
@@ -95,19 +95,19 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda zwraca sta³¹ referencjê obiektu - reprezentacja graficzna
+		//Metoda zwraca staÅ‚Ä… referencjÄ™ obiektu - reprezentacja graficzna
 		const Displayable & Physical::getDisplayable() const
 		{
 			return m_displayable;
 		}
 
-		//Metoda ustawia referencjê na reprezentacjê graficzn¹
+		//Metoda ustawia referencjÄ™ na reprezentacjÄ™ graficznÄ…
 		void Physical::setDisplayable(const Displayable & displayable)
 		{
 			m_displayable = displayable;
 		}
 
-		//Metoda zwraca flagê, czy obiekt posiada reprezentacjê graficzn¹
+		//Metoda zwraca flagÄ™, czy obiekt posiada reprezentacjÄ™ graficznÄ…
 		const bool Physical::getUseDisplayable() const
 		{
 			return m_use_displayable;
@@ -118,26 +118,26 @@ namespace acodemia
 			m_use_displayable = use_displayable;
 		}
 
-		//Meotoda zwraca informacjê, czy obiekt na byæ zniszczony
+		//Meotoda zwraca informacjÄ™, czy obiekt na byÄ‡ zniszczony
 		const bool Physical::getDestruction() const
 		{
 			return m_destruction;
 		}
 
-		//Meotoda ustawia informacjê, czy obiekt na byæ zniszczony
+		//Meotoda ustawia informacjÄ™, czy obiekt na byÄ‡ zniszczony
 		void Physical::setDestruction(bool destruction)
 		{
 			m_destruction = destruction;
 		}
 
 
-		//Metoda zwraca sta³¹ referencjê pozycji obiektu
+		//Metoda zwraca staÅ‚Ä… referencjÄ™ pozycji obiektu
 		const sf::Vector2f & Physical::getPosition() const
 		{
 			return m_position;
 		}
 
-		//Metoda ustawia pozycjê obiektu
+		//Metoda ustawia pozycjÄ™ obiektu
 		void Physical::setPosition(float x, float y)
 		{
 			m_position.x = x;
@@ -145,38 +145,38 @@ namespace acodemia
 			m_displayable.setPosition(m_position.x, m_position.y);
 		}
 
-		//Metoda ustawia pozycjê obiektu
+		//Metoda ustawia pozycjÄ™ obiektu
 		void Physical::setPosition(const sf::Vector2f & vector)
 		{
 			m_position = vector;
 			m_displayable.setPosition(m_position);
 		}
 
-		//Metoda zwraca wartoœæ obrotu
+		//Metoda zwraca wartoÅ›Ä‡ obrotu
 		float Physical::getRotation() const
 		{
 			return m_rotation;
 		}
 
-		//Metoda ustawia wartoœæ obrotu
+		//Metoda ustawia wartoÅ›Ä‡ obrotu
 		void Physical::setRotation(float rotation_value)
 		{
 			m_displayable.setRotation(rotation_value);
 		}
 
-		//Metoda obraca wartoœæ obrotu
+		//Metoda obraca wartoÅ›Ä‡ obrotu
 		void Physical::rotate(float angle)
 		{
 			m_displayable.rotate(angle);
 		}
 
-		//Metoda zwraca skalê
+		//Metoda zwraca skalÄ™
 		const sf::Vector2f & Physical::getScale() const
 		{
 			return m_scale;
 		}
 
-		//Metoda ustawia skalê
+		//Metoda ustawia skalÄ™
 		void Physical::setScale(float x, float y)
 		{
 			m_scale.x = x;
@@ -184,21 +184,21 @@ namespace acodemia
 			m_displayable.setScale(m_scale.x, m_scale.y);
 		}
 
-		//Metoda ustawia skalê
+		//Metoda ustawia skalÄ™
 		void Physical::setScale(const sf::Vector2f & new_scale_value)
 		{
 			m_scale = new_scale_value;
 			m_displayable.setScale(m_scale);
 		}
 
-		//Metoda ustawia skalê
+		//Metoda ustawia skalÄ™
 		void Physical::setScale(float factors)
 		{
 			m_scale.x = m_scale.y = factors;
 			m_displayable.setScale(m_scale.x, m_scale.y);
 		}
 
-		//Metoda ustawia skalê w stosunku do obecnej skali
+		//Metoda ustawia skalÄ™ w stosunku do obecnej skali
 		void Physical::scale(float factorX, float factorY)
 		{
 			m_scale.x = factorX;
@@ -206,20 +206,20 @@ namespace acodemia
 			m_displayable.scale(m_scale.x, m_scale.y);
 		}
 
-		//Metoda ustawia skalê w stosunku do obecnej skali
+		//Metoda ustawia skalÄ™ w stosunku do obecnej skali
 		void Physical::scale(const sf::Vector2f & factor)
 		{
 			m_scale = factor;
 			m_displayable.scale(m_scale);
 		}
 
-		//Metoda zwraca wspó³rzêdne punktu uchwytu obiektu
+		//Metoda zwraca wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 		const sf::Vector2f & Physical::getOrigin() const
 		{
 			return m_origin;
 		}
 
-		//Metoda ustawia wspó³rzêdne punktu uchwytu obiektu
+		//Metoda ustawia wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 		void Physical::setOrigin(float x, float y)
 		{
 			m_origin.x = x;
@@ -227,7 +227,7 @@ namespace acodemia
 			m_displayable.setOrigin(m_origin.x, m_origin.y);
 		}
 
-		//Metoda ustawia wspó³rzêdne punktu uchwytu obiektu
+		//Metoda ustawia wspÃ³Å‚rzÄ™dne punktu uchwytu obiektu
 		void Physical::setOrigin(const sf::Vector2f & origin)
 		{
 			m_origin = origin;
@@ -253,44 +253,44 @@ namespace acodemia
 			setColor(m_stored_color);
 		}
 
-		//Metoda zwraca granice obiektu w lokalnym w uk³adzie wspó³rzêdnych
+		//Metoda zwraca granice obiektu w lokalnym w ukÅ‚adzie wspÃ³Å‚rzÄ™dnych
 		sf::FloatRect Physical::getLocalBounds() const
 		{
 			return m_displayable.getLocalBounds();
 		}
 
-		//Metoda zwraca granice obiektu w globalnym w uk³adzie wspó³rzêdnych
+		//Metoda zwraca granice obiektu w globalnym w ukÅ‚adzie wspÃ³Å‚rzÄ™dnych
 		sf::FloatRect Physical::getGlobalBounds() const
 		{
 			return m_displayable.getGlobalBounds();
 		}
 
-		//Metoda przemieszcza obiekt o wartoœæ podan¹ w parametrach wzglêdem aktualnej pozycji
+		//Metoda przemieszcza obiekt o wartoÅ›Ä‡ podanÄ… w parametrach wzglÄ™dem aktualnej pozycji
 		void Physical::move(float offsetX, float offsetY)
 		{
 			m_displayable.move(offsetX, offsetY);
 		}
 
-		//Metoda przemieszcza obiekt o wartoœæ wektora przesuniêcia
+		//Metoda przemieszcza obiekt o wartoÅ›Ä‡ wektora przesuniÄ™cia
 		void Physical::move(const sf::Vector2f & offset)
 		{
 			m_displayable.move(offset);
 		}
 
-		//Metoda ustawia teksturê dla kontekstu graficznego
+		//Metoda ustawia teksturÄ™ dla kontekstu graficznego
 		void Physical::setTexture(const Texture & texture)
 		{
 			m_displayable.setTexture(texture);
 			m_stored_color = m_displayable.getColor();
 		}
 
-		//Wirtualna metoda aktualizuj¹ca obiekt
+		//Wirtualna metoda aktualizujÄ…ca obiekt
 		void Physical::update(float dt)
 		{
 			//implementacje w klasach potomnych
 		}
 
-		//Wirtualna metoda rysuj¹ca obiekt
+		//Wirtualna metoda rysujÄ…ca obiekt
 		void Physical::draw(sf::RenderWindow & render) const
 		{
 			if (m_use_displayable)

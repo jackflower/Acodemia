@@ -12,27 +12,11 @@ using namespace acodemia::physical;
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
-	
-	//gPhysicalManager - testy
-	std::vector<Physical*> physicals = gPhysicalManager.getPhysicals();
-	bool t_01 = physicals.at(0)->getDestruction();
-	bool t_02 = physicals.at(1)->getDestruction();
-	bool t_03 = physicals.at(2)->getDestruction();
-
-	int demko = 0;
-
-	//gPhysicalManager.Alabama();
-	//gPhysicalManager.Nebraska();
-	//PhysicalManager::getSingleton().Alabama();
-	//PhysicalManager::getSingleton().Nebraska();
-
 
 	// a c o d e m i a   library
 	acodemia::rendering::Texture tekstura;
 	tekstura.loadFromFile("../data/ship.png");
 	tekstura.setSmooth(true);
-
-
 
 	// G r a c z
 	Player player;
@@ -40,14 +24,20 @@ int main()
 	player.setUseDisplayable(true);
 	player.setPosition(200, 200);
 	player.setColor(sf::Color::Red);
-	player.restoreColor();
+	//player.restoreColor();
 	//player.setScale(2);
 	//float szerokosc_global = player.getDisplayable().getGlobalBounds().width;
 	//float szerokosc_local = player.getDisplayable().getLocalBounds().width;
-	//Player player_demo;
-	//player_demo = player;
-	//player_demo.setPosition(400, 200);
-	//player_demo.restoreColor();
+	Player player_demo;
+	player_demo = player;
+	//player_demo.setUseDisplayable(false);
+	player_demo.setPosition(400, 200);
+	player_demo.restoreColor();
+
+	//Testy fabryki...
+	gPhysicalManager.registerPhysical(&player);
+	gPhysicalManager.registerPhysical(&player_demo);
+	
 	int warta = 0;
 
 
@@ -89,7 +79,8 @@ int main()
 
 		window.clear(sf::Color::White);
 		animek.draw(&window);
-		player.draw(window);
+		//player.draw(window);
+		gPhysicalManager.draw(window);
 		window.display();
 	}
 

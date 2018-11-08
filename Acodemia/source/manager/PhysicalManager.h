@@ -5,6 +5,7 @@
 #ifndef H_PHYSICAL_MANAGER_ACODEMIA
 #define H_PHYSICAL_MANAGER_ACODEMIA
 
+#include "SFML/Graphics.hpp"
 #include "../utilities/Singleton.h"
 #include <vector>
 
@@ -40,23 +41,36 @@ public:
 	///
 	~PhysicalManager();
 
-	//testy
-	void Alabama();
-	void Nebraska();
-
 	///
 	///Metoda zwraca stała referencję do kontenera z wszystkimi wskaźnikami zarejestorwanych obiektów CPhysical
 	///
 	const std::vector<Physical*> & getPhysicals();
 
+	///
+	///Metoda rejestruje w kontenerze wskaźniki na obiekty Physical
+	///
+	///@param * physical - wskaźnik na obiekt Physical
+	///
+	void registerPhysical(Physical * physical);
+
+	///
+	///Metoda aktualizuje  wskaźniki na obiekty Physical
+	///
+	///@param dt - czas
+	///
+	void updatePhysical(float dt);
+
+
+	///
+	///Wirtualna metoda rysująca obiekt
+	///
+	///@param & render - kontekst graficzny
+	///
+	virtual void draw(sf::RenderWindow & render) const;
+
 private:
 
 	std::vector<Physical*> m_physicals;		//kontener <vector> na wskaźniki na obiekty klasy CPhysical
-	//testy
-
-	Physical * physical_1;
-	Physical * physical_2;
-	Physical * physical_3;
 };
 
 #endif//H_PHYSICAL_MANAGER_ACODEMIA
