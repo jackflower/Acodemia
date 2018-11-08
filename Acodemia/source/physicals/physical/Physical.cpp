@@ -129,8 +129,7 @@ namespace acodemia
 		{
 			m_destruction = destruction;
 		}
-
-
+		
 		//Metoda zwraca stałą referencję pozycji obiektu
 		const sf::Vector2f & Physical::getPosition() const
 		{
@@ -290,10 +289,15 @@ namespace acodemia
 			//implementacje w klasach potomnych
 		}
 
+		//
+		//tutaj by tego nie było - potrzebny drawableManager
+
+
 		//Wirtualna metoda rysująca obiekt
 		void Physical::draw(sf::RenderWindow & render) const
 		{
-			if (m_use_displayable)
+			//if(m_displayable)
+			if (m_use_displayable and ! m_destruction)
 				m_displayable.draw(render);
 		}
 

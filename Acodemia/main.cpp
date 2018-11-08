@@ -19,24 +19,29 @@ int main()
 	tekstura.setSmooth(true);
 
 	// G r a c z
-	Player player;
-	player.setTexture(tekstura);
-	player.setUseDisplayable(true);
-	player.setPosition(200, 200);
-	player.setColor(sf::Color::Red);
+	Player *player = new Player();
+	player->setTexture(tekstura);
+	player->setUseDisplayable(true);
+	player->setPosition(200, 200);
+	player->setColor(sf::Color::Red);
+	//player->setDestruction(true);
+	
+	
+	Player *player_demo = new Player();
+	player_demo->setTexture(tekstura);
+	player_demo->setUseDisplayable(true);
+	player_demo->setPosition(400, 200);
+	//player_demo->setDestruction(true);
+
+	//Testy fabryki...
+	gPhysicalManager.registerPhysical(player);
+	gPhysicalManager.registerPhysical(player_demo);
+
+	//
 	//player.restoreColor();
 	//player.setScale(2);
 	//float szerokosc_global = player.getDisplayable().getGlobalBounds().width;
-	//float szerokosc_local = player.getDisplayable().getLocalBounds().width;
-	Player player_demo;
-	player_demo = player;
-	//player_demo.setUseDisplayable(false);
-	player_demo.setPosition(400, 200);
-	player_demo.restoreColor();
-
-	//Testy fabryki...
-	gPhysicalManager.registerPhysical(&player);
-	gPhysicalManager.registerPhysical(&player_demo);
+	//float szerokosc_local = player.getDisplayable().getLocalBounds().width;	
 	
 	int warta = 0;
 
@@ -49,6 +54,7 @@ int main()
 
 	sf::Clock clock;
 	float time = 0.0f;
+	float zegarek = 0.f;
 
 
 	//usage
@@ -73,16 +79,27 @@ int main()
 
 		time = clock.restart().asSeconds();
 
+		zegarek = zegarek + time;
+		if(zegarek > 3)
+			player_demo->setDestruction(true);
+		if (zegarek > 5)
+			player->setDestruction(true);
+
 		animek.update(time);
 		//player.rotate(0.01f);
 		//player.move(0.0125f, 0);
+		//if(time)
 
 		window.clear(sf::Color::White);
 		animek.draw(&window);
-		//player.draw(window);
 		gPhysicalManager.draw(window);
 		window.display();
-	}
 
+		gPhysicalManager.updatePhysical(time);
+		std::vector<Physical*> m_physicals = gPhysicalManager.getPhysicals();
+		unsigned roz = m_physicals.size();
+		//std::cout << roz << std::endl;
+		int test_kontenera = 0;
+	}
 	return 0;
 }

@@ -60,7 +60,6 @@ public:
 	///
 	void updatePhysical(float dt);
 
-
 	///
 	///Wirtualna metoda rysująca obiekt
 	///

@@ -4,13 +4,16 @@
 #include "../physicals/physical/Physical.h"
 using namespace acodemia::physical;
 
-
 PhysicalManager::PhysicalManager()
 {
+	//2018-11-09
+	// to do...
 }
 
 PhysicalManager::~PhysicalManager()
 {
+	//2018-11-09
+	// to do...
 }
 
 //Metoda zwraca stałą referencję do kontenera z wszystkimi wskaźnikami zarejestorwanych obiektów CPhysical
@@ -28,24 +31,29 @@ void PhysicalManager::registerPhysical(Physical * physical)
 //Metoda aktualizuje  wskaźniki na obiekty Physical
 void PhysicalManager::updatePhysical(float dt)
 {
-	std::vector<Physical*>::iterator it;//iterator tego kontenera
-	std::vector<Physical*> dirty;		//kontener na obiekty do zniszczenia
-	//implementację dopisać potem (w main muszą być wskaźniki
-	//najlepiej jakby fabryka tworzyła Physical'e
-
-	for (it = m_physicals.begin(); it != m_physicals.end(); it++)
+	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
-		if ((*it)->getDestruction())			//jeśli obiekt jest gotowy do zniszczaenia
-			dirty.push_back(*it);					//wstawiamy go do kontenera "śmierci"
+		//jeśli obiekt jest oznaczony do zniszczaenia
+		if(m_physicals.at(i)->getDestruction())
+		{
+			if (m_physicals.at(i))
+			{
+				delete m_physicals.at(i);
+				m_physicals.at(i) = nullptr;
+				m_physicals.erase(m_physicals.begin() + i);
+			}
+		}
 	}
 }
-
 
 //Wirtualna metoda rysująca obiekt
 void PhysicalManager::draw(sf::RenderWindow & render) const
 {
 	std::vector<Physical*>::const_iterator it;//iterator tego kontenera
 	for (it = m_physicals.begin(); it != m_physicals.end(); it++)
-		if ((*it)->getUseDisplayable())
-			(*it)->draw(render);
+	{
+		if ((*it) != nullptr)
+			if ((*it)->getUseDisplayable() and !(*it)->getDestruction())
+				(*it)->draw(render);
+	}
 }
