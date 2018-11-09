@@ -83,4 +83,3 @@ namespace acodemia
 }//namespace acodemia
 
 #endif//H_SPRITE_ACODEMIA
-

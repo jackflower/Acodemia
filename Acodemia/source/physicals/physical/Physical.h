@@ -82,7 +82,7 @@ namespace acodemia
 			Physical & operator=(Physical && other);
 
 			///
-			///Metoda zwraca stałą referencję obiektu - reprezentacja graficzna
+			///Metoda zwraca stałą referencję do obiektu - reprezentacja graficzna
 			///
 			const Displayable & getDisplayable() const;
 
@@ -123,6 +123,11 @@ namespace acodemia
 			///@param destruction - flaga destrukcji
 			///
 			void setDestruction(bool destruction);
+
+			///
+			///Meotoda ustawia obiekt do zniszczenia
+			///
+			void destroy();
 
 			///
 			///Metoda zwraca stałą referencję pozycji obiektu
@@ -289,7 +294,7 @@ namespace acodemia
 		protected:
 
 			Displayable m_displayable; //reprezentacja graficzna
-			bool m_use_displayable; //czy jest reprezentacja graficzna
+			bool m_use_displayable; //czy obiekt posiada reprezentację graficzną
 			bool m_destruction; //flaga destrukcji
 			sf::Vector2f m_position; //wektor pozycji
 			float m_rotation; //wartość obrotu
@@ -305,4 +310,3 @@ namespace acodemia
 }//namespace acodemia
 
 #endif//H_PHYSICAL_ACODEMIA
-

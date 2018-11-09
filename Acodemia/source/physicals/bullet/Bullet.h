@@ -51,10 +51,16 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
+			///@param & copy - stała referencja na obiekt klasy Bullet
+			///
+			Bullet(const Bullet & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
+			///@param && other = referencja do r-wartości
+			///
+			Bullet(Bullet && other);
 
 			///
 			///Destruktor wirtualny
@@ -66,14 +72,14 @@ namespace acodemia
 			///
 			///@param & copy - stała referencja na obiekt klasy Bullet
 			///
-			//Bullet & operator=(const Bullet & copy);
+			Bullet & operator=(const Bullet & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
 			///@param && other -  referencja do r-wartości
 			///
-			//Bullet & operator=(Bullet && other);
+			Bullet & operator=(Bullet && other);
 
 			///
 			///Metoda ustawia teksturę dla kontekstu graficznego

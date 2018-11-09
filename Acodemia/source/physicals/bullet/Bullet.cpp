@@ -40,15 +40,77 @@ namespace acodemia
 		}
 
 		//Konstruktor kopiujący
-		//to do...
-		
+		Bullet::Bullet(const Bullet & copy)
+			//:
+			//m_displayable(copy.m_displayable),
+			//m_use_displayable(copy.m_use_displayable),
+			//m_destruction(copy.m_destruction),
+			//m_position(copy.m_position),
+			//m_rotation(copy.m_rotation),
+			//m_scale(copy.m_scale),
+			//m_origin(copy.m_origin),
+			//m_color(copy.m_color),
+			//m_stored_color(copy.m_stored_color)
+		{
+		}
+
 		//Konstruktor przenoszący
-		//to do...
+		Bullet::Bullet(Bullet && other)
+			//:
+			////przenosimy dane obiektu źródłowego
+			//m_displayable(other.m_displayable),
+			//m_use_displayable(other.m_use_displayable),
+			//m_destruction(other.m_destruction),
+			//m_position(other.m_position),
+			//m_rotation(other.m_rotation),
+			//m_scale(other.m_scale),
+			//m_origin(other.m_origin),
+			//m_color(other.m_color),
+			//m_stored_color(other.m_stored_color)
+		{
+		}
 
 		//Destruktor wirtualny
 		Bullet::~Bullet()
 		{
 		}
+
+		//Przeciążony operator przypisania kopiowania
+		Bullet & Bullet::operator=(const Bullet & copy)
+		{
+			//if (this != &copy)
+			//{
+			//	m_displayable = copy.m_displayable;
+			//	m_use_displayable = copy.m_use_displayable;
+			//	m_destruction = copy.m_destruction;
+			//	m_position = copy.m_position;
+			//	m_rotation = copy.m_rotation;
+			//	m_scale = copy.m_scale;
+			//	m_origin = copy.m_origin;
+			//	m_color = copy.m_color;
+			//	m_stored_color = copy.m_stored_color;
+			//}
+			return *this;
+		}
+
+		//Przeciążony operator przypisania przenoszenia
+		Bullet & Bullet::operator =(Bullet && other)
+		{
+			//if (this != &other)
+			//{
+			//	m_displayable = other.m_displayable;
+			//	m_use_displayable = other.m_use_displayable;
+			//	m_destruction = other.m_destruction;
+			//	m_position = other.m_position;
+			//	m_rotation = other.m_rotation;
+			//	m_scale = other.m_scale;
+			//	m_origin = other.m_origin;
+			//	m_color = other.m_color;
+			//	m_stored_color = other.m_stored_color;
+			//}
+			return *this;
+		}
+
 
 	}//namespace physical
 }//namespace acodemia

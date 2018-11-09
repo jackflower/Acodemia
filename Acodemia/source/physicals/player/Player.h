@@ -41,8 +41,44 @@ namespace acodemia
 		{
 		public:
 
+			///
+			///Konstruktor domyœlny
+			///
 			Player();
+
+			///
+			///Konstruktor kopiuj¹cy
+			///
+			///@param & copy - sta³a referencja na obiekt klasy Player
+			///
+			Player(const Player & copy);
+
+			///
+			///Konstruktor przenosz¹cy
+			///
+			///@param && other = referencja do r-wartoœci
+			///
+			Player(Player && other);
+
+			///
+			///Destruktor
+			///
 			~Player();
+
+			///
+			///Przeci¹¿ony operator przypisania kopiowania
+			///
+			///@param & copy - sta³a referencja na obiekt klasy Player
+			///
+			Player & operator=(const Player & copy);
+
+			///
+			///Przeci¹¿ony operator przypisania przenoszenia
+			///
+			///@param && other -  referencja do r-wartoœci
+			///
+			Player & operator=(Player && other);
+
 
 		protected:
 		private:

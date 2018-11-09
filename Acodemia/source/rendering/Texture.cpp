@@ -81,5 +81,6 @@ namespace acodemia
 				return true;	//zwracamy flagę true (ok)
 			return false;		//false, jeśli program nie załadował pliku
 		}
+
 	}//namespace rendering
 }//namespace acodemia

@@ -64,7 +64,6 @@ namespace acodemia
 		Physical::Physical(Physical && other)
 		:
 			//przenosimy dane obiektu źródłowego
-			//m_displayable(std::move(other.m_displayable)),
 			m_displayable(other.m_displayable),
 			m_use_displayable(other.m_use_displayable),
 			m_destruction(other.m_destruction),
@@ -119,7 +118,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda zwraca stałą referencję obiektu - reprezentacja graficzna
+		//Metoda zwraca stałą referencję do obiektu - reprezentacja graficzna
 		const Displayable & Physical::getDisplayable() const
 		{
 			return m_displayable;
@@ -152,6 +151,12 @@ namespace acodemia
 		void Physical::setDestruction(bool destruction)
 		{
 			m_destruction = destruction;
+		}
+
+		//Meotoda ustawia obiekt do zniszczenia
+		void Physical::destroy()
+		{
+			m_destruction = true;
 		}
 		
 		//Metoda zwraca stałą referencję pozycji obiektu
@@ -313,14 +318,9 @@ namespace acodemia
 			//implementacje w klasach potomnych
 		}
 
-		//
-		//tutaj by tego nie było - potrzebny drawableManager
-
-
 		//Wirtualna metoda rysująca obiekt
 		void Physical::draw(sf::RenderWindow & render) const
 		{
-			//if(m_displayable)
 			if (m_use_displayable and ! m_destruction)
 				m_displayable.draw(render);
 		}

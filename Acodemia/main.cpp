@@ -24,6 +24,7 @@ int main()
 	player->setUseDisplayable(true);
 	player->setPosition(200, 200);
 	player->setColor(sf::Color::Red);
+	player->destroy();
 	//player->setDestruction(true);
 	
 	
@@ -31,6 +32,7 @@ int main()
 	player_demo->setTexture(tekstura);
 	player_demo->setUseDisplayable(true);
 	player_demo->setPosition(400, 200);
+	//player_demo->destroy();
 	//player_demo->setDestruction(true);
 
 	//Testy fabryki...
