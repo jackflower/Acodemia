@@ -25,9 +25,6 @@
 ////////////////////////////////////////////////////////////
 
 #include "Bullet.h"
-#include <iostream>
-
-//uporządkować bajzel...
 
 namespace acodemia
 {
@@ -36,104 +33,148 @@ namespace acodemia
 		//Konstruktor domyślny
 		Bullet::Bullet()
 		:
-			Physical()
+			Physical(),
+			m_motion(),
+			m_speed(0.f),
+			m_caliber(0.f),
+			m_lifetime(0.f),
+			m_elapsedtime(0.f)
 		{
-			//bajzel - uporządkować...
-			m_move.x = 0.f;
-			m_move.y = -1;
-			//
-			m_speed = 100;
-			m_lifetime = 4.54f;
 		}
 
 		//Konstruktor kopiujący
 		Bullet::Bullet(const Bullet & copy)
 		:
-			Physical(copy)//konstruktor kopiujący klasy bazowej
-			//m_displayable(copy.m_displayable),
-			//m_use_displayable(copy.m_use_displayable),
-			//m_destruction(copy.m_destruction),
-			//m_position(copy.m_position),
-			//m_rotation(copy.m_rotation),
-			//m_scale(copy.m_scale),
-			//m_origin(copy.m_origin),
-			//m_color(copy.m_color),
-			//m_stored_color(copy.m_stored_color)
+			Physical(copy),//konstruktor kopiujący klasy bazowej
+			m_motion(copy.m_motion),
+			m_speed(copy.m_speed),
+			m_caliber(copy.m_caliber),
+			m_lifetime(copy.m_lifetime),
+			m_elapsedtime(copy.m_elapsedtime)
 		{
 		}
 
 		//Konstruktor przenoszący
 		Bullet::Bullet(Bullet && other)
 		:
-			Physical(other)//konstruktor przenoszący klasy bazowej
-			////przenosimy dane obiektu źródłowego
-			//m_displayable(other.m_displayable),
-			//m_use_displayable(other.m_use_displayable),
-			//m_destruction(other.m_destruction),
-			//m_position(other.m_position),
-			//m_rotation(other.m_rotation),
-			//m_scale(other.m_scale),
-			//m_origin(other.m_origin),
-			//m_color(other.m_color),
-			//m_stored_color(other.m_stored_color)
+			Physical(other),//konstruktor przenoszący klasy bazowej
+			m_motion(other.m_motion),
+			m_speed(other.m_speed),
+			m_caliber(other.m_caliber),
+			m_lifetime(other.m_lifetime),
+			m_elapsedtime(other.m_elapsedtime)
 		{
 		}
 
 		//Destruktor wirtualny
 		Bullet::~Bullet()
 		{
+			m_motion.x = 0.f;
+			m_motion.y = 0.f;
+			m_speed = 0.f;
+			m_caliber = 0.f;
+			m_lifetime = 0.f;
+			m_elapsedtime = 0.f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
 		Bullet & Bullet::operator=(const Bullet & copy)
 		{
-			//if (this != &copy)
-			//{
-			//	m_displayable = copy.m_displayable;
-			//	m_use_displayable = copy.m_use_displayable;
-			//	m_destruction = copy.m_destruction;
-			//	m_position = copy.m_position;
-			//	m_rotation = copy.m_rotation;
-			//	m_scale = copy.m_scale;
-			//	m_origin = copy.m_origin;
-			//	m_color = copy.m_color;
-			//	m_stored_color = copy.m_stored_color;
-			//}
+			if (this != &copy)
+			{
+				Physical::operator=(copy);
+				m_motion = copy.m_motion;
+				m_speed = copy.m_speed;
+				m_caliber = copy.m_caliber;
+				m_lifetime = copy.m_lifetime;
+				m_elapsedtime = copy.m_elapsedtime;
+			}
 			return *this;
 		}
 
 		//Przeciążony operator przypisania przenoszenia
 		Bullet & Bullet::operator =(Bullet && other)
 		{
-			//if (this != &other)
-			//{
-			//	m_displayable = other.m_displayable;
-			//	m_use_displayable = other.m_use_displayable;
-			//	m_destruction = other.m_destruction;
-			//	m_position = other.m_position;
-			//	m_rotation = other.m_rotation;
-			//	m_scale = other.m_scale;
-			//	m_origin = other.m_origin;
-			//	m_color = other.m_color;
-			//	m_stored_color = other.m_stored_color;
-			//}
+			if (this != &other)
+			{
+				Physical::operator=(other);
+				m_motion = other.m_motion;
+				m_speed = other.m_speed;
+				m_caliber = other.m_caliber;
+				m_lifetime = other.m_lifetime;
+				m_elapsedtime = other.m_elapsedtime;
+			}
 			return *this;
+		}
+
+		//Metoda zwraca stałą referencję na wektor kierunku
+		const sf::Vector2f & Bullet::getMotion() const
+		{
+			return m_motion;
+		}
+
+		//Metoda ustawia wektor kierunku
+		void Bullet::setMotion(const sf::Vector2f & motion)
+		{
+			m_motion = motion;
+		}
+
+		//Metoda ustawia wektor kierunku
+		void Bullet::setMotion(float x, float y)
+		{
+			m_motion.x = x;
+			m_motion.y = y;
+		}
+
+		//Metoda zwraca prędkość pocisku
+		const float Bullet::getSpeed() const
+		{
+			return m_speed;
+		}
+
+		void Bullet::setSpeed(float speed)
+		{
+			m_speed = speed;
+		}
+
+		//Metoda zwraca kaliber pocisku
+		const float Bullet::getCaliber() const
+		{
+			return m_caliber;
+		}
+
+		//Metoda ustawia kaliber pocisku
+		void Bullet::setCaliber(float caliber)
+		{
+			m_caliber = caliber;
+		}
+
+		//Metoda zwraca czas życia pocisku
+		const float Bullet::getLifeTime() const
+		{
+			return m_lifetime;
+		}
+
+		//Metoda ustawia czas życia pocisku
+		void Bullet::setLifeTime(float lifetime)
+		{
+			m_lifetime = lifetime;
 		}
 
 		//Wirtualna metoda aktualizująca obiekt
 		void Bullet::update(float dt)
 		{
-			m_elapsedtime = m_elapsedtime + dt;
+			//zliczamy czas życia pocisku
+			m_elapsedtime += dt;
+			//po upływie określonego czasu
 			if (m_elapsedtime > m_lifetime)
-				destroy();
+				destroy();//niszczymy pocisk
 
+			//aktualizacja pozycji pocisku
 			sf::Vector2f new_position;
-			new_position.x = m_position.x + m_move.x * m_speed * dt;
-			new_position.y = m_position.y + m_move.y * m_speed * dt;
+			new_position.x = m_position.x + m_motion.x * m_speed * dt;
+			new_position.y = m_position.y + m_motion.y * m_speed * dt;
 			m_position = new_position;
-
-			//std::cout << "Pocisk" << std::endl;
-			//std::cout << m_position.x << std::endl;
 			setPosition(m_position);
 		}
 

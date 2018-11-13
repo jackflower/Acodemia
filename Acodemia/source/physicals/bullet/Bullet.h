@@ -80,6 +80,63 @@ namespace acodemia
 			Bullet & operator=(Bullet && other);
 
 			///
+			///Metoda zwraca stałą referencję na wektor kierunku
+			///
+			const sf::Vector2f & getMotion() const;
+
+			///
+			///Metoda ustawia wektor kierunku
+			///
+			///@param const & motion - stała referencja na obiekt klasy sf::Vector2f
+			///
+			void setMotion(const sf::Vector2f & motion);
+
+			///
+			///Metoda ustawia wektor kierunku
+			///
+			///@param x - składowa X wektora kierunku
+			///
+			//////@param y - składowa Y wektora kierunku
+			///
+			void setMotion(float x, float y);
+
+			///
+			///Metoda zwraca prędkość pocisku
+			///
+			const float getSpeed() const;
+
+			///
+			///Metoda ustawia prędkość pocisku
+			///
+			///@param speed - prędkość pocisku
+			///
+			void setSpeed(float speed);
+
+			///
+			///Metoda zwraca kaliber pocisku
+			///
+			const float getCaliber() const;
+
+			///
+			///Metoda ustawia kaliber pocisku
+			///
+			///@param caliber - kaliber pocisku
+			///
+			void setCaliber(float caliber);
+
+			///
+			///Metoda zwraca czas życia pocisku
+			///
+			const float getLifeTime() const;
+
+			///
+			///Metoda ustawia czas życia pocisku
+			///
+			///@param lifetime - czas życia pocisku
+			///
+			void setLifeTime(float lifetime);
+
+			///
 			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
@@ -88,7 +145,7 @@ namespace acodemia
 
 		private:
 
-			sf::Vector2f m_move; //wektor kierunku pocisku
+			sf::Vector2f m_motion; //wektor kierunku pocisku
 			float m_speed; //prędkość pocisku
 			float m_caliber; //kaliber - siła rażenia
 			float m_lifetime; //czas życia pocisku

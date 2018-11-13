@@ -61,9 +61,9 @@ namespace acodemia
 			Player(Player && other);
 
 			///
-			///Destruktor
+			///Destruktor wirtualny
 			///
-			~Player();
+			virtual ~Player();
 
 			///
 			///Przeci¹¿ony operator przypisania kopiowania
@@ -79,6 +79,12 @@ namespace acodemia
 			///
 			Player & operator=(Player && other);
 
+			///
+			///Wirtualna metoda aktualizuj¹ca obiekt
+			///
+			///@param dt - czas
+			///
+			virtual void update(float dt);
 
 		protected:
 		private:

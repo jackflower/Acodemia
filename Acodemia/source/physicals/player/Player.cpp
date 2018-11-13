@@ -59,17 +59,8 @@ namespace acodemia
 		{
 			if (this != &copy)
 			{
-				//doliczyæ klasê bazow¹
-
-				//m_displayable = copy.m_displayable;
-				//m_use_displayable = copy.m_use_displayable;
-				//m_destruction = copy.m_destruction;
-				//m_position = copy.m_position;
-				//m_rotation = copy.m_rotation;
-				//m_scale = copy.m_scale;
-				//m_origin = copy.m_origin;
-				//m_color = copy.m_color;
-				//m_stored_color = copy.m_stored_color;
+				Physical::operator=(copy);
+				//members...
 			}
 			return *this;
 		}
@@ -79,19 +70,16 @@ namespace acodemia
 		{
 			if (this != &other)
 			{
-				//doliczyæ klasê bazow¹
-
-				//m_displayable = other.m_displayable;
-				//m_use_displayable = other.m_use_displayable;
-				//m_destruction = other.m_destruction;
-				//m_position = other.m_position;
-				//m_rotation = other.m_rotation;
-				//m_scale = other.m_scale;
-				//m_origin = other.m_origin;
-				//m_color = other.m_color;
-				//m_stored_color = other.m_stored_color;
+				Physical::operator=(other);
+				//members...
 			}
 			return *this;
+		}
+
+		//Wirtualna metoda aktualizuj¹ca obiekt
+		void Player::update(float dt)
+		{
+			//sterowanie, strzelanie, etc...
 		}
 		
 	}//namespace physical

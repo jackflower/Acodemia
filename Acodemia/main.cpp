@@ -22,13 +22,12 @@ int main()
 	Bullet *bullet = new Bullet();
 	bullet->setTexture(tex_bullet);
 	bullet->setUseDisplayable(true);
-	bullet->setPosition(100, 500);
+	bullet->setPosition(230, 500);
+	bullet->setMotion(0.f, -1.f);
+	bullet->setSpeed(100.f);
+	bullet->setLifeTime(4.52f);
 	//bullet->destroy();
-	
-
-	//
-	sf::Transformable desdemona;
-	//desdemona.no
+	//bullet->setDestruction(true);
 
 
 	// a c o d e m i a   library
