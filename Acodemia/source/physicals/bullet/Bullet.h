@@ -30,8 +30,6 @@
 #include "SFML/Graphics.hpp"
 #include "../physical/Physical.h"
 
-//uporządkować bajzel...
-
 namespace acodemia
 {
 	namespace physical
@@ -82,21 +80,21 @@ namespace acodemia
 			Bullet & operator=(Bullet && other);
 
 			///
-			///Metoda ustawia teksturę dla kontekstu graficznego
+			///Wirtualna metoda aktualizująca obiekt
 			///
-			///@param & texture - stała referencja na obiekt klasy Texture
+			///@param dt - czas
 			///
-			//void setTexture(const Texture & texture);
-
-			//void Load(const Texture & texture);
+			virtual void update(float dt);
 
 		private:
 
-			//sf::Sprite m_sprite;
-			float m_speed;
-			//sf::Vector2f m_position;
-			float			m_caliber;			//kaliber - siła rażenia
+			sf::Vector2f m_move;	//wektor kierunku pocisku
+			float m_speed;			//prędkość pocisku
+			float m_caliber;		//kaliber - siła rażenia
+			float m_lifetime;		//czas życia pocisku
+			float m_elapsedtime;	//upływający czas
 		};
+
 	}//namespace physical
 }//namespace acodemia
 #endif//H_BULLET_ACODEMIA

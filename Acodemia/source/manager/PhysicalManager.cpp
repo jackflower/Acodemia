@@ -58,15 +58,14 @@ void PhysicalManager::updatePhysical(float dt)
 {
 	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
+		m_physicals.at(i)->update(dt);
+
 		//jeśli obiekt jest oznaczony do zniszczaenia
 		if(m_physicals.at(i)->getDestruction())
 		{
-			if (m_physicals.at(i))
-			{
 				delete m_physicals.at(i);
 				m_physicals.at(i) = nullptr;
 				m_physicals.erase(m_physicals.begin() + i);
-			}
 		}
 	}
 }

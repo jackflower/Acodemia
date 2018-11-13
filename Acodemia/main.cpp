@@ -2,16 +2,34 @@
 #include <SFML/Graphics.hpp>
 #include "source/rendering/Displayable.h"
 #include "source/animation/Animated.h"
-#include "../Acodemia/source/physicals/bullet/Bullet.h"
-#include "../Acodemia/source/physicals/player/Player.h"
-#include "source/manager/PhysicalManager.h"
 #include "source/physicals/physical/Physical.h"
+#include "source/physicals/bullet/Bullet.h"
+#include "source/physicals/player/Player.h"
+#include "source/manager/PhysicalManager.h"
+
 
 using namespace acodemia::physical;
 
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
+
+	// B u l l e t
+	acodemia::rendering::Texture tex_bullet;
+	tex_bullet.loadFromFile("../data/bullet.png");
+	tex_bullet.setSmooth(true);
+
+	Bullet *bullet = new Bullet();
+	bullet->setTexture(tex_bullet);
+	bullet->setUseDisplayable(true);
+	bullet->setPosition(100, 500);
+	//bullet->destroy();
+	
+
+	//
+	sf::Transformable desdemona;
+	//desdemona.no
+
 
 	// a c o d e m i a   library
 	acodemia::rendering::Texture tekstura;
@@ -24,7 +42,7 @@ int main()
 	player->setUseDisplayable(true);
 	player->setPosition(200, 200);
 	player->setColor(sf::Color::Red);
-	player->destroy();
+	//player->destroy();
 	//player->setDestruction(true);
 	
 	
@@ -38,20 +56,9 @@ int main()
 	//Testy fabryki...
 	gPhysicalManager.registerPhysical(player);
 	gPhysicalManager.registerPhysical(player_demo);
-
-	//
-	//player.restoreColor();
-	//player.setScale(2);
-	//float szerokosc_global = player.getDisplayable().getGlobalBounds().width;
-	//float szerokosc_local = player.getDisplayable().getLocalBounds().width;	
+	gPhysicalManager.registerPhysical(bullet);
 	
 	int warta = 0;
-
-
-	// P o c i s k
-	//Bullet pocisk;
-	//pocisk.setTexture(tekstura);
-	//pocisk.setUseDisplayable(true);
 
 
 	sf::Clock clock;
@@ -88,20 +95,13 @@ int main()
 			player->setDestruction(true);
 
 		animek.update(time);
-		//player.rotate(0.01f);
-		//player.move(0.0125f, 0);
-		//if(time)
+	
+		gPhysicalManager.updatePhysical(time);
 
 		window.clear(sf::Color::White);
 		animek.draw(&window);
 		gPhysicalManager.draw(window);
 		window.display();
-
-		gPhysicalManager.updatePhysical(time);
-		std::vector<Physical*> m_physicals = gPhysicalManager.getPhysicals();
-		unsigned roz = m_physicals.size();
-		//std::cout << roz << std::endl;
-		int test_kontenera = 0;
 	}
 	return 0;
 }

@@ -25,6 +25,7 @@
 ////////////////////////////////////////////////////////////
 
 #include "Bullet.h"
+#include <iostream>
 
 //uporządkować bajzel...
 
@@ -33,15 +34,22 @@ namespace acodemia
 	namespace physical
 	{
 		//Konstruktor domyślny
-		Bullet::Bullet()//:
-			//m_sprite()
+		Bullet::Bullet()
+		:
+			Physical()
 		{
-			//m_sprite.setPosition(50, 50);
+			//bajzel - uporządkować...
+			m_move.x = 0.f;
+			m_move.y = -1;
+			//
+			m_speed = 100;
+			m_lifetime = 4.54f;
 		}
 
 		//Konstruktor kopiujący
 		Bullet::Bullet(const Bullet & copy)
-			//:
+		:
+			Physical(copy)//konstruktor kopiujący klasy bazowej
 			//m_displayable(copy.m_displayable),
 			//m_use_displayable(copy.m_use_displayable),
 			//m_destruction(copy.m_destruction),
@@ -56,7 +64,8 @@ namespace acodemia
 
 		//Konstruktor przenoszący
 		Bullet::Bullet(Bullet && other)
-			//:
+		:
+			Physical(other)//konstruktor przenoszący klasy bazowej
 			////przenosimy dane obiektu źródłowego
 			//m_displayable(other.m_displayable),
 			//m_use_displayable(other.m_use_displayable),
@@ -111,6 +120,22 @@ namespace acodemia
 			return *this;
 		}
 
+		//Wirtualna metoda aktualizująca obiekt
+		void Bullet::update(float dt)
+		{
+			m_elapsedtime = m_elapsedtime + dt;
+			if (m_elapsedtime > m_lifetime)
+				destroy();
+
+			sf::Vector2f new_position;
+			new_position.x = m_position.x + m_move.x * m_speed * dt;
+			new_position.y = m_position.y + m_move.y * m_speed * dt;
+			m_position = new_position;
+
+			//std::cout << "Pocisk" << std::endl;
+			//std::cout << m_position.x << std::endl;
+			setPosition(m_position);
+		}
 
 	}//namespace physical
 }//namespace acodemia
