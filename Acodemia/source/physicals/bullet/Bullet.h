@@ -88,11 +88,11 @@ namespace acodemia
 
 		private:
 
-			sf::Vector2f m_move;	//wektor kierunku pocisku
-			float m_speed;			//prędkość pocisku
-			float m_caliber;		//kaliber - siła rażenia
-			float m_lifetime;		//czas życia pocisku
-			float m_elapsedtime;	//upływający czas
+			sf::Vector2f m_move; //wektor kierunku pocisku
+			float m_speed; //prędkość pocisku
+			float m_caliber; //kaliber - siła rażenia
+			float m_lifetime; //czas życia pocisku
+			float m_elapsedtime; //upływający czas
 		};
 
 	}//namespace physical
