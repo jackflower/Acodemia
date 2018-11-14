@@ -91,7 +91,7 @@ namespace acodemia
 		}
 
 		// Konstruktor parametryczny
-		Animated::Animated(Animation* p_animation, bool play, bool loop, float time)
+		Animated::Animated(Animation *p_animation, bool play, bool loop, float time)
 		:
 			Sprite				(), //konstruktor klasy bazowej
 			m_time				(time),

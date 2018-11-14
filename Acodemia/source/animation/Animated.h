@@ -50,21 +50,21 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - parametr - obiekt klasy Animated
+			///@param &copy - parametr - obiekt klasy Animated
 			///
 			Animated(const Animated & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param &&other = referencja do r-wartości
 			///
 			Animated(Animated && other);
 
 			///
 			///Konstruktor parametryczny
 			///
-			///@param p_animation - wskaźnik na obiekt klasy Animation (animacja)
+			///@param *p_animation - wskaźnik na obiekt klasy Animation (animacja)
 			///
 			///@param play - tryb Pause/Play
 			///
@@ -72,7 +72,7 @@ namespace acodemia
 			///
 			///@param time - czas ekspozycji klatki
 			///
-			Animated(Animation* p_animation, bool play = true, bool Loop = true, float time = 0.f);
+			Animated(Animation *p_animation, bool play = true, bool loop = true, float time = 0.f);
 
 			///
 			///Destruktor
@@ -82,14 +82,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy Animated
+			///@param &copy - stała referencja na obiekt klasy Animated
 			///
 			Animated & operator=(const Animated & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartości
+			///@param &&other -  referencja do r-wartości
 			///
 			Animated & operator=(Animated && other);
 
@@ -142,7 +142,7 @@ namespace acodemia
 			const bool getPaused() const;
 
 			///
-			///Metoda ustwia tryb pause animacji
+			///Metoda ustawia tryb pause animacji
 			///
 			///@param paused - tryb pause
 			///
@@ -217,7 +217,7 @@ namespace acodemia
 			///
 			///Metoda renderująca obiekt klasy Animated
 			///
-			///@render render - kontekst graficzny
+			///@param render - kontekst graficzny
 			///
 			virtual void draw(sf::RenderWindow* render);
 

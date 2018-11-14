@@ -48,14 +48,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - stała referencja na obiekt klasy Texture
+			///@param &copy - stała referencja na obiekt klasy Texture
 			///
 			Texture(const Texture & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param &&other = referencja do r-wartości
 			///
 			Texture(Texture && other);
 
@@ -67,21 +67,21 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy Texture
+			///@param &copy - stała referencja na obiekt klasy Texture
 			///
 			Texture & operator=(const Texture & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartości
+			///@param &&other -  referencja do r-wartości
 			///
 			Texture & operator=(Texture && other);
 
 			///
 			///Metoda wczytuje teksturę z pliku
 			///
-			///@param & file_name - stała referencja na obiekt klasy std::string
+			///@param &file_name - stała referencja na obiekt klasy std::string
 			////
 			bool Load(const std::string & file_name);
 

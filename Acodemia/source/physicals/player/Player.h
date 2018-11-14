@@ -49,14 +49,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiuj¹cy
 			///
-			///@param & copy - sta³a referencja na obiekt klasy Player
+			///@param &copy - sta³a referencja na obiekt klasy Player
 			///
 			Player(const Player & copy);
 
 			///
 			///Konstruktor przenosz¹cy
 			///
-			///@param && other = referencja do r-wartoœci
+			///@param &&other = referencja do r-wartoœci
 			///
 			Player(Player && other);
 
@@ -68,14 +68,14 @@ namespace acodemia
 			///
 			///Przeci¹¿ony operator przypisania kopiowania
 			///
-			///@param & copy - sta³a referencja na obiekt klasy Player
+			///@param &copy - sta³a referencja na obiekt klasy Player
 			///
 			Player & operator=(const Player & copy);
 
 			///
 			///Przeci¹¿ony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartoœci
+			///@param &&other -  referencja do r-wartoœci
 			///
 			Player & operator=(Player && other);
 

@@ -49,14 +49,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - stała referencja na obiekt klasy Bullet
+			///@param &copy - stała referencja na obiekt klasy Bullet
 			///
 			Bullet(const Bullet & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param &&other = referencja do r-wartości
 			///
 			Bullet(Bullet && other);
 
@@ -68,14 +68,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy Bullet
+			///@param &copy - stała referencja na obiekt klasy Bullet
 			///
 			Bullet & operator=(const Bullet & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartości
+			///@param &&other -  referencja do r-wartości
 			///
 			Bullet & operator=(Bullet && other);
 
@@ -87,7 +87,7 @@ namespace acodemia
 			///
 			///Metoda ustawia wektor kierunku
 			///
-			///@param const & motion - stała referencja na obiekt klasy sf::Vector2f
+			///@param &motion - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setMotion(const sf::Vector2f & motion);
 
@@ -96,7 +96,7 @@ namespace acodemia
 			///
 			///@param x - składowa X wektora kierunku
 			///
-			//////@param y - składowa Y wektora kierunku
+			///@param y - składowa Y wektora kierunku
 			///
 			void setMotion(float x, float y);
 

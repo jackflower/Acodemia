@@ -35,43 +35,43 @@ namespace acodemia
 	{
 		///
 		///Klasa reprezentuje klatkę animacji
-		//
+		///
 		class AnimationFrame
 		{
 		public:
 
 			///
-			//Konstruktor domyślny
+			///Konstruktor domyślny
 			///
 			AnimationFrame();
 
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - stała referencja na obiekt klasy AnimationFrame
+			///@param &copy - stała referencja na obiekt klasy AnimationFrame
 			///
 			AnimationFrame(const AnimationFrame & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param &&other = referencja do r-wartości
 			///
 			AnimationFrame(AnimationFrame && other);
 
 			///
 			///Konstruktor parametryczny
 			///
-			///@param & texture - stała referencja na teksturę
+			///@param &texture - stała referencja na teksturę
 			///
-			///@param & rectangle - stała referencja na obszar prostokątny tekstury
+			///@param &rectangle - stała referencja na obszar prostokątny tekstury
 			///
 			AnimationFrame(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle);
 
 			///
 			///Konstruktor parametryczny
 			///
-			///@param & texture - stała referencja na teksturę
+			///@param &texture - stała referencja na teksturę
 			///
 			AnimationFrame(const acodemia::rendering::Texture & texture);
 			
@@ -83,14 +83,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy AnimationFrame
+			///@param &copy - stała referencja na obiekt klasy AnimationFrame
 			///
 			AnimationFrame & operator=(const AnimationFrame & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartości
+			///@param &&other -  referencja do r-wartości
 			///
 			AnimationFrame & operator=(AnimationFrame && other);
 

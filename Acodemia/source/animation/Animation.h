@@ -50,14 +50,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param & copy - stała referencja na obiekt klasy Animation
+			///@param &copy - stała referencja na obiekt klasy Animation
 			///
 			Animation(const Animation & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param && other = referencja do r-wartości
+			///@param &&other = referencja do r-wartości
 			///
 			Animation(Animation && other);
 
@@ -80,14 +80,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param & copy - stała referencja na obiekt klasy Animation
+			///@param &copy - stała referencja na obiekt klasy Animation
 			///
 			Animation & operator=(const Animation & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param && other -  referencja do r-wartości
+			///@param &&other -  referencja do r-wartości
 			///
 			Animation & operator=(Animation && other);
 
@@ -115,9 +115,9 @@ namespace acodemia
 			///
 			///Metoda dodaje do wektora obiekt klasy AnimationFrame
 			///
-			///@param & texture - tekstura
+			///@param &texture - tekstura
 			///
-			///@param & rectangle - obszar prostokątny
+			///@param &rectangle - obszar prostokątny
 			///
 			void setSingleAnimationFrameTexture(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle);
 

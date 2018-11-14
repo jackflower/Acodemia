@@ -70,7 +70,7 @@ public:
 	///
 	///Metoda rejestruje w kontenerze wskaźniki na obiekty Physical
 	///
-	///@param * physical - wskaźnik na obiekt Physical
+	///@param *physical - wskaźnik na obiekt Physical
 	///
 	void registerPhysical(Physical * physical);
 
@@ -84,7 +84,7 @@ public:
 	///
 	///Wirtualna metoda rysująca obiekt
 	///
-	///@param & render - kontekst graficzny
+	///@param &render - kontekst graficzny
 	///
 	virtual void draw(sf::RenderWindow & render) const;
 
