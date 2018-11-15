@@ -278,11 +278,11 @@ namespace acodemia
 			void move(const sf::Vector2f & offset);
 
 			///
-			///Wirtualna metoda aktualizująca obiekt
+			///Wirtualna metoda abstrakcyjna aktualizująca obiekt
 			///
 			///@param dt - czas
 			///
-			virtual void update(float dt);
+			virtual void update(float dt) = 0;
 
 			///
 			///Wirtualna metoda rysująca obiekt

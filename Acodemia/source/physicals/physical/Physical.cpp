@@ -312,12 +312,6 @@ namespace acodemia
 			m_stored_color = m_displayable.getColor();
 		}
 
-		//Wirtualna metoda aktualizująca obiekt
-		void Physical::update(float dt)
-		{
-			//implementacje w klasach potomnych
-		}
-
 		//Wirtualna metoda rysująca obiekt
 		void Physical::draw(sf::RenderWindow & render) const
 		{
