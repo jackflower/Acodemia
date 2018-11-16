@@ -28,7 +28,7 @@
 #define H_BULLET_ACODEMIA
 
 #include "SFML/Graphics.hpp"
-#include "../physical/Physical.h"
+#include "../actor/Actor.h"
 
 namespace acodemia
 {
@@ -37,7 +37,7 @@ namespace acodemia
 		///
 		///Klasa reprezentje pocisk
 		///
-		class Bullet : public Physical
+		class Bullet : public Actor
 		{
 		public:
 

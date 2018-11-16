@@ -33,7 +33,7 @@ namespace acodemia
 		//Konstruktor domyślny
 		Bullet::Bullet()
 		:
-			Physical(),
+			Actor(),
 			m_caliber(0.f),
 			m_lifetime(0.f),
 			m_elapsedtime(0.f)
@@ -43,7 +43,7 @@ namespace acodemia
 		//Konstruktor kopiujący
 		Bullet::Bullet(const Bullet & copy)
 		:
-			Physical(copy),//konstruktor kopiujący klasy bazowej
+			Actor(copy),//konstruktor kopiujący klasy bazowej
 			m_caliber(copy.m_caliber),
 			m_lifetime(copy.m_lifetime),
 			m_elapsedtime(copy.m_elapsedtime)
@@ -53,7 +53,7 @@ namespace acodemia
 		//Konstruktor przenoszący
 		Bullet::Bullet(Bullet && other)
 		:
-			Physical(other),//konstruktor przenoszący klasy bazowej
+			Actor(other),//konstruktor przenoszący klasy bazowej
 			m_caliber(other.m_caliber),
 			m_lifetime(other.m_lifetime),
 			m_elapsedtime(other.m_elapsedtime)
@@ -73,7 +73,7 @@ namespace acodemia
 		{
 			if (this != &copy)
 			{
-				Physical::operator=(copy);
+				Actor::operator=(copy);
 				m_caliber = copy.m_caliber;
 				m_lifetime = copy.m_lifetime;
 				m_elapsedtime = copy.m_elapsedtime;
@@ -86,7 +86,7 @@ namespace acodemia
 		{
 			if (this != &other)
 			{
-				Physical::operator=(other);
+				Actor::operator=(other);
 				m_caliber = other.m_caliber;
 				m_lifetime = other.m_lifetime;
 				m_elapsedtime = other.m_elapsedtime;

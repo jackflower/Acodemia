@@ -26,6 +26,10 @@
 
 #include "PhysicalManager.h"
 #include "../physicals/physical/Physical.h"
+#include "../physicals/bullet/Bullet.h"
+#include "../physicals/actor/Actor.h"
+#include "../physicals/player/Player.h"
+
 using namespace acodemia::physical;
 
 //Konstruktor domyślny
@@ -35,10 +39,15 @@ PhysicalManager::PhysicalManager()
 {
 }
 
-//Destruktor
+//Destruktor wirtualny
 PhysicalManager::~PhysicalManager()
 {
-	//bilans new/delete
+	std::vector<Physical*>::iterator it;
+	for (it = m_physicals.begin(); it != m_physicals.end(); it++)
+	{
+		if((*it))
+			delete (*it);
+	}
 	m_physicals.clear();
 }
 
@@ -81,4 +90,39 @@ void PhysicalManager::draw(sf::RenderWindow & render) const
 			if ((*it)->getUseDisplayable() and !(*it)->getDestruction())
 				(*it)->draw(render);
 	}
+}
+
+// f a c t o r y  - implementacja
+
+//Metoda tworzy obiekt klasy Physical i zwraca wskaźnik na ten obiekt
+Physical *PhysicalManager::CreatePhysical()
+{
+	return Create<Physical>();
+}
+
+//Metoda tworzy obiekt klasy Bullet i zwraca wskaźnik na ten obiekt
+Bullet *PhysicalManager::CreateBullet()
+{
+	return Create<Bullet>();
+}
+
+//Metoda tworzy obiekt klasy Actor i zwraca wskaźnik na ten obiekt
+Actor *PhysicalManager::CreateActor()
+{
+	return Create<Actor>();
+}
+
+//Metoda tworzy obiekt klasy Player i zwraca wskaźnik na ten obiekt
+Player *PhysicalManager::CreatePlayer()
+{
+	return Create<Player>();
+}
+
+//Szablon metody tworzenia obiektów
+template<class T>
+T* PhysicalManager::Create()
+{
+	T* obj = new T();
+	m_physicals.push_back(obj);
+	return obj;
 }

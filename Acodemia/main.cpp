@@ -19,51 +19,53 @@ int main()
 	tex_bullet.loadFromFile("../data/bullet.png");
 	tex_bullet.setSmooth(true);
 
-	Bullet *bullet = new Bullet();
+	Bullet *bullet = gPhysicalManager.CreateBullet();
 	bullet->setTexture(tex_bullet);
 	bullet->setUseDisplayable(true);
 	bullet->setPosition(230, 500);
 	bullet->setMotion(0.f, -1.f);
 	bullet->setSpeed(100.f);
 	bullet->setLifeTime(4.52f);
-	//bullet->destroy();
-	//bullet->setDestruction(true);
 
 
-	// a c o d e m i a   library
+	// P l a y e r s
 	acodemia::rendering::Texture tekstura;
 	tekstura.loadFromFile("../data/ship.png");
 	tekstura.setSmooth(true);
 
-	// G r a c z
-	Player *player = new Player();
-	player->setTexture(tekstura);
-	player->setUseDisplayable(true);
-	player->setPosition(200, 200);
-	player->setColor(sf::Color::Red);
-	//player->destroy();
-	//player->setDestruction(true);
-	
-	
-	Player *player_demo = new Player();
-	player_demo->setTexture(tekstura);
-	player_demo->setUseDisplayable(true);
-	player_demo->setPosition(400, 200);
-	//player_demo->destroy();
-	//player_demo->setDestruction(true);
+	Physical *physical;
 
-	//Testy fabryki...
-	gPhysicalManager.registerPhysical(player);
-	gPhysicalManager.registerPhysical(player_demo);
-	gPhysicalManager.registerPhysical(bullet);
+	//pierwszy - normal
+	physical = gPhysicalManager.CreatePlayer();
+	physical->setTexture(tekstura);
+	physical->setUseDisplayable(true);
+	physical->setPosition(200, 200);
+		
+	//drugi - red
+	physical = gPhysicalManager.CreatePlayer();
+	physical->setTexture(tekstura);
+	physical->setUseDisplayable(true);
+	physical->setPosition(300, 200);
+	physical->setColor(sf::Color::Red);
+	//player->setScale(1, -1);
 	
-	int warta = 0;
+	//trzeci - green
+	physical = gPhysicalManager.CreatePlayer();
+	physical->setTexture(tekstura);
+	physical->setUseDisplayable(true);
+	physical->setPosition(400, 200);
+	physical->setColor(sf::Color::Green);
 
+	// A c t o r s
+	//aktor - blue
+	physical = gPhysicalManager.CreateActor();
+	physical->setTexture(tekstura);
+	physical->setUseDisplayable(true);
+	physical->setPosition(500, 200);
+	physical->setColor(sf::Color::Blue);
 
 	sf::Clock clock;
 	float time = 0.0f;
-	float zegarek = 0.f;
-
 
 	//usage
 	acodemia::rendering::Texture animation_texture;
@@ -87,16 +89,8 @@ int main()
 
 		time = clock.restart().asSeconds();
 
-		zegarek = zegarek + time;
-		if(zegarek > 3)
-			player_demo->setDestruction(true);
-		if (zegarek > 5)
-			player->setDestruction(true);
-
 		animek.update(time);
-	
 		gPhysicalManager.updatePhysical(time);
-
 		window.clear(sf::Color::White);
 		animek.draw(&window);
 		gPhysicalManager.draw(window);

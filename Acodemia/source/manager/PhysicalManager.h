@@ -31,11 +31,15 @@
 #include "../utilities/Singleton.h"
 #include <vector>
 
+//deklaracje zapowiadające (forwad declarations)
 namespace acodemia
 {
 	namespace physical
 	{
 		class Physical;
+		class Bullet;
+		class Actor;
+		class Player;
 	}
 }
 
@@ -58,9 +62,9 @@ public:
 	PhysicalManager();
 
 	///
-	///Destruktor
+	///Destruktor wirtualny
 	///
-	~PhysicalManager();
+	virtual ~PhysicalManager();
 
 	///
 	///Metoda zwraca stałą referencję kontenera
@@ -88,14 +92,37 @@ public:
 	///
 	virtual void draw(sf::RenderWindow & render) const;
 
+	//factory
+
+
+	///
+	///Metoda tworzy obiekt klasy Physical i zwraca wskaźnik na ten obiekt
+	///
+	Physical *CreatePhysical();
+	//powyższe jako szablon...
+
+	///
+	///Metoda tworzy obiekt klasy Bullet i zwraca wskaźnik na ten obiekt
+	///
+	Bullet *CreateBullet();
+
+	///
+	///Metoda tworzy obiekt klasy Actor i zwraca wskaźnik na ten obiekt
+	///
+	Actor *CreateActor();
+
+	///
+	///Metoda tworzy obiekt klasy Player i zwraca wskaźnik na ten obiekt
+	///
+	Player *CreatePlayer();
+
 private:
 
 	//kontener przechowuje wskaźniki na obiekty klasy Physical
 	std::vector<Physical*> m_physicals;
 
-	//create
-	//
-	//factory methods...
+	//szablon metody tworzenia obiektów
+	template<class T> T* Create();
 };
 
 #endif//H_PHYSICAL_MANAGER_ACODEMIA

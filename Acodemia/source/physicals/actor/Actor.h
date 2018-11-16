@@ -25,60 +25,59 @@
 ////////////////////////////////////////////////////////////
 
 
-#ifndef H_PLAYER_ACODEMIA
-#define H_PLAYER_ACODEMIA
+#ifndef H_ACTOR_ACODEMIA
+#define H_ACTOR_ACODEMIA
 
-//#include "../physical/Physical.h"
-#include "../actor/Actor.h"
+#include "../physical/Physical.h"
 
 namespace acodemia
 {
 	namespace physical
 	{
 		///
-		///Klasa reprezentuje gracza
+		///Klasa reprezentuje aktora
 		///
-		class Player : public Actor
+		class Actor : public Physical
 		{
 		public:
 
 			///
 			///Konstruktor domyœlny
 			///
-			Player();
+			Actor();
 
 			///
 			///Konstruktor kopiuj¹cy
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Player
+			///@param &copy - sta³a referencja na obiekt klasy Actor
 			///
-			Player(const Player & copy);
+			Actor(const Actor & copy);
 
 			///
 			///Konstruktor przenosz¹cy
 			///
 			///@param &&other = referencja do r-wartoœci
 			///
-			Player(Player && other);
+			Actor(Actor && other);
 
 			///
 			///Destruktor wirtualny
 			///
-			virtual ~Player();
+			virtual ~Actor();
 
 			///
 			///Przeci¹¿ony operator przypisania kopiowania
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Player
+			///@param &copy - sta³a referencja na obiekt klasy Actor
 			///
-			Player & operator=(const Player & copy);
+			Actor & operator=(const Actor & copy);
 
 			///
 			///Przeci¹¿ony operator przypisania przenoszenia
 			///
 			///@param &&other -  referencja do r-wartoœci
 			///
-			Player & operator=(Player && other);
+			Actor & operator=(Actor && other);
 
 			///
 			///Wirtualna metoda aktualizuj¹ca obiekt
@@ -94,4 +93,4 @@ namespace acodemia
 	}//namespace physical
 }//namespace acodemia
 
-#endif//H_PLAYER_ACODEMIA
+#endif//H_ACTOR_ACODEMIA
