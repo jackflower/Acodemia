@@ -1,26 +1,26 @@
-////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////
 //
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
 //
 // To oprogramowanie dostarczane jest w postaci takiej,
-// w jakiej jest, bez wyraŸnych ani domniemanych gwarancji.
+// w jakiej jest, bez wyraÅºnych ani domniemanych gwarancji.
 //
-// W ¿adnym wypadku Autor nie ponosi odpowiedzialnoœci
-// za jakiekolwiek szkody powsta³e w wyniku korzystania
+// W Å¼adnym wypadku Autor nie ponosi odpowiedzialnoÅ›ci
+// za jakiekolwiek szkody powstaÅ‚e w wyniku korzystania
 // z tego oprogramowania.
 //
-// Zezwala siê na korzystanie z tego oprogramowania
-// w dowolnym celu, tak¿e komercyjnym. Mo¿na je zmieniæ
-// i swobodnie rozpowszechniaæ.
+// Zezwala siÄ™ na korzystanie z tego oprogramowania
+// w dowolnym celu, takÅ¼e komercyjnym. MoÅ¼na je zmieniÄ‡
+// i swobodnie rozpowszechniaÄ‡.
 //
-// Zastrzega siê nastêpuj¹ce ograniczenia:
+// Zastrzega siÄ™ nastÄ™pujÄ…ce ograniczenia:
 //
-// 1. Jeœli u¿ywasz tego oprogramowania w swoich
+// 1. JeÅ›li uÅ¼ywasz tego oprogramowania w swoich
 //    produktach, potwierdzenie pochodzenia tego
 //    oprogramowania w dokumentacji produktu,
-//    by³oby docenione, ale nie jest wymagane.
+//    byÅ‚oby docenione, ale nie jest wymagane.
 //
 ////////////////////////////////////////////////////////////
 
