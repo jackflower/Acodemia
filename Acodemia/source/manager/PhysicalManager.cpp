@@ -38,6 +38,7 @@ PhysicalManager::PhysicalManager()
 //Destruktor
 PhysicalManager::~PhysicalManager()
 {
+	//bilans new/delete
 	m_physicals.clear();
 }
 

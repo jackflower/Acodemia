@@ -34,8 +34,6 @@ namespace acodemia
 		Bullet::Bullet()
 		:
 			Physical(),
-			m_motion(),
-			m_speed(0.f),
 			m_caliber(0.f),
 			m_lifetime(0.f),
 			m_elapsedtime(0.f)
@@ -46,8 +44,6 @@ namespace acodemia
 		Bullet::Bullet(const Bullet & copy)
 		:
 			Physical(copy),//konstruktor kopiujący klasy bazowej
-			m_motion(copy.m_motion),
-			m_speed(copy.m_speed),
 			m_caliber(copy.m_caliber),
 			m_lifetime(copy.m_lifetime),
 			m_elapsedtime(copy.m_elapsedtime)
@@ -58,8 +54,6 @@ namespace acodemia
 		Bullet::Bullet(Bullet && other)
 		:
 			Physical(other),//konstruktor przenoszący klasy bazowej
-			m_motion(other.m_motion),
-			m_speed(other.m_speed),
 			m_caliber(other.m_caliber),
 			m_lifetime(other.m_lifetime),
 			m_elapsedtime(other.m_elapsedtime)
@@ -69,9 +63,6 @@ namespace acodemia
 		//Destruktor wirtualny
 		Bullet::~Bullet()
 		{
-			m_motion.x = 0.f;
-			m_motion.y = 0.f;
-			m_speed = 0.f;
 			m_caliber = 0.f;
 			m_lifetime = 0.f;
 			m_elapsedtime = 0.f;
@@ -83,8 +74,6 @@ namespace acodemia
 			if (this != &copy)
 			{
 				Physical::operator=(copy);
-				m_motion = copy.m_motion;
-				m_speed = copy.m_speed;
 				m_caliber = copy.m_caliber;
 				m_lifetime = copy.m_lifetime;
 				m_elapsedtime = copy.m_elapsedtime;
@@ -98,8 +87,6 @@ namespace acodemia
 			if (this != &other)
 			{
 				Physical::operator=(other);
-				m_motion = other.m_motion;
-				m_speed = other.m_speed;
 				m_caliber = other.m_caliber;
 				m_lifetime = other.m_lifetime;
 				m_elapsedtime = other.m_elapsedtime;
@@ -107,35 +94,6 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda zwraca stałą referencję na wektor kierunku
-		const sf::Vector2f & Bullet::getMotion() const
-		{
-			return m_motion;
-		}
-
-		//Metoda ustawia wektor kierunku
-		void Bullet::setMotion(const sf::Vector2f & motion)
-		{
-			m_motion = motion;
-		}
-
-		//Metoda ustawia wektor kierunku
-		void Bullet::setMotion(float x, float y)
-		{
-			m_motion.x = x;
-			m_motion.y = y;
-		}
-
-		//Metoda zwraca prędkość pocisku
-		const float Bullet::getSpeed() const
-		{
-			return m_speed;
-		}
-
-		void Bullet::setSpeed(float speed)
-		{
-			m_speed = speed;
-		}
 
 		//Metoda zwraca kaliber pocisku
 		const float Bullet::getCaliber() const
@@ -164,18 +122,15 @@ namespace acodemia
 		//Wirtualna metoda aktualizująca obiekt
 		void Bullet::update(float dt)
 		{
+
+			//aktualizacja pozycji
+			Physical::update(dt);
+
 			//zliczamy czas życia pocisku
 			m_elapsedtime += dt;
 			//po upływie określonego czasu
 			if (m_elapsedtime > m_lifetime)
 				destroy();//niszczymy pocisk
-
-			//aktualizacja pozycji pocisku
-			sf::Vector2f new_position;
-			new_position.x = m_position.x + m_motion.x * m_speed * dt;
-			new_position.y = m_position.y + m_motion.y * m_speed * dt;
-			m_position = new_position;
-			setPosition(m_position);
 		}
 
 	}//namespace physical

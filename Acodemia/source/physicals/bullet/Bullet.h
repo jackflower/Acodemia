@@ -80,39 +80,6 @@ namespace acodemia
 			Bullet & operator=(Bullet && other);
 
 			///
-			///Metoda zwraca stałą referencję na wektor kierunku
-			///
-			const sf::Vector2f & getMotion() const;
-
-			///
-			///Metoda ustawia wektor kierunku
-			///
-			///@param &motion - stała referencja na obiekt klasy sf::Vector2f
-			///
-			void setMotion(const sf::Vector2f & motion);
-
-			///
-			///Metoda ustawia wektor kierunku
-			///
-			///@param x - składowa X wektora kierunku
-			///
-			///@param y - składowa Y wektora kierunku
-			///
-			void setMotion(float x, float y);
-
-			///
-			///Metoda zwraca prędkość pocisku
-			///
-			const float getSpeed() const;
-
-			///
-			///Metoda ustawia prędkość pocisku
-			///
-			///@param speed - prędkość pocisku
-			///
-			void setSpeed(float speed);
-
-			///
 			///Metoda zwraca kaliber pocisku
 			///
 			const float getCaliber() const;
@@ -145,8 +112,6 @@ namespace acodemia
 
 		private:
 
-			sf::Vector2f m_motion; //wektor kierunku pocisku
-			float m_speed; //prędkość pocisku
 			float m_caliber; //kaliber - siła rażenia
 			float m_lifetime; //czas życia pocisku
 			float m_elapsedtime; //upływający czas

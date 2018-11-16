@@ -278,11 +278,44 @@ namespace acodemia
 			void move(const sf::Vector2f & offset);
 
 			///
-			///Wirtualna metoda abstrakcyjna aktualizująca obiekt
+			///Metoda zwraca stałą referencję na wektor kierunku
+			///
+			const sf::Vector2f & getMotion() const;
+
+			///
+			///Metoda ustawia wektor kierunku
+			///
+			///@param &motion - stała referencja na obiekt klasy sf::Vector2f
+			///
+			void setMotion(const sf::Vector2f & motion);
+
+			///
+			///Metoda ustawia wektor kierunku
+			///
+			///@param x - składowa X wektora kierunku
+			///
+			///@param y - składowa Y wektora kierunku
+			///
+			void setMotion(float x, float y);
+
+			///
+			///Metoda zwraca prędkość
+			///
+			const float getSpeed() const;
+
+			///
+			///Metoda ustawia prędkość
+			///
+			///@param speed - prędkość
+			///
+			void setSpeed(float speed);
+
+			///
+			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
 			///
-			virtual void update(float dt) = 0;
+			virtual void update(float dt);
 
 			///
 			///Wirtualna metoda rysująca obiekt
@@ -304,6 +337,9 @@ namespace acodemia
 			sf::Color m_stored_color; //kolor oryginalny
 			
 		private:
+
+			sf::Vector2f m_motion; //wektor kierunku
+			float m_speed; //prędkość
 
 		};
 	}//namespace physical

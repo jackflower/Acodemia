@@ -92,6 +92,10 @@ private:
 
 	//kontener przechowuje wskaźniki na obiekty klasy Physical
 	std::vector<Physical*> m_physicals;
+
+	//create
+	//
+	//factory methods...
 };
 
 #endif//H_PHYSICAL_MANAGER_ACODEMIA

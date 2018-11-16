@@ -41,7 +41,9 @@ namespace acodemia
 			m_scale(1, 1),
 			m_origin(),
 			m_color(),
-			m_stored_color()
+			m_stored_color(),
+			m_motion(),
+			m_speed(0.f)
 		{
 		}
 
@@ -56,7 +58,9 @@ namespace acodemia
 			m_scale(copy.m_scale),
 			m_origin(copy.m_origin),
 			m_color(copy.m_color),
-			m_stored_color(copy.m_stored_color)
+			m_stored_color(copy.m_stored_color),
+			m_motion(copy.m_motion),
+			m_speed(copy.m_speed)
 		{
 		}
 
@@ -72,7 +76,9 @@ namespace acodemia
 			m_scale(other.m_scale),
 			m_origin(other.m_origin),
 			m_color(other.m_color),
-			m_stored_color(other.m_stored_color)
+			m_stored_color(other.m_stored_color),
+			m_motion(other.m_motion),
+			m_speed(other.m_speed)
 		{
 		}
 
@@ -80,6 +86,23 @@ namespace acodemia
 		Physical::~Physical()
 		{
 			//nothing to do...
+			//to do...wyzerować po szkolnemu składowe...
+
+
+			//m_displayable...
+			m_use_displayable = false;
+			m_destruction = false;
+			m_position.x = 0.f;
+			m_position.y = 0.f;
+			m_rotation = 0.f;
+			m_scale.x = 0.f;
+			m_scale.y = 0.f;
+			m_origin.x = 0.f;
+			m_origin.y = 0.f;
+			//m_color
+			m_motion.x = 0.f;
+			m_motion.y = 0.f;
+			m_speed = 0.f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -96,6 +119,8 @@ namespace acodemia
 				m_origin = copy.m_origin;
 				m_color = copy.m_color;
 				m_stored_color = copy.m_stored_color;
+				m_motion = copy.m_motion;
+				m_speed = copy.m_speed;
 			}
 			return *this;
 		}
@@ -114,6 +139,8 @@ namespace acodemia
 				m_origin = other.m_origin;
 				m_color = other.m_color;
 				m_stored_color = other.m_stored_color;
+				m_motion = other.m_motion;
+				m_speed = other.m_speed;
 			}
 			return *this;
 		}
@@ -310,6 +337,49 @@ namespace acodemia
 		{
 			m_displayable.setTexture(texture);
 			m_stored_color = m_displayable.getColor();
+		}
+
+		//Metoda zwraca stałą referencję na wektor kierunku
+		const sf::Vector2f & Physical::getMotion() const
+		{
+			return m_motion;
+		}
+
+		//Metoda ustawia wektor kierunku
+		void Physical::setMotion(const sf::Vector2f & motion)
+		{
+			m_motion = motion;
+		}
+
+		//Metoda ustawia wektor kierunku
+		void Physical::setMotion(float x, float y)
+		{
+			m_motion.x = x;
+			m_motion.y = y;
+		}
+
+		//Metoda zwraca prędkość
+		const float Physical::getSpeed() const
+		{
+			return m_speed;
+		}
+
+		//Metoda ustawia prędkość
+		void Physical::setSpeed(float speed)
+		{
+			m_speed = speed;
+		}
+
+
+		//Wirtualna metoda aktualizująca obiekt
+		void Physical::update(float dt)
+		{
+			//aktualizacja pozycji
+			sf::Vector2f new_position;
+			new_position.x = m_position.x + m_motion.x * m_speed * dt;
+			new_position.y = m_position.y + m_motion.y * m_speed * dt;
+			m_position = new_position;
+			setPosition(m_position);
 		}
 
 		//Wirtualna metoda rysująca obiekt

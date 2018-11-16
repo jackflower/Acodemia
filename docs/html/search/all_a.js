@@ -1,6 +1,0 @@
-var searchData=
-[
-  ['registerphysical',['registerPhysical',['../class_physical_manager.html#abb63e11f1f716745ff1515d3607e2c2d',1,'PhysicalManager']]],
-  ['restorecolor',['restoreColor',['../classacodemia_1_1physical_1_1_physical.html#a51324fff4a9398b5a88be4434615993e',1,'acodemia::physical::Physical']]],
-  ['rotate',['rotate',['../classacodemia_1_1physical_1_1_physical.html#ace504c9289abca0a26bbd834d5bb3f94',1,'acodemia::physical::Physical::rotate()'],['../classacodemia_1_1rendering_1_1_displayable.html#a93d379bfe4b9bd18f1bd26a4e1d9aac9',1,'acodemia::rendering::Displayable::rotate()']]]
-];
