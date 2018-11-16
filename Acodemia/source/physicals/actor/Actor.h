@@ -1,26 +1,26 @@
-////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////
 //
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
 //
 // To oprogramowanie dostarczane jest w postaci takiej,
-// w jakiej jest, bez wyraŸnych ani domniemanych gwarancji.
+// w jakiej jest, bez wyraÅºnych ani domniemanych gwarancji.
 //
-// W ¿adnym wypadku Autor nie ponosi odpowiedzialnoœci
-// za jakiekolwiek szkody powsta³e w wyniku korzystania
+// W Å¼adnym wypadku Autor nie ponosi odpowiedzialnoÅ›ci
+// za jakiekolwiek szkody powstaÅ‚e w wyniku korzystania
 // z tego oprogramowania.Zastrzega
 //
-// Zezwala siê na korzystanie z tego oprogramowania
-// w dowolnym celu, tak¿e komercyjnym. Mo¿na je zmieniæ
-// i swobodnie rozpowszechniaæ.
+// Zezwala siÄ™ na korzystanie z tego oprogramowania
+// w dowolnym celu, takÅ¼e komercyjnym. MoÅ¼na je zmieniÄ‡
+// i swobodnie rozpowszechniaÄ‡.
 //
-// Zastrzega siê nastêpuj¹ce ograniczenia:
+// Zastrzega siÄ™ nastÄ™pujÄ…ce ograniczenia:
 //
-// 1. Jeœli u¿ywasz tego oprogramowania w swoich
+// 1. JeÅ›li uÅ¼ywasz tego oprogramowania w swoich
 //    produktach, potwierdzenie pochodzenia tego
 //    oprogramowania w dokumentacji produktu,
-//    by³oby docenione, ale nie jest wymagane.
+//    byÅ‚oby docenione, ale nie jest wymagane.
 //
 ////////////////////////////////////////////////////////////
 
@@ -42,21 +42,21 @@ namespace acodemia
 		public:
 
 			///
-			///Konstruktor domyœlny
+			///Konstruktor domyÅ›lny
 			///
 			Actor();
 
 			///
-			///Konstruktor kopiuj¹cy
+			///Konstruktor kopiujÄ…cy
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Actor
+			///@param &copy - staÅ‚a referencja na obiekt klasy Actor
 			///
 			Actor(const Actor & copy);
 
 			///
-			///Konstruktor przenosz¹cy
+			///Konstruktor przenoszÄ…cy
 			///
-			///@param &&other = referencja do r-wartoœci
+			///@param &&other = referencja do r-wartoÅ›ci
 			///
 			Actor(Actor && other);
 
@@ -66,21 +66,21 @@ namespace acodemia
 			virtual ~Actor();
 
 			///
-			///Przeci¹¿ony operator przypisania kopiowania
+			///PrzeciÄ…Å¼ony operator przypisania kopiowania
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Actor
+			///@param &copy - staÅ‚a referencja na obiekt klasy Actor
 			///
 			Actor & operator=(const Actor & copy);
 
 			///
-			///Przeci¹¿ony operator przypisania przenoszenia
+			///PrzeciÄ…Å¼ony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartoœci
+			///@param &&other -  referencja do r-wartoÅ›ci
 			///
 			Actor & operator=(Actor && other);
 
 			///
-			///Wirtualna metoda aktualizuj¹ca obiekt
+			///Wirtualna metoda aktualizujÄ…ca obiekt
 			///
 			///@param dt - czas
 			///

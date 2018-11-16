@@ -1,26 +1,26 @@
-////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////
 //
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
 //
 // To oprogramowanie dostarczane jest w postaci takiej,
-// w jakiej jest, bez wyraŸnych ani domniemanych gwarancji.
+// w jakiej jest, bez wyraÅºnych ani domniemanych gwarancji.
 //
-// W ¿adnym wypadku Autor nie ponosi odpowiedzialnoœci
-// za jakiekolwiek szkody powsta³e w wyniku korzystania
+// W Å¼adnym wypadku Autor nie ponosi odpowiedzialnoÅ›ci
+// za jakiekolwiek szkody powstaÅ‚e w wyniku korzystania
 // z tego oprogramowania.Zastrzega
 //
-// Zezwala siê na korzystanie z tego oprogramowania
-// w dowolnym celu, tak¿e komercyjnym. Mo¿na je zmieniæ
-// i swobodnie rozpowszechniaæ.
+// Zezwala siÄ™ na korzystanie z tego oprogramowania
+// w dowolnym celu, takÅ¼e komercyjnym. MoÅ¼na je zmieniÄ‡
+// i swobodnie rozpowszechniaÄ‡.
 //
-// Zastrzega siê nastêpuj¹ce ograniczenia:
+// Zastrzega siÄ™ nastÄ™pujÄ…ce ograniczenia:
 //
-// 1. Jeœli u¿ywasz tego oprogramowania w swoich
+// 1. JeÅ›li uÅ¼ywasz tego oprogramowania w swoich
 //    produktach, potwierdzenie pochodzenia tego
 //    oprogramowania w dokumentacji produktu,
-//    by³oby docenione, ale nie jest wymagane.
+//    byÅ‚oby docenione, ale nie jest wymagane.
 //
 ////////////////////////////////////////////////////////////
 
@@ -30,24 +30,24 @@ namespace acodemia
 {
 	namespace physical
 	{
-		//Konstruktor domyœlny
+		//Konstruktor domyÅ›lny
 		Actor::Actor()
 		:
 			Physical()//konstrutor klasy bazowej
 		{
 		}
 
-		//Konstruktor kopiuj¹cy
+		//Konstruktor kopiujÄ…cy
 		Actor::Actor(const Actor & copy)
 		:
-			Physical(copy)//konstrutor kopiuj¹cy klasy bazowej
+			Physical(copy)//konstrutor kopiujÄ…cy klasy bazowej
 		{
 		}
 
-		//Konstruktor przenosz¹cy
+		//Konstruktor przenoszÄ…cy
 		Actor::Actor(Actor && other)
 		:
-			Physical(other)//konstruktor przenosz¹cy klasy bazowej
+			Physical(other)//konstruktor przenoszÄ…cy klasy bazowej
 		{
 		}
 
@@ -56,7 +56,7 @@ namespace acodemia
 		{
 		}
 
-		//Przeci¹¿ony operator przypisania kopiowania
+		//PrzeciÄ…Å¼ony operator przypisania kopiowania
 		Actor & Actor::operator=(const Actor & copy)
 		{
 			if (this != &copy)
@@ -67,7 +67,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Przeci¹¿ony operator przypisania przenoszenia
+		//PrzeciÄ…Å¼ony operator przypisania przenoszenia
 		Actor & Actor::operator=(Actor && other)
 		{
 			if (this != &other)
@@ -78,7 +78,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Wirtualna metoda aktualizuj¹ca obiekt
+		//Wirtualna metoda aktualizujÄ…ca obiekt
 		void Actor::update(float dt)
 		{
 			//sterowanie, strzelanie, etc...
