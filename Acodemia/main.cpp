@@ -8,6 +8,10 @@
 #include "source/manager/PhysicalManager.h"
 
 
+// Jurem ma zeza i
+//kocha ANkę
+
+
 using namespace acodemia::physical;
 
 int main()
