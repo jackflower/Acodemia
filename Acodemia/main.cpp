@@ -17,7 +17,11 @@ using namespace acodemia::physical;
 int main()
 {
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
-
+	
+	
+	window.setKeyRepeatEnabled(false);
+	
+	
 	// B u l l e t
 	acodemia::rendering::Texture tex_bullet;
 	tex_bullet.loadFromFile("../data/bullet.png");
@@ -43,7 +47,17 @@ int main()
 	physical = gPhysicalManager.CreatePlayer();
 	physical->setTexture(tekstura);
 	physical->setUseDisplayable(true);
+	//physical->setPosition(200, 200);
+	//physical->setScale(2);
+	//testy do strzelania...docelowo opakować do metody...
+	//ostalam origin na środek obiektu...
+	//physical->setOrigin(physical->getGlobalBounds().width * 0.5f, physical->getGlobalBounds().height * 0.5f);
+	//float origin_x = physical->getOrigin().x;
+	//float origin_y = physical->getOrigin().y;
 	physical->setPosition(200, 200);
+	physical->setSpeed(100);
+
+	int warta = 0;
 		
 	//drugi - red
 	physical = gPhysicalManager.CreatePlayer();

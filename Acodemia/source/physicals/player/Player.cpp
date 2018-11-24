@@ -1,5 +1,4 @@
-﻿////////////////////////////////////////////////////////////
-//
+﻿//
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
@@ -25,6 +24,7 @@
 ////////////////////////////////////////////////////////////
 
 #include "Player.h"
+#include <iostream>
 
 namespace acodemia
 {
@@ -79,7 +79,35 @@ namespace acodemia
 		//Wirtualna metoda aktualizująca obiekt
 		void Player::update(float dt)
 		{
-			//sterowanie, strzelanie, etc...
+			//sterowanie...
+			//opakować do prywatnej metody class Player
+			//metoda ograniczająca sterowanie do wielkości sceny
+			//bool inScene();
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
+			{
+				setMotion(1, 0);
+				Physical::update(dt);
+			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
+			{
+				setMotion(-1, 0);
+				Physical::update(dt);
+			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
+			{
+				setMotion(0, -1);
+				Physical::update(dt);
+			}
+
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+			{
+				setMotion(0, 1);
+				Physical::update(dt);
+			}
+
 		}
 		
 	}//namespace physical
