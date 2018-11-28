@@ -48,10 +48,10 @@ int main()
 	physical->setTexture(tekstura);
 	physical->setUseDisplayable(true);
 	//physical->setPosition(200, 200);
-	//physical->setScale(2);
+	physical->setScale(2);
 	//testy do strzelania...docelowo opakować do metody...
 	//ostalam origin na środek obiektu...
-	//physical->setOrigin(physical->getGlobalBounds().width * 0.5f, physical->getGlobalBounds().height * 0.5f);
+	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	//float origin_x = physical->getOrigin().x;
 	//float origin_y = physical->getOrigin().y;
 	physical->setPosition(200, 200);
@@ -66,6 +66,7 @@ int main()
 	physical->setPosition(300, 200);
 	physical->setColor(sf::Color::Red);
 	//player->setScale(1, -1);
+	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	
 	//trzeci - green
 	physical = gPhysicalManager.CreatePlayer();
@@ -73,6 +74,7 @@ int main()
 	physical->setUseDisplayable(true);
 	physical->setPosition(400, 200);
 	physical->setColor(sf::Color::Green);
+	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 
 	// A c t o r s
 	//aktor - blue

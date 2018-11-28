@@ -79,6 +79,7 @@ namespace acodemia
 		//Wirtualna metoda aktualizująca obiekt
 		void Player::update(float dt)
 		{
+			rotate(0.05f);
 			//sterowanie...
 			//opakować do prywatnej metody class Player
 			//metoda ograniczająca sterowanie do wielkości sceny
