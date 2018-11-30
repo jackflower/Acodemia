@@ -8,32 +8,50 @@
 #include "source/manager/PhysicalManager.h"
 
 
-// Jurem ma zeza i
-//kocha ANkę
 
+
+#define _USE_MATH_DEFINES // for C++  
+#include <cmath>
+#include <math.h>
 
 using namespace acodemia::physical;
 
 int main()
 {
+	//sf::
+
+	//double halfC = M_PI / 180;
+	const double pi = std::acos(-1);
+	double xx = M_PI;
+	
+	int testowanie = 0;
+
+	//sin()
+	//
+
+	//std::degr
+
+	
+	
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	
 	
 	window.setKeyRepeatEnabled(false);
 	
 	
-	// B u l l e t
-	acodemia::rendering::Texture tex_bullet;
-	tex_bullet.loadFromFile("../data/bullet.png");
-	tex_bullet.setSmooth(true);
+	//// B u l l e t
+	//acodemia::rendering::Texture tex_bullet;
+	//tex_bullet.loadFromFile("../data/bullet.png");
+	//tex_bullet.setSmooth(true);
 
-	Bullet *bullet = gPhysicalManager.CreateBullet();
-	bullet->setTexture(tex_bullet);
-	bullet->setUseDisplayable(true);
-	bullet->setPosition(230, 500);
-	bullet->setMotion(0.f, -1.f);
-	bullet->setSpeed(100.f);
-	bullet->setLifeTime(4.52f);
+	//Bullet *bullet = gPhysicalManager.CreateBullet();
+	//bullet->setTexture(tex_bullet);
+	//bullet->setUseDisplayable(true);
+	//bullet->setPosition(230, 500);
+	//bullet->setMotion(0.f, -1.f);
+	//bullet->setSpeed(100.f);
+	//bullet->setLifeTime(4.52f);
 
 
 	// P l a y e r s

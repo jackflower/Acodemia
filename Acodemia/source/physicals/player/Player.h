@@ -90,6 +90,13 @@ namespace acodemia
 		protected:
 		private:
 
+			//opisać składowe...
+			void shoot();
+			Texture m_bullet_texture;
+			float m_shoot_timer;
+			float m_elapsed_time;
+			bool shoot_enabled;
+
 		};
 	}//namespace physical
 }//namespace acodemia

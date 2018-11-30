@@ -25,6 +25,8 @@
 
 #include "Player.h"
 #include <iostream>
+#include "../../manager/PhysicalManager.h"
+#include "../bullet/Bullet.h"
 
 namespace acodemia
 {
@@ -32,26 +34,35 @@ namespace acodemia
 	{
 		//Konstruktor domyślny
 		Player::Player()
+		:
+			Actor(),
+			m_bullet_texture(),
+			m_elapsed_time(0.0f),
+			m_shoot_timer(0.25f),//strzał co 1/4 sekundy (4 pociski na sekundę)
+			shoot_enabled(false)
 		{
 			//doliczyć klasę bazową
+
+			// B u l l e t
+			m_bullet_texture.loadFromFile("../data/bullet.png");
+			m_bullet_texture.setSmooth(true);
 		}
 
 		//Konstruktor kopiujący
 		Player::Player(const Player & copy)
+		//doliczyć klasę bazową
 		{
-			//doliczyć klasę bazową
 		}
 
 		//Konstruktor przenoszący
 		Player::Player(Player && other)
-		{
 			//doliczyć klasę bazową
+		{
 		}
 
 		//Destruktor
 		Player::~Player()
 		{
-			//doliczyć klasę bazową
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -80,9 +91,11 @@ namespace acodemia
 		void Player::update(float dt)
 		{
 			rotate(0.05f);
+
 			//sterowanie...
 			//opakować do prywatnej metody class Player
-			//metoda ograniczająca sterowanie do wielkości sceny
+
+			//metoda ograniczająca sterowanie do wielkości sceny...
 			//bool inScene();
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
@@ -109,7 +122,36 @@ namespace acodemia
 				Physical::update(dt);
 			}
 
+			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
+				shoot();
+
+
+			//co robi ten kod?
+			m_elapsed_time = m_elapsed_time + dt;
+
+			if (m_elapsed_time >= m_shoot_timer)
+			{
+				m_elapsed_time = 0.0f;
+				shoot_enabled = true;
+			}
+
 		}
 		
+		void Player::shoot()
+		{
+			if (shoot_enabled)
+			{
+				//strzelamy
+				Bullet *bullet = gPhysicalManager.CreateBullet();
+				bullet->setTexture(m_bullet_texture);
+				bullet->setUseDisplayable(true);
+				bullet->setPosition(m_position.x, m_position.y);
+				bullet->setMotion(0.f, -1.f);
+				bullet->setSpeed(100.f);
+				bullet->setLifeTime(4.52f);
+				shoot_enabled = false;
+			}
+
+		}
 	}//namespace physical
 }//namespace acodemia
