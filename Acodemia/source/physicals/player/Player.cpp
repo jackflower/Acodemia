@@ -38,7 +38,7 @@ namespace acodemia
 			Actor(),
 			m_bullet_texture(),
 			m_elapsed_time(0.0f),
-			m_shoot_timer(0.25f),//strzał co 1/4 sekundy (4 pociski na sekundę)
+			m_shoot_timer(0.0f),
 			shoot_enabled(false)
 		{
 			//doliczyć klasę bazową
@@ -90,7 +90,7 @@ namespace acodemia
 		//Wirtualna metoda aktualizująca obiekt
 		void Player::update(float dt)
 		{
-			rotate(0.05f);
+			//rotate(0.05f);
 
 			//sterowanie...
 			//opakować do prywatnej metody class Player
@@ -136,6 +136,7 @@ namespace acodemia
 			}
 
 		}
+
 		
 		void Player::shoot()
 		{
@@ -149,9 +150,11 @@ namespace acodemia
 				bullet->setMotion(0.f, -1.f);
 				bullet->setSpeed(100.f);
 				bullet->setLifeTime(4.52f);
+				m_shoot_timer = 0.25f;//strzał co 1/4 sekundy (4 pociski na sekundę)
 				shoot_enabled = false;
 			}
-
 		}
+
+
 	}//namespace physical
 }//namespace acodemia

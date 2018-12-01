@@ -68,7 +68,6 @@ int main()
 	//physical->setPosition(200, 200);
 	physical->setScale(2);
 	//testy do strzelania...docelowo opakować do metody...
-	//ostalam origin na środek obiektu...
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	//float origin_x = physical->getOrigin().x;
 	//float origin_y = physical->getOrigin().y;
