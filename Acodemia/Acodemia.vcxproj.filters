@@ -43,6 +43,9 @@
     <Filter Include="source\physicals\actor">
       <UniqueIdentifier>{b242818e-8cd3-4fdb-b208-aca137b155d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\physicals\gun">
+      <UniqueIdentifier>{ccfa39ae-1a2f-403a-b559-5aab789b318d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -78,6 +81,9 @@
     </ClCompile>
     <ClCompile Include="source\physicals\actor\Actor.cpp">
       <Filter>source\physicals\actor</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physicals\gun\Gun.cpp">
+      <Filter>source\physicals\gun</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -116,6 +122,9 @@
     </ClInclude>
     <ClInclude Include="source\physicals\actor\Actor.h">
       <Filter>source\physicals\actor</Filter>
+    </ClInclude>
+    <ClInclude Include="source\physicals\gun\Gun.h">
+      <Filter>source\physicals\gun</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

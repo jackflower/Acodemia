@@ -18,71 +18,43 @@ using namespace acodemia::physical;
 
 int main()
 {
-	//sf::
-
 	//double halfC = M_PI / 180;
 	const double pi = std::acos(-1);
 	double xx = M_PI;
 	
-	int testowanie = 0;
-
-	//sin()
-	//
-
-	//std::degr
-
-	
-	
-
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
-	
-	
 	window.setKeyRepeatEnabled(false);
-	
-	
-	//// B u l l e t
-	//acodemia::rendering::Texture tex_bullet;
-	//tex_bullet.loadFromFile("../data/bullet.png");
-	//tex_bullet.setSmooth(true);
 
-	//Bullet *bullet = gPhysicalManager.CreateBullet();
-	//bullet->setTexture(tex_bullet);
-	//bullet->setUseDisplayable(true);
-	//bullet->setPosition(230, 500);
-	//bullet->setMotion(0.f, -1.f);
-	//bullet->setSpeed(100.f);
-	//bullet->setLifeTime(4.52f);
 
+	//2018-12-08 sobota - begin
+	// B u l l e t
+	acodemia::rendering::Texture tex_bullet;
+	tex_bullet.loadFromFile("../data/bullet.png");
+	tex_bullet.setSmooth(true);
 
 	// P l a y e r s
 	acodemia::rendering::Texture tekstura;
 	tekstura.loadFromFile("../data/ship.png");
 	tekstura.setSmooth(true);
 
-	Physical *physical;
+	Actor *physical;
 
 	//pierwszy - normal
 	physical = gPhysicalManager.CreatePlayer();
 	physical->setTexture(tekstura);
 	physical->setUseDisplayable(true);
-	//physical->setPosition(200, 200);
+	physical->setBulletTexture(tex_bullet);
 	physical->setScale(2);
-	//testy do strzelania...docelowo opakować do metody...
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
-	//float origin_x = physical->getOrigin().x;
-	//float origin_y = physical->getOrigin().y;
 	physical->setPosition(200, 200);
 	physical->setSpeed(100);
 
-	int warta = 0;
-		
 	//drugi - red
 	physical = gPhysicalManager.CreatePlayer();
 	physical->setTexture(tekstura);
 	physical->setUseDisplayable(true);
 	physical->setPosition(300, 200);
 	physical->setColor(sf::Color::Red);
-	//player->setScale(1, -1);
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	
 	//trzeci - green
@@ -100,6 +72,7 @@ int main()
 	physical->setUseDisplayable(true);
 	physical->setPosition(500, 200);
 	physical->setColor(sf::Color::Blue);
+	//2018-12-08 sobota - end
 
 	sf::Clock clock;
 	float time = 0.0f;

@@ -29,6 +29,7 @@
 #define H_ACTOR_ACODEMIA
 
 #include "../physical/Physical.h"
+#include "../gun/Gun.h"
 
 namespace acodemia
 {
@@ -80,6 +81,13 @@ namespace acodemia
 			Actor & operator=(Actor && other);
 
 			///
+			///Metoda ustawia teksturę dla kontekstu graficznego pocisku
+			///
+			///@param &texture - stała referencja na obiekt klasy Texture
+			///
+			void setBulletTexture(const Texture & texture);
+
+			///
 			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
@@ -87,7 +95,13 @@ namespace acodemia
 			virtual void update(float dt);
 
 		protected:
+
+			//Chroniona wirtualna metoda - strzał
+			virtual void shoot();
+		
 		private:
+			Gun gun;//działo...
+			
 
 		};
 	}//namespace physical

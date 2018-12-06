@@ -33,21 +33,24 @@ namespace acodemia
 		//Konstruktor domyślny
 		Actor::Actor()
 		:
-			Physical()//konstrutor klasy bazowej
+			Physical(),//konstrutor klasy bazowej
+			gun()
 		{
 		}
 
 		//Konstruktor kopiujący
 		Actor::Actor(const Actor & copy)
 		:
-			Physical(copy)//konstrutor kopiujący klasy bazowej
+			Physical(copy),//konstrutor kopiujący klasy bazowej
+			gun(copy.gun)
 		{
 		}
 
 		//Konstruktor przenoszący
 		Actor::Actor(Actor && other)
 		:
-			Physical(other)//konstruktor przenoszący klasy bazowej
+			Physical(other),//konstruktor przenoszący klasy bazowej
+			gun(other.gun)
 		{
 		}
 
@@ -61,8 +64,8 @@ namespace acodemia
 		{
 			if (this != &copy)
 			{
-				Physical::operator=(copy);
-				//members...
+				Actor::operator=(copy);
+				gun = copy.gun;
 			}
 			return *this;
 		}
@@ -72,16 +75,28 @@ namespace acodemia
 		{
 			if (this != &other)
 			{
-				Physical::operator=(other);
-				//members...
+				Actor::operator=(other);
+				gun = other.gun;
 			}
 			return *this;
+		}
+
+		//Metoda ustawia teksturę dla kontekstu graficznego pocisku
+		void Actor::setBulletTexture(const Texture & texture)
+		{
+			gun.setBulletTexture(texture);
 		}
 
 		//Wirtualna metoda aktualizująca obiekt
 		void Actor::update(float dt)
 		{
-			//sterowanie, strzelanie, etc...
+			gun.update(dt);
+		}
+
+		//Chroniona wirtualna metoda - strzał
+		void Actor::shoot()
+		{
+			gun.shoot(*this);
 		}
 
 	}//namespace physical

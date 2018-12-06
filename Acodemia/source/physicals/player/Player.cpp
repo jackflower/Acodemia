@@ -35,17 +35,20 @@ namespace acodemia
 		//Konstruktor domyślny
 		Player::Player()
 		:
-			Actor(),
-			m_bullet_texture(),
-			m_elapsed_time(0.0f),
-			m_shoot_timer(0.0f),
-			shoot_enabled(false)
+			Actor()//,
+			//m_bullet_texture(),
+			//m_elapsed_time(0.0f),
+			//m_shoot_timer(0.0f),
+			//shoot_enabled(false)
+			//gun()
 		{
+			// >>>>>>>>>>> ???????????
+			//gun.setPosition(getPosition());
 			//doliczyć klasę bazową
 
 			// B u l l e t
-			m_bullet_texture.loadFromFile("../data/bullet.png");
-			m_bullet_texture.setSmooth(true);
+			//m_bullet_texture.loadFromFile("../data/bullet.png");
+			//m_bullet_texture.setSmooth(true);
 		}
 
 		//Konstruktor kopiujący
@@ -70,7 +73,7 @@ namespace acodemia
 		{
 			if (this != &copy)
 			{
-				Physical::operator=(copy);
+				Actor::operator=(copy);
 				//members...
 			}
 			return *this;
@@ -81,23 +84,30 @@ namespace acodemia
 		{
 			if (this != &other)
 			{
-				Physical::operator=(other);
+				Actor::operator=(other);
 				//members...
 			}
 			return *this;
 		}
 
+		////Metoda ustawia teksturę dla kontekstu graficznego pocisku
+		//void Player::setBulletTexture(const Texture & texture)
+		//{
+		//	gun.setBulletTexture(texture);
+		//}
+
 		//Wirtualna metoda aktualizująca obiekt
 		void Player::update(float dt)
 		{
-			//rotate(0.05f);
+			Actor::update(dt);
 
 			//sterowanie...
 			//opakować do prywatnej metody class Player
-
 			//metoda ograniczająca sterowanie do wielkości sceny...
 			//bool inScene();
-
+			//if (getPosition().x < 700)
+			//{}
+			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
 				setMotion(1, 0);
@@ -123,38 +133,9 @@ namespace acodemia
 			}
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-				shoot();
-
-
-			//co robi ten kod?
-			m_elapsed_time = m_elapsed_time + dt;
-
-			if (m_elapsed_time >= m_shoot_timer)
-			{
-				m_elapsed_time = 0.0f;
-				shoot_enabled = true;
-			}
+				Actor::shoot();
 
 		}
-
-		
-		void Player::shoot()
-		{
-			if (shoot_enabled)
-			{
-				//strzelamy
-				Bullet *bullet = gPhysicalManager.CreateBullet();
-				bullet->setTexture(m_bullet_texture);
-				bullet->setUseDisplayable(true);
-				bullet->setPosition(m_position.x, m_position.y);
-				bullet->setMotion(0.f, -1.f);
-				bullet->setSpeed(100.f);
-				bullet->setLifeTime(4.52f);
-				m_shoot_timer = 0.25f;//strzał co 1/4 sekundy (4 pociski na sekundę)
-				shoot_enabled = false;
-			}
-		}
-
 
 	}//namespace physical
 }//namespace acodemia

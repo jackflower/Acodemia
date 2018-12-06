@@ -28,8 +28,8 @@
 #ifndef H_PLAYER_ACODEMIA
 #define H_PLAYER_ACODEMIA
 
-//#include "../physical/Physical.h"
 #include "../actor/Actor.h"
+#include "../gun/Gun.h"
 
 namespace acodemia
 {
@@ -89,15 +89,6 @@ namespace acodemia
 
 		protected:
 		private:
-
-			
-			void shoot();
-			
-			//opisać składowe...
-			Texture m_bullet_texture;
-			float m_shoot_timer;
-			float m_elapsed_time;
-			bool shoot_enabled;
 
 		};
 	}//namespace physical
