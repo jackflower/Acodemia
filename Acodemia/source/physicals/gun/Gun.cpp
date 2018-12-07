@@ -38,7 +38,7 @@ namespace acodemia
 		Gun::Gun()
 		:
 			Physical(),//konstruktor klasy bazowej
-			m_bullet_texture(),
+			p_bullet_texture(nullptr),
 			m_elapsed_time(0.0f),
 			m_shoot_timer(0.0f),
 			m_shoot_enabled(false),
@@ -52,7 +52,7 @@ namespace acodemia
 		:
 			Physical(copy),//konstruktor kopiuj¹cy klasy bazowej
 			//kopiujemy dane obiektu Ÿród³owego
-			m_bullet_texture(copy.m_bullet_texture),
+			p_bullet_texture(copy.p_bullet_texture),
 			m_elapsed_time(copy.m_elapsed_time),
 			m_shoot_timer(copy.m_shoot_timer),
 			m_shoot_enabled(copy.m_shoot_enabled),
@@ -66,7 +66,7 @@ namespace acodemia
 		:
 			Physical(other),//konstruktor przenosz¹cy klasy bazowej
 			//przenosimy dane obiektu Ÿród³owego
-			m_bullet_texture(other.m_bullet_texture),
+			p_bullet_texture(other.p_bullet_texture),
 			m_elapsed_time(other.m_elapsed_time),
 			m_shoot_timer(other.m_shoot_timer),
 			m_shoot_enabled(other.m_shoot_enabled),
@@ -78,7 +78,7 @@ namespace acodemia
 		//Destruktor
 		Gun::~Gun()
 		{
-			//m_bullet_texture;
+			p_bullet_texture = nullptr;
 			m_shoot_timer = 0.0f;
 			m_elapsed_time = 0.0f;
 			m_shoot_enabled = false;
@@ -93,7 +93,7 @@ namespace acodemia
 			if (this != &copy)
 			{
 				Physical::operator=(copy);
-				m_bullet_texture = copy.m_bullet_texture;
+				p_bullet_texture = copy.p_bullet_texture;
 				m_shoot_timer = copy.m_shoot_timer;
 				m_elapsed_time = copy.m_elapsed_time;
 				m_shoot_enabled = copy.m_shoot_enabled;
@@ -109,7 +109,7 @@ namespace acodemia
 			if (this != &other)
 			{
 				Physical::operator=(other);
-				m_bullet_texture = other.m_bullet_texture;
+				p_bullet_texture = other.p_bullet_texture;
 				m_shoot_timer = other.m_shoot_timer;
 				m_elapsed_time = other.m_elapsed_time;
 				m_shoot_enabled = other.m_shoot_enabled;
@@ -119,10 +119,10 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda ustawia teksturê dla kontekstu graficznego pocisku
-		void Gun::setBulletTexture(const Texture & texture)
+		//Metoda ustawia wskaŸnik na teksturê dla kontekstu graficznego pocisku
+		void Gun::setBulletTexture(Texture * texture)
 		{
-			m_bullet_texture = texture;
+			p_bullet_texture = texture;
 		}
 
 		//Metoda generuje strza³
@@ -130,24 +130,27 @@ namespace acodemia
 		{
 			if (m_shoot_enabled)
 			{
-				//tworzymy pocisk, konfigurujemy go, strzelamy
-				Bullet *bullet = gPhysicalManager.CreateBullet();
-				bullet->setTexture(m_bullet_texture);
-				bullet->setUseDisplayable(true);
-				bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
-				//korekta...pozycja startowa pocisku jest za luf¹ - pocisk nie mo¿e kolidowaæ...
-				m_bullet_start_position.x = owner.getPosition().x + 0.0f;
-				m_bullet_start_position.y = owner.getPosition().y - owner.getGlobalBounds().height * 0.5f;
-				//porawka na wielkoœæ pocisku
-				m_bullet_start_position.x = owner.getPosition().x + 0.0f;
-				m_bullet_start_position.y = m_bullet_start_position.y - bullet->getGlobalBounds().height * 0.5f;
-				bullet->setPosition(m_bullet_start_position);
+				if (p_bullet_texture)
+				{
+					//tworzymy pocisk, konfigurujemy go, strzelamy
+					Bullet *bullet = gPhysicalManager.CreateBullet();
+					bullet->setTexture(*p_bullet_texture);
+					bullet->setUseDisplayable(true);
+					bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
+					//korekta...pozycja startowa pocisku jest za luf¹ - pocisk nie mo¿e kolidowaæ...
+					m_bullet_start_position.x = owner.getPosition().x + 0.0f;
+					m_bullet_start_position.y = owner.getPosition().y - owner.getGlobalBounds().height * 0.5f;
+					//porawka na wielkoœæ pocisku
+					m_bullet_start_position.x = owner.getPosition().x + 0.0f;
+					m_bullet_start_position.y = m_bullet_start_position.y - bullet->getGlobalBounds().height * 0.5f;
+					bullet->setPosition(m_bullet_start_position);
 
-				bullet->setMotion(0.f, -1.f);
-				bullet->setSpeed(100.f);
-				bullet->setLifeTime(4.52f);
-				m_shoot_timer = 0.25f;//strza³ co 1/4 sekundy (4 pociski na sekundê)
-				m_shoot_enabled = false;
+					bullet->setMotion(0.f, -1.f);
+					bullet->setSpeed(100.f);
+					bullet->setLifeTime(4.52f);
+					m_shoot_timer = 0.25f;//strza³ co 1/4 sekundy (4 pociski na sekundê)
+					m_shoot_enabled = false;
+				}
 			}
 		}
 

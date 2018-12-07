@@ -81,11 +81,11 @@ namespace acodemia
 			Actor & operator=(Actor && other);
 
 			///
-			///Metoda ustawia teksturę dla kontekstu graficznego pocisku
+			///Metoda ustawia wskaźnik na teksturę dla kontekstu graficznego pocisku
 			///
-			///@param &texture - stała referencja na obiekt klasy Texture
+			///@param *texture - wskaźnik na obiekt klasy Texture
 			///
-			void setBulletTexture(const Texture & texture);
+			void setBulletTexture(Texture * texture);
 
 			///
 			///Wirtualna metoda aktualizująca obiekt

@@ -82,11 +82,11 @@ namespace acodemia
 			Gun & operator=(Gun && other);
 
 			///
-			///Metoda ustawia teksturê dla kontekstu graficznego pocisku
+			///Metoda ustawia wskaŸnik na teksturê dla kontekstu graficznego pocisku
 			///
-			///@param &texture - sta³a referencja na obiekt klasy Texture
+			///@param *texture - wskaŸnik na obiekt klasy Texture
 			///
-			void setBulletTexture(const Texture & texture);
+			void setBulletTexture(Texture * texture);
 
 			///
 			///Metoda generuje strza³
@@ -104,8 +104,8 @@ namespace acodemia
 
 		private:
 
-			Texture m_bullet_texture;//tekstura pociski
-			float m_shoot_timer;//timer strzelanie
+			Texture * p_bullet_texture;//wskaŸnik na teksturê pociski
+			float m_shoot_timer;//timer strzelanie - dzia³o generuje pocisk co jakiœ czas
 			float m_elapsed_time;//up³ywaj¹cy czas
 			bool m_shoot_enabled;//flaga, czy mo¿na oddaæ strza³
 			float m_bullet_speed;//prêdkoœæ pocisku

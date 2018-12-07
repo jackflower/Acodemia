@@ -28,22 +28,22 @@ int main()
 
 	//2018-12-08 sobota - begin
 	// B u l l e t
-	acodemia::rendering::Texture tex_bullet;
-	tex_bullet.loadFromFile("../data/bullet.png");
-	tex_bullet.setSmooth(true);
+	acodemia::rendering::Texture bullet_texture;
+	bullet_texture.loadFromFile("../data/bullet.png");
+	bullet_texture.setSmooth(true);
 
 	// P l a y e r s
-	acodemia::rendering::Texture tekstura;
-	tekstura.loadFromFile("../data/ship.png");
-	tekstura.setSmooth(true);
+	acodemia::rendering::Texture player_texture;
+	player_texture.loadFromFile("../data/ship.png");
+	player_texture.setSmooth(true);
 
 	Actor *physical;
 
 	//pierwszy - normal
 	physical = gPhysicalManager.CreatePlayer();
-	physical->setTexture(tekstura);
+	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
-	physical->setBulletTexture(tex_bullet);
+	physical->setBulletTexture(&bullet_texture);
 	physical->setScale(2);
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	physical->setPosition(200, 200);
@@ -51,7 +51,7 @@ int main()
 
 	//drugi - red
 	physical = gPhysicalManager.CreatePlayer();
-	physical->setTexture(tekstura);
+	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
 	physical->setPosition(300, 200);
 	physical->setColor(sf::Color::Red);
@@ -59,7 +59,7 @@ int main()
 	
 	//trzeci - green
 	physical = gPhysicalManager.CreatePlayer();
-	physical->setTexture(tekstura);
+	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
 	physical->setPosition(400, 200);
 	physical->setColor(sf::Color::Green);
@@ -68,7 +68,7 @@ int main()
 	// A c t o r s
 	//aktor - blue
 	physical = gPhysicalManager.CreateActor();
-	physical->setTexture(tekstura);
+	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
 	physical->setPosition(500, 200);
 	physical->setColor(sf::Color::Blue);

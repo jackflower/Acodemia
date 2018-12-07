@@ -82,7 +82,7 @@ namespace acodemia
 		}
 
 		//Metoda ustawia teksturę dla kontekstu graficznego pocisku
-		void Actor::setBulletTexture(const Texture & texture)
+		void Actor::setBulletTexture(Texture * texture)
 		{
 			gun.setBulletTexture(texture);
 		}

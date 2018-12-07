@@ -101,9 +101,12 @@ namespace acodemia
 		{
 			Actor::update(dt);
 
+			//to do:
 			//sterowanie...
 			//opakować do prywatnej metody class Player
-			//metoda ograniczająca sterowanie do wielkości sceny...
+			//
+			//to do:
+			//metoda ograniczająca sterowanie jednostką do wielkości sceny...
 			//bool inScene();
 			//if (getPosition().x < 700)
 			//{}
