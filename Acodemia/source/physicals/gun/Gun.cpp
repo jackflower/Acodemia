@@ -1,26 +1,26 @@
-////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////
 //
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
 //
 // To oprogramowanie dostarczane jest w postaci takiej,
-// w jakiej jest, bez wyraŸnych ani domniemanych gwarancji.
+// w jakiej jest, bez wyraÅºnych ani domniemanych gwarancji.
 //
-// W ¿adnym wypadku Autor nie ponosi odpowiedzialnoœci
-// za jakiekolwiek szkody powsta³e w wyniku korzystania
+// W Å¼adnym wypadku Autor nie ponosi odpowiedzialnoÅ›ci
+// za jakiekolwiek szkody powstaÅ‚e w wyniku korzystania
 // z tego oprogramowania.Zastrzega
 //
-// Zezwala siê na korzystanie z tego oprogramowania
-// w dowolnym celu, tak¿e komercyjnym. Mo¿na je zmieniæ
-// i swobodnie rozpowszechniaæ.
+// Zezwala siÄ™ na korzystanie z tego oprogramowania
+// w dowolnym celu, takÅ¼e komercyjnym. MoÅ¼na je zmieniÄ‡
+// i swobodnie rozpowszechniaÄ‡.
 //
-// Zastrzega siê nastêpuj¹ce ograniczenia:
+// Zastrzega siÄ™ nastÄ™pujÄ…ce ograniczenia:
 //
-// 1. Jeœli u¿ywasz tego oprogramowania w swoich
+// 1. JeÅ›li uÅ¼ywasz tego oprogramowania w swoich
 //    produktach, potwierdzenie pochodzenia tego
 //    oprogramowania w dokumentacji produktu,
-//    by³oby docenione, ale nie jest wymagane.
+//    byÅ‚oby docenione, ale nie jest wymagane.
 //
 ////////////////////////////////////////////////////////////
 
@@ -34,7 +34,7 @@ namespace acodemia
 {
 	namespace physical
 	{
-		//Konstruktor domyœlny
+		//Konstruktor domyÅ›lny
 		Gun::Gun()
 		:
 			Physical(),//konstruktor klasy bazowej
@@ -47,11 +47,11 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor kopiuj¹cy
+		//Konstruktor kopiujÄ…cy
 		Gun::Gun(const Gun & copy)
 		:
-			Physical(copy),//konstruktor kopiuj¹cy klasy bazowej
-			//kopiujemy dane obiektu Ÿród³owego
+			Physical(copy),//konstruktor kopiujÄ…cy klasy bazowej
+			//kopiujemy dane obiektu ÅºrÃ³dÅ‚owego
 			p_bullet_texture(copy.p_bullet_texture),
 			m_elapsed_time(copy.m_elapsed_time),
 			m_shoot_timer(copy.m_shoot_timer),
@@ -61,11 +61,11 @@ namespace acodemia
 		{
 		}
 
-		//Konstruktor przenosz¹cy
+		//Konstruktor przenoszÄ…cy
 		Gun::Gun(Gun && other)
 		:
-			Physical(other),//konstruktor przenosz¹cy klasy bazowej
-			//przenosimy dane obiektu Ÿród³owego
+			Physical(other),//konstruktor przenoszÄ…cy klasy bazowej
+			//przenosimy dane obiektu ÅºrÃ³dÅ‚owego
 			p_bullet_texture(other.p_bullet_texture),
 			m_elapsed_time(other.m_elapsed_time),
 			m_shoot_timer(other.m_shoot_timer),
@@ -87,7 +87,7 @@ namespace acodemia
 			m_bullet_start_position.y = 0.0f;
 		}
 
-		//Przeci¹¿ony operator przypisania kopiowania
+		//PrzeciÄ…Å¼ony operator przypisania kopiowania
 		Gun & Gun::operator=(const Gun & copy)
 		{
 			if (this != &copy)
@@ -103,7 +103,7 @@ namespace acodemia
 			return *this;
 		}
 
-		//Przeci¹¿ony operator przypisania przenoszenia
+		//PrzeciÄ…Å¼ony operator przypisania przenoszenia
 		Gun & Gun::operator=(Gun && other)
 		{
 			if (this != &other)
@@ -119,13 +119,13 @@ namespace acodemia
 			return *this;
 		}
 
-		//Metoda ustawia wskaŸnik na teksturê dla kontekstu graficznego pocisku
+		//Metoda ustawia wskaÅºnik na teksturÄ™ dla kontekstu graficznego pocisku
 		void Gun::setBulletTexture(Texture * texture)
 		{
 			p_bullet_texture = texture;
 		}
 
-		//Metoda generuje strza³
+		//Metoda generuje strzaÅ‚
 		void Gun::shoot(const Physical & owner)
 		{
 			if (m_shoot_enabled)
@@ -139,10 +139,10 @@ namespace acodemia
 					//skala
 					bullet->setScale(owner.getScale());
 					bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
-					//korekta...pozycja startowa pocisku jest za luf¹ - pocisk nie mo¿e kolidowaæ...
+					//korekta...pozycja startowa pocisku jest za lufÄ… - pocisk nie moÅ¼e kolidowaÄ‡...
 					m_bullet_start_position.x = owner.getPosition().x + 0.0f;
 					m_bullet_start_position.y = owner.getPosition().y - owner.getGlobalBounds().height * 0.5f;
-					//porawka na wielkoœæ pocisku
+					//porawka na wielkoÅ›Ä‡ pocisku
 					m_bullet_start_position.x = owner.getPosition().x + 0.0f;
 					m_bullet_start_position.y = m_bullet_start_position.y - bullet->getGlobalBounds().height * 0.5f;
 					bullet->setPosition(m_bullet_start_position);
@@ -150,13 +150,13 @@ namespace acodemia
 					bullet->setMotion(0.f, -1.f);
 					bullet->setSpeed(100.f);
 					bullet->setLifeTime(4.52f);
-					m_shoot_timer = 0.25f;//strza³ co 1/4 sekundy (4 pociski na sekundê)
+					m_shoot_timer = 0.25f;//strzaÅ‚ co 1/4 sekundy (4 pociski na sekundÄ™)
 					m_shoot_enabled = false;
 				}
 			}
 		}
 
-		//Metoda aktualizuj¹ca obiekt
+		//Metoda aktualizujÄ…ca obiekt
 		void Gun::update(float dt)
 		{
 			m_elapsed_time = m_elapsed_time + dt;

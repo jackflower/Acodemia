@@ -1,26 +1,26 @@
-////////////////////////////////////////////////////////////
+ï»¿////////////////////////////////////////////////////////////
 //
 // Acodemia Copyright (C) Jacek Kwiatek
 // e-mail: jackflower (at) poczta.onet.pl
 // acodemia.pl
 //
 // To oprogramowanie dostarczane jest w postaci takiej,
-// w jakiej jest, bez wyraŸnych ani domniemanych gwarancji.
+// w jakiej jest, bez wyraÅºnych ani domniemanych gwarancji.
 //
-// W ¿adnym wypadku Autor nie ponosi odpowiedzialnoœci
-// za jakiekolwiek szkody powsta³e w wyniku korzystania
+// W Å¼adnym wypadku Autor nie ponosi odpowiedzialnoÅ›ci
+// za jakiekolwiek szkody powstaÅ‚e w wyniku korzystania
 // z tego oprogramowania.Zastrzega
 //
-// Zezwala siê na korzystanie z tego oprogramowania
-// w dowolnym celu, tak¿e komercyjnym. Mo¿na je zmieniæ
-// i swobodnie rozpowszechniaæ.
+// Zezwala siÄ™ na korzystanie z tego oprogramowania
+// w dowolnym celu, takÅ¼e komercyjnym. MoÅ¼na je zmieniÄ‡
+// i swobodnie rozpowszechniaÄ‡.
 //
-// Zastrzega siê nastêpuj¹ce ograniczenia:
+// Zastrzega siÄ™ nastÄ™pujÄ…ce ograniczenia:
 //
-// 1. Jeœli u¿ywasz tego oprogramowania w swoich
+// 1. JeÅ›li uÅ¼ywasz tego oprogramowania w swoich
 //    produktach, potwierdzenie pochodzenia tego
 //    oprogramowania w dokumentacji produktu,
-//    by³oby docenione, ale nie jest wymagane.
+//    byÅ‚oby docenione, ale nie jest wymagane.
 //
 ////////////////////////////////////////////////////////////
 
@@ -37,28 +37,28 @@ namespace acodemia
 	namespace physical
 	{
 		///
-		///Klasa reprezentuje obiekt strzelaj¹cy
+		///Klasa reprezentuje obiekt strzelajÄ…cy
 		///
 		class Gun : public Physical
 		{
 		public:
 
 			///
-			///Konstruktor domyœlny
+			///Konstruktor domyÅ›lny
 			///
 			Gun();
 
 			///
-			///Konstruktor kopiuj¹cy
+			///Konstruktor kopiujÄ…cy
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Gun
+			///@param &copy - staÅ‚a referencja na obiekt klasy Gun
 			///
 			Gun(const Gun & copy);
 
 			///
-			///Konstruktor przenosz¹cy
+			///Konstruktor przenoszÄ…cy
 			///
-			///@param &&other = referencja do r-wartoœci
+			///@param &&other = referencja do r-wartoÅ›ci
 			///
 			Gun(Gun && other);
 
@@ -68,35 +68,35 @@ namespace acodemia
 			~Gun();
 
 			///
-			///Przeci¹¿ony operator przypisania kopiowania
+			///PrzeciÄ…Å¼ony operator przypisania kopiowania
 			///
-			///@param &copy - sta³a referencja na obiekt klasy Gun
+			///@param &copy - staÅ‚a referencja na obiekt klasy Gun
 			///
 			Gun & operator=(const Gun & copy);
 
 			///
-			///Przeci¹¿ony operator przypisania przenoszenia
+			///PrzeciÄ…Å¼ony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartoœci
+			///@param &&other -  referencja do r-wartoÅ›ci
 			///
 			Gun & operator=(Gun && other);
 
 			///
-			///Metoda ustawia wskaŸnik na teksturê dla kontekstu graficznego pocisku
+			///Metoda ustawia wskaÅºnik na teksturÄ™ dla kontekstu graficznego pocisku
 			///
-			///@param *texture - wskaŸnik na obiekt klasy Texture
+			///@param *texture - wskaÅºnik na obiekt klasy Texture
 			///
 			void setBulletTexture(Texture * texture);
 
 			///
-			///Metoda generuje strza³
+			///Metoda generuje strzaÅ‚
 			///
-			///@param &owner - sta³a referencja na obiekt bêd¹cy w³aœcicielem dzia³a
+			///@param &owner - staÅ‚a referencja na obiekt bÄ™dÄ…cy wÅ‚aÅ›cicielem dziaÅ‚a
 			///
 			void shoot(const Physical & owner);
 
 			///
-			///Metoda aktualizuj¹ca obiekt
+			///Metoda aktualizujÄ…ca obiekt
 			///
 			///@param dt - czas
 			///
@@ -104,11 +104,11 @@ namespace acodemia
 
 		private:
 
-			Texture * p_bullet_texture;//wskaŸnik na teksturê pociski
-			float m_shoot_timer;//timer strzelanie - dzia³o generuje pocisk co jakiœ czas
-			float m_elapsed_time;//up³ywaj¹cy czas
-			bool m_shoot_enabled;//flaga, czy mo¿na oddaæ strza³
-			float m_bullet_speed;//prêdkoœæ pocisku
+			Texture * p_bullet_texture;//wskaÅºnik na teksturÄ™ pociski
+			float m_shoot_timer;//timer strzelanie - dziaÅ‚o generuje pocisk co jakiÅ› czas
+			float m_elapsed_time;//upÅ‚ywajÄ…cy czas
+			bool m_shoot_enabled;//flaga, czy moÅ¼na oddaÄ‡ strzaÅ‚
+			float m_bullet_speed;//prÄ™dkoÅ›Ä‡ pocisku
 			sf::Vector2f m_bullet_start_position;//wyliczana pozycja startowa pocisku
 
 		};
