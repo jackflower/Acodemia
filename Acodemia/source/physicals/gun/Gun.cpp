@@ -136,6 +136,8 @@ namespace acodemia
 					Bullet *bullet = gPhysicalManager.CreateBullet();
 					bullet->setTexture(*p_bullet_texture);
 					bullet->setUseDisplayable(true);
+					//skala
+					bullet->setScale(owner.getScale());
 					bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
 					//korekta...pozycja startowa pocisku jest za luf¹ - pocisk nie mo¿e kolidowaæ...
 					m_bullet_start_position.x = owner.getPosition().x + 0.0f;

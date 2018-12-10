@@ -35,31 +35,21 @@ namespace acodemia
 		//Konstruktor domyślny
 		Player::Player()
 		:
-			Actor()//,
-			//m_bullet_texture(),
-			//m_elapsed_time(0.0f),
-			//m_shoot_timer(0.0f),
-			//shoot_enabled(false)
-			//gun()
+			Actor()//konstruktor klasy bazowej
 		{
-			// >>>>>>>>>>> ???????????
-			//gun.setPosition(getPosition());
-			//doliczyć klasę bazową
-
-			// B u l l e t
-			//m_bullet_texture.loadFromFile("../data/bullet.png");
-			//m_bullet_texture.setSmooth(true);
 		}
 
 		//Konstruktor kopiujący
 		Player::Player(const Player & copy)
-		//doliczyć klasę bazową
+		:
+			Actor(copy)//konstruktor kopiujący klasy bazowej
 		{
 		}
 
 		//Konstruktor przenoszący
 		Player::Player(Player && other)
-			//doliczyć klasę bazową
+		:
+			Actor(other)//konstruktor przenoszący klasy bazowej
 		{
 		}
 
@@ -90,26 +80,10 @@ namespace acodemia
 			return *this;
 		}
 
-		////Metoda ustawia teksturę dla kontekstu graficznego pocisku
-		//void Player::setBulletTexture(const Texture & texture)
-		//{
-		//	gun.setBulletTexture(texture);
-		//}
-
 		//Wirtualna metoda aktualizująca obiekt
 		void Player::update(float dt)
 		{
 			Actor::update(dt);
-
-			//to do:
-			//sterowanie...
-			//opakować do prywatnej metody class Player
-			//
-			//to do:
-			//metoda ograniczająca sterowanie jednostką do wielkości sceny...
-			//bool inScene();
-			//if (getPosition().x < 700)
-			//{}
 			
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
 			{
