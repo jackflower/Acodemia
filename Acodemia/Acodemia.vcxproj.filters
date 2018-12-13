@@ -46,6 +46,9 @@
     <Filter Include="source\physicals\gun">
       <UniqueIdentifier>{ccfa39ae-1a2f-403a-b559-5aab789b318d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="notes">
+      <UniqueIdentifier>{bb1bfcb1-3baf-4014-9ca8-6111368ee9d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -128,6 +131,11 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="notes\notes.txt" />
+    <Text Include="notes\done.txt">
+      <Filter>notes</Filter>
+    </Text>
+    <Text Include="notes\notes.txt">
+      <Filter>notes</Filter>
+    </Text>
   </ItemGroup>
 </Project>

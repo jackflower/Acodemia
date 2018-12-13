@@ -161,6 +161,7 @@
     <ClInclude Include="source\rendering\Texture.h" />
   </ItemGroup>
   <ItemGroup>
+    <Text Include="notes\done.txt" />
     <Text Include="notes\notes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
