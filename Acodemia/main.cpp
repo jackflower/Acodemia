@@ -18,6 +18,13 @@ using namespace acodemia::physical;
 
 int main()
 {
+	sf::Sprite jeden;
+	sf::Sprite dwa;
+	//kolizja
+	jeden.getTextureRect().intersects(dwa.getTextureRect());
+	jeden.getGlobalBounds().intersects(dwa.getGlobalBounds());
+	//kolizja
+
 	//double halfC = M_PI / 180;
 	const double pi = std::acos(-1);
 	double xx = M_PI;
