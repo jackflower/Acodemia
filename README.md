@@ -2,6 +2,7 @@
 
 
 ![Acodemia logo](https://github.com/jackflower/Acodemia_tutorials/blob/master/graphics/acodemia_logo_small.png)
+
 ![Acodemia icon](https://github.com/jackflower/Acodemia/blob/master/data/ship.png)
 
 Repozytorium - grupa tworząca projekt – grę w języku C/C++ z wykorzystaniem biblioteki SFML.
