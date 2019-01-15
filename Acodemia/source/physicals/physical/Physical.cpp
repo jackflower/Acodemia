@@ -32,7 +32,7 @@ namespace acodemia
 	{
 		//Konstruktor domyślny
 		Physical::Physical()
-		:
+			:
 			m_displayable(),
 			m_use_displayable(false),
 			m_destruction(false),
@@ -43,7 +43,8 @@ namespace acodemia
 			m_color(),
 			m_stored_color(),
 			m_motion(),
-			m_speed(0.f)
+			m_speed(0.f),
+			m_upside_down(false)
 		{
 		}
 
@@ -60,7 +61,8 @@ namespace acodemia
 			m_color(copy.m_color),
 			m_stored_color(copy.m_stored_color),
 			m_motion(copy.m_motion),
-			m_speed(copy.m_speed)
+			m_speed(copy.m_speed),
+			m_upside_down(copy.m_upside_down)
 		{
 		}
 
@@ -78,7 +80,8 @@ namespace acodemia
 			m_color(other.m_color),
 			m_stored_color(other.m_stored_color),
 			m_motion(other.m_motion),
-			m_speed(other.m_speed)
+			m_speed(other.m_speed),
+			m_upside_down(other.m_upside_down)
 		{
 		}
 
@@ -103,6 +106,7 @@ namespace acodemia
 			m_motion.x = 0.f;
 			m_motion.y = 0.f;
 			m_speed = 0.f;
+			m_upside_down = false;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -121,6 +125,7 @@ namespace acodemia
 				m_stored_color = copy.m_stored_color;
 				m_motion = copy.m_motion;
 				m_speed = copy.m_speed;
+				m_upside_down = copy.m_upside_down;
 			}
 			return *this;
 		}
@@ -141,6 +146,7 @@ namespace acodemia
 				m_stored_color = other.m_stored_color;
 				m_motion = other.m_motion;
 				m_speed = other.m_speed;
+				m_upside_down = other.m_upside_down;
 			}
 			return *this;
 		}
@@ -368,6 +374,18 @@ namespace acodemia
 		void Physical::setSpeed(float speed)
 		{
 			m_speed = speed;
+		}
+
+		//Metoda zwraca flagę, czy obiekt jest do góry nogami (np. Enemy...)
+		const bool Physical::getUpsideDown() const
+		{
+			return m_upside_down;
+		}
+
+		//Metoda ustawia flagę - obiekt jest do góry nogami (np. Enemy...)
+		void Physical::setUpsideDown(bool upside_down)
+		{
+			m_upside_down = upside_down;
 		}
 
 

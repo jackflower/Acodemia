@@ -49,6 +49,9 @@
     <Filter Include="notes">
       <UniqueIdentifier>{bb1bfcb1-3baf-4014-9ca8-6111368ee9d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\physicals\enemy">
+      <UniqueIdentifier>{b251e1d2-8fef-4fa2-914b-086dedc9f27f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -87,6 +90,9 @@
     </ClCompile>
     <ClCompile Include="source\physicals\gun\Gun.cpp">
       <Filter>source\physicals\gun</Filter>
+    </ClCompile>
+    <ClCompile Include="source\physicals\enemy\Enemy.cpp">
+      <Filter>source\physicals\enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -128,6 +134,9 @@
     </ClInclude>
     <ClInclude Include="source\physicals\gun\Gun.h">
       <Filter>source\physicals\gun</Filter>
+    </ClInclude>
+    <ClInclude Include="source\physicals\enemy\Enemy.h">
+      <Filter>source\physicals\enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

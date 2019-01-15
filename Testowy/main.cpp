@@ -1,11 +1,17 @@
 #include <iostream>
-#include "Funkcje.h"
+
+#include <ctime>
 
 int main()
 {
 
-	std::cout << Sum(12, 12) << std::endl;
-	std::cout << Multiply(12, 12) << std::endl;
+	std::srand((unsigned)time(0));
+	int liczba = rand();
+	std::cout << liczba << std::endl;
+
+
+	//randomize
+	//EnemyGenerator
 
 	std::system("Pause");
 	return 0;

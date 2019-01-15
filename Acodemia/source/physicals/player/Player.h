@@ -50,14 +50,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - stała referencja na obiekt klasy Player
+			///@param copy - stała referencja na obiekt klasy Player
 			///
 			Player(const Player & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Player(Player && other);
 
@@ -69,14 +69,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Player
+			///@param copy - stała referencja na obiekt klasy Player
 			///
 			Player & operator=(const Player & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Player & operator=(Player && other);
 
@@ -89,6 +89,9 @@ namespace acodemia
 
 		protected:
 		private:
+			
+			//funkcja steruje graczem
+			void controlPlayer(float time);
 
 		};
 	}//namespace physical

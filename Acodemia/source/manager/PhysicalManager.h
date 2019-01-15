@@ -40,6 +40,7 @@ namespace acodemia
 		class Bullet;
 		class Actor;
 		class Player;
+		class Enemy;
 	}
 }
 
@@ -88,7 +89,7 @@ public:
 	///
 	///Wirtualna metoda rysująca obiekt
 	///
-	///@param &render - kontekst graficzny
+	///@param render - kontekst graficzny
 	///
 	virtual void draw(sf::RenderWindow & render) const;
 
@@ -115,6 +116,11 @@ public:
 	///Metoda tworzy obiekt klasy Player i zwraca wskaźnik na ten obiekt
 	///
 	Player *CreatePlayer();
+
+	///
+	///Metoda tworzy obiekt klasy Enemy i zwraca wskaźnik na ten obiekt
+	///
+	Enemy *CreateEnemy();
 
 private:
 

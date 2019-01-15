@@ -23,7 +23,7 @@
 //
 ////////////////////////////////////////////////////////////
 
-#include "Player.h"
+#include "Enemy.h"
 #include <iostream>
 #include "../../manager/PhysicalManager.h"
 #include "../bullet/Bullet.h"
@@ -33,33 +33,33 @@ namespace acodemia
 	namespace physical
 	{
 		//Konstruktor domyślny
-		Player::Player()
+		Enemy::Enemy()
 		:
 			Actor()//konstruktor klasy bazowej
 		{
 		}
 
 		//Konstruktor kopiujący
-		Player::Player(const Player & copy)
+		Enemy::Enemy(const Enemy & copy)
 		:
 			Actor(copy)//konstruktor kopiujący klasy bazowej
 		{
 		}
 
 		//Konstruktor przenoszący
-		Player::Player(Player && other)
+		Enemy::Enemy(Enemy && other)
 		:
 			Actor(other)//konstruktor przenoszący klasy bazowej
 		{
 		}
 
 		//Destruktor
-		Player::~Player()
+		Enemy::~Enemy()
 		{
 		}
 
 		//Przeciążony operator przypisania kopiowania
-		Player & Player::operator=(const Player & copy)
+		Enemy & Enemy::operator=(const Enemy & copy)
 		{
 			if (this != &copy)
 			{
@@ -70,7 +70,7 @@ namespace acodemia
 		}
 
 		//Przeciążony operator przypisania przenoszenia
-		Player & Player::operator=(Player && other)
+		Enemy & Enemy::operator=(Enemy && other)
 		{
 			if (this != &other)
 			{
@@ -81,40 +81,17 @@ namespace acodemia
 		}
 
 		//Wirtualna metoda aktualizująca obiekt
-		void Player::update(float dt)
+		void Enemy::update(float dt)
 		{
+			setMotion(0, 1);
+			Physical::update(dt);
 			Actor::update(dt);
-			controlPlayer(dt);
+			controlEnemy(dt);
 		}
 
-		void Player::controlPlayer(float time)
+		void Enemy::controlEnemy(float time)
 		{
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right))
-			{
-				setMotion(1, 0);
-				Physical::update(time);
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))
-			{
-				setMotion(-1, 0);
-				Physical::update(time);
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))
-			{
-				setMotion(0, -1);
-				Physical::update(time);
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-			{
-				setMotion(0, 1);
-				Physical::update(time);
-			}
-
-			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
-				Actor::shoot();
+			Actor::shoot();
 		}
 
 	}//namespace physical

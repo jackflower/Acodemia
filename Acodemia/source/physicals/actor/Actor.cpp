@@ -25,6 +25,7 @@
 ////////////////////////////////////////////////////////////
 
 #include "Actor.h"
+#include <iostream>
 
 namespace acodemia
 {
@@ -85,6 +86,66 @@ namespace acodemia
 		void Actor::setBulletTexture(Texture * texture)
 		{
 			gun.setBulletTexture(texture);
+		}
+
+		//Metoda zwraca prędkość pocisku
+		const float Actor::getBulletSpeed() const
+		{
+			return gun.getBulletSpeed();
+		}
+
+		//Metoda ustawia prędkość pocisku
+		void Actor::setBulletSpeed(float bullet_speed)
+		{
+			gun.setBulletSpeed(bullet_speed);
+		}
+
+		//Metoda zwraca stałą referencję na wektor kierunku pocisku
+		const sf::Vector2f & Actor::getBulletMotion() const
+		{
+			return gun.getBulletMotion();
+		}
+
+		//Metoda ustawia wektor kierunku pocisku
+		void Actor::setBulletMotion(const sf::Vector2f & bullet_motion)
+		{
+			gun.setBulletMotion(bullet_motion);
+		}
+
+		//Metoda zwraca kaliber pocisku
+		const float Actor::getBulletCaliber() const
+		{
+			return gun.getBulletCaliber();
+		}
+
+		//Metoda ustawia kaliber pocisku
+		void Actor::setBulletCaliber(float caliber)
+		{
+			gun.setBulletCaliber(caliber);
+		}
+
+		//Metoda zwraca czas życia pocisku
+		const float Actor::getBulletLifeTime() const
+		{
+			return gun.getBulletLifeTime();
+		}
+
+		//Metoda ustawia czas życia pocisku
+		void Actor::setBulletLifeTime(float bullet_life_time)
+		{
+			gun.setBulletLifeTime(bullet_life_time);
+		}
+
+		//Metoda zwraca ilość pocisków oddawanych na sekundę - szybkostrzelność
+		const float Actor::getGunRate() const
+		{
+			return gun.getGunRate();
+		}
+
+		//Metoda ustawiam ilość pocisków oddawanych na sekundę - szybkostrzelność
+		void Actor::setGunRate(float gun_rate)
+		{
+			gun.setGunRate(gun_rate);
 		}
 
 		//Wirtualna metoda aktualizująca obiekt

@@ -29,6 +29,7 @@
 #include "../physicals/bullet/Bullet.h"
 #include "../physicals/actor/Actor.h"
 #include "../physicals/player/Player.h"
+#include "../physicals/enemy/Enemy.h"
 
 using namespace acodemia::physical;
 
@@ -117,6 +118,13 @@ Player *PhysicalManager::CreatePlayer()
 {
 	return Create<Player>();
 }
+
+//Metoda tworzy obiekt klasy Enemy i zwraca wskaźnik na ten obiekt
+Enemy *PhysicalManager::CreateEnemy()
+{
+	return Create<Enemy>();
+}
+
 
 //Szablon metody tworzenia obiektów
 template<class T>

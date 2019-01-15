@@ -51,14 +51,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - stała referencja na obiekt klasy Displayable
+			///@param copy - stała referencja na obiekt klasy Displayable
 			///
 			Displayable(const Displayable & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Displayable(Displayable && other);
 
@@ -70,14 +70,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Displayable
+			///@param copy - stała referencja na obiekt klasy Displayable
 			///
 			Displayable & operator=(const Displayable & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Displayable & operator=(Displayable && other);
 
@@ -98,7 +98,7 @@ namespace acodemia
 			///
 			///Metoda ustawia pozycję obiektu
 			///
-			///@param &vector - stała referenacja na obiekt klasy sf::Vector2f
+			///@param vector - stała referenacja na obiekt klasy sf::Vector2f
 			///
 			void setPosition(const sf::Vector2f & vector);
 
@@ -138,7 +138,7 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę
 			///
-			///@param &new_scale_value - stała referencja na obiekt klasy sf::Vector2f
+			///@param new_scale_value - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setScale(const sf::Vector2f & new_scale_value);
 
@@ -161,7 +161,7 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę w stosunku do obecnej skali
 			///
-			///@param &factor - stała referencja na obiekt klasy sf::Vector2f
+			///@param factor - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void scale(const sf::Vector2f & factor);
 
@@ -182,7 +182,7 @@ namespace acodemia
 			///
 			///Metoda ustawia współrzędne punktu uchwytu obiektu
 			///
-			///@param &origin - stała referencja na obiekt klasy sf::Vector2f
+			///@param origin - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setOrigin(const sf::Vector2f & origin);
 
@@ -207,7 +207,7 @@ namespace acodemia
 			///
 			///Metoda ustawia obszar prostokątny zajmowany przez teksturę
 			///
-			///@param &rectangle - stała referencja na obiekt klasy sf::IntRect
+			///@param rectangle - stała referencja na obiekt klasy sf::IntRect
 			///
 			void setTextureRect (const sf::IntRect & rectangle);
 
@@ -233,7 +233,7 @@ namespace acodemia
 			///
 			///Metoda przemieszcza obiekt o wartość wektora przesunięcia
 			///
-			///@param &offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
+			///@param offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
 			///
 			void move(const sf::Vector2f & offset);
 
@@ -245,7 +245,7 @@ namespace acodemia
 			///
 			///Metoda ustawia kolor obiektu
 			///
-			///@param &color - stała referencja na obiekt klasy sf::Color
+			///@param color - stała referencja na obiekt klasy sf::Color
 			///
 			void setColor(const sf::Color & color);
 
@@ -259,7 +259,7 @@ namespace acodemia
 			///
 			///Wirtualna metoda renderująca obiekt
 			///
-			///@param &render - referencja na kontekst graficzny
+			///@param render - referencja na kontekst graficzny
 			///
 			virtual void draw(sf::RenderWindow & render) const;
 		

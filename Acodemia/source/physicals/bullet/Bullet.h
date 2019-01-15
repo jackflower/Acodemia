@@ -49,14 +49,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - stała referencja na obiekt klasy Bullet
+			///@param copy - stała referencja na obiekt klasy Bullet
 			///
 			Bullet(const Bullet & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Bullet(Bullet && other);
 
@@ -68,14 +68,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Bullet
+			///@param copy - stała referencja na obiekt klasy Bullet
 			///
 			Bullet & operator=(const Bullet & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Bullet & operator=(Bullet && other);
 

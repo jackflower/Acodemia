@@ -5,10 +5,9 @@
 #include "source/physicals/physical/Physical.h"
 #include "source/physicals/bullet/Bullet.h"
 #include "source/physicals/player/Player.h"
+#include "source/physicals/enemy/Enemy.h"
 #include "source/manager/PhysicalManager.h"
-
-
-
+#include <random>
 
 #define _USE_MATH_DEFINES // for C++  
 #include <cmath>
@@ -18,17 +17,29 @@ using namespace acodemia::physical;
 
 int main()
 {
-	sf::Sprite jeden;
-	sf::Sprite dwa;
-	//kolizja
-	jeden.getTextureRect().intersects(dwa.getTextureRect());
-	jeden.getGlobalBounds().intersects(dwa.getGlobalBounds());
-	//kolizja
 
-	//double halfC = M_PI / 180;
-	const double pi = std::acos(-1);
-	double xx = M_PI;
+	std::default_random_engine
+		URBG{ std::random_device{}() };
+
+	// to emulate rand() or random()
+	std::uniform_int_distribution<long>
+		dist(0, RAND_MAX);
+
+	//for (int i = 0; i < 10; i++)
+	//{
+	//	long next_random = dist(URBG);
+	//	std::cout << next_random << std::endl;
+	//}
 	
+	std::srand((unsigned)time(nullptr));
+
+	for (int i = 0; i < 10; i++)
+	{
+		int liczba = std::rand();
+		std::cout << liczba << std::endl;
+	}
+	
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
 
@@ -51,10 +62,16 @@ int main()
 	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
 	physical->setBulletTexture(&bullet_texture);
+	physical->setBulletSpeed(50.f);
+	physical->setBulletMotion(sf::Vector2f(0,-1));
+	physical->setBulletCaliber(3.0f);
+	physical->setBulletLifeTime(4.125f);
+	physical->setGunRate(1.125f);
 	physical->setScale(2);
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	physical->setPosition(200, 200);
 	physical->setSpeed(100);
+	physical->setUpsideDown(false);
 
 	//drugi - red
 	physical = gPhysicalManager.CreatePlayer();
@@ -79,7 +96,34 @@ int main()
 	physical->setUseDisplayable(true);
 	physical->setPosition(500, 200);
 	physical->setColor(sf::Color::Blue);
-	//2018-12-08 sobota - end
+
+	// E n e m i e s
+	physical = gPhysicalManager.CreateEnemy();
+	physical->setTexture(player_texture);
+	physical->setUseDisplayable(true);
+	physical->setBulletTexture(&bullet_texture);
+	physical->setBulletSpeed(400.f);
+	physical->setBulletMotion(sf::Vector2f(0, 1));
+	physical->setBulletCaliber(2.0f);
+	physical->setBulletLifeTime(0.5f);
+	physical->setGunRate(0.25f);
+	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
+	physical->setPosition(500, 70);
+	physical->setSpeed(10);
+	physical->setScale(1, -1);
+	physical->setUpsideDown(true);
+	
+
+	//	physical = gPhysicalManager.CreatePlayer();
+	//	physical->setTexture(player_texture);
+	//	physical->setUseDisplayable(true);
+	//	physical->setBulletTexture(&bullet_texture);
+	//		physical->setScale(2);
+	//	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
+	//physical->setPosition(200, 200);
+	//physical->setSpeed(100);
+
+
 
 	sf::Clock clock;
 	float time = 0.0f;

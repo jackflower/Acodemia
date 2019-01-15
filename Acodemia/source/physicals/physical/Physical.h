@@ -51,14 +51,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - stała referencja na obiekt klasy Physical
+			///@param copy - stała referencja na obiekt klasy Physical
 			///
 			Physical(const Physical & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Physical(Physical && other);
 
@@ -70,14 +70,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Physical
+			///@param copy - stała referencja na obiekt klasy Physical
 			///
 			Physical & operator=(const Physical & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Physical & operator=(Physical && other);
 
@@ -89,14 +89,14 @@ namespace acodemia
 			///
 			///Metoda ustawia referencję na reprezentację graficzną
 			///
-			///@param &displayable - stała referencja na obiekt klasy Displayable
+			///@param displayable - stała referencja na obiekt klasy Displayable
 			///
 			void setDisplayable(const Displayable & displayable);
 			
 			///
 			///Metoda ustawia teksturę dla kontekstu graficznego
 			///
-			///@param &texture - stała referencja na obiekt klasy Texture
+			///@param texture - stała referencja na obiekt klasy Texture
 			///
 			void setTexture(const Texture & texture);
 
@@ -146,7 +146,7 @@ namespace acodemia
 			///
 			///Metoda ustawia pozycję obiektu
 			///
-			///@param &vector - stała referenacja na obiekt klasy sf::Vector2f
+			///@param vector - stała referenacja na obiekt klasy sf::Vector2f
 			///
 			void setPosition(const sf::Vector2f & vector);
 			
@@ -186,7 +186,7 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę
 			///
-			///@param &new_scale_value - stała referencja na obiekt klasy sf::Vector2f
+			///@param new_scale_value - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setScale(const sf::Vector2f & new_scale_value);
 
@@ -209,7 +209,7 @@ namespace acodemia
 			///
 			///Metoda ustawia skalę w stosunku do obecnej skali
 			///
-			///@param &factor - stała referencja na obiekt klasy sf::Vector2f
+			///@param factor - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void scale(const sf::Vector2f & factor);
 
@@ -230,7 +230,7 @@ namespace acodemia
 			///
 			///Metoda ustawia współrzędne punktu uchwytu obiektu
 			///
-			///@param &origin - stała referencja na obiekt klasy sf::Vector2f
+			///@param origin - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setOrigin(const sf::Vector2f & origin);
 
@@ -242,7 +242,7 @@ namespace acodemia
 			///
 			///Metoda ustawia kolor obiektu
 			///
-			///@param &color - stała referencja na obiekt klasy sf::Color
+			///@param color - stała referencja na obiekt klasy sf::Color
 			///
 			void setColor(const sf::Color & color);
 
@@ -273,7 +273,7 @@ namespace acodemia
 			///
 			///Metoda przemieszcza obiekt o wartość wektora przesunięcia
 			///
-			///@param &offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
+			///@param offset - stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia
 			///
 			void move(const sf::Vector2f & offset);
 
@@ -285,7 +285,7 @@ namespace acodemia
 			///
 			///Metoda ustawia wektor kierunku
 			///
-			///@param &motion - stała referencja na obiekt klasy sf::Vector2f
+			///@param motion - stała referencja na obiekt klasy sf::Vector2f
 			///
 			void setMotion(const sf::Vector2f & motion);
 
@@ -311,6 +311,18 @@ namespace acodemia
 			void setSpeed(float speed);
 
 			///
+			///Metoda zwraca flagę, czy obiekt jest do góry nogami (np. Enemy...)
+			///
+			const bool getUpsideDown() const;
+
+			///
+			///Metoda ustawia flagę - obiekt jest do góry nogami (np. Enemy...)
+			///
+			///@param upside_down - flagę, czy obiekt jest do góry nogami
+			///
+			void setUpsideDown(bool upside_down);
+
+			///
 			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
@@ -320,7 +332,7 @@ namespace acodemia
 			///
 			///Wirtualna metoda rysująca obiekt
 			///
-			///@param &render - kontekst graficzny
+			///@param render - kontekst graficzny
 			///
 			virtual void draw(sf::RenderWindow & render) const;
 
@@ -335,11 +347,13 @@ namespace acodemia
 			sf::Vector2f m_origin; //wektor uchwytu obiektu
 			sf::Color m_color; //kolor obiektu
 			sf::Color m_stored_color; //kolor oryginalny
+			bool m_upside_down;//obiekt jest do góry nogami (np. Enemy...)
 			
 		private:
 
 			sf::Vector2f m_motion; //wektor kierunku
 			float m_speed; //prędkość
+			
 
 		};
 	}//namespace physical

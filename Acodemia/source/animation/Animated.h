@@ -50,14 +50,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - parametr - obiekt klasy Animated
+			///@param copy - parametr - obiekt klasy Animated
 			///
 			Animated(const Animated & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Animated(Animated && other);
 
@@ -82,14 +82,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Animated
+			///@param copy - stała referencja na obiekt klasy Animated
 			///
 			Animated & operator=(const Animated & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Animated & operator=(Animated && other);
 

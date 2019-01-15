@@ -50,14 +50,14 @@ namespace acodemia
 			///
 			///Konstruktor kopiujący
 			///
-			///@param &copy - stała referencja na obiekt klasy Actor
+			///@param copy - stała referencja na obiekt klasy Actor
 			///
 			Actor(const Actor & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param &&other = referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
 			Actor(Actor && other);
 
@@ -69,14 +69,14 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param &copy - stała referencja na obiekt klasy Actor
+			///@param copy - stała referencja na obiekt klasy Actor
 			///
 			Actor & operator=(const Actor & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param &&other -  referencja do r-wartości
+			///@param other -  referencja do r-wartości
 			///
 			Actor & operator=(Actor && other);
 
@@ -86,6 +86,68 @@ namespace acodemia
 			///@param *texture - wskaźnik na obiekt klasy Texture
 			///
 			void setBulletTexture(Texture * texture);
+
+			///
+			///Metoda zwraca prędkość pocisku
+			///
+			const float getBulletSpeed() const;
+
+			///
+			///Metoda ustawia prędkość pocisku
+			///
+			///@param bullet_speed - prędkość pocisku
+			///
+			void setBulletSpeed(float bullet_speed);
+
+			///
+			///Metoda zwraca stałą referencję na wektor kierunku pocisku
+			///
+			const sf::Vector2f & getBulletMotion() const;
+
+			///
+			///Metoda ustawia wektor kierunku pocisku
+			///
+			///@param bullet_motion - stała referencja na obiekt klasy sf::Vector2f
+			///
+			void setBulletMotion(const sf::Vector2f & bullet_motion);
+
+			///
+			///Metoda zwraca kaliber pocisku
+			///
+			const float getBulletCaliber() const;
+
+			///
+			///Metoda ustawia kaliber pocisku
+			///
+			///@param caliber - kaliber pocisku
+			///
+			void setBulletCaliber(float caliber);
+
+			///
+			///Metoda zwraca czas życia pocisku
+			///
+			const float getBulletLifeTime() const;
+
+			///
+			///Metoda ustawia czas życia pocisku
+			///
+			///@param bullet_life_time - czas życia pocisku
+			///
+			void setBulletLifeTime(float bullet_life_time);
+
+			///
+			///Metoda zwraca ilość pocisków oddawanych na sekundę - szybkostrzelność
+			///
+			const float getGunRate() const;
+
+			///
+			///Metoda ustawiam ilość pocisków oddawanych na sekundę - szybkostrzelność
+			///
+			///@param gun_rate - szybkostrzelność
+			///
+			void setGunRate(float gun_rate);
+
+			//get/set shoot timer(delay)interwał...
 
 			///
 			///Wirtualna metoda aktualizująca obiekt
@@ -101,7 +163,6 @@ namespace acodemia
 		
 		private:
 			Gun gun;//działo...
-			
 
 		};
 	}//namespace physical

@@ -24,62 +24,77 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef H_SPRITE_ACODEMIA
-#define H_SPRITE_ACODEMIA
 
-#include "SFML/Graphics/Sprite.hpp"
+#ifndef H_ENEMY_ACODEMIA
+#define H_ENEMY_ACODEMIA
+
+#include "../actor/Actor.h"
+#include "../gun/Gun.h"
 
 namespace acodemia
 {
-	namespace rendering
+	namespace physical
 	{
 		///
-		///Klasa reprezentuje opakowanie bibliotecznej klasy sf::Sprite
+		///Klasa reprezentuje gracza
 		///
-		class Sprite : public sf::Sprite
+		class Enemy : public Actor
 		{
 		public:
 
 			///
-			///Konstruktor
+			///Konstruktor domyślny
 			///
-			Sprite();
+			Enemy();
 
 			///
 			///Konstruktor kopiujący
 			///
-			///@param copy - stała referencja na obiekt klasy Sprite
+			///@param copy - stała referencja na obiekt klasy Enemy
 			///
-			Sprite(const Sprite & copy);
+			Enemy(const Enemy & copy);
 
 			///
 			///Konstruktor przenoszący
 			///
-			///@param other - referencja do r-wartości
+			///@param other = referencja do r-wartości
 			///
-			Sprite(Sprite && other);
+			Enemy(Enemy && other);
 
 			///
-			///Destrukror
+			///Destruktor wirtualny
 			///
-			~Sprite();
+			virtual ~Enemy();
 
 			///
 			///Przeciążony operator przypisania kopiowania
 			///
-			///@param copy - stała referencja na obiekt klasy Sprite
+			///@param copy - stała referencja na obiekt klasy Enemy
 			///
-			Sprite & operator=(const Sprite & copy);
+			Enemy & operator=(const Enemy & copy);
 
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param other -  referencja do r-wartości
+			///@param other - referencja do r-wartości
 			///
-			Sprite & operator=(Sprite && other);
+			Enemy & operator=(Enemy && other);
+
+			///
+			///Wirtualna metoda aktualizująca obiekt
+			///
+			///@param dt - czas
+			///
+			virtual void update(float dt);
+
+		protected:
+		private:
+			
+			//funkcja steruje wrogiem...
+			void controlEnemy(float time);
 
 		};
-	}//namespace rendering
+	}//namespace physical
 }//namespace acodemia
 
-#endif//H_SPRITE_ACODEMIA
+#endif//H_ENEMY_ACODEMIA
