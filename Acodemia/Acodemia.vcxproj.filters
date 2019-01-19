@@ -146,5 +146,6 @@
     <Text Include="notes\notes.txt">
       <Filter>notes</Filter>
     </Text>
+    <Text Include="notes\godot_engine.txt" />
   </ItemGroup>
 </Project>

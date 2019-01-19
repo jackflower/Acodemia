@@ -164,6 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="notes\done.txt" />
+    <Text Include="notes\godot_engine.txt" />
     <Text Include="notes\notes.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
