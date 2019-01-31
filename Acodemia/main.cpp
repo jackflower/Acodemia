@@ -16,9 +16,6 @@ using namespace acodemia::physical;
 int main()
 {
 	
-
-	
-
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
 
