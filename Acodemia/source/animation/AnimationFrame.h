@@ -97,12 +97,12 @@ namespace acodemia
 			///
 			///Metoda zwraca stały wskaźnik na teksturę klatki animacji z wektora
 			///
-			const sf::Texture *GetFrameImage() const;
+			const sf::Texture *getFrameImage() const;
 
 			///
 			///Metoda zwraca koordynaty klatki animacji z wektora
 			///
-			const sf::IntRect GetFrameRectangle() const;
+			const sf::IntRect getFrameRectangle() const;
 
 		private:
 

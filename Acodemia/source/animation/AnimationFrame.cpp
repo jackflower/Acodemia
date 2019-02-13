@@ -33,16 +33,16 @@ namespace acodemia
 		//Konstruktor
 		AnimationFrame::AnimationFrame()
 		:
-			p_texture	(nullptr),
-			m_rectangle	()
+			p_texture(nullptr),
+			m_rectangle()
 		{
 		}
 
 		//Konstruktor kopiujący
 		AnimationFrame::AnimationFrame(const AnimationFrame & copy)
 		:
-			p_texture	(copy.p_texture),
-			m_rectangle	(copy.m_rectangle)
+			p_texture(copy.p_texture),
+			m_rectangle(copy.m_rectangle)
 		{
 		}
 
@@ -61,15 +61,15 @@ namespace acodemia
 		//Konstruktor parametryczny
 		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture, const sf::IntRect & rectangle)
 		:
-			p_texture	(& texture),
-			m_rectangle	(rectangle)
+			p_texture(& texture),
+			m_rectangle(rectangle)
 		{
 		}
 
 		//Konstruktor parametryczny
 		AnimationFrame::AnimationFrame(const acodemia::rendering::Texture & texture)
 		:
-			p_texture	(& texture)
+			p_texture(& texture)
 		{
 			if (p_texture != nullptr)
 				m_rectangle = sf::IntRect(0, 0, p_texture->getSize().x, p_texture->getSize().y);
@@ -98,7 +98,7 @@ namespace acodemia
 		//Przeciążony operator przypisania przenoszenia
 		AnimationFrame & AnimationFrame::operator=(AnimationFrame && other)
 		{
-			if (this != &other)
+			if (this != & other)
 			{
 				//zwalaniamy dane pod wskaźnikiem
 				//...delete p_texture; //rzuca wyjatkiem...
@@ -120,13 +120,13 @@ namespace acodemia
 		}
 
 		//Metoda zwraca stały wskaźnik na teksturę klatki animacji z wektora
-		const sf::Texture *AnimationFrame::GetFrameImage() const
+		const sf::Texture *AnimationFrame::getFrameImage() const
 		{
 			return p_texture;
 		}
 
 		//Metoda zwraca koordynaty klatki animacji z wektora
-		const sf::IntRect AnimationFrame::GetFrameRectangle() const
+		const sf::IntRect AnimationFrame::getFrameRectangle() const
 		{
 			return m_rectangle;
 		}

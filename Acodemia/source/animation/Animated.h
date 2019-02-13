@@ -89,21 +89,21 @@ namespace acodemia
 			///
 			///Przeciążony operator przypisania przenoszenia
 			///
-			///@param other -  referencja do r-wartości
+			///@param other - referencja do r-wartości
 			///
 			Animated & operator=(Animated && other);
 
 			///
 			///Metoda zwraca wskaźnik na obiekt klasy Animation
 			///
-			Animation* getAnimation() const;
+			Animation *getAnimation() const;
 
 			///
 			///Metoda ustawia wskaźnik na obiekt klasy Animation
 			///
 			///@param animated - wskaźnik na obiekt klasy Animation (animacja)
 			///
-			///@param playmode - tryb Pause/Play
+			///@param playmode - tryb pause/play
 			///
 			void setAnimation(Animation* animated, bool playmode = false);
 
@@ -176,7 +176,7 @@ namespace acodemia
 			void stop();
 
 			///
-			///Metoda sprawdza, czy animacja jest w trybie Pause
+			///Metoda sprawdza, czy animacja jest w trybie pause
 			///
 			const bool isPaused() const;
 

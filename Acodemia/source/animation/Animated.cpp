@@ -213,9 +213,9 @@ namespace acodemia
 			{
 				if (p_animation->getSize() > 0)
 				{
-					if ((*p_animation)[frame].GetFrameImage() != nullptr)
-						setTexture(*((*p_animation)[frame].GetFrameImage()));
-					setTextureRect((*p_animation)[frame].GetFrameRectangle());
+					if ((*p_animation)[frame].getFrameImage() != nullptr)
+						setTexture(*((*p_animation)[frame].getFrameImage()));
+					setTextureRect((*p_animation)[frame].getFrameRectangle());
 					m_currentframe = frame;
 				}
 			}

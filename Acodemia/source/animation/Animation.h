@@ -75,7 +75,7 @@ namespace acodemia
 			///
 			///Destruktor
 			///
-			~Animation(void);
+			~Animation();
 
 			///
 			///Przeciążony operator przypisania kopiowania
@@ -99,7 +99,7 @@ namespace acodemia
 			///
 			///Operator [] dla obiektu klasy AnimationFrame
 			///
-			AnimationFrame & operator [] (unsigned N);
+			AnimationFrame & operator[] (unsigned N);
 
 			///
 			///Metoda dodaje do wektora obiekty klasy AnimationFrame

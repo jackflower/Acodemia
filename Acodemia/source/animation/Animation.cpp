@@ -58,7 +58,7 @@ namespace acodemia
 		}
 
 		//Destruktor
-		Animation::~Animation(void)
+		Animation::~Animation()
 		{
 			m_frame.clear();
 		}
@@ -144,13 +144,13 @@ namespace acodemia
 		//Metoda zwraca z wektora szerokość klatki animacji o podanym indeksie
 		const int Animation::getAnimationFrameWidth(int animation_frame_index) const
 		{
-			return m_frame[animation_frame_index].GetFrameRectangle().width;
+			return m_frame[animation_frame_index].getFrameRectangle().width;
 		}
 
 		//Metoda zwraca z wektora wysokość klatki animacji o podanym indeksie
 		const int Animation::getAnimationFrameHeight(int animation_frame_index) const
 		{
-			return m_frame[animation_frame_index].GetFrameRectangle().height;
+			return m_frame[animation_frame_index].getFrameRectangle().height;
 		}
 
 		//metoda wstawia do wektora pojedynczy obiekt klasy AnimationFrame
