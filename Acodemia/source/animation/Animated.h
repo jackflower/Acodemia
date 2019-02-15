@@ -239,7 +239,7 @@ namespace acodemia
 #endif //H_ANIMATED_ACODEMIA
 
 
-// //usage
+// //Animation  u s a g e
 //acodemia::rendering::Texture animation_texture;
 //animation_texture.loadFromFile("../data/logo_sci_atlas.png");
 //acodemia::animation::Animation animacja;
@@ -247,5 +247,5 @@ namespace acodemia
 //acodemia::animation::Animated animek;
 //animek.setAnimation(&animacja);
 //animek.setPosition(700.f, 100.f);
-//animek.setFrameTime(0.0125f);
-////usage
+//animek.setAnimationSpeed(2.f);
+////Animation  u s a g e

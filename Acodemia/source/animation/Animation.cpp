@@ -104,8 +104,8 @@ namespace acodemia
 				return false;//rozmiar musi być dodatni, a dzielnik nie może być równy zero...
 			else
 			{
-				int width_i = texture.getSize().x / width_frame;	//pobieramy szerokość tekstury
-				int height_j = texture.getSize().y / height_frame;	//pobieramy wysokość tekstury
+				int width_i = texture.getSize().x / width_frame; //pobieramy szerokość tekstury
+				int height_j = texture.getSize().y / height_frame; //pobieramy wysokość tekstury
 
 				for (int j = 0; j < height_j; j++)
 				{

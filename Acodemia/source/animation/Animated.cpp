@@ -33,15 +33,15 @@ namespace acodemia
 		// Konstruktor domyślny
 		Animated::Animated()
 		:
-			Sprite				(), //konstruktor klasy bazowej
-			m_time				(m_default_time),
-			m_elapsedtime		(0.f),
-			m_paused			(false),
-			m_loop				(true),
-			p_animation			(nullptr),
-			m_currentframe		(0),
-			m_lastanimframe		(0),
-			m_animation_spped	(1.f)
+			Sprite(), //konstruktor klasy bazowej
+			m_time(m_default_time),
+			m_elapsedtime(0.f),
+			m_paused(false),
+			m_loop(true),
+			p_animation(nullptr),
+			m_currentframe(0),
+			m_lastanimframe(0),
+			m_animation_spped(1.f)
 		{
 			setFrame(0);
 			setOrigin(getGlobalBounds().width * 0.5f, getGlobalBounds().height * 0.5f);
@@ -50,58 +50,58 @@ namespace acodemia
 		//Konstruktor kopiujący
 		Animated::Animated(const Animated & copy)
 		:
-			Sprite				(copy), //konstruktor kopiujący klasy bazowej
-			m_time				(copy.m_time),
-			m_elapsedtime		(copy.m_elapsedtime),
-			m_paused			(copy.m_paused),
-			m_loop				(copy.m_loop),
-			p_animation			(copy.p_animation),
-			m_currentframe		(copy.m_currentframe),
-			m_lastanimframe		(copy.m_lastanimframe),
-			m_animation_spped	(copy.m_animation_spped)
+			Sprite(copy), //konstruktor kopiujący klasy bazowej
+			m_time(copy.m_time),
+			m_elapsedtime(copy.m_elapsedtime),
+			m_paused(copy.m_paused),
+			m_loop(copy.m_loop),
+			p_animation(copy.p_animation),
+			m_currentframe(copy.m_currentframe),
+			m_lastanimframe(copy.m_lastanimframe),
+			m_animation_spped(copy.m_animation_spped)
 		{
 		}
 
 		//Konstruktor przenoszący
 		Animated::Animated(Animated && other)
 		:
-			Sprite				(other), //konstruktor przenoszący klasy bazowej
-			m_time				(std::move(other.m_time)),
-			m_elapsedtime		(std::move(other.m_elapsedtime)),
-			m_paused			(std::move(other.m_paused)),
-			m_loop				(std::move(other.m_loop)),
+			Sprite(other), //konstruktor przenoszący klasy bazowej
+			m_time(std::move(other.m_time)),
+			m_elapsedtime(std::move(other.m_elapsedtime)),
+			m_paused(std::move(other.m_paused)),
+			m_loop(std::move(other.m_loop)),
 			//kopiujemy pod wskaźnik dane obiektu źródłowego
-			p_animation			(std::move(other.p_animation)),
-			m_currentframe		(std::move(other.m_currentframe)),
-			m_lastanimframe		(std::move(other.m_lastanimframe)),
-			m_animation_spped	(std::move(other.m_animation_spped))
+			p_animation(std::move(other.p_animation)),
+			m_currentframe(std::move(other.m_currentframe)),
+			m_lastanimframe(std::move(other.m_lastanimframe)),
+			m_animation_spped(std::move(other.m_animation_spped))
 
 		{
 			//zerujemy składowe obiektu źródłowego...
-			other.m_time				= 0.f;
-			other.m_elapsedtime			= 0.f;
-			other.m_paused				=  0.f;
-			other.m_loop				= false;
+			other.m_time = 0.f;
+			other.m_elapsedtime = 0.f;
+			other.m_paused =  0.f;
+			other.m_loop = false;
 			//zwalniamy wskaźnik na dane obiektu źródłowego tak,
 			//aby destruktor nie zwalniał pamięci wielokrotnie
-			other.p_animation			= nullptr;
-			other.m_currentframe		= 0;
-			other.m_lastanimframe		= 0;
-			other.m_animation_spped		= 0;
+			other.p_animation = nullptr;
+			other.m_currentframe = 0;
+			other.m_lastanimframe = 0;
+			other.m_animation_spped = 0;
 		}
 
 		// Konstruktor parametryczny
 		Animated::Animated(Animation *p_animation, bool play, bool loop, float time)
 		:
-			Sprite				(), //konstruktor klasy bazowej
-			m_time				(time),
-			m_elapsedtime		(time),
-			m_paused			(!play),
-			m_loop				(loop),
-			p_animation			(p_animation),
-			m_currentframe		(0),
-			m_lastanimframe		(0),
-			m_animation_spped	(1.f)
+			Sprite(), //konstruktor klasy bazowej
+			m_time(time),
+			m_elapsedtime(time),
+			m_paused(!play),
+			m_loop(loop),
+			p_animation(p_animation),
+			m_currentframe(0),
+			m_lastanimframe(0),
+			m_animation_spped(1.f)
 		{
 			setFrame(0);
 			setOrigin(getGlobalBounds().width * 0.5f, getGlobalBounds().height * 0.5f);
@@ -110,14 +110,14 @@ namespace acodemia
 		//Destruktor
 		Animated::~Animated()
 		{
-			m_time				= 0.f;
-			m_elapsedtime		= 0.f;
-			m_paused			= false;
-			m_loop				= false;
-			p_animation			= nullptr;
-			m_currentframe		= 0;
-			m_lastanimframe		= 0;
-			m_animation_spped	= 0.f;
+			m_time = 0.f;
+			m_elapsedtime = 0.f;
+			m_paused = false;
+			m_loop = false;
+			p_animation = nullptr;
+			m_currentframe = 0;
+			m_lastanimframe = 0;
+			m_animation_spped = 0.f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -125,19 +125,19 @@ namespace acodemia
 		{
 			if (this != &copy)
 			{
-				m_time				= copy.m_time;
-				m_elapsedtime		= copy.m_elapsedtime;
-				m_paused			= copy.m_paused;
-				m_loop				= copy.m_loop;
+				m_time = copy.m_time;
+				m_elapsedtime = copy.m_elapsedtime;
+				m_paused = copy.m_paused;
+				m_loop = copy.m_loop;
 
 				//zwalaniamy dane pod wskaźnikiem
 				delete p_animation;
 				//tworzymy nowy obiekt na podstawie obiektu źródłowego
-				p_animation			= new Animation(*copy.p_animation);
+				p_animation = new Animation(*copy.p_animation);
 
-				m_currentframe		= copy.m_currentframe;
-				m_lastanimframe		= copy.m_lastanimframe;
-				m_animation_spped	= copy.m_animation_spped;
+				m_currentframe = copy.m_currentframe;
+				m_lastanimframe = copy.m_lastanimframe;
+				m_animation_spped = copy.m_animation_spped;
 			}
 			return *this;
 		}
@@ -147,30 +147,30 @@ namespace acodemia
 		{
 			if (this != &other)
 			{
-				m_time				= other.m_time;
-				m_elapsedtime		= other.m_elapsedtime;
-				m_paused			= other.m_paused;
-				m_loop				= other.m_loop;
+				m_time = other.m_time;
+				m_elapsedtime = other.m_elapsedtime;
+				m_paused = other.m_paused;
+				m_loop = other.m_loop;
 
 				//zwalaniamy dane pod wskaźnikiem
 				delete p_animation;
 				//przenosimy pod wskaźnik dane z obiektu źródłowego
-				p_animation			= other.p_animation;
+				p_animation = other.p_animation;
 				//zwalniamy wskaźnik na dane obiektu źródłowego tak,
 				//aby destruktor nie zwalniał pamięci wielokrotnie
 
-				other.p_animation	= nullptr;
-				m_currentframe		= other.m_currentframe;
-				m_lastanimframe		= other.m_lastanimframe;
-				m_animation_spped	= other.m_animation_spped;
+				other.p_animation = nullptr;
+				m_currentframe = other.m_currentframe;
+				m_lastanimframe = other.m_lastanimframe;
+				m_animation_spped = other.m_animation_spped;
 
 				//zerowanie obiektu źródłowego
-				other.m_time			= 0.f;
-				other.m_elapsedtime		= 0.f;
-				other.m_paused			= false;
-				other.m_loop			= false;
-				other.m_currentframe	= 0;
-				other.m_lastanimframe	= 0;
+				other.m_time = 0.f;
+				other.m_elapsedtime = 0.f;
+				other.m_paused = false;
+				other.m_loop = false;
+				other.m_currentframe = 0;
+				other.m_lastanimframe = 0;
 				other.m_animation_spped	= 0.f;
 			}
 			return *this;
