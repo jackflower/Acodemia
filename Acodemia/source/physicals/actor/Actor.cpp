@@ -152,6 +152,9 @@ namespace acodemia
 		void Actor::update(float dt)
 		{
 			gun.update(dt);
+
+			if (m_health <= 0)
+				m_destruction = true;
 		}
 
 		//Chroniona wirtualna metoda - strzał

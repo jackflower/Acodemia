@@ -30,6 +30,7 @@
 #include "SFML/Graphics.hpp"
 #include "../utilities/Singleton.h"
 #include <vector>
+#include <typeinfo>
 
 //deklaracje zapowiadające (forwad declarations)
 namespace acodemia
@@ -93,9 +94,6 @@ public:
 	///
 	virtual void draw(sf::RenderWindow & render) const;
 
-	//factory
-
-
 	///
 	///Metoda tworzy obiekt klasy Physical i zwraca wskaźnik na ten obiekt
 	///
@@ -121,6 +119,27 @@ public:
 	///Metoda tworzy obiekt klasy Enemy i zwraca wskaźnik na ten obiekt
 	///
 	Enemy *CreateEnemy();
+
+	///
+	///Metoda sprawdza, czy nastąpiła jakaś kolizja
+	///
+	///@param *collider - wskaźnik na obiekt klasy Physical
+	///
+	bool checkCollision(Physical *collider);
+
+	///
+	///Metoda sprawdza, czy nastąpiła kolizja z Enemy
+	///
+	///@param *collider - wskaźnik na obiekt klasy Physical
+	///
+	bool checkEnemyCollision(Physical *collider);
+
+	///
+	///Metoda sprawdza, czy nastąpiła kolizja z Bullet
+	///
+	///@param *collider - wskaźnik na obiekt klasy Physical
+	///
+	bool checkBulletCollision(Physical *collider);
 
 private:
 

@@ -6,22 +6,19 @@
 #include <cmath>
 #include <math.h>
 
-#define _USE_MATH_DEFINES // for C++  
+#include "Apteczka.h"
 
-class Demo{};
 int main()
 {
-	const int rozmiar = 100;
-	int tablica[rozmiar];
+	Apteczka szkolna;
+	//szkolna.kolor = "zielona";
+	//szkolna.detonator = true;
+	szkolna.Bumm();
 
-	//pêtla...
-	for (int i = 0; i < rozmiar; i++)
-	{
-		tablica[i] = i+1;
-		std::cout << tablica[i] << std::endl;
-	}
-
-
+	Apteczka ziutek;
+	Apteczka kazik;
+	Apteczka czesiek;
+	Apteczka waldek;
 
 	getchar();
 	return 0;

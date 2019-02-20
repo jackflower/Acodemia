@@ -30,6 +30,7 @@
 #include "../physicals/actor/Actor.h"
 #include "../physicals/player/Player.h"
 #include "../physicals/enemy/Enemy.h"
+#include<iostream>
 
 using namespace acodemia::physical;
 
@@ -69,7 +70,13 @@ void PhysicalManager::updatePhysical(float dt)
 {
 	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
+		//checkCollision(m_physicals.at(i));
+		checkEnemyCollision(m_physicals.at(i));
+		checkBulletCollision(m_physicals.at(i));
+
 		m_physicals.at(i)->update(dt);
+
+
 
 		//jeśli obiekt jest oznaczony do zniszczaenia
 		if(m_physicals.at(i)->getDestruction())
@@ -78,6 +85,7 @@ void PhysicalManager::updatePhysical(float dt)
 				m_physicals.at(i) = nullptr;
 				m_physicals.erase(m_physicals.begin() + i);
 		}
+		//m_physicals.at(i)->getbu
 	}
 }
 
@@ -123,6 +131,126 @@ Player *PhysicalManager::CreatePlayer()
 Enemy *PhysicalManager::CreateEnemy()
 {
 	return Create<Enemy>();
+}
+
+//Metoda sprawdza, czy nastąpiła jakaś kolizja
+bool PhysicalManager::checkCollision(Physical *collider)
+{
+	//sprawdzam, które elementy z listy kolidują z lecącym pociskiem
+	for (unsigned int i = 0; i < m_physicals.size(); i++)
+	{
+		if (m_physicals.at(i) != collider)//blokujemy kolizję "sam ze sobą"
+		{
+			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
+			{
+				//kolizja...
+				std::cout << "Kolizja..." << std::endl;
+				m_physicals.at(i)->setDestruction(true);
+				return true;
+			}
+		}
+	}
+	//std::cout << " " << std::endl;
+	return false;
+
+}
+
+//Metoda sprawdza, czy nastąpiła kolizja z Enemy
+bool PhysicalManager::checkEnemyCollision(Physical *collider)
+{
+	std::string typ = typeid(*collider).name();
+
+
+	//sprawdzam, które elementy z listy kolidują z lecącym pociskiem
+	for (unsigned int i = 0; i < m_physicals.size(); i++)
+	{
+		sf::Vector2f separation_vector;
+		sf::Vector2f new_position;
+		sf::Vector2f old_position;
+
+		if (m_physicals.at(i) != collider)//blokujemy kolizję "sam ze sobą"
+		{
+			old_position = m_physicals.at(i)->getPosition();
+
+			float object_x = m_physicals.at(i)->getPosition().x;
+			float object_y = m_physicals.at(i)->getPosition().y;
+
+			float m_collider_x = collider->getPosition().x;
+			float m_collider_y = collider->getPosition().y;
+			
+			//x
+			if (object_x <= m_collider_x)
+				new_position.x = old_position.x - 0.1f;
+			else
+				new_position.x = old_position.x + 0.1f;
+
+			//y
+			if (object_y <= m_collider_y)
+				new_position.y = old_position.y - 0.1f;
+			else
+				new_position.y = old_position.y + 0.1f;
+
+
+			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
+			{
+				//kolizja z Enemy zabija...
+				if (typ == "class acodemia::physical::Enemy")
+				{
+					std::cout << "Kolizja z Enemy..." << std::endl;
+					m_physicals.at(i)->setPosition(new_position);
+					//m_physicals.at(i)->setDestruction(true);
+					return true;
+				}
+				
+			}
+		}
+	}
+	//std::cout << " " << std::endl;
+	return false;
+}
+
+//Metoda sprawdza, czy nastąpiła kolizja z Bullet
+bool PhysicalManager::checkBulletCollision(Physical *collider)
+{
+	std::string typ = typeid(*collider).name();
+
+	//sprawdzam, które elementy z listy kolidują z lecącym pociskiem
+	for (unsigned int i = 0; i < m_physicals.size(); i++)
+	{
+		if (m_physicals.at(i) != collider)//blokujemy kolizję "sam ze sobą"
+		{
+			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
+			{
+				//kolizja z Bullet zabija...
+				if (typ == "class acodemia::physical::Bullet")
+				{
+					
+					float healt = m_physicals.at(i)->getHealt();
+					float damage = static_cast<Bullet*>(collider)->getCaliber();
+					
+					std::cout << healt << std::endl;
+					std::cout << damage << std::endl;
+					//std::cout << x << std::endl;
+					//healt = healt - damage;
+
+					m_physicals.at(i)->setHealt(healt - damage);
+					//pocisk ginie - bo inaczej jak leci przez ofiarę to jej zabiera życie...!!
+					collider->setDestruction(true);
+					
+					//std::cout << damage << std::endl;
+					//m_physicals.at(i)->setHealt(m_physicals.at(i)->getHealt() - static_cast<Bullet*>(collider)->getCaliber());
+					//std::cout << m_physicals.at(i)->getHealt() << std::endl;
+
+					//std::cout << dynamic_cast<Actor*>(collider)->getBulletCaliber() << std::endl;
+					std::cout << "Kolizja z Bullet..." << std::endl;
+					//m_physicals.at(i)->setDestruction(true);
+					return true;
+				}
+			}
+		}
+	}
+	//std::cout << " " << std::endl;
+	return false;
 }
 
 

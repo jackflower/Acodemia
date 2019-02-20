@@ -9,9 +9,9 @@
 #include "source/manager/PhysicalManager.h"
 
 
-
 using namespace acodemia::physical;
 
+class Demo {};
 
 int main()
 {
@@ -32,7 +32,6 @@ int main()
 	player_texture.setSmooth(true);
 
 	Actor *physical;
-
 	// P l a y e r
 	physical = gPhysicalManager.CreatePlayer();
 	physical->setTexture(player_texture);
@@ -48,6 +47,7 @@ int main()
 	physical->setPosition(200, 200);
 	physical->setSpeed(100);
 	physical->setUpsideDown(false);
+	//physical->setRotation(45.f);
 
 	// EnemyGenerator - future...
 	// E n e m i e s
@@ -58,11 +58,15 @@ int main()
 	physical->setBulletSpeed(400.f);
 	physical->setBulletMotion(sf::Vector2f(0, 1));
 	physical->setBulletCaliber(2.0f);
-	physical->setBulletLifeTime(0.5f);
-	physical->setGunRate(0.25f);
+	//
+	//float xx = physical->getBulletCaliber();
+	//
+	physical->setBulletLifeTime(0.25f);
+	physical->setGunRate(2.25f);
+
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	physical->setPosition(500, 70);
-	physical->setSpeed(10);
+	physical->setSpeed(0);
 	physical->setScale(1, -1);
 	physical->setUpsideDown(true);
 	

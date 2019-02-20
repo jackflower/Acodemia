@@ -323,6 +323,18 @@ namespace acodemia
 			void setUpsideDown(bool upside_down);
 
 			///
+			///Metoda zwraca ilość zdrowia
+			///
+			float getHealt();
+
+			///
+			///Metoda ustawia ilość zdrowia
+			///
+			///@param healt - zdrowie
+			///
+			void setHealt(float healt);
+
+			///
 			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
@@ -348,12 +360,13 @@ namespace acodemia
 			sf::Color m_color; //kolor obiektu
 			sf::Color m_stored_color; //kolor oryginalny
 			bool m_upside_down;//obiekt jest do góry nogami (np. Enemy...)
+			float m_health; //zdrowie
 			
 		private:
 
 			sf::Vector2f m_motion; //wektor kierunku
 			float m_speed; //prędkość
-			
+			//float m_health; //zdrowie
 
 		};
 	}//namespace physical

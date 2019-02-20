@@ -44,7 +44,8 @@ namespace acodemia
 			m_stored_color(),
 			m_motion(),
 			m_speed(0.f),
-			m_upside_down(false)
+			m_upside_down(false),
+			m_health(10)//to jakoś lepiej rozwiązać...
 		{
 		}
 
@@ -62,7 +63,8 @@ namespace acodemia
 			m_stored_color(copy.m_stored_color),
 			m_motion(copy.m_motion),
 			m_speed(copy.m_speed),
-			m_upside_down(copy.m_upside_down)
+			m_upside_down(copy.m_upside_down),
+			m_health(copy.m_health)
 		{
 		}
 
@@ -81,7 +83,8 @@ namespace acodemia
 			m_stored_color(other.m_stored_color),
 			m_motion(other.m_motion),
 			m_speed(other.m_speed),
-			m_upside_down(other.m_upside_down)
+			m_upside_down(other.m_upside_down),
+			m_health(other.m_health)
 		{
 		}
 
@@ -107,6 +110,7 @@ namespace acodemia
 			m_motion.y = 0.f;
 			m_speed = 0.f;
 			m_upside_down = false;
+			m_health = 0.f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -126,6 +130,7 @@ namespace acodemia
 				m_motion = copy.m_motion;
 				m_speed = copy.m_speed;
 				m_upside_down = copy.m_upside_down;
+				m_health = copy.m_health;
 			}
 			return *this;
 		}
@@ -147,6 +152,7 @@ namespace acodemia
 				m_motion = other.m_motion;
 				m_speed = other.m_speed;
 				m_upside_down = other.m_upside_down;
+				m_health = other.m_health;
 			}
 			return *this;
 		}
@@ -388,6 +394,17 @@ namespace acodemia
 			m_upside_down = upside_down;
 		}
 
+		//Metoda zwraca ilość zdrowia
+		float Physical::getHealt()
+		{
+			return m_health;
+		}
+
+		//Metoda ustawia ilość zdrowia
+		void Physical::setHealt(float healt)
+		{
+			m_health = healt;
+		}
 
 		//Wirtualna metoda aktualizująca obiekt
 		void Physical::update(float dt)
