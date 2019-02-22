@@ -81,20 +81,6 @@ public:
 	void registerPhysical(Physical * physical);
 
 	///
-	///Metoda aktualizuje  wskaźniki na obiekty Physical
-	///
-	///@param dt - czas
-	///
-	void updatePhysical(float dt);
-
-	///
-	///Wirtualna metoda rysująca obiekt
-	///
-	///@param render - kontekst graficzny
-	///
-	virtual void draw(sf::RenderWindow & render) const;
-
-	///
 	///Metoda tworzy obiekt klasy Physical i zwraca wskaźnik na ten obiekt
 	///
 	Physical *CreatePhysical();
@@ -121,37 +107,30 @@ public:
 	Enemy *CreateEnemy();
 
 	///
+	///Metoda aktualizuje  wskaźniki na obiekty Physical
+	///
+	///@param dt - czas
+	///
+	void updatePhysical(float dt);
+
+	///
+	///Wirtualna metoda rysująca obiekt
+	///
+	///@param render - kontekst graficzny
+	///
+	virtual void draw(sf::RenderWindow & render) const;
+
+	///
 	///Metoda sprawdza, czy nastąpiła jakaś kolizja
 	///
 	///@param *collider - wskaźnik na obiekt klasy Physical
 	///
 	bool checkCollision(Physical *collider);
 
-	///
-	///Metoda sprawdza, czy nastąpiła kolizja z Enemy
-	///
-	///@param *collider - wskaźnik na obiekt klasy Physical
-	///
-	bool checkEnemyCollision(Physical *collider);
-
-	///
-	///Metoda sprawdza, czy nastąpiła kolizja z PLayer
-	///
-	///@param *collider - wskaźnik na obiekt klasy Physical
-	///
-	bool checkPlayerCollision(Physical *collider);
-
-	///
-	///Metoda sprawdza, czy nastąpiła kolizja z Bullet
-	///
-	///@param *collider - wskaźnik na obiekt klasy Physical
-	///
-	bool checkBulletCollision(Physical *collider);
-
 private:
 
-	//Metoda aktualizuje pozycję obiektu w wyniku kolizji
-	void updatePosition(Physical *object, Physical *collider) const;
+	//prywatna metoda aktualizuje pozycję obiektu w wyniku kolizji
+	void updatePosition(Physical *object, Physical *collider);
 
 	//kontener przechowuje wskaźniki na obiekty klasy Physical
 	std::vector<Physical*> m_physicals;
@@ -159,5 +138,4 @@ private:
 	//szablon metody tworzenia obiektów
 	template<class T> T* Create();
 };
-
 #endif//H_PHYSICAL_MANAGER_ACODEMIA
