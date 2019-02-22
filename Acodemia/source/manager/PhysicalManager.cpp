@@ -178,6 +178,10 @@ T* PhysicalManager::Create()
 //prywatna metoda aktualizuje pozycję obiektu w wyniku kolizji
 void PhysicalManager::updatePosition(Physical *object, Physical *collider)
 {
+	//notatka:
+	//docelowo silnik obsługi kolizji uzależnić od wektora prędkości (motion)
+	//zasady dynamiki Newtona
+
 	sf::Vector2f new_object_position;
 	sf::Vector2f old_object_position;
 	old_object_position = object->getPosition();//zapamiętujemy pozycję
