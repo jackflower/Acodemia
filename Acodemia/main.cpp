@@ -58,15 +58,11 @@ int main()
 	physical->setBulletSpeed(400.f);
 	physical->setBulletMotion(sf::Vector2f(0, 1));
 	physical->setBulletCaliber(2.0f);
-	//
-	//float xx = physical->getBulletCaliber();
-	//
 	physical->setBulletLifeTime(0.25f);
 	physical->setGunRate(2.25f);
-
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	physical->setPosition(500, 70);
-	physical->setSpeed(0);
+	physical->setSpeed(20);
 	physical->setScale(1, -1);
 	physical->setUpsideDown(true);
 	
