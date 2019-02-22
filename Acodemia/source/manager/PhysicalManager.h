@@ -135,6 +135,13 @@ public:
 	bool checkEnemyCollision(Physical *collider);
 
 	///
+	///Metoda sprawdza, czy nastąpiła kolizja z PLayer
+	///
+	///@param *collider - wskaźnik na obiekt klasy Physical
+	///
+	bool checkPlayerCollision(Physical *collider);
+
+	///
 	///Metoda sprawdza, czy nastąpiła kolizja z Bullet
 	///
 	///@param *collider - wskaźnik na obiekt klasy Physical
@@ -142,6 +149,9 @@ public:
 	bool checkBulletCollision(Physical *collider);
 
 private:
+
+	//Metoda aktualizuje pozycję obiektu w wyniku kolizji
+	void updatePosition(Physical *object, Physical *collider) const;
 
 	//kontener przechowuje wskaźniki na obiekty klasy Physical
 	std::vector<Physical*> m_physicals;

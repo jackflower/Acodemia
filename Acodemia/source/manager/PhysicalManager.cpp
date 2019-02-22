@@ -70,13 +70,12 @@ void PhysicalManager::updatePhysical(float dt)
 {
 	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
-		//checkCollision(m_physicals.at(i));
-		checkEnemyCollision(m_physicals.at(i));
-		checkBulletCollision(m_physicals.at(i));
+		checkCollision(m_physicals.at(i));
+		//checkEnemyCollision(m_physicals.at(i));
+		//checkPlayerCollision(m_physicals.at(i));
+		//checkBulletCollision(m_physicals.at(i));
 
 		m_physicals.at(i)->update(dt);
-
-
 
 		//jeśli obiekt jest oznaczony do zniszczaenia
 		if(m_physicals.at(i)->getDestruction())
@@ -136,6 +135,8 @@ Enemy *PhysicalManager::CreateEnemy()
 //Metoda sprawdza, czy nastąpiła jakaś kolizja
 bool PhysicalManager::checkCollision(Physical *collider)
 {
+	std::string typ = typeid(*collider).name();
+
 	//sprawdzam, które elementy z listy kolidują z lecącym pociskiem
 	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
@@ -143,16 +144,36 @@ bool PhysicalManager::checkCollision(Physical *collider)
 		{
 			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
 			{
-				//kolizja...
-				std::cout << "Kolizja..." << std::endl;
-				m_physicals.at(i)->setDestruction(true);
-				return true;
+				if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
+				{
+					if (typ == "class acodemia::physical::Enemy")
+					{
+						updatePosition(m_physicals.at(i), collider);
+						return true;
+					}
+
+					if (typ == "class acodemia::physical::Player")
+					{
+						updatePosition(m_physicals.at(i), collider);
+						return true;
+					}
+
+					if (typ == "class acodemia::physical::Bullet")
+					{
+						m_physicals.at(i)->setHealt
+						(
+							m_physicals.at(i)->getHealt() - static_cast<Bullet*>(collider)->getCaliber()
+						);
+						collider->setDestruction(true);
+						return true;
+					}
+				}
+
+				//ostatecznie w ipdatePhysical wolać te funkcję, a poniżze do lamusza?
 			}
 		}
 	}
-	//std::cout << " " << std::endl;
 	return false;
-
 }
 
 //Metoda sprawdza, czy nastąpiła kolizja z Enemy
@@ -160,44 +181,36 @@ bool PhysicalManager::checkEnemyCollision(Physical *collider)
 {
 	std::string typ = typeid(*collider).name();
 
-
-	//sprawdzam, które elementy z listy kolidują z lecącym pociskiem
 	for (unsigned int i = 0; i < m_physicals.size(); i++)
 	{
-		sf::Vector2f separation_vector;
-		sf::Vector2f new_position;
-		sf::Vector2f old_position;
+		//sf::Vector2f new_position;
+		//sf::Vector2f old_position;
 
-		if (m_physicals.at(i) != collider)//blokujemy kolizję "sam ze sobą"
+		if (m_physicals.at(i) != collider) //blokujemy kolizję "sam ze sobą"
 		{
-			old_position = m_physicals.at(i)->getPosition();
+			//updatePosition(m_physicals.at(i), collider);
+			//old_position = m_physicals.at(i)->getPosition();
+			//
+			////x
+			//if (m_physicals.at(i)->getPosition().x <= collider->getPosition().x)
+			//	new_position.x = old_position.x - 0.1f;
+			//else
+			//	new_position.x = old_position.x + 0.1f;
 
-			float object_x = m_physicals.at(i)->getPosition().x;
-			float object_y = m_physicals.at(i)->getPosition().y;
-
-			float m_collider_x = collider->getPosition().x;
-			float m_collider_y = collider->getPosition().y;
-			
-			//x
-			if (object_x <= m_collider_x)
-				new_position.x = old_position.x - 0.1f;
-			else
-				new_position.x = old_position.x + 0.1f;
-
-			//y
-			if (object_y <= m_collider_y)
-				new_position.y = old_position.y - 0.1f;
-			else
-				new_position.y = old_position.y + 0.1f;
+			////y
+			//if (m_physicals.at(i)->getPosition().y <= collider->getPosition().y)
+			//	new_position.y = old_position.y - 0.1f;
+			//else
+			//	new_position.y = old_position.y + 0.1f;
 
 
 			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
 			{
-				//kolizja z Enemy zabija...
 				if (typ == "class acodemia::physical::Enemy")
 				{
+					updatePosition(m_physicals.at(i), collider);
 					std::cout << "Kolizja z Enemy..." << std::endl;
-					m_physicals.at(i)->setPosition(new_position);
+					//m_physicals.at(i)->setPosition(new_position);
 					//m_physicals.at(i)->setDestruction(true);
 					return true;
 				}
@@ -208,6 +221,62 @@ bool PhysicalManager::checkEnemyCollision(Physical *collider)
 	//std::cout << " " << std::endl;
 	return false;
 }
+
+/////////////
+///
+///Metoda sprawdza, czy nastąpiła kolizja z PLayer
+///
+///@param *collider - wskaźnik na obiekt klasy Physical
+///
+bool PhysicalManager::checkPlayerCollision(Physical *collider)
+{
+	std::string typ = typeid(*collider).name();
+
+	for (unsigned int i = 0; i < m_physicals.size(); i++)
+	{
+		//sf::Vector2f new_position;
+		//sf::Vector2f old_position;
+
+		if (m_physicals.at(i) != collider) //blokujemy kolizję "sam ze sobą"
+		{
+			//old_position = m_physicals.at(i)->getPosition();
+
+			////x
+			//if (m_physicals.at(i)->getPosition().x <= collider->getPosition().x)
+			//	new_position.x = old_position.x - 0.1f;
+			//else
+			//	new_position.x = old_position.x + 0.1f;
+
+			////y
+			//if (m_physicals.at(i)->getPosition().y <= collider->getPosition().y)
+			//	new_position.y = old_position.y - 0.1f;
+			//else
+			//	new_position.y = old_position.y + 0.1f;
+
+
+			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
+			{
+				if (typ == "class acodemia::physical::Player")
+				{
+					updatePosition(m_physicals.at(i), collider);
+					std::cout << "Kolizja z Player..." << std::endl;
+					//m_physicals.at(i)->setPosition(new_position);
+					//m_physicals.at(i)->setDestruction(true);
+					return true;
+				}
+
+			}
+		}
+	}
+	//std::cout << " " << std::endl;
+	return false;
+
+}
+
+
+////////////
+
+
 
 //Metoda sprawdza, czy nastąpiła kolizja z Bullet
 bool PhysicalManager::checkBulletCollision(Physical *collider)
@@ -261,4 +330,44 @@ T* PhysicalManager::Create()
 	T* obj = new T();
 	m_physicals.push_back(obj);
 	return obj;
+}
+
+//Metoda aktualizuje pozycję obiektu w wyniku kolizji
+void PhysicalManager::updatePosition(Physical *object, Physical *collider) const
+{
+	//uporządkować...
+	sf::Vector2f new_position;
+	sf::Vector2f old_position;
+	old_position = object->getPosition();
+
+	sf::Vector2f new_collider_position;
+	sf::Vector2f old_collider_position;
+	old_collider_position = collider->getPosition();
+
+	//x
+	if (object->getPosition().x <= collider->getPosition().x)
+	{
+		new_position.x = old_position.x - 0.1f;
+		new_collider_position.x = old_collider_position.x + 0.1f;
+	}
+	else
+	{
+		new_position.x = old_position.x + 0.1f;
+		new_collider_position.x = old_collider_position.x - 0.1f;
+	}
+
+	//y
+	if (object->getPosition().y <= collider->getPosition().y)
+	{
+		new_position.y = old_position.y - 0.1f;
+		new_collider_position.y = old_collider_position.y + 0.1f;
+	}
+	else
+	{
+		new_position.y = old_position.y + 0.1f;
+		new_collider_position.y = old_collider_position.y - 0.1f;
+	}
+
+	object->setPosition(new_position);
+	collider->setPosition(new_collider_position);
 }
