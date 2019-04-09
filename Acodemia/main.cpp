@@ -37,7 +37,7 @@ int main()
 	physical->setTexture(player_texture);
 	physical->setUseDisplayable(true);
 	physical->setBulletTexture(&bullet_texture);
-	physical->setBulletSpeed(100.f);
+	physical->setBulletSpeed(300.f);
 	physical->setBulletMotion(sf::Vector2f(0,-1));
 	physical->setBulletCaliber(3.0f);
 	physical->setBulletLifeTime(4.125f);
@@ -49,6 +49,10 @@ int main()
 	physical->setUpsideDown(false);
 	//physical->setRotation(45.f);
 
+	//sprawdzić geometrycznie promień kolizji...
+	float width = physical->getGlobalBounds().width;
+	int alabama = 0;
+
 	// EnemyGenerator - future...
 	// E n e m i e s
 	physical = gPhysicalManager.CreateEnemy();
@@ -58,7 +62,7 @@ int main()
 	physical->setBulletSpeed(400.f);
 	physical->setBulletMotion(sf::Vector2f(0, 1));
 	physical->setBulletCaliber(2.0f);
-	physical->setBulletLifeTime(0.25f);
+	physical->setBulletLifeTime(3.25f);
 	physical->setGunRate(2.25f);
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
 	physical->setPosition(500, 70);
@@ -71,13 +75,16 @@ int main()
 
 	//Animation  u s a g e
 	acodemia::rendering::Texture animation_texture;
-	animation_texture.loadFromFile("../data/logo_sci_atlas.png");
+	//animation_texture.loadFromFile("../data/logo_sci_atlas.png");
+	animation_texture.loadFromFile("../data/anim_sobota.png");
+	//
 	acodemia::animation::Animation animacja;
-	animacja.setAnimationFramesFromAtlasTexture(animation_texture, 50, 50);
+	//animacja.setAnimationFramesFromAtlasTexture(animation_texture, 50, 50);
+	animacja.setAnimationFramesFromAtlasTexture(animation_texture, 64, 64);
 	acodemia::animation::Animated animek;
 	animek.setAnimation(&animacja);
 	animek.setPosition(700.f, 100.f);
-	animek.setAnimationSpeed(2.f);
+	animek.setAnimationSpeed(0.5f);
 	//Animation  u s a g e
 
 	while (window.isOpen())

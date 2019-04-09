@@ -10,15 +10,23 @@
 
 int main()
 {
-	Apteczka szkolna;
-	//szkolna.kolor = "zielona";
-	//szkolna.detonator = true;
-	szkolna.Bumm();
+	int liczba = 10;
 
-	Apteczka ziutek;
-	Apteczka kazik;
-	Apteczka czesiek;
-	Apteczka waldek;
+	if (liczba > 10)
+		std::cout << "Szczecin" << std::endl;
+		
+	std::cout << "Wita !!! " << std::endl;
+
+
+	//if(co sprawdzamy)
+	//(warunek logiczny)
+		//kod_gdy_jest_prawda
+		//lub_fa³sz
+
+	//jeœli prawda
+	//to napisz "Prawda"
+	//jeœli nie
+	//to napisz "Falsz"
 
 	getchar();
 	return 0;
