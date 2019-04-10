@@ -147,7 +147,12 @@ namespace acodemia
 			///
 			void setGunRate(float gun_rate);
 
-			//get/set shoot timer(delay)interwał...
+			///
+			///Metoda ustawia wskaźnik na teksturę dla kontekstu graficznego eksplozji
+			///
+			///@param *texture - wskaźnik na obiekt klasy Texture
+			///
+			void setExplosionTexture(Texture * texture);
 
 			///
 			///Wirtualna metoda aktualizująca obiekt

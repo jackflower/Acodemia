@@ -52,6 +52,9 @@
     <Filter Include="source\physicals\enemy">
       <UniqueIdentifier>{b251e1d2-8fef-4fa2-914b-086dedc9f27f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\explosion">
+      <UniqueIdentifier>{a62c23ce-0b6a-4496-8bb6-e194aa0b9e3a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -93,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="source\physicals\enemy\Enemy.cpp">
       <Filter>source\physicals\enemy</Filter>
+    </ClCompile>
+    <ClCompile Include="source\explosion\Explosion.cpp">
+      <Filter>source\explosion</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -137,6 +143,9 @@
     </ClInclude>
     <ClInclude Include="source\physicals\enemy\Enemy.h">
       <Filter>source\physicals\enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="source\explosion\Explosion.h">
+      <Filter>source\explosion</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -29,6 +29,9 @@
 
 #include "SFML/Graphics.hpp"
 #include "../actor/Actor.h"
+#include "../../explosion/Explosion.h"
+
+using namespace acodemia::animation;
 
 namespace acodemia
 {
@@ -104,6 +107,23 @@ namespace acodemia
 			void setLifeTime(float lifetime);
 
 			///
+			///Metoda ustawia teksturę eksplozji
+			///
+			///@param *texture_explosion - wskaźnik na teksturę
+			///
+			void setExplosionTexture(Texture * texture_explosion);
+
+			///
+			///Metoda zwraca wskaźnik na eksplozję
+			///
+			const Explosion *getExplosion() const;
+
+			///
+			///Eksplozja pocisku
+			///
+			void explode();
+
+			///
 			///Wirtualna metoda aktualizująca obiekt
 			///
 			///@param dt - czas
@@ -115,6 +135,8 @@ namespace acodemia
 			float m_caliber; //kaliber - siła rażenia
 			float m_lifetime; //czas życia pocisku
 			float m_elapsedtime; //upływający czas
+			Texture * p_texture_explosion;//wskaźnik na teksturę eksplozji
+			Explosion * p_explosion;//wskaźnik na eksplozję
 		};
 
 	}//namespace physical

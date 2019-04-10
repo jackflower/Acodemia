@@ -37,50 +37,53 @@ namespace acodemia
 		//Konstruktor domyślny
 		Gun::Gun()
 			:
-			Physical(),//konstruktor klasy bazowej
-			p_bullet_texture(nullptr),
-			m_elapsed_time(0.0f),
-			m_shoot_timer(0.0f),
-			m_shoot_enabled(false),
-			m_bullet_speed(0.0f),
-			m_bullet_start_position(),
-			m_bullet_motion(0.0f, 0.0f),
-			m_bullet_caliber(0.0f),
-			m_bullet_life_time(0.0f)
+			Physical{},//konstruktor klasy bazowej
+			p_bullet_texture{ nullptr },
+			m_elapsed_time{ 0.0f },
+			m_shoot_timer{ 0.0f },
+			m_shoot_enabled{ false },
+			m_bullet_speed{ 0.0f },
+			m_bullet_start_position{},
+			m_bullet_motion{ 0.0f, 0.0f },
+			m_bullet_caliber{ 0.0f },
+			m_bullet_life_time{ 0.0f },
+			p_explosion_texture{ nullptr }
 		{
 		}
 
 		//Konstruktor kopiujący
 		Gun::Gun(const Gun & copy)
 		:
-			Physical(copy),//konstruktor kopiujący klasy bazowej
+			Physical{ copy },//konstruktor kopiujący klasy bazowej
 			//kopiujemy dane obiektu źródłowego
-			p_bullet_texture(copy.p_bullet_texture),
-			m_elapsed_time(copy.m_elapsed_time),
-			m_shoot_timer(copy.m_shoot_timer),
-			m_shoot_enabled(copy.m_shoot_enabled),
-			m_bullet_speed(copy.m_bullet_speed),
-			m_bullet_start_position(copy.m_bullet_start_position),
-			m_bullet_motion(copy.m_bullet_motion),
-			m_bullet_caliber(copy.m_bullet_caliber),
-			m_bullet_life_time(copy.m_bullet_life_time)
+			p_bullet_texture{ copy.p_bullet_texture },
+			m_elapsed_time{ copy.m_elapsed_time },
+			m_shoot_timer{ copy.m_shoot_timer },
+			m_shoot_enabled{ copy.m_shoot_enabled },
+			m_bullet_speed{ copy.m_bullet_speed },
+			m_bullet_start_position{ copy.m_bullet_start_position },
+			m_bullet_motion{ copy.m_bullet_motion },
+			m_bullet_caliber{ copy.m_bullet_caliber },
+			m_bullet_life_time{ copy.m_bullet_life_time },
+			p_explosion_texture{ copy.p_explosion_texture }
 		{
 		}
 
 		//Konstruktor przenoszący
 		Gun::Gun(Gun && other)
 		:
-			Physical(other),//konstruktor przenoszący klasy bazowej
+			Physical{ other },//konstruktor przenoszący klasy bazowej
 			//przenosimy dane obiektu źródłowego
-			p_bullet_texture(other.p_bullet_texture),
-			m_elapsed_time(other.m_elapsed_time),
-			m_shoot_timer(other.m_shoot_timer),
-			m_shoot_enabled(other.m_shoot_enabled),
-			m_bullet_speed(other.m_bullet_speed),
-			m_bullet_start_position(other.m_bullet_start_position),
-			m_bullet_motion(other.m_bullet_motion),
-			m_bullet_caliber(other.m_bullet_caliber),
-			m_bullet_life_time(other.m_bullet_life_time)
+			p_bullet_texture{ other.p_bullet_texture },
+			m_elapsed_time{ other.m_elapsed_time },
+			m_shoot_timer{ other.m_shoot_timer },
+			m_shoot_enabled{ other.m_shoot_enabled },
+			m_bullet_speed{ other.m_bullet_speed },
+			m_bullet_start_position{ other.m_bullet_start_position },
+			m_bullet_motion{ other.m_bullet_motion },
+			m_bullet_caliber{ other.m_bullet_caliber },
+			m_bullet_life_time{ other.m_bullet_life_time },
+			p_explosion_texture{ other.p_explosion_texture }
 		{
 		}
 
@@ -98,6 +101,7 @@ namespace acodemia
 			m_bullet_motion.y = 0.0f;
 			m_bullet_caliber = 0.0f;
 			m_bullet_life_time = 0.0f;
+			p_explosion_texture = nullptr;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -115,6 +119,7 @@ namespace acodemia
 				m_bullet_motion = copy.m_bullet_motion;
 				m_bullet_caliber = copy.m_bullet_caliber;
 				m_bullet_life_time = copy.m_bullet_life_time;
+				p_explosion_texture = copy.p_explosion_texture;
 			}
 			return *this;
 		}
@@ -134,6 +139,7 @@ namespace acodemia
 				m_bullet_motion = other.m_bullet_motion;
 				m_bullet_caliber = other.m_bullet_caliber;
 				m_bullet_life_time = other.m_bullet_life_time;
+				p_explosion_texture = other.p_explosion_texture;
 			}
 			return *this;
 		}
@@ -204,6 +210,12 @@ namespace acodemia
 			m_shoot_timer = gun_rate;
 		}
 
+		//Metoda ustawia wskaźnik na teksturę dla kontekstu graficznego eksplozji
+		void Gun::setExplosionTexture(Texture * texture)
+		{
+			p_explosion_texture = texture;
+		}
+
 		//Metoda generuje strzał
 		void Gun::shoot(const Physical & owner)
 		{
@@ -220,7 +232,7 @@ namespace acodemia
 					bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
 					bullet->setMotion(m_bullet_motion.x, m_bullet_motion.y);
 
-					//korekta...pozycja startowa pocisku pocisk nie może kolidować z lufą
+					//korekta...pozycja startowa pocisku - pocisk nie może kolidować z lufą
 					if(owner.getUpsideDown())
 					{
 						m_bullet_start_position.x = owner.getPosition().x + 0.0f;
@@ -239,17 +251,14 @@ namespace acodemia
 					}
 
 					bullet->setPosition(m_bullet_start_position);
-
-
 					bullet->setSpeed(m_bullet_speed);
 					bullet->setCaliber(m_bullet_caliber);
 					bullet->setLifeTime(m_bullet_life_time);
-					//m_shoot_timer = 0.25f;//ilość pocisków na sekundę
+					bullet->setExplosionTexture(p_explosion_texture);
 					m_shoot_enabled = false;
 				}
 			}
 		}
-
 
 		//Metoda aktualizująca obiekt
 		void Gun::update(float dt)

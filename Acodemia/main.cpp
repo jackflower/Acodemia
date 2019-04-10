@@ -8,6 +8,7 @@
 #include "source/physicals/enemy/Enemy.h"
 #include "source/manager/PhysicalManager.h"
 
+#include "source/explosion/Explosion.h"
 
 using namespace acodemia::physical;
 
@@ -16,11 +17,17 @@ class Demo {};
 int main()
 {
 	
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018-2019", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
 
 
-	//2018-12-08 sobota - begin
+	//2019-04-13 sobota - begin
+
+	// E x p l o s i o n
+	acodemia::rendering::Texture explosion_texture;
+	explosion_texture.loadFromFile("../data/explosion.png");
+	explosion_texture.setSmooth(true);
+
 	// B u l l e t
 	acodemia::rendering::Texture bullet_texture;
 	bullet_texture.loadFromFile("../data/bullet.png");
@@ -47,7 +54,7 @@ int main()
 	physical->setPosition(200, 200);
 	physical->setSpeed(100);
 	physical->setUpsideDown(false);
-	//physical->setRotation(45.f);
+	physical->setExplosionTexture(&explosion_texture);
 
 	//sprawdzić geometrycznie promień kolizji...
 	float width = physical->getGlobalBounds().width;
@@ -69,23 +76,41 @@ int main()
 	physical->setSpeed(20);
 	physical->setScale(1, -1);
 	physical->setUpsideDown(true);
+	physical->setExplosionTexture(&explosion_texture);
 	
 	sf::Clock clock;
 	float time = 0.0f;
 
-	//Animation  u s a g e
+	//Animation  u s a g e  -  logo SCI
 	acodemia::rendering::Texture animation_texture;
-	//animation_texture.loadFromFile("../data/logo_sci_atlas.png");
-	animation_texture.loadFromFile("../data/anim_sobota.png");
-	//
+	animation_texture.loadFromFile("../data/logo_sci_atlas.png");
 	acodemia::animation::Animation animacja;
-	//animacja.setAnimationFramesFromAtlasTexture(animation_texture, 50, 50);
-	animacja.setAnimationFramesFromAtlasTexture(animation_texture, 64, 64);
+	animacja.setAnimationFramesFromAtlasTexture(animation_texture, 50, 50);
 	acodemia::animation::Animated animek;
 	animek.setAnimation(&animacja);
 	animek.setPosition(700.f, 100.f);
-	animek.setAnimationSpeed(0.5f);
-	//Animation  u s a g e
+	animek.setAnimationSpeed(1.5f);
+	//Animation  u s a g e  -  logo SCI
+
+	//e x p l o s i o n  usage
+	//(docelowo w miejscu gdy pocisk koliduje...)
+	//std::string name;
+	//name = "../data/explosion.png";
+	//acodemia::animation::Explosion *explosion = gPhysicalManager.CreateExplosion();
+	//explosion->setExplosionTexture(explosion_texture, 64, 64);
+	//explosion->setPosition(200.f, 100.f);
+	//explosion->setAnimationSpeed(0.5f);
+	//int warta = 0;
+	//Wniosek:
+	//ładowanie tekstur(y) eksplozji w loaderze...( póki co - main() )
+	//w Actor dodać metody:
+	//	setExplosionTexture(&explosion_texture);
+	//	setExplosionAnimationSpeed(2.f);
+	//	pozycja etc w czasie samej eksplozji...
+	// - Actor przekazuje to obiektowi Gun
+	// - ten przekazuje to pociskowi Bullet
+	// - Bullet posiada metodę Explode()...
+	//e x p l o s i o n  usage
 
 	while (window.isOpen())
 	{

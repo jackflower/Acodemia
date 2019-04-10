@@ -148,6 +148,12 @@ namespace acodemia
 			gun.setGunRate(gun_rate);
 		}
 
+		//Metoda ustawia wskaźnik na teksturę dla kontekstu graficznego eksplozji
+		void Actor::setExplosionTexture(Texture * texture)
+		{
+			gun.setExplosionTexture(texture);
+		}
+
 		//Wirtualna metoda aktualizująca obiekt
 		void Actor::update(float dt)
 		{

@@ -25,6 +25,7 @@
 ////////////////////////////////////////////////////////////
 
 #include "Bullet.h"
+#include "../../manager/PhysicalManager.h"
 
 namespace acodemia
 {
@@ -118,11 +119,34 @@ namespace acodemia
 		{
 			m_lifetime = lifetime;
 		}
+		
+		//Metoda ustawia teksturę eksplozji
+		void Bullet::setExplosionTexture(Texture * texture_explosion)
+		{
+			p_texture_explosion = texture_explosion;
+		}
+
+		//Metoda zwraca wskaźnik na eksplozję
+		const Explosion *Bullet::getExplosion() const
+		{
+			return p_explosion;
+		}
+
+		//Eksplozja pocisku
+		void Bullet::explode()
+		{
+			if (p_texture_explosion)
+			{
+				p_explosion = gPhysicalManager.CreateExplosion();
+				p_explosion->setExplosionTexture(*p_texture_explosion, 64, 64);
+ 				p_explosion->setPosition(getPosition());
+				p_explosion->setScale(getScale());
+			}
+		}
 
 		//Wirtualna metoda aktualizująca obiekt
 		void Bullet::update(float dt)
 		{
-
 			//aktualizacja pozycji
 			Physical::update(dt);
 

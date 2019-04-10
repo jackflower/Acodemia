@@ -149,6 +149,13 @@ namespace acodemia
 			void setGunRate(float gun_rate);
 
 			///
+			///Metoda ustawia wskaźnik na teksturę dla kontekstu graficznego eksplozji
+			///
+			///@param *texture - wskaźnik na obiekt klasy Texture
+			///
+			void setExplosionTexture(Texture * texture);
+
+			///
 			///Metoda generuje strzał
 			///
 			///@param owner - stała referencja na obiekt będący właścicielem działa
@@ -173,9 +180,9 @@ namespace acodemia
 			sf::Vector2f m_bullet_motion;//wektor kierunku pocisku
 			float m_bullet_caliber;//kaliber pocisku - decyduje o obrażeniach
 			float m_bullet_life_time;//czas życia pocisku
+			Texture * p_explosion_texture;//wskaźnik na teksturę eksplozji
 
 		};
 	}//namespace physical
 }// namespace acodemia
-
 #endif//H_GUN_ACODEMIA

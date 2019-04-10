@@ -31,6 +31,7 @@
 #include "../utilities/Singleton.h"
 #include <vector>
 #include <typeinfo>
+#include "../explosion/Explosion.h"
 
 //deklaracje zapowiadające (forwad declarations)
 namespace acodemia
@@ -45,7 +46,16 @@ namespace acodemia
 	}
 }
 
+namespace acodemia
+{
+	namespace animation
+	{
+		class Explosion;
+	}
+}
+
 using namespace acodemia::physical;
+using namespace acodemia::animation;
 
 #define gPhysicalManager PhysicalManager::getSingleton()
 
@@ -84,7 +94,6 @@ public:
 	///Metoda tworzy obiekt klasy Physical i zwraca wskaźnik na ten obiekt
 	///
 	Physical *CreatePhysical();
-	//powyższe jako szablon...
 
 	///
 	///Metoda tworzy obiekt klasy Bullet i zwraca wskaźnik na ten obiekt
@@ -105,6 +114,11 @@ public:
 	///Metoda tworzy obiekt klasy Enemy i zwraca wskaźnik na ten obiekt
 	///
 	Enemy *CreateEnemy();
+
+	///
+	///Metoda tworzy obiekt klasy Explosion i zwraca wskaźnik na ten obiekt
+	///
+	Explosion *CreateExplosion();
 
 	///
 	///Metoda aktualizuje  wskaźniki na obiekty Physical
@@ -137,5 +151,9 @@ private:
 
 	//szablon metody tworzenia obiektów
 	template<class T> T* Create();
+
+	//kontener przechowuje wskaźniki na obiekty klasy Explosion
+	std::vector<acodemia::animation::Explosion*> m_explosions;
+
 };
 #endif//H_PHYSICAL_MANAGER_ACODEMIA

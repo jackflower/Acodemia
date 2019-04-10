@@ -30,6 +30,7 @@
 #include "../physicals/actor/Actor.h"
 #include "../physicals/player/Player.h"
 #include "../physicals/enemy/Enemy.h"
+#include "../explosion/Explosion.h"
 #include<iostream>
 
 using namespace acodemia::physical;
@@ -95,6 +96,14 @@ Enemy *PhysicalManager::CreateEnemy()
 	return Create<Enemy>();
 }
 
+//Metoda tworzy obiekt klasy Explosion i zwraca wskaźnik na ten obiekt
+Explosion *PhysicalManager::CreateExplosion()
+{
+	Explosion * p_explosion = new Explosion();
+	m_explosions.push_back(p_explosion);
+	return p_explosion;
+}
+
 //Metoda aktualizuje  wskaźniki na obiekty Physical
 void PhysicalManager::updatePhysical(float dt)
 {
@@ -111,17 +120,39 @@ void PhysicalManager::updatePhysical(float dt)
 				m_physicals.erase(m_physicals.begin() + i);
 		}
 	}
+
+	//aktualizacja pojemnika z eksplozjami
+	for (unsigned int i = 0; i < m_explosions.size(); i++)
+	{
+		m_explosions.at(i)->update(dt);
+
+		if (m_explosions.at(i)->getDestruction())
+		{
+			delete m_explosions.at(i);
+			m_explosions.at(i) = nullptr;
+			m_explosions.erase(m_explosions.begin() + i);
+		}
+	}
 }
 
 //Wirtualna metoda rysująca obiekt
 void PhysicalManager::draw(sf::RenderWindow & render) const
 {
+	//draw physicals...
 	std::vector<Physical*>::const_iterator it;//iterator tego kontenera
 	for (it = m_physicals.begin(); it != m_physicals.end(); it++)
 	{
 		if ((*it) != nullptr)
 			if ((*it)->getUseDisplayable() and !(*it)->getDestruction())
 				(*it)->draw(render);
+	}
+
+	//draw explosions...
+	std::vector<acodemia::animation::Explosion*>::const_iterator iter;//iterator kontenera eksplozji
+	for (iter = m_explosions.begin(); iter != m_explosions.end(); iter++)
+	{
+		if ((*iter) != nullptr)
+			(*iter)->draw(render);
 	}
 }
 
@@ -135,6 +166,7 @@ bool PhysicalManager::checkCollision(Physical *collider)
 	{
 		if (m_physicals.at(i) != collider)//blokujemy kolizję "sam ze sobą"
 		{
+			//testy kolizji circle-circle (2019-04-10)
 			if (m_physicals.at(i)->getGlobalBounds().intersects(collider->getGlobalBounds()))
 			{
 				if (typ == "class acodemia::physical::Enemy")
@@ -156,7 +188,7 @@ bool PhysicalManager::checkCollision(Physical *collider)
 						m_physicals.at(i)->getHealt() - static_cast<Bullet*>(collider)->getCaliber()
 					);
 					collider->setDestruction(true);
-					//eksplozja...
+					static_cast<Bullet*>(collider)->explode();//eksplozja
 					return true;
 				}
 			}
