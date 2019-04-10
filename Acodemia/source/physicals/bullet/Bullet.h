@@ -119,6 +119,22 @@ namespace acodemia
 			const Explosion *getExplosion() const;
 
 			///
+			///Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+			///
+			///@param frame_width - szerokość klatki
+			///
+			///@param frame_height - wysokość klatki
+			///
+			void setExplosionFrameSize(unsigned frame_width, unsigned frame_height);
+
+			///
+			///Metoda ustawia prędkość odtwarzania animacji eksplozji
+			///
+			///@param explosion_speed - prędkość odtwarzania animacji
+			///
+			void setExplosionSpeed(float explosion_speed);
+
+			///
 			///Eksplozja pocisku
 			///
 			void explode();
@@ -137,6 +153,9 @@ namespace acodemia
 			float m_elapsedtime; //upływający czas
 			Texture * p_texture_explosion;//wskaźnik na teksturę eksplozji
 			Explosion * p_explosion;//wskaźnik na eksplozję
+			unsigned m_explosion_frame_width;//szerokość klatki animacji eksplozji - wyciętej z atlasu
+			unsigned m_explosion_frame_height;//wysokość klatki animacji eksplozji - wyciętej z atlasu
+			float m_explosiom_speed;//prędkość odtwarzania animacji eksplozji
 		};
 
 	}//namespace physical

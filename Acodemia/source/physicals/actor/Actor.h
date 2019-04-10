@@ -153,6 +153,22 @@ namespace acodemia
 			///@param *texture - wskaźnik na obiekt klasy Texture
 			///
 			void setExplosionTexture(Texture * texture);
+			
+			///
+			///Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+			///
+			///@param frame_width - szerokość klatki
+			///
+			///@param frame_height - wysokość klatki
+			///
+			void setExplosionFrameSize(unsigned frame_width, unsigned frame_height);
+
+			///
+			///Metoda ustawia prędkość odtwarzania animacji eksplozji
+			///
+			///@param explosion_speed - prędkość odtwarzania animacji
+			///
+			void setExplosionSpeed(float explosion_speed);
 
 			///
 			///Wirtualna metoda aktualizująca obiekt

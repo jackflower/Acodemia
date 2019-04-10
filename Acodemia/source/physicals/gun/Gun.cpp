@@ -47,7 +47,10 @@ namespace acodemia
 			m_bullet_motion{ 0.0f, 0.0f },
 			m_bullet_caliber{ 0.0f },
 			m_bullet_life_time{ 0.0f },
-			p_explosion_texture{ nullptr }
+			p_explosion_texture{ nullptr },
+			m_explosion_width{ 0 },
+			m_explosion_height{ 0 },
+			m_explosiom_speed{ 0.0f }
 		{
 		}
 
@@ -65,7 +68,10 @@ namespace acodemia
 			m_bullet_motion{ copy.m_bullet_motion },
 			m_bullet_caliber{ copy.m_bullet_caliber },
 			m_bullet_life_time{ copy.m_bullet_life_time },
-			p_explosion_texture{ copy.p_explosion_texture }
+			p_explosion_texture{ copy.p_explosion_texture },
+			m_explosion_width{ copy.m_explosion_width },
+			m_explosion_height{ copy.m_explosion_height },
+			m_explosiom_speed{ copy.m_explosiom_speed }
 		{
 		}
 
@@ -83,7 +89,10 @@ namespace acodemia
 			m_bullet_motion{ other.m_bullet_motion },
 			m_bullet_caliber{ other.m_bullet_caliber },
 			m_bullet_life_time{ other.m_bullet_life_time },
-			p_explosion_texture{ other.p_explosion_texture }
+			p_explosion_texture{ other.p_explosion_texture },
+			m_explosion_width{ other.m_explosion_width },
+			m_explosion_height{ other.m_explosion_height },
+			m_explosiom_speed{ other.m_explosiom_speed }
 		{
 		}
 
@@ -102,6 +111,9 @@ namespace acodemia
 			m_bullet_caliber = 0.0f;
 			m_bullet_life_time = 0.0f;
 			p_explosion_texture = nullptr;
+			m_explosion_width = 0;
+			m_explosion_height = 0;
+			m_explosiom_speed = 0.0f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -120,6 +132,9 @@ namespace acodemia
 				m_bullet_caliber = copy.m_bullet_caliber;
 				m_bullet_life_time = copy.m_bullet_life_time;
 				p_explosion_texture = copy.p_explosion_texture;
+				m_explosion_width = copy.m_explosion_width;
+				m_explosion_height = copy.m_explosion_height;
+				m_explosiom_speed = copy.m_explosiom_speed;
 			}
 			return *this;
 		}
@@ -140,6 +155,9 @@ namespace acodemia
 				m_bullet_caliber = other.m_bullet_caliber;
 				m_bullet_life_time = other.m_bullet_life_time;
 				p_explosion_texture = other.p_explosion_texture;
+				m_explosion_width = other.m_explosion_width;
+				m_explosion_height = other.m_explosion_height;
+				m_explosiom_speed = other.m_explosiom_speed;
 			}
 			return *this;
 		}
@@ -216,6 +234,19 @@ namespace acodemia
 			p_explosion_texture = texture;
 		}
 
+		//Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+		void Gun::setExplosionFrameSize(unsigned frame_width, unsigned frame_height)
+		{
+			m_explosion_width = frame_width;
+			m_explosion_height = frame_height;
+		}
+
+		//Metoda ustawia prędkość odtwarzania animacji eksplozji
+		void Gun::setExplosionSpeed(float explosion_speed)
+		{
+			m_explosiom_speed = explosion_speed;
+		}
+
 		//Metoda generuje strzał
 		void Gun::shoot(const Physical & owner)
 		{
@@ -227,7 +258,7 @@ namespace acodemia
 					Bullet *bullet = gPhysicalManager.CreateBullet();
 					bullet->setTexture(*p_bullet_texture);
 					bullet->setUseDisplayable(true);
-					//skala
+					//skala, etc...
 					bullet->setScale(owner.getScale());
 					bullet->setOrigin(bullet->getLocalBounds().width * 0.5f, bullet->getLocalBounds().height * 0.5f);
 					bullet->setMotion(m_bullet_motion.x, m_bullet_motion.y);
@@ -255,6 +286,8 @@ namespace acodemia
 					bullet->setCaliber(m_bullet_caliber);
 					bullet->setLifeTime(m_bullet_life_time);
 					bullet->setExplosionTexture(p_explosion_texture);
+					bullet->setExplosionFrameSize(m_explosion_width, m_explosion_height);
+					bullet->setExplosionSpeed(m_explosiom_speed);
 					m_shoot_enabled = false;
 				}
 			}

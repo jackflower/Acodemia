@@ -34,30 +34,50 @@ namespace acodemia
 		//Konstruktor domyślny
 		Bullet::Bullet()
 		:
-			Actor(),
-			m_caliber(0.f),
-			m_lifetime(0.f),
-			m_elapsedtime(0.f)
+			Actor{},
+			m_caliber{ 0.f },
+			m_lifetime{ 0.f },
+			m_elapsedtime{ 0.f },
+			p_texture_explosion{nullptr},
+			p_explosion{nullptr},
+			m_explosion_frame_width{ 0 },
+			m_explosion_frame_height{ 0 },
+			m_explosiom_speed{0.0f}
+
+		//unsigned ;//szerokość klatki animacji eksplozji - wyciętej z atlasu
+		//unsigned ;//wysokość klatki animacji eksplozji - wyciętej z atlasu
+		//float m_explosiom_speed;//prędkość odtwarzania animacji eksplozji
+
 		{
 		}
 
 		//Konstruktor kopiujący
 		Bullet::Bullet(const Bullet & copy)
 		:
-			Actor(copy),//konstruktor kopiujący klasy bazowej
-			m_caliber(copy.m_caliber),
-			m_lifetime(copy.m_lifetime),
-			m_elapsedtime(copy.m_elapsedtime)
+			Actor{ copy },//konstruktor kopiujący klasy bazowej
+			m_caliber{ copy.m_caliber },
+			m_lifetime{copy.m_lifetime},
+			m_elapsedtime{copy.m_elapsedtime},
+			p_texture_explosion{ copy.p_texture_explosion },
+			p_explosion{ copy.p_explosion },
+			m_explosion_frame_width{ copy.m_explosion_frame_width },
+			m_explosion_frame_height{ copy.m_explosion_frame_height },
+			m_explosiom_speed{ copy.m_explosiom_speed }
 		{
 		}
 
 		//Konstruktor przenoszący
 		Bullet::Bullet(Bullet && other)
 		:
-			Actor(other),//konstruktor przenoszący klasy bazowej
-			m_caliber(other.m_caliber),
-			m_lifetime(other.m_lifetime),
-			m_elapsedtime(other.m_elapsedtime)
+			Actor{ other },//konstruktor przenoszący klasy bazowej
+			m_caliber{ other.m_caliber },
+			m_lifetime{ other.m_lifetime },
+			m_elapsedtime{ other.m_elapsedtime },
+			p_texture_explosion{ other.p_texture_explosion },
+			p_explosion{ other.p_explosion },
+			m_explosion_frame_width{ other.m_explosion_frame_width },
+			m_explosion_frame_height{ other.m_explosion_frame_height },
+			m_explosiom_speed{ other.m_explosiom_speed }
 		{
 		}
 
@@ -67,6 +87,11 @@ namespace acodemia
 			m_caliber = 0.f;
 			m_lifetime = 0.f;
 			m_elapsedtime = 0.f;
+			p_texture_explosion = nullptr;
+			p_explosion = nullptr;
+			m_explosion_frame_width = 0;
+			m_explosion_frame_height = 0;
+			m_explosiom_speed = 0.0f;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -78,6 +103,11 @@ namespace acodemia
 				m_caliber = copy.m_caliber;
 				m_lifetime = copy.m_lifetime;
 				m_elapsedtime = copy.m_elapsedtime;
+				p_texture_explosion = copy.p_texture_explosion;
+				p_explosion = copy.p_explosion;
+				m_explosion_frame_width = copy.m_explosion_frame_width;
+				m_explosion_frame_height = copy.m_explosion_frame_height;
+				m_explosiom_speed = copy.m_explosiom_speed;
 			}
 			return *this;
 		}
@@ -91,11 +121,15 @@ namespace acodemia
 				m_caliber = other.m_caliber;
 				m_lifetime = other.m_lifetime;
 				m_elapsedtime = other.m_elapsedtime;
+				p_texture_explosion = other.p_texture_explosion;
+				p_explosion = other.p_explosion;
+				m_explosion_frame_width = other.m_explosion_frame_width;
+				m_explosion_frame_height = other.m_explosion_frame_height;
+				m_explosiom_speed = other.m_explosiom_speed;
 			}
 			return *this;
 		}
-
-
+		
 		//Metoda zwraca kaliber pocisku
 		const float Bullet::getCaliber() const
 		{
@@ -132,15 +166,29 @@ namespace acodemia
 			return p_explosion;
 		}
 
+		//Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+		void Bullet::setExplosionFrameSize(unsigned frame_width, unsigned frame_height)
+		{
+			m_explosion_frame_width = frame_width;
+			m_explosion_frame_height = frame_height;
+		}
+
+		//Metoda ustawia prędkość odtwarzania animacji eksplozji
+		void Bullet::setExplosionSpeed(float explosion_speed)
+		{
+			m_explosiom_speed = explosion_speed;
+		}
+
 		//Eksplozja pocisku
 		void Bullet::explode()
 		{
 			if (p_texture_explosion)
 			{
 				p_explosion = gPhysicalManager.CreateExplosion();
-				p_explosion->setExplosionTexture(*p_texture_explosion, 64, 64);
+				p_explosion->setExplosionTexture(*p_texture_explosion, m_explosion_frame_width, m_explosion_frame_width);
  				p_explosion->setPosition(getPosition());
 				p_explosion->setScale(getScale());
+				p_explosion->setAnimationSpeed(m_explosiom_speed);
 			}
 		}
 

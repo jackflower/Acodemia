@@ -156,6 +156,22 @@ namespace acodemia
 			void setExplosionTexture(Texture * texture);
 
 			///
+			///Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+			///
+			///@param frame_width - szerokość klatki
+			///
+			///@param frame_height - wysokość klatki
+			///
+			void setExplosionFrameSize(unsigned frame_width, unsigned frame_height);
+
+			///
+			///Metoda ustawia prędkość odtwarzania animacji eksplozji
+			///
+			///@param explosion_speed - prędkość odtwarzania animacji
+			///
+			void setExplosionSpeed(float explosion_speed);
+
+			///
 			///Metoda generuje strzał
 			///
 			///@param owner - stała referencja na obiekt będący właścicielem działa
@@ -181,6 +197,9 @@ namespace acodemia
 			float m_bullet_caliber;//kaliber pocisku - decyduje o obrażeniach
 			float m_bullet_life_time;//czas życia pocisku
 			Texture * p_explosion_texture;//wskaźnik na teksturę eksplozji
+			unsigned m_explosion_width;//szerokość klatki animacji eksplozji - wyciętej z atlasu
+			unsigned m_explosion_height;//wysokość klatki animacji eksplozji - wyciętej z atlasu
+			float m_explosiom_speed;//prędkość odtwarzania animacji eksplozji
 
 		};
 	}//namespace physical

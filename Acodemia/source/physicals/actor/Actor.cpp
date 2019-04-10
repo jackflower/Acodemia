@@ -58,6 +58,7 @@ namespace acodemia
 		//Destruktor
 		Actor::~Actor()
 		{
+			gun;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -152,6 +153,18 @@ namespace acodemia
 		void Actor::setExplosionTexture(Texture * texture)
 		{
 			gun.setExplosionTexture(texture);
+		}
+
+		//Metoda ustawia rozmiar klatki animacji eksplozji - podział z atlasu tekstur
+		void Actor::setExplosionFrameSize(unsigned frame_width, unsigned frame_height)
+		{
+			gun.setExplosionFrameSize(frame_width, frame_height);
+		}
+
+		//Metoda ustawia prędkość odtwarzania animacji eksplozji
+		void Actor::setExplosionSpeed(float explosion_speed)
+		{
+			gun.setExplosionSpeed(explosion_speed);
 		}
 
 		//Wirtualna metoda aktualizująca obiekt

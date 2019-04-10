@@ -17,7 +17,7 @@ class Demo {};
 int main()
 {
 	
-	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018-2019", sf::Style::Close);
+	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
 
 
@@ -54,7 +54,10 @@ int main()
 	physical->setPosition(200, 200);
 	physical->setSpeed(100);
 	physical->setUpsideDown(false);
+	//dane eksplozji...
 	physical->setExplosionTexture(&explosion_texture);
+	physical->setExplosionFrameSize(64, 64);
+	physical->setExplosionSpeed(0.25f);
 
 	//sprawdzić geometrycznie promień kolizji...
 	float width = physical->getGlobalBounds().width;
@@ -76,7 +79,10 @@ int main()
 	physical->setSpeed(20);
 	physical->setScale(1, -1);
 	physical->setUpsideDown(true);
+	//dane eksplozji...
 	physical->setExplosionTexture(&explosion_texture);
+	physical->setExplosionFrameSize(64, 64);
+	physical->setExplosionSpeed(1.f);
 	
 	sf::Clock clock;
 	float time = 0.0f;
@@ -92,25 +98,15 @@ int main()
 	animek.setAnimationSpeed(1.5f);
 	//Animation  u s a g e  -  logo SCI
 
-	//e x p l o s i o n  usage
-	//(docelowo w miejscu gdy pocisk koliduje...)
+	////e x p l o s i o n  usage
 	//std::string name;
 	//name = "../data/explosion.png";
 	//acodemia::animation::Explosion *explosion = gPhysicalManager.CreateExplosion();
 	//explosion->setExplosionTexture(explosion_texture, 64, 64);
-	//explosion->setPosition(200.f, 100.f);
-	//explosion->setAnimationSpeed(0.5f);
-	//int warta = 0;
-	//Wniosek:
-	//ładowanie tekstur(y) eksplozji w loaderze...( póki co - main() )
-	//w Actor dodać metody:
-	//	setExplosionTexture(&explosion_texture);
-	//	setExplosionAnimationSpeed(2.f);
-	//	pozycja etc w czasie samej eksplozji...
-	// - Actor przekazuje to obiektowi Gun
-	// - ten przekazuje to pociskowi Bullet
-	// - Bullet posiada metodę Explode()...
-	//e x p l o s i o n  usage
+	//explosion->setPosition(500.f, 300.f);
+	//explosion->setAnimationSpeed(0.25f);
+	//explosion->setScale(6, 6);
+	////e x p l o s i o n  usage
 
 	while (window.isOpen())
 	{
