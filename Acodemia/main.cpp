@@ -12,7 +12,7 @@
 
 using namespace acodemia::physical;
 
-class Demo {};
+float width = 800;
 
 int main()
 {

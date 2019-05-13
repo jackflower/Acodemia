@@ -87,6 +87,10 @@ namespace acodemia
 			Physical::update(dt);
 			Actor::update(dt);
 			controlEnemy(dt);
+			//2019-05-12
+			//if (m_position.y > gPhysicalManager.height)
+			//if (m_position.y > 400)
+			//	setDestruction(true);
 		}
 
 		void Enemy::controlEnemy(float time)

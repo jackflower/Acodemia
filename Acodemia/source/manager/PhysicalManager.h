@@ -141,6 +141,9 @@ public:
 	///
 	bool checkCollision(Physical *collider);
 
+	float width;
+	float height;
+
 private:
 
 	//prywatna metoda aktualizuje pozycję obiektu w wyniku kolizji

@@ -37,8 +37,10 @@ using namespace acodemia::physical;
 
 //Konstruktor domyślny
 PhysicalManager::PhysicalManager()
-:
-	m_physicals()
+	:
+	m_physicals(),
+	width(400.f),
+	height(600.f)
 {
 }
 

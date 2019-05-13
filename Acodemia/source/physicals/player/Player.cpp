@@ -84,7 +84,14 @@ namespace acodemia
 		void Player::update(float dt)
 		{
 			Actor::update(dt);
-			controlPlayer(dt);
+
+			//2019-05-12
+			if (m_position.x <= 0)
+				m_position.x = 0;
+			if (m_position.x >= gPhysicalManager.width)
+				m_position.x = gPhysicalManager.width;
+
+				controlPlayer(dt);
 		}
 
 		void Player::controlPlayer(float time)
