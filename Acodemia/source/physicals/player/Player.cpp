@@ -85,13 +85,14 @@ namespace acodemia
 		{
 			Actor::update(dt);
 
-			//2019-05-12
-			if (m_position.x <= 0)
-				m_position.x = 0;
-			if (m_position.x >= gPhysicalManager.width)
-				m_position.x = gPhysicalManager.width;
+			////2019-05-12
+			//if (m_position.x <= 0)
+			//	m_position.x = 0;
+			//if (m_position.x >= gPhysicalManager.width)
+			//	m_position.x = gPhysicalManager.width;
 
 				controlPlayer(dt);
+				correctPlayerPosition(m_position);
 		}
 
 		void Player::controlPlayer(float time)
@@ -122,6 +123,21 @@ namespace acodemia
 
 			if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space))
 				Actor::shoot();
+		}
+
+		void Player::correctPlayerPosition(sf::Vector2f & position)
+		{
+			//w poziomie
+			if (position.x <= 0)
+				position.x = 0;
+			if (position.x >= gPhysicalManager.width)
+				position.x = gPhysicalManager.width;
+
+			//w pionie
+			if (position.y <= 0)
+				position.y = 0;
+			if (position.y >= gPhysicalManager.height)
+				position.y = gPhysicalManager.height;
 		}
 
 	}//namespace physical

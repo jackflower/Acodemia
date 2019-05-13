@@ -90,8 +90,11 @@ namespace acodemia
 		protected:
 		private:
 			
-			//funkcja steruje graczem
+			//prywatna metoda - sterowanie graczem graczem
 			void controlPlayer(float time);
+			//prywatna metoda - ograniczenie pozycji gracza do obszaru okna gry
+			//gracz o polu widzenia kamery
+			void correctPlayerPosition(sf::Vector2f & position);
 
 		};
 	}//namespace physical

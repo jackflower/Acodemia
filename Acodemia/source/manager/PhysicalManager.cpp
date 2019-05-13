@@ -39,7 +39,7 @@ using namespace acodemia::physical;
 PhysicalManager::PhysicalManager()
 	:
 	m_physicals(),
-	width(400.f),
+	width(800),
 	height(600.f)
 {
 }
