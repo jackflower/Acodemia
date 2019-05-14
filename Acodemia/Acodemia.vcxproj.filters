@@ -55,6 +55,9 @@
     <Filter Include="source\explosion">
       <UniqueIdentifier>{a62c23ce-0b6a-4496-8bb6-e194aa0b9e3a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="source\enemygenerator">
+      <UniqueIdentifier>{b239f59d-7348-4823-a1f6-a649e3e12ab1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
@@ -99,6 +102,9 @@
     </ClCompile>
     <ClCompile Include="source\explosion\Explosion.cpp">
       <Filter>source\explosion</Filter>
+    </ClCompile>
+    <ClCompile Include="source\enemygenerator\EnemyGenerator.cpp">
+      <Filter>source\enemygenerator</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -146,6 +152,9 @@
     </ClInclude>
     <ClInclude Include="source\explosion\Explosion.h">
       <Filter>source\explosion</Filter>
+    </ClInclude>
+    <ClInclude Include="source\enemygenerator\EnemyGenerator.h">
+      <Filter>source\enemygenerator</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

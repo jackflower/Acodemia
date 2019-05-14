@@ -131,6 +131,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\enemygenerator\EnemyGenerator.cpp" />
     <ClCompile Include="source\explosion\Explosion.cpp" />
     <ClCompile Include="source\physicals\enemy\Enemy.cpp" />
     <ClCompile Include="source\physicals\gun\Gun.cpp" />
@@ -148,6 +149,7 @@
     <ClCompile Include="source\rendering\Texture.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="source\enemygenerator\EnemyGenerator.h" />
     <ClInclude Include="source\explosion\Explosion.h" />
     <ClInclude Include="source\physicals\enemy\Enemy.h" />
     <ClInclude Include="source\physicals\gun\Gun.h" />

@@ -87,6 +87,13 @@ namespace acodemia
 			Physical::update(dt);
 			Actor::update(dt);
 			controlEnemy(dt);
+
+			//wdrożyć mechanim token'a
+			//1. token nieaktywny (false)
+			//2. obiekt wchodzi w obszar kamery - token się uaktywuje (true)
+			//3. jeśli token jest aktywny (true) oraz obiekt opuścił obszar kamery - ginie
+			
+			//pseudokod...
 			//2019-05-12
 			//if (m_position.y > gPhysicalManager.height)
 			//if (m_position.y > 400)

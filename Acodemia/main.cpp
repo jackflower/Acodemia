@@ -7,8 +7,9 @@
 #include "source/physicals/player/Player.h"
 #include "source/physicals/enemy/Enemy.h"
 #include "source/manager/PhysicalManager.h"
-
 #include "source/explosion/Explosion.h"
+
+#include <random>
 
 using namespace acodemia::physical;
 
@@ -16,7 +17,19 @@ float width = 800;
 
 int main()
 {
-	
+	//random generator...
+	// Seed with a real random value, if available
+	std::random_device r;
+	std::default_random_engine generator(r());
+	std::uniform_int_distribution<int> distribution(1, 6);
+	std::uniform_real_distribution<float> dfloat(0.25f, 1.125f);
+	int dice_roll = distribution(generator);  // generates number in the range 1..6 
+	float zenek = dfloat(generator);
+	std::cout << "Randomly-chosen mean: " << dice_roll << '\n';
+	std::cout << "Randomly-chosen mean float: " << zenek << '\n';
+
+
+
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
 
