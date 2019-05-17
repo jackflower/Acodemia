@@ -8,6 +8,7 @@
 #include "source/physicals/enemy/Enemy.h"
 #include "source/manager/PhysicalManager.h"
 #include "source/explosion/Explosion.h"
+#include "source/enemygenerator/EnemyGenerator.h"
 
 #include <random>
 
@@ -17,18 +18,29 @@ float width = 800;
 
 int main()
 {
-	//random generator...
-	// Seed with a real random value, if available
-	std::random_device r;
-	std::default_random_engine generator(r());
-	std::uniform_int_distribution<int> distribution(1, 6);
-	std::uniform_real_distribution<float> dfloat(0.25f, 1.125f);
-	int dice_roll = distribution(generator);  // generates number in the range 1..6 
-	float zenek = dfloat(generator);
-	std::cout << "Randomly-chosen mean: " << dice_roll << '\n';
-	std::cout << "Randomly-chosen mean float: " << zenek << '\n';
+	//class random generator...testy
+	//waste
 
 
+	//testy ok
+	for (int i = 0; i < 100; i++)
+		std::cout << gEnemyGenerator.getRandomFloat(10.f, 100.f) << std::endl;
+
+
+	int warta = 0;
+
+	////random generator...
+	//// Seed with a real random value, if available
+	//std::random_device r;
+	//std::default_random_engine generator(r());
+	//std::uniform_int_distribution<int> distribution(1, 6);
+	//std::uniform_real_distribution<float> dfloat(0.25f, 1.125f);
+	//int dice_roll = distribution(generator);  // generates number in the range 1..6 
+	//float zenek = dfloat(generator);
+	//std::cout << "Randomly-chosen mean: " << dice_roll << '\n';
+	//std::cout << "Randomly-chosen mean float: " << zenek << '\n';
+
+	//gEnemyGenerator.getSingleton();
 
 	sf::RenderWindow window(sf::VideoMode(800, 600), "Acodemia++ SCI 2018", sf::Style::Close);
 	window.setKeyRepeatEnabled(false);
@@ -88,14 +100,18 @@ int main()
 	physical->setBulletLifeTime(3.25f);
 	physical->setGunRate(2.25f);
 	physical->setOrigin(physical->getLocalBounds().width * 0.5f, physical->getLocalBounds().height * 0.5f);
-	physical->setPosition(500, 70);
-	physical->setSpeed(20);
+	physical->setPosition(500, -170);
+	//physical->setPosition(0, 0);
+	physical->setSpeed(50);
 	physical->setScale(1, -1);
 	physical->setUpsideDown(true);
 	//dane eksplozji...
 	physical->setExplosionTexture(&explosion_texture);
 	physical->setExplosionFrameSize(64, 64);
 	physical->setExplosionSpeed(1.f);
+	
+	//bool in_camera = physical->inCamera();
+	//int kamera = 0;
 	
 	sf::Clock clock;
 	float time = 0.0f;

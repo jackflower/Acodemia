@@ -90,9 +90,10 @@ namespace acodemia
 		protected:
 		private:
 			
-			//funkcja steruje wrogiem...
-			void controlEnemy(float time);
-
+			void controlEnemy(float time); //prywatna metoda steruje wrogiem
+			bool inCamera(); //prywatna metoda sprawdza, czy obiekt jest w obszarze kamery
+			bool m_enemy_token; //flaga, czy enemy ulega destrukcji poza kamerą
+			
 		};
 	}//namespace physical
 }//namespace acodemia

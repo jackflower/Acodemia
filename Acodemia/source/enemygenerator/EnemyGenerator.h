@@ -28,6 +28,7 @@
 #define H_ENEMY_GENERATOR_ACODEMIA
 
 #include "../utilities/Singleton.h"
+#include <random>
 
 #define gEnemyGenerator EnemyGenerator::getSingleton()
 
@@ -48,6 +49,30 @@ public:
 	///Destruktor wirtualny
 	///
 	virtual ~EnemyGenerator();
+
+	///
+	///Metoda zwraca wartość pseudolosową typu float z podanego zakresu
+	///
+	///@param min - wartość minimalna przedziału
+	///
+	///@param max - wartość maksymalna przedziału
+	///
+	const float getRandomFloat(float min, float max) const;
+
+private:
+
 };
 
 #endif//H_ENEMY_GENERATOR_ACODEMIA
+
+
+////random generator...
+//// Seed with a real random value, if available
+//std::random_device r;
+//std::default_random_engine generator(r());
+//std::uniform_int_distribution<int> distribution(1, 6);
+//std::uniform_real_distribution<float> dfloat(0.25f, 1.125f);
+//int dice_roll = distribution(generator);  // generates number in the range 1..6 
+//float zenek = dfloat(generator);
+//std::cout << "Randomly-chosen mean: " << dice_roll << '\n';
+//std::cout << "Randomly-chosen mean float: " << zenek << '\n';

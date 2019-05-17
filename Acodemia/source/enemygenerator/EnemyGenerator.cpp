@@ -35,3 +35,11 @@ EnemyGenerator::EnemyGenerator()
 EnemyGenerator::~EnemyGenerator()
 {
 }
+
+//Metoda zwraca wartość pseudolosową typu float z podanego zakresu
+const float EnemyGenerator::getRandomFloat(float min, float max) const
+{
+	std::random_device m_random_device;
+	std::default_random_engine generator{ m_random_device() };
+	return std::uniform_real_distribution<float>{min, max}(generator);
+}

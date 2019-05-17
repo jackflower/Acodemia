@@ -35,27 +35,31 @@ namespace acodemia
 		//Konstruktor domyślny
 		Enemy::Enemy()
 		:
-			Actor()//konstruktor klasy bazowej
+			Actor(),//konstruktor klasy bazowej
+			m_enemy_token(false)
 		{
 		}
 
 		//Konstruktor kopiujący
 		Enemy::Enemy(const Enemy & copy)
 		:
-			Actor(copy)//konstruktor kopiujący klasy bazowej
+			Actor(copy),//konstruktor kopiujący klasy bazowej
+			m_enemy_token(copy.m_enemy_token)
 		{
 		}
 
 		//Konstruktor przenoszący
 		Enemy::Enemy(Enemy && other)
 		:
-			Actor(other)//konstruktor przenoszący klasy bazowej
+			Actor(other),//konstruktor przenoszący klasy bazowej
+			m_enemy_token(other.m_enemy_token)
 		{
 		}
 
 		//Destruktor
 		Enemy::~Enemy()
 		{
+			m_enemy_token = false;
 		}
 
 		//Przeciążony operator przypisania kopiowania
@@ -64,7 +68,7 @@ namespace acodemia
 			if (this != &copy)
 			{
 				Actor::operator=(copy);
-				//members...
+				m_enemy_token = copy.m_enemy_token;
 			}
 			return *this;
 		}
@@ -75,7 +79,7 @@ namespace acodemia
 			if (this != &other)
 			{
 				Actor::operator=(other);
-				//members...
+				m_enemy_token = other.m_enemy_token;
 			}
 			return *this;
 		}
@@ -88,22 +92,32 @@ namespace acodemia
 			Actor::update(dt);
 			controlEnemy(dt);
 
-			//wdrożyć mechanim token'a
+			//algorithm AI
 			//1. token nieaktywny (false)
 			//2. obiekt wchodzi w obszar kamery - token się uaktywuje (true)
 			//3. jeśli token jest aktywny (true) oraz obiekt opuścił obszar kamery - ginie
-			
-			//pseudokod...
-			//2019-05-12
-			//if (m_position.y > gPhysicalManager.height)
-			//if (m_position.y > 400)
-			//	setDestruction(true);
+
+			//aktywacja m_enemy_token, gdy obiekt wchodzi w obszar kamery
+			if (!m_enemy_token and inCamera())
+				m_enemy_token = true;
+
+			//m_enemy_token jest aktywny i obiekt opuszcza obszar kamery - ginie
+			if (m_enemy_token and not inCamera())
+				m_destruction = true;
 		}
 
+		//prywatna metoda steruje wrogiem...
 		void Enemy::controlEnemy(float time)
 		{
 			Actor::shoot();
 		}
 
+		//prywatna metoda sprawdza, czy obiekt jest w obszarze kamery
+		bool Enemy::inCamera()
+		{
+			//uwaga: poprawimy tutaj stałe napisowe (800, 600)
+			//odpowiadające za obszar kamery (okna)...
+			return (m_position.x > 0 and m_position.x < 800 and m_position.y > 0 and m_position.y < 600);
+		}
 	}//namespace physical
 }//namespace acodemia

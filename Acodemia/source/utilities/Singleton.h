@@ -24,7 +24,8 @@
 //
 ////////////////////////////////////////////////////////////
 
-
+#ifndef H_SINGLETON_ACODEMIA
+#define H_SINGLETON_ACODEMIA
 ///
 ///Szablon reprezentuje wzorzec Singleton
 ///
@@ -55,3 +56,4 @@ public:
 		return m_singleton;
 	}
 };
+#endif//H_SINGLETON_ACODEMIA
