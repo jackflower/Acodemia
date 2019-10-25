@@ -60,8 +60,14 @@ int main()
 
 	// P l a y e r s
 	acodemia::rendering::Texture player_texture;
-	player_texture.loadFromFile("../data/ship.png");
+	//player_texture.loadFromFile("../data/ship.png");
+	player_texture.loadFromFile("../data/ship_x.png");
 	player_texture.setSmooth(true);
+
+	//Enemies
+	acodemia::rendering::Texture enemy_texture;
+	enemy_texture.loadFromFile("../data/enemy.png");
+	enemy_texture.setSmooth(true);
 
 	Actor *physical;
 	// P l a y e r
@@ -91,7 +97,7 @@ int main()
 	// EnemyGenerator - future...
 	// E n e m i e s
 	physical = gPhysicalManager.CreateEnemy();
-	physical->setTexture(player_texture);
+	physical->setTexture(enemy_texture);
 	physical->setUseDisplayable(true);
 	physical->setBulletTexture(&bullet_texture);
 	physical->setBulletSpeed(400.f);
