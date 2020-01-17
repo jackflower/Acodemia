@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['texture',['Texture',['../classacodemia_1_1rendering_1_1_texture.html#a1b6481f65aa8c304e4264748caaa0b71',1,'acodemia::rendering::Texture::Texture()'],['../classacodemia_1_1rendering_1_1_texture.html#a0f6f80ecf7379e1f26a4a112575b1825',1,'acodemia::rendering::Texture::Texture(const Texture &amp;copy)'],['../classacodemia_1_1rendering_1_1_texture.html#a561495e864ba3b0345cbaf0edef6be7e',1,'acodemia::rendering::Texture::Texture(Texture &amp;&amp;other)']]]
+  ['registerphysical',['registerPhysical',['../class_physical_manager.html#abb63e11f1f716745ff1515d3607e2c2d',1,'PhysicalManager']]],
+  ['restorecolor',['restoreColor',['../classacodemia_1_1physical_1_1_physical.html#a51324fff4a9398b5a88be4434615993e',1,'acodemia::physical::Physical']]],
+  ['rotate',['rotate',['../classacodemia_1_1physical_1_1_physical.html#ace504c9289abca0a26bbd834d5bb3f94',1,'acodemia::physical::Physical::rotate()'],['../classacodemia_1_1rendering_1_1_displayable.html#a93d379bfe4b9bd18f1bd26a4e1d9aac9',1,'acodemia::rendering::Displayable::rotate()']]],
+  ['rtti_5fimpl_5fnoparent',['RTTI_IMPL_NOPARENT',['../namespacetransformation.html#a7cfe25bb22fe44525cef2ff0842cadae',1,'transformation']]]
 ];

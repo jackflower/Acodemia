@@ -94,10 +94,10 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:a7340fc629d225edb5ba3d98521953b66"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1bba874f13705c20f6099b8608cd9b7c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html#a1bba874f13705c20f6099b8608cd9b7c">operator=</a> (<a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> &amp;&amp;other)</td></tr>
 <tr class="separator:a1bba874f13705c20f6099b8608cd9b7c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad175fbb9b70fc651346969db842b618c"><td class="memItemLeft" align="right" valign="top">const sf::Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html#ad175fbb9b70fc651346969db842b618c">GetFrameImage</a> () const</td></tr>
-<tr class="separator:ad175fbb9b70fc651346969db842b618c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3bb2fac31e85b07b52d04dde519c0ed8"><td class="memItemLeft" align="right" valign="top">const sf::IntRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html#a3bb2fac31e85b07b52d04dde519c0ed8">GetFrameRectangle</a> () const</td></tr>
-<tr class="separator:a3bb2fac31e85b07b52d04dde519c0ed8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae3786961da70204acdb8a491bfa0a18e"><td class="memItemLeft" align="right" valign="top">const sf::Texture *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html#ae3786961da70204acdb8a491bfa0a18e">getFrameImage</a> () const</td></tr>
+<tr class="separator:ae3786961da70204acdb8a491bfa0a18e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a87dc3397b9098feea300f622f6d1249b"><td class="memItemLeft" align="right" valign="top">const sf::IntRect&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html#a87dc3397b9098feea300f622f6d1249b">getFrameRectangle</a> () const</td></tr>
+<tr class="separator:a87dc3397b9098feea300f622f6d1249b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasa reprezentuje klatkę animacji </p>
@@ -142,7 +142,7 @@ Public Member Functions</h2></td></tr>
 <p>Konstruktor kopiujący</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> </td></tr>
+    <tr><td class="paramname">copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -169,7 +169,7 @@ Public Member Functions</h2></td></tr>
 <p>Konstruktor przenoszący</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;&amp;other</td><td>= referencja do r-wartości </td></tr>
+    <tr><td class="paramname">other</td><td>= referencja do r-wartości </td></tr>
   </table>
   </dd>
 </dl>
@@ -206,8 +206,8 @@ Public Member Functions</h2></td></tr>
 <p>Konstruktor parametryczny</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;texture</td><td>- stała referencja na teksturę</td></tr>
-    <tr><td class="paramname">&amp;rectangle</td><td>- stała referencja na obszar prostokątny tekstury </td></tr>
+    <tr><td class="paramname">texture</td><td>- stała referencja na teksturę</td></tr>
+    <tr><td class="paramname">rectangle</td><td>- stała referencja na obszar prostokątny tekstury </td></tr>
   </table>
   </dd>
 </dl>
@@ -234,7 +234,7 @@ Public Member Functions</h2></td></tr>
 <p>Konstruktor parametryczny</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;texture</td><td>- stała referencja na teksturę </td></tr>
+    <tr><td class="paramname">texture</td><td>- stała referencja na teksturę </td></tr>
   </table>
   </dd>
 </dl>
@@ -264,14 +264,14 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="ad175fbb9b70fc651346969db842b618c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad175fbb9b70fc651346969db842b618c">&#9670;&nbsp;</a></span>GetFrameImage()</h2>
+<a id="ae3786961da70204acdb8a491bfa0a18e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae3786961da70204acdb8a491bfa0a18e">&#9670;&nbsp;</a></span>getFrameImage()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::Texture * acodemia::animation::AnimationFrame::GetFrameImage </td>
+          <td class="memname">const sf::Texture * acodemia::animation::AnimationFrame::getFrameImage </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -284,14 +284,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a3bb2fac31e85b07b52d04dde519c0ed8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3bb2fac31e85b07b52d04dde519c0ed8">&#9670;&nbsp;</a></span>GetFrameRectangle()</h2>
+<a id="a87dc3397b9098feea300f622f6d1249b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a87dc3397b9098feea300f622f6d1249b">&#9670;&nbsp;</a></span>getFrameRectangle()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const sf::IntRect acodemia::animation::AnimationFrame::GetFrameRectangle </td>
+          <td class="memname">const sf::IntRect acodemia::animation::AnimationFrame::getFrameRectangle </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -322,7 +322,7 @@ Public Member Functions</h2></td></tr>
 <p>Przeciążony operator przypisania kopiowania</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> </td></tr>
+    <tr><td class="paramname">copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1animation_1_1_animation_frame.html">AnimationFrame</a> </td></tr>
   </table>
   </dd>
 </dl>
@@ -349,7 +349,7 @@ Public Member Functions</h2></td></tr>
 <p>Przeciążony operator przypisania przenoszenia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;&amp;other</td><td>- referencja do r-wartości </td></tr>
+    <tr><td class="paramname">other</td><td>- referencja do r-wartości </td></tr>
   </table>
   </dd>
 </dl>

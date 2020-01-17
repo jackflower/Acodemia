@@ -82,9 +82,11 @@ Inheritance diagram for acodemia::physical::Physical:</div>
  <div class="center">
   <img src="classacodemia_1_1physical_1_1_physical.png" usemap="#acodemia::physical::Physical_map" alt=""/>
   <map id="acodemia::physical::Physical_map" name="acodemia::physical::Physical_map">
-<area href="classacodemia_1_1physical_1_1_actor.html" alt="acodemia::physical::Actor" shape="rect" coords="91,56,264,80"/>
+<area href="classacodemia_1_1physical_1_1_actor.html" alt="acodemia::physical::Actor" shape="rect" coords="183,56,356,80"/>
+<area href="classacodemia_1_1physical_1_1_gun.html" alt="acodemia::physical::Gun" shape="rect" coords="366,56,539,80"/>
 <area href="classacodemia_1_1physical_1_1_bullet.html" alt="acodemia::physical::Bullet" shape="rect" coords="0,112,173,136"/>
-<area href="classacodemia_1_1physical_1_1_player.html" alt="acodemia::physical::Player" shape="rect" coords="183,112,356,136"/>
+<area href="classacodemia_1_1physical_1_1_enemy.html" alt="acodemia::physical::Enemy" shape="rect" coords="183,112,356,136"/>
+<area href="classacodemia_1_1physical_1_1_player.html" alt="acodemia::physical::Player" shape="rect" coords="366,112,539,136"/>
 </map>
  </div></div>
 <table class="memberdecls">
@@ -172,6 +174,14 @@ Public Member Functions</h2></td></tr>
 <tr class="separator:aee9358591ca3036df98ab9165e1b1561"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adef12b15eee8c762567592ca885f00a9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#adef12b15eee8c762567592ca885f00a9">setSpeed</a> (float speed)</td></tr>
 <tr class="separator:adef12b15eee8c762567592ca885f00a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a80416580b3ed646c63fa1d061b0e362b"><td class="memItemLeft" align="right" valign="top">const bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#a80416580b3ed646c63fa1d061b0e362b">getUpsideDown</a> () const</td></tr>
+<tr class="separator:a80416580b3ed646c63fa1d061b0e362b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae49dd5321fafada1af95e74466c78243"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#ae49dd5321fafada1af95e74466c78243">setUpsideDown</a> (bool upside_down)</td></tr>
+<tr class="separator:ae49dd5321fafada1af95e74466c78243"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8e5070acc00eed68da01a101a9b70cf1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#a8e5070acc00eed68da01a101a9b70cf1">getHealt</a> ()</td></tr>
+<tr class="separator:a8e5070acc00eed68da01a101a9b70cf1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7bea086d3ce0a68d2bddb36b22052cbc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#a7bea086d3ce0a68d2bddb36b22052cbc">setHealt</a> (float healt)</td></tr>
+<tr class="separator:a7bea086d3ce0a68d2bddb36b22052cbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6e81e7b8437a3cd993b057a1395a065e"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#a6e81e7b8437a3cd993b057a1395a065e">update</a> (float dt)</td></tr>
 <tr class="separator:a6e81e7b8437a3cd993b057a1395a065e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a354bb5d797e29bdb8f38e71d6a319294"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#a354bb5d797e29bdb8f38e71d6a319294">draw</a> (sf::RenderWindow &amp;render) const</td></tr>
@@ -197,6 +207,10 @@ Protected Attributes</h2></td></tr>
 <tr class="separator:a5287867acd59f613bfcb232e336e129c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad50fe5fa8e32fc763c67bd622fee1d36"><td class="memItemLeft" align="right" valign="top">sf::Color&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#ad50fe5fa8e32fc763c67bd622fee1d36">m_stored_color</a></td></tr>
 <tr class="separator:ad50fe5fa8e32fc763c67bd622fee1d36"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad3fa82985582a12e84943b2c8183ebef"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#ad3fa82985582a12e84943b2c8183ebef">m_upside_down</a></td></tr>
+<tr class="separator:ad3fa82985582a12e84943b2c8183ebef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0e6ab08aa8f43ae79558880a9060d25"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classacodemia_1_1physical_1_1_physical.html#ae0e6ab08aa8f43ae79558880a9060d25">m_health</a></td></tr>
+<tr class="separator:ae0e6ab08aa8f43ae79558880a9060d25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Klasa reprezentuje behawioralne cechy fizyczne i logiczne </p>
@@ -241,12 +255,12 @@ Protected Attributes</h2></td></tr>
 <p>Konstruktor kopiujący</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1physical_1_1_physical.html">Physical</a> </td></tr>
+    <tr><td class="paramname">copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1physical_1_1_physical.html">Physical</a> </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00051">51</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00053">53</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -268,12 +282,12 @@ Protected Attributes</h2></td></tr>
 <p>Konstruktor przenoszący</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;&amp;other</td><td>= referencja do r-wartości </td></tr>
+    <tr><td class="paramname">other</td><td>= referencja do r-wartości </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00068">68</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00072">72</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -301,7 +315,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Destruktor wirtualny </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00086">86</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00092">92</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -322,7 +336,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Meotoda ustawia obiekt do zniszczenia </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00184">184</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00196">196</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -352,12 +366,12 @@ Protected Attributes</h2></td></tr>
 <p>Wirtualna metoda rysująca obiekt</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;render</td><td>- kontekst graficzny </td></tr>
+    <tr><td class="paramname">render</td><td>- kontekst graficzny </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00386">386</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00421">421</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -377,7 +391,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca kolor obiektu </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00293">293</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00305">305</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -397,7 +411,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca informację, czy obiekt na być zniszczony </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00172">172</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00184">184</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -417,7 +431,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca stałą referencję do obiektu - reprezentacja graficzna </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00149">149</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00161">161</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -437,7 +451,27 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca granice obiektu w globalnym w układzie współrzędnych </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00318">318</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00330">330</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a8e5070acc00eed68da01a101a9b70cf1"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8e5070acc00eed68da01a101a9b70cf1">&#9670;&nbsp;</a></span>getHealt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">float acodemia::physical::Physical::getHealt </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Metoda zwraca ilość zdrowia </p>
+
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00398">398</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -457,7 +491,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca granice obiektu w lokalnym w układzie współrzędnych </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00312">312</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00324">324</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -477,7 +511,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca stałą referencję na wektor kierunku </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00343">343</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00355">355</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -497,7 +531,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca współrzędne punktu uchwytu obiektu </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00272">272</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00284">284</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -517,7 +551,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca stałą referencję pozycji obiektu </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00190">190</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00202">202</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -537,7 +571,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca wartość obrotu </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00211">211</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00223">223</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -557,7 +591,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca skalę </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00229">229</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00241">241</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -577,7 +611,27 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca prędkość </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00362">362</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00374">374</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a80416580b3ed646c63fa1d061b0e362b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80416580b3ed646c63fa1d061b0e362b">&#9670;&nbsp;</a></span>getUpsideDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const bool acodemia::physical::Physical::getUpsideDown </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Metoda zwraca flagę, czy obiekt jest do góry nogami (np. <a class="el" href="classacodemia_1_1physical_1_1_enemy.html">Enemy</a>...) </p>
+
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00386">386</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -597,7 +651,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda zwraca flagę, czy obiekt posiada reprezentację graficzną </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00161">161</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00173">173</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -635,7 +689,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00324">324</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00336">336</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -657,12 +711,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda przemieszcza obiekt o wartość wektora przesunięcia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;offset</td><td>- stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia </td></tr>
+    <tr><td class="paramname">offset</td><td>- stała referencja na obiekt klasy sf::Vector2f - wektora przesunięcia </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00330">330</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00342">342</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -684,12 +738,12 @@ Protected Attributes</h2></td></tr>
 <p>Przeciążony operator przypisania kopiowania</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1physical_1_1_physical.html">Physical</a> </td></tr>
+    <tr><td class="paramname">copy</td><td>- stała referencja na obiekt klasy <a class="el" href="classacodemia_1_1physical_1_1_physical.html">Physical</a> </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00109">109</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00117">117</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -711,12 +765,12 @@ Protected Attributes</h2></td></tr>
 <p>Przeciążony operator przypisania przenoszenia</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;&amp;other</td><td>- referencja do r-wartości </td></tr>
+    <tr><td class="paramname">other</td><td>- referencja do r-wartości </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00129">129</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00139">139</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -736,7 +790,7 @@ Protected Attributes</h2></td></tr>
 </div><div class="memdoc">
 <p>Metoda ustawia oryginalny kolor obiektu </p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00306">306</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00318">318</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -763,7 +817,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00223">223</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00235">235</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -801,7 +855,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00257">257</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00269">269</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -823,12 +877,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia skalę w stosunku do obecnej skali</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;factor</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
+    <tr><td class="paramname">factor</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00265">265</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00277">277</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -850,12 +904,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia kolor obiektu</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;color</td><td>- stała referencja na obiekt klasy sf::Color </td></tr>
+    <tr><td class="paramname">color</td><td>- stała referencja na obiekt klasy sf::Color </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00299">299</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00311">311</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -882,7 +936,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00178">178</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00190">190</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -904,12 +958,39 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia referencję na reprezentację graficzną</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;displayable</td><td>- stała referencja na obiekt klasy Displayable </td></tr>
+    <tr><td class="paramname">displayable</td><td>- stała referencja na obiekt klasy Displayable </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00155">155</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00167">167</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+
+</div>
+</div>
+<a id="a7bea086d3ce0a68d2bddb36b22052cbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7bea086d3ce0a68d2bddb36b22052cbc">&#9670;&nbsp;</a></span>setHealt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void acodemia::physical::Physical::setHealt </td>
+          <td>(</td>
+          <td class="paramtype">float&#160;</td>
+          <td class="paramname"><em>healt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Metoda ustawia ilość zdrowia</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">healt</td><td>- zdrowie </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00404">404</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -931,12 +1012,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia wektor kierunku</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;motion</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
+    <tr><td class="paramname">motion</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00349">349</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00361">361</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -974,7 +1055,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00355">355</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00367">367</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1012,7 +1093,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00278">278</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00290">290</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1034,12 +1115,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia współrzędne punktu uchwytu obiektu</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;origin</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
+    <tr><td class="paramname">origin</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00286">286</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00298">298</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1077,7 +1158,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00196">196</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00208">208</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1099,12 +1180,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia pozycję obiektu</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;vector</td><td>- stała referenacja na obiekt klasy sf::Vector2f </td></tr>
+    <tr><td class="paramname">vector</td><td>- stała referenacja na obiekt klasy sf::Vector2f </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00204">204</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00216">216</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1131,7 +1212,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00217">217</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00229">229</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1169,7 +1250,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00235">235</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00247">247</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1191,12 +1272,12 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia skalę</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;new_scale_value</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
+    <tr><td class="paramname">new_scale_value</td><td>- stała referencja na obiekt klasy sf::Vector2f </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00243">243</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00255">255</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1223,7 +1304,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00250">250</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00262">262</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1250,7 +1331,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00368">368</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00380">380</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1272,12 +1353,39 @@ Protected Attributes</h2></td></tr>
 <p>Metoda ustawia teksturę dla kontekstu graficznego</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">&amp;texture</td><td>- stała referencja na obiekt klasy Texture </td></tr>
+    <tr><td class="paramname">texture</td><td>- stała referencja na obiekt klasy Texture </td></tr>
   </table>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00336">336</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00348">348</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+
+</div>
+</div>
+<a id="ae49dd5321fafada1af95e74466c78243"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae49dd5321fafada1af95e74466c78243">&#9670;&nbsp;</a></span>setUpsideDown()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void acodemia::physical::Physical::setUpsideDown </td>
+          <td>(</td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>upside_down</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Metoda ustawia flagę - obiekt jest do góry nogami (np. <a class="el" href="classacodemia_1_1physical_1_1_enemy.html">Enemy</a>...)</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">upside_down</td><td>- flagę, czy obiekt jest do góry nogami </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00392">392</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1304,7 +1412,7 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00166">166</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00178">178</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1339,9 +1447,9 @@ Protected Attributes</h2></td></tr>
   </dd>
 </dl>
 
-<p>Reimplemented in <a class="el" href="classacodemia_1_1physical_1_1_bullet.html#a69bed7e53da7aba9303e072544cb2364">acodemia::physical::Bullet</a>, <a class="el" href="classacodemia_1_1physical_1_1_player.html#a56009ee867ce1713099bd6abc46602b1">acodemia::physical::Player</a>, and <a class="el" href="classacodemia_1_1physical_1_1_actor.html#a8ed962bf8746d0744103bdd02c4856e5">acodemia::physical::Actor</a>.</p>
+<p>Reimplemented in <a class="el" href="classacodemia_1_1physical_1_1_gun.html#a8ae93e8e3d928770d176f06ac6e54930">acodemia::physical::Gun</a>, <a class="el" href="classacodemia_1_1physical_1_1_actor.html#a8ed962bf8746d0744103bdd02c4856e5">acodemia::physical::Actor</a>, <a class="el" href="classacodemia_1_1physical_1_1_bullet.html#a69bed7e53da7aba9303e072544cb2364">acodemia::physical::Bullet</a>, <a class="el" href="classacodemia_1_1physical_1_1_enemy.html#a42971ab780576cccaaf956e3a41b66fd">acodemia::physical::Enemy</a>, and <a class="el" href="classacodemia_1_1physical_1_1_player.html#a56009ee867ce1713099bd6abc46602b1">acodemia::physical::Player</a>.</p>
 
-<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00375">375</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8cpp_source.html#l00410">410</a> of file <a class="el" href="_physical_8cpp_source.html">Physical.cpp</a>.</p>
 
 </div>
 </div>
@@ -1366,7 +1474,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00336">336</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00360">360</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1390,7 +1498,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00331">331</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00355">355</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1414,7 +1522,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00329">329</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00353">353</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+
+</div>
+</div>
+<a id="ae0e6ab08aa8f43ae79558880a9060d25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0e6ab08aa8f43ae79558880a9060d25">&#9670;&nbsp;</a></span>m_health</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">float acodemia::physical::Physical::m_health</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00363">363</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1438,7 +1570,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00335">335</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00359">359</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1462,7 +1594,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00332">332</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00356">356</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1486,7 +1618,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00333">333</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00357">357</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1510,7 +1642,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00334">334</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00358">358</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1534,7 +1666,31 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00337">337</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00361">361</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+
+</div>
+</div>
+<a id="ad3fa82985582a12e84943b2c8183ebef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad3fa82985582a12e84943b2c8183ebef">&#9670;&nbsp;</a></span>m_upside_down</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool acodemia::physical::Physical::m_upside_down</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00362">362</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>
@@ -1558,7 +1714,7 @@ Protected Attributes</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00330">330</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="_physical_8h_source.html#l00354">354</a> of file <a class="el" href="_physical_8h_source.html">Physical.h</a>.</p>
 
 </div>
 </div>

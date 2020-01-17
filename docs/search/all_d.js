@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['unsetanim',['unsetAnim',['../classacodemia_1_1animation_1_1_animated.html#a328de929141f889cee6fc61f23aa8711',1,'acodemia::animation::Animated']]],
-  ['update',['update',['../classacodemia_1_1animation_1_1_animated.html#a24586575948b78a3f1ba9b6122b2b7a4',1,'acodemia::animation::Animated::update()'],['../classacodemia_1_1physical_1_1_actor.html#a8ed962bf8746d0744103bdd02c4856e5',1,'acodemia::physical::Actor::update()'],['../classacodemia_1_1physical_1_1_bullet.html#a69bed7e53da7aba9303e072544cb2364',1,'acodemia::physical::Bullet::update()'],['../classacodemia_1_1physical_1_1_physical.html#a6e81e7b8437a3cd993b057a1395a065e',1,'acodemia::physical::Physical::update()'],['../classacodemia_1_1physical_1_1_player.html#a56009ee867ce1713099bd6abc46602b1',1,'acodemia::physical::Player::update()']]],
-  ['updatephysical',['updatePhysical',['../class_physical_manager.html#ad1c324051b0341f5dd9fe6af8e875f1d',1,'PhysicalManager']]]
+  ['radians_5fper_5fdegree',['RADIANS_PER_DEGREE',['../_utilities_8h.html#a4032bed1a9c6879811c21a271be353ff',1,'Utilities.h']]],
+  ['registerphysical',['registerPhysical',['../class_physical_manager.html#abb63e11f1f716745ff1515d3607e2c2d',1,'PhysicalManager']]],
+  ['restorecolor',['restoreColor',['../classacodemia_1_1physical_1_1_physical.html#a51324fff4a9398b5a88be4434615993e',1,'acodemia::physical::Physical']]],
+  ['rotate',['rotate',['../classacodemia_1_1physical_1_1_physical.html#ace504c9289abca0a26bbd834d5bb3f94',1,'acodemia::physical::Physical::rotate()'],['../classacodemia_1_1rendering_1_1_displayable.html#a93d379bfe4b9bd18f1bd26a4e1d9aac9',1,'acodemia::rendering::Displayable::rotate()']]],
+  ['rtti_5fimpl_5fnoparent',['RTTI_IMPL_NOPARENT',['../namespacetransformation.html#a7cfe25bb22fe44525cef2ff0842cadae',1,'transformation']]]
 ];
